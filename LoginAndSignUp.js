@@ -26,8 +26,16 @@ app.controller('loginController', function($scope) {
     Common Js function goes here for Login & Sign up page
     */
         
+        // Function to check the length of the password
+        $scope.checkPasswordLength = function() {
+        if($scope.password.length<6) 
+            $scope.passwordError=true; 
+        else
+            $scope.passwordError=false;
+        }
+    
     /*
-    Validate enrollment Number & password length here 
+    Validate enrollment Number here 
     */
     
     /*
@@ -101,13 +109,6 @@ app.controller('loginController', function($scope) {
 
     
     
-    // Function to check the length of the password
-    $scope.checkLength = function() {
-        if($scope.password.length<6) 
-            $scope.passwordError=true; 
-        else
-            $scope.passwordError=false;
-        }
     // Password Length function ends here
 
     
@@ -118,6 +119,8 @@ app.controller('loginController', function($scope) {
         else
            $scope.confirmPasswordError=false;
     }
+    
+    
     // Passwords Matching function ends heres
 
     // Function to toggle the view of 'Branch' Field

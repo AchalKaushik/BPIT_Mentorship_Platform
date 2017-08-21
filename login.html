@@ -1,0 +1,43 @@
+<!-- Heading of the page -->
+    <div id="loginPageHeading">
+        <h2>Login</h2>
+    </div>
+<!-- Heading Ends Here -->
+
+<!-- The Login Form -->
+<div class="loginForm" ng-controller="loginController">
+    
+    <!-- Input fields for Login Form -->
+    
+    <!-- Enrollment Number -->
+    <div class="iconContainer">
+        <i class="material-icons">person</i>
+    </div>
+    
+    <input type="text" placeholder="* enrollment number" ng-model="enrollmentNumber" />
+    <!--Validate format of Enrollment Number -->
+    
+    
+    <!-- Password -->
+    <div class="iconContainer">
+        <i class="material-icons">lock</i>
+    </div>
+    
+    <input type="password" placeholder="* password" ng-model="password" />
+    <!--Validate for min length of 6 characters password -->
+    
+    
+    <!-- Error Message if Enrollment Number/Password is wrong  -->
+    <p class="errorMessageLogin" ng-model="loginError" ng-show="loginError" >Username or Password is Incorrect</p>
+
+    <!-- Login Button -->
+    <div id="submitButton">
+        <button ng-click="loginFunction()">LOGIN</button>
+    </div>
+</div>
+<!-- Login Form ends here -->
+
+<!-- Sign Up Option -->
+<div id="signupLinkWrapper">
+	<a href="#!/signup" id="signupLink">Sign Up</a>
+</div>

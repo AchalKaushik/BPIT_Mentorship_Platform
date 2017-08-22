@@ -1,24 +1,3 @@
-<head>
-
-    <!-- Title of the Page -->
-    <title>BPIT | Sign Up</title>
-
-    <!-- Angular Js Library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
-    
-    <!-- Google Icons -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:300,400,700" rel="stylesheet" />
-
-    <!-- Signup Stylesheet -->
-    <link rel="stylesheet" href="form.css" />
-
-</head>
-
 <!-- Heading of the page -->
     <div id="signUpPageHeading">
         <h2>Sign Up</h2>
@@ -34,19 +13,25 @@
     <div class="iconContainer">
         <i class="material-icons">person</i>
     </div>
-    <input type="text" placeholder="* firstname" ng-model="firstName" />
+    <input type="text" placeholder="* firstname" ng-model="firstName" ng-keyup="firstNameValidate()" />
+     <!-- Error Message if Password is less than 6 characters -->
+    <p class="errorMessageSignUp" ng-model="emptyFirstNameError" ng-show="emptyFirstNameError">Firstname cannot be left empty</p>
+    <p class="errorMessageSignUp" ng-model="numberInFirstName" ng-show="numberInFirstName">Firstname cannot contain number(s)</p>
 
     <!-- Last Name -->
     <div class="iconContainer">
         <i class="material-icons">person</i>
     </div>
-    <input type="text" placeholder="* lastname" ng-model="lastName" />
-    
+    <input type="text" placeholder="* lastname" ng-model="lastName" ng-keyup="lastNameValidate()" />
+     <!-- Error Message if Password is less than 6 characters -->
+    <p class="errorMessageSignUp" ng-model="emptyLastNameError" ng-show="emptyLastNameError">Lastname cannot be left empty</p>
+    <p class="errorMessageSignUp" ng-model="numberInLastName" ng-show="numberInLastName">Lastname cannot contain  number(s)</p>
+
     <!-- Password -->
     <div class="iconContainer">
         <i class="material-icons">lock</i>
     </div>
-    <input type="password" placeholder="* password" ng-model="password" ng-keyup="checkPasswordLength()"/>
+    <input type="password" placeholder="* password" ng-model="password" ng-keyup="checkLength();"/>
     <!-- Error Message if Password is less than 6 characters -->
     <p class="errorMessageSignUp" ng-model="passwordError" ng-show="passwordError">Password must be of minimum 6 characters</p>
     
@@ -67,7 +52,8 @@
         <i class="material-icons">call</i>
     </div>
     
-    <input type="number" placeholder="* mobile" min="0" ng-model="mobileNumber" />
+    <input type="number" placeholder="* mobile" min="0" ng-model="mobileNumber" ng-keyup="mobileValidate()" />
+    <p class="errorMessageSignUp" ng-model="mobileNumberError" ng-show="mobileNumberError">Mobile Number should be 10 digits long</p>
 
     <!-- Email -->
     
@@ -95,8 +81,8 @@
     <div class="iconContainer">
         <i class="material-icons">credit_card</i>
     </div>
-    <input type="number" placeholder="* enrollment number" min="0" ng-model="enrollmentNumber" ng-click="show()" />
-
+    <input type="number" placeholder="* enrollment number" min="0" ng-model="enrollmentNumber" ng-keyup="enrollmentValidate()" />
+    <p class="errorMessageSignUp" ng-model="enrollmentNumberError" ng-show="enrollmentNumberError">Enrollment Number should be 11 digits long</p>
     
     
     

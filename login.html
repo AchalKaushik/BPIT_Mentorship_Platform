@@ -1,3 +1,4 @@
+<div id="loginPageWrapper" class="container-fluid">
 <!-- Heading of the page -->
     <div id="loginPageHeading">
         <h2>Login</h2>
@@ -14,7 +15,8 @@
         <i class="material-icons">person</i>
     </div>
     
-    <input type="text" placeholder="* enrollment number" ng-model="enrollmentNumber" />
+    <input type="number" placeholder="* enrollment number" min="0" ng-model="enrollmentNumber" ng-keyup="enrollmentValidate()" />
+    <p class="errorMessageSignUp" ng-model="enrollmentNumberError" ng-show="enrollmentNumberError">Enrollment Number should be 11 digits long</p>
     <!--Validate format of Enrollment Number -->
     
     
@@ -23,8 +25,9 @@
         <i class="material-icons">lock</i>
     </div>
     
-    <input type="password" placeholder="* password" ng-model="password" ng-keyup="checkPasswordLength()" />
-    <p class="errorMessageSignUp" ng-model="passwordError" ng-show="passwordError">Password must be of minimum 6 characters</p>
+    <input type="password" placeholder="* password" ng-model="password" ng-keyup="loginPasswordLengthCheck();"/>
+    <!-- Error Message if Password is less than 6 characters -->
+    <p class="errorMessageSignUp" ng-model="passwordError" ng-show="passwordError">Password cannot be left empty</p>
     <!--Validate for min length of 6 characters password -->
     
     
@@ -37,8 +40,9 @@
     </div>
 </div>
 <!-- Login Form ends here -->
+</div>
 
 <!-- Sign Up Option -->
 <div id="signupLinkWrapper">
-	<a href="#!/signup" id="signupLink">Sign Up</a>
+	<a href="#!/signup" id="signupLink">SIGN UP</a>
 </div>

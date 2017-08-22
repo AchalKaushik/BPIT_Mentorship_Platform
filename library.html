@@ -1,0 +1,36 @@
+<div id="libraryWrapper" ng-controller="libraryController" class="container-fluid">
+	<div id="loginFormWrapper">
+		<div id="libraryForm">
+			<div class="iconContainer">
+		        <i class="material-icons">school</i>
+		    </div>
+			<select ng-model="selectedBranch" ng-options="item for item in branch"></select>
+
+			<div class="iconContainer">
+		        <i class="material-icons">book</i>
+		    </div>
+			<select ng-model="selectedSemester" ng-options="item for item in semester"></select>
+			
+			<div class="iconContainer">
+		        <i class="material-icons">description</i>
+		    </div>
+			<select ng-model="selectedSubject" ng-options="item for item in subject"></select>
+		</div>
+	</div>
+	<div id="libraryList">
+		<ul>
+			<div class="row">
+				<div class="col-sm-4">
+					<a href="#"><li><h1>1</h1><p>First Semester</p><i class="material-icons">chevron_right</i></li></a>
+					<a href="#"><li><h1>2</h1><p>Second Semester</p><i class="material-icons">chevron_right</i></li></a>
+					<a href="#"><li><h1>3</h1><p>Third Semester</p><i class="material-icons">chevron_right</i></li></a>
+				</div>
+				<div class="col-sm-4">
+					<a href="#"><li><h1>4</h1><p>Fourth Semester</p><i class="material-icons">chevron_right</i></li></a>
+					<a href="#"><li><h1>5</h1><p>Fifth Semester</p><i class="material-icons">chevron_right</i></li></a>
+				</div>
+				<div class="col-sm-4"></div>
+			</div>
+		</ul>
+	</div>
+</div>

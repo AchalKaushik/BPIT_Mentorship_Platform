@@ -1,0 +1,86 @@
+#loginPageWrapper {
+	margin-top: -20px;
+	background: rgba(134,90,207,0.5);
+	padding-top: 20px;
+	padding-bottom: 40px;
+    border-bottom: 1px solid rgba(255,255,255,0.3);
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+/*Login Page Heading */
+#loginPageHeading>h2 {
+	color: #fff;
+	text-align: center;
+	margin-top: 30px;
+	font-family: 'Roboto Slab', serif;
+	font-weight: 300;
+}
+/* Page Heading Ends */
+
+/* Login Form */
+
+.loginForm {
+    width: 50%;
+    margin: auto;
+    margin-top: 30px;
+}
+
+/* Styling for showing errors */
+.errorMessageLogin {
+	color: red;
+    background: black;
+	font-weight: 600;
+	font-size: 13px;
+}
+/* Form Ends */
+
+
+/* Input Fields */
+.loginForm>input{
+	width: 100%;
+	height: 41px;
+	background: rgba(255,255,255,0.85);
+	border: 1px solid #d1d1d1;
+	transition: all 0.1s ease;
+	padding-left: 55px;
+	padding-right: 10px;
+	box-shadow: 0 0 10px -2px rgba(0,0,0,0.5);
+	outline: none;
+	font-size: 13px;
+	font-weight: 600;
+	margin-top: 15px;
+}
+
+.loginForm>input:focus{
+	background: rgba(255,255,255,1);
+}
+
+
+
+/*Signup Redirect Link*/
+
+#signupLinkWrapper {
+	text-align: center;
+	margin-top: 40px;
+}
+
+#signupLink {
+	display: inline-block;
+	margin:auto;
+	border: none;
+	background: #ed1c24;
+	color: #fff;
+	font-weight: 600;
+	padding: 10px 40px;
+	border-radius: 2px;
+	cursor: pointer;
+	outline: none;
+	transition: background 0.3s ease-out;
+	text-decoration: none;
+}
+
+#signupLink:hover {
+	background: #b70f15;
+}
+

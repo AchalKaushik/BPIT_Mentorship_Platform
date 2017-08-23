@@ -1,0 +1,6 @@
+random:
+ insertData: >
+  insert into login (userId) values (:userId);
+ 
+ selectData: >
+  select * from login; 

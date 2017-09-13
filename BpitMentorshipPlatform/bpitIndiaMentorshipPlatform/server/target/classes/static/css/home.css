@@ -1,0 +1,60 @@
+.row {
+	margin-right: 0px;
+	margin-left: 0px;
+}
+
+#userOptions {
+	margin-top: 30px;
+	width: 100%;
+}
+
+#userOptions a {
+	text-decoration: none;}
+
+#userOptions .col-sm-4 {
+	padding: 20px 10px;
+	margin-bottom: 20px;
+}
+
+#userOptions .col-sm-4:hover {
+	background: rgba(134,90,207,0.25);
+	border: 1px solid rgba(255,255,255,0.3);
+}
+
+#userOptions img {
+	border-radius: 3px;
+	border: 1px dashed rgba(255,255,255,0.6);
+	box-shadow: 0 0 15px -2px rgba(0,0,0,0.6);
+}
+
+#userOptions h2 {
+	text-align: center;
+	margin-top: 15px;
+	color: #e1e1e1;
+	font-family: 'Roboto Slab', sans-serif;
+	font-weight: 300;
+	background: transparent;
+}
+
+#userOptions hr {
+	border-top: 2px solid orange;
+	width: 45px;
+	margin: auto;
+	margin-top: 7px;
+}
+
+#userOptions p {
+	color: #e1e1e1;
+	padding: 0 20px;
+	padding-top: 30px;
+	background: transparent;
+	line-height: 22px;
+}
+
+#userOptions p.redirectText {
+	color: #8e8eff;
+}
+
+#userOptions p.redirectText i {
+	float: right;
+}

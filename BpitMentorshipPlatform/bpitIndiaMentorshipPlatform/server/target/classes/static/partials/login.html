@@ -1,0 +1,65 @@
+<div id="loginPageWrapper" class="container-fluid">
+<div class="row">
+<!-- Heading of the page -->
+    <div class="col-sm-7"></div>
+    <div id="loginPageHeading" class="col-sm-4">
+        <h2>Login</h2>
+    </div>
+    <div class="col-sm-1"></div>
+<!-- Heading Ends Here -->
+</div>
+
+<div class="row">
+<div class="col-sm-1"></div>
+<div class="col-sm-5" id="loginInfo">
+    <h1>BPIT Connect</h1>
+    <hr/>
+     <p>Yha pr kuch text likhna h but meko kuch smjh ni aa rha kya likhu so aabhi kuch bhi likh rha hu.</p>
+    <p>Yha pr mene para bhi change kiya h .. ye bhi pata ni kynkiya h but it's fine</p>
+<!--    <div id="loginImage"></div>-->
+</div>    
+<div class="col-sm-1"></div>
+<div class="col-sm-4">
+<div class="loginForm" ng-controller="loginController">
+    
+    <!-- Input fields for Login Form -->
+    
+    <!-- Enrollment Number -->
+    <div class="iconContainer">
+        <i class="material-icons">person</i>
+    </div>
+    
+    <input type="number" placeholder="* enrollment number" min="0" ng-model="enrollmentNumber" ng-keyup="enrollmentValidate()" />
+    <p class="errorMessageSignUp" ng-model="enrollmentNumberError" ng-show="enrollmentNumberError">Enrollment Number should be 11 digits long</p>
+    <!--Validate format of Enrollment Number -->
+    
+    
+    <!-- Password -->
+    <div class="iconContainer">
+        <i class="material-icons">lock</i>
+    </div>
+    
+    <input type="password" placeholder="* password" ng-model="password" ng-keyup="loginPasswordLengthCheck();"/>
+    <!-- Error Message if Password is less than 6 characters -->
+    <p class="errorMessageSignUp" ng-model="passwordError" ng-show="passwordError">Password cannot be left empty</p>
+    <!--Validate for min length of 6 characters password -->
+    
+    
+    <!-- Error Message if Enrollment Number/Password is wrong  -->
+    <p class="errorMessageLogin" ng-model="loginError" ng-show="loginError" >Username or Password is Incorrect</p>
+
+    <!-- Login Button -->
+    <div id="submitButton">
+        <button ng-click="loginFunction()">LOGIN</button>
+    </div>
+</div>
+</div>
+<div class="col-sm-1"></div>
+</div>
+<!-- Login Form ends here -->
+</div>
+
+<!-- Sign Up Option -->
+<div id="signupLinkWrapper">
+	<a href="#!/signup" id="signupLink">SIGN UP</a>
+</div>

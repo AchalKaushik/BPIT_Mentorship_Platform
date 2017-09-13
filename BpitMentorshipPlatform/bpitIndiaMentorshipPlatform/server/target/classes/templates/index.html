@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <!-- Title of the Page -->
+    <title>BPIT | Sign Up</title>
+
+    <!-- Setting the viewport for responsive -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Angular Js Library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+
+    <!-- Bootstrap Library -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
+    <!-- Google Icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:300,400,700" rel="stylesheet" />
+
+    <!-- Signup Stylesheet -->
+    <link rel="stylesheet" href="css/Common.css" />
+    <link rel="stylesheet" href="css/Login.css" />
+    <link rel="stylesheet" href="css/SignUp.css" />
+    <link rel="stylesheet" href="css/home.css" />
+    <link rel="stylesheet" href="css/library.css" />
+    <link rel="stylesheet" href="css/error.css" />
+    
+    <!-- Including Controller Script -->
+    <script src="js/app.js"></script>
+    <script src="js/home.js"></script>
+    <script src="js/LoginAndSignUp.js"></script>
+    <script src="js/library.js"></script>
+  <!--    <script src="js/anim.js"></script>-->
+</head>
+<body ng-app="bpit">
+
+    <!-- Navbar -->
+    <div ng-include="'partials/navbar.html'"></div>
+
+    <!-- To display the content of the page -->
+    <div ng-view></div>
+
+    <!-- Footer -->
+    <footer><p>BPIT Connect &copy; 2017</footer>
+
+</body>
+</html>

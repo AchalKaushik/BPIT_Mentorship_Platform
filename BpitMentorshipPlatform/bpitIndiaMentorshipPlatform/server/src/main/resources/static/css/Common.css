@@ -1,0 +1,120 @@
+/* Body */
+body,
+body * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+
+body {
+	background: url('../images/signup_bg.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+}
+/* Body Ends */
+
+/* NavBar */
+.navbar-inverse {
+	background-color: #111;
+	border-radius: 0;
+	border: none;
+	box-shadow: 0 0 15px -4px rgba(0,0,0,0.8);
+	border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+.navbar-inverse .navbar-brand {
+	font-family: 'Roboto Slab', sans-serif;
+	padding-left: 35px;
+	padding-right: 35px;
+	border-right: 1px solid rgba(255,255,255,0.2);
+}
+
+.navbar-inverse .navbar-nav>li>a {
+	font-size: 13px;
+}
+
+.navbar-inverse .navbar-nav>.active>a,
+.navbar-inverse .navbar-nav>.active>a:focus,
+.navbar-inverse .navbar-nav>.active>a:hover {
+	background: rgba(255,255,255,0.2);
+}
+
+.navbar-inverse .navbar-toggle {
+    border-color: #d5d5d5;
+}
+
+.navbar-toggle .icon-bar {
+    background: #fff;
+}
+
+#bpitLogo {
+	display: inline-block;
+	background: #fff url('../images/bpitlogo.png');
+	background-size: cover;
+	height: 32px;
+	width: 32px;
+	float: left;
+	margin-top: -6px;
+	margin-right: 10px;
+}
+/* NavBar Ends */
+
+/* Styling the Google Icons */
+div.iconContainer {
+	position: absolute;
+	display: inline-block;
+	z-index: 2;
+	background: #333;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 8px;
+	padding-bottom: 4px;
+	margin-top: 15px;
+}
+
+.loginForm>div>i.material-icons,
+.signUpForm>div>i.material-icons,
+#libraryForm i.material-icons {
+	color: #fff;
+	background: #333;
+}
+
+
+#selectButton {
+	text-align: center;
+}
+
+/* Submit Button */
+#submitButton>button {
+	display: block;
+	margin:auto;
+	margin-top: 20px;
+	border: none;
+	background: #4CAF50;
+	color: #fff;
+	font-weight: 600;
+	padding: 10px 40px;
+	border-radius: 2px;
+	cursor: pointer;
+	outline: none;
+	transition: background 0.3s ease-out;
+}
+
+#submitButton>button:hover {
+	background: #377d3a;
+}
+
+
+/* Footer */
+footer {
+	padding: 20px 0;
+	font-weight: 700;
+}
+
+footer p {
+	text-align: center;
+	color: #c1c1c1;
+	font-size: 13px;
+}
+/* Footer Ends */

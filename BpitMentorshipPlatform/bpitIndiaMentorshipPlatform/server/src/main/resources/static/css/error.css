@@ -1,0 +1,30 @@
+div#errorPageWrapper {
+    background: rgba(134,90,207,0.6);
+    margin-top: -20px;
+    padding: 50px;
+}
+
+div#errorImage {
+    display: block;
+    margin: auto;
+    height: 210px;
+    width: 225px;
+    background: url('../images/error.png');
+    background-size: cover;
+}
+
+#errorText {
+    font-weight: 300;
+    font-family: 'Roboto Slab', sans-serif;
+    color: #fff;
+    text-align: center;
+    margin-top: 30px;
+    text-shadow: 1px 0 3px rgba(0,0,0,0.5), 0 1px 3px rgba(0,0,0,0.5);
+}
+
+p#errorDiscription {
+    text-align: center;
+    color: #f1f1f1;
+    margin-top: 20px;
+    font-size: 16px;
+}

@@ -104,7 +104,7 @@
     <div class="iconContainer">
         <i class="material-icons">person</i>
     </div>
-    <select ng-options="item for item in post" ng-model="signUp.registeredAs"></select>
+    <select ng-options="item for item in post" ng-model="signUp.registeredAs" ng-change="updateEnroll();"></select>
     
     <!-- Course -->
     <div class="iconContainer">
@@ -116,8 +116,8 @@
     <div class="iconContainer">
         <i class="material-icons">credit_card</i>
     </div>
-    <input type="number" placeholder="* enrollment number" min="0" ng-model="signUp.enrollmentNumber" ng-keyup="enrollmentValidate();" />
-    <p class="errorMessageSignUp" ng-model="enrollmentNumberError" ng-show="enrollmentNumberError">Enrollment Number should be 11 digits long</p>
+    <input type="number" placeholder="* {{enroll}}" min="0" ng-model="signUp.enrollmentNumber" ng-keyup="enrollmentValidate();" />
+    <p class="errorMessageSignUp" ng-model="enrollmentNumberError" ng-show="enrollmentNumberError">{{enroll}} should be 11 digits long</p>
     <p class="errorMessageSignUp" ng-model="enrollmentNumberRegistered" ng-show="enrollmentNumberRegistered">Enrollment number already registered</p>
     
     

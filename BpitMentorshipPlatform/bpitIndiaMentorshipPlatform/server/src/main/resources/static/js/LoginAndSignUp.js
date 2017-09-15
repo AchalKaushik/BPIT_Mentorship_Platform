@@ -1,6 +1,7 @@
 // Controller for Login Form
 app.controller('loginController', function($scope, $http) {
     
+	console.log("In login controller");
     $scope.signUp={};
     
     /*
@@ -181,13 +182,16 @@ app.controller('loginController', function($scope, $http) {
 
        if($scope.passwordError==false && $scope.confirmPasswordError==false && $scope.emailIdError==false && $scope.emptyFirstNameError==false && $scope.numberInFirstName==false && $scope.mobileNumberError==false && $scope.enrollmentNumberError==false) {
             console.log("Submitted");
+            
             var singUpURI = "/SignUp";
             var signUpStatus;
-             $http({
+            
+            
+            
+            $http({
                 url : singUpURI,
                 method : "POST",
                 data : $scope.signUp,
-                data: angular.toJson(editdetailsOfApplication)
                  transformResponse: [function (data)  {
                     console.log(data);
                     signUpStatus=data;
@@ -196,12 +200,12 @@ app.controller('loginController', function($scope, $http) {
                     function(response)
                     {
                         
-                         * Null is returned in case any exception occurs while inserting data in database 
+                         /* Null is returned in case any exception occurs while inserting data in database */
                          
                         if(signUpStatus=="")
                             {
                             
-                             * Error occurs 
+                             /** Error occurs*/ 
                              
                             console.log("UserId already exists");
                             $scope.enrollmentNumberRegistered = true;
@@ -209,7 +213,7 @@ app.controller('loginController', function($scope, $http) {
                         else if(signUpStatus=="Error")
                             {
                             
-                             * Error occurs ( route to error page) 
+                          /*   * Error occurs ( route to error page)*/ 
                              
                                 window.location.assign("/#!/error");
                             console.log("Error occurs");
@@ -217,7 +221,7 @@ app.controller('loginController', function($scope, $http) {
                         else
                             {
                             
-                             * Successfully registeered 
+                             /** Successfully registeered */
                              
                             $scope.successMsg = false;
                             console.log("Success");

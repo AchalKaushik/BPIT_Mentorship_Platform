@@ -4,8 +4,6 @@
 	padding-top: 20px;
 	padding-bottom: 40px;
     border-bottom: 1px solid rgba(255,255,255,0.3);
-    margin-right: -15px;
-    margin-left: -15px;
 }
 
 div#libraryInfo {
@@ -24,6 +22,47 @@ div#libraryInfo p {
     line-height: 22px;
 }
 
+div#navbar {
+	background: #111;
+	border-bottom: 1px solid #666;
+	padding: 7px 15px;
+	width: 100%;
+	margin-bottom: 50px;
+}
+
+div#navbar input[type=text] {
+    height:38px;
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #fff;
+    border-radius: 0;
+    font-size: 16px;
+    background-color: #fff;
+    padding-left: 10px;
+    padding-right: 45px;
+    outline: none;
+}
+
+div#navbar .col-sm-4 {
+	border-right: 1px solid #444;
+	padding: 0 10px;
+}
+
+div#navbar .col-sm-4:last-child {
+	border: none;
+}
+
+div#navbar .eMaterials {
+	display: block;
+	height: 31px;
+	text-align: center;
+	text-decoration: none;
+	color:#fff;
+	padding: 10px initial;
+	font-size: 18px;
+	margin-top: 7px;
+}
+
 div#libraryInfo hr{
     margin-top: 10px;
     width: 50px;
@@ -31,6 +70,21 @@ div#libraryInfo hr{
     border-top: 3px solid orange;
 }
 
+.container-fluid {
+	padding: 0;
+}
+
+div#navbar form i {
+	background: #fff;
+	font-size: 30px;
+	padding: 4px;
+	text-align: center;
+	position: absolute;
+	right: 10px;
+	border-left: 1px solid #d1d1d1;
+	color: #333;
+	cursor: pointer;
+}
 
 /*rgba(237,28,36,1)*/
 
@@ -63,45 +117,119 @@ div#libraryInfo hr{
 	text-align: center;
 }
 
-#libraryList a {
+#accordion>.panel {
+	background: none;
+	border: none;
+	width: 90%;
+	margin: auto;
+}
+
+#accordion>.panel>.panel-heading {
+	border: none;
+	outline: none;
 	text-decoration: none;
 	display: inline-block;
 	margin: auto;
 	background: rgba(0,0,0,0.5);
-	width: 80%;
+	width: 100%;
 	transition: all 0.5s ease-in-out;
+	border-radius: 0;
 }
 
-#libraryList a i {
+#accordion>.panel>.panel-heading>.panel-title>a {
+	text-decoration: none;
+	color: #fff;
+}
+
+#accordion>.panel>.panel-heading:hover {
+	background: rgba(255,255,255,0.25);
+}
+
+#accordion>.panel>.panel-heading>.panel-title>a>i {
 	float: right;
 	margin-top: -41px;
+	margin-bottom: -11px;
 	font-size: 30px;
 	font-weight: bolder;
-	margin-right: -10px;
+	margin-right: -15px;
 	padding: 10px 5px;
 	background: rgba(237,28,36,0.75);
 	transition: all 0.3s ease-in-out;
 }
 
-#libraryList a:hover {
-	background: rgba(255,255,255,0.25);
+#accordion>.panel>.panel-heading {
+	border-bottom: 1px solid rgba(255,255,255,0.5);
 }
 
-#libraryList a:hover i {
+.panel-default>.panel-heading+.panel-collapse>.panel-body {
+    border:none;
+    background: rgba(0,0,0,1);
+}
+
+#accordion>.panel>.panel-heading>.panel-title>a:hover>i {
 	display: block;
-	margin-right: -50px;
+	margin-right: -55px;
 	border: 1px solid rgba(255,255,255,0.5);
 	border-left: none;
 }
 
-#libraryList li {
-	color: #e1e1e1;
-	list-style: none;
-	padding: 10px;
-	border-bottom: 1px solid rgba(255,255,255,0.5);
-}
-
-#libraryList li h1 {
+#accordion>.panel>.panel-heading>.panel-title>a>h1 {
 	margin-bottom: 10px;
 	text-align: center;
+}
+
+.innerAccordion>.panel {
+	background: none;
+	border: none;
+	width: 100%;
+	margin: auto;
+}
+
+.panel-group .panel+.panel {
+    margin: 0 auto;
+}
+
+.innerAccordion>.panel>.panel-heading {
+	border: none;
+	border-radius: 0;
+	outline: none;
+	text-decoration: none;
+	display: inline-block;
+	padding: 0;
+	margin: auto;
+	background: none;
+	width: 100%;
+	transition: all 0.5s ease-in-out;
+}
+
+
+.innerAccordion .panel-default>.panel-heading+.panel-collapse>.panel-body {
+	padding: 3px;
+}
+
+.innerAccordion>.panel>.panel-heading>.panel-title>a {
+	text-decoration: none;
+	color: #999;
+	font-size: 15px;
+	display: block;
+	padding: 5px;
+}
+
+.innerAccordion {
+	margin-bottom: 0;
+}
+
+.innerAccordion>.panel>.panel-heading>.panel-title>a>h1 {
+	margin-bottom: 10px;
+	text-align: center;
+}
+
+.innerAccordion ul {
+	list-style: none;
+}
+
+.innerAccordion ul li {
+	padding: 5px;
+	color: #444;
+	cursor: pointer;
 }

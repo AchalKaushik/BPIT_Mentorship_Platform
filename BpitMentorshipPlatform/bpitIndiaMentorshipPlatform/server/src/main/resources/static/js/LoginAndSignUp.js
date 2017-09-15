@@ -45,7 +45,6 @@ app.controller('loginController', function($scope, $http) {
     $scope.confirmPasswordFlag = false;
 
 	// Options for 'Post' & 'Courses' Field 
-    
     $scope.post = ["Teacher", "Mentor", "Mentee"];
     $scope.courses = ["BTech", "MBA", "BBA"];
     
@@ -54,11 +53,20 @@ app.controller('loginController', function($scope, $http) {
     $scope.signUp.course = "BTech";
     $scope.signUp.selectedBranch = "CSE";
     
+    $scope.enroll = "teacher id";
+    
     // Options for "Branch' Field in the Form
     $scope.branch = ["CSE", "IT", "ECE", "EEE"];
     // To toggle the visibility of 'Branch' Field
-    $scope.toggleBranchField = "flase";
-
+    $scope.toggleBranchField = "false";
+    
+    $scope.updateEnroll = function() {
+        if($scope.signUp.registeredAs=="Teacher" || $scope.signUp.registeredAs=="Mentor") {
+            $scope.enroll = "teacher id";
+        } else if ($scope.signUp.registeredAs=="Mentee") {
+            $scope.enroll = "enrollment number";
+        }
+    }
     
     $scope.firstNameValidate = function() {
         if($scope.signUp.firstName.length==0) {
@@ -171,7 +179,7 @@ app.controller('loginController', function($scope, $http) {
 
     // Function for submitting the form data
     $scope.submitFunction = function() {
-       $scope.firstNameValidate();
+	   $scope.firstNameValidate();
        $scope.lastNameValidate();
        $scope.checkLength();
        $scope.matchPasswordAndConfirmPassword();

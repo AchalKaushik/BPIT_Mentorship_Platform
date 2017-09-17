@@ -15,6 +15,12 @@ app.config(function($routeProvider, $httpProvider) {
     .when("/library", {
         templateUrl : "partials/library.html"
     })
+    .when("/library/search", {
+        templateUrl : "partials/search.html"
+    })
+    .when("/library/upload", {
+        templateUrl : "partials/upload.html"
+    })
     .otherwise({
         redirectTo: '/'
     });

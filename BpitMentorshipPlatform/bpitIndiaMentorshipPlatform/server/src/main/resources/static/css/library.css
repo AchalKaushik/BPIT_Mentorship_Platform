@@ -37,10 +37,14 @@ div#navbar input[type=text] {
     border: 1px solid #fff;
     border-radius: 0;
     font-size: 16px;
-    background-color: #fff;
+    background-color: rgba(255,255,255,0.6);
     padding-left: 10px;
     padding-right: 45px;
     outline: none;
+}
+
+div#navbar input[type=text]:focus {
+	background-color: rgba(255,255,255,0.6);
 }
 
 div#navbar .col-sm-4 {
@@ -93,6 +97,8 @@ div#navbar form i {
     margin: auto;
 }
 
+#libraryForm>input,
+#libraryForm>label,
 #libraryForm>select {
 	width: 100%;
 	height: 41px;
@@ -106,6 +112,12 @@ div#navbar form i {
 	font-size: 13px;
 	font-weight: 600;
 	margin-top: 15px;
+}
+
+#searchFormWrapper #libraryForm>label {
+    text-align: center;
+    padding-top: 9px;
+    padding-left: 10px;
 }
 
 #libraryList {
@@ -134,11 +146,13 @@ div#navbar form i {
 	width: 100%;
 	transition: all 0.5s ease-in-out;
 	border-radius: 0;
+	cursor: pointer;
 }
 
 #accordion>.panel>.panel-heading>.panel-title>a {
 	text-decoration: none;
 	color: #fff;
+	transition: all 0.5s ease-in-out;
 }
 
 #accordion>.panel>.panel-heading:hover {
@@ -147,14 +161,15 @@ div#navbar form i {
 
 #accordion>.panel>.panel-heading>.panel-title>a>i {
 	float: right;
-	margin-top: -41px;
-	margin-bottom: -11px;
+	margin-top: -35px;
+	margin-bottom: -15px;
 	font-size: 30px;
 	font-weight: bolder;
-	margin-right: -15px;
+	margin-right: -10px;
 	padding: 10px 5px;
 	background: rgba(237,28,36,0.75);
 	transition: all 0.3s ease-in-out;
+    transform: rotate(90deg);
 }
 
 #accordion>.panel>.panel-heading {
@@ -166,11 +181,8 @@ div#navbar form i {
     background: rgba(0,0,0,1);
 }
 
-#accordion>.panel>.panel-heading>.panel-title>a:hover>i {
+#accordion>.panel>.panel-heading:hover>.panel-title>a {
 	display: block;
-	margin-right: -55px;
-	border: 1px solid rgba(255,255,255,0.5);
-	border-left: none;
 }
 
 #accordion>.panel>.panel-heading>.panel-title>a>h1 {
@@ -232,4 +244,48 @@ div#navbar form i {
 	padding: 5px;
 	color: #444;
 	cursor: pointer;
+}
+
+#searchFormWrapper {
+    margin-bottom: 20px;
+}
+
+#searchFormWrapper button {
+    background: #4caf50;
+    border-radius: 2px;
+    color: #fff;
+	padding: 10px 15px;
+	padding-right: 10px;
+	padding-bottom: 7px;
+    display: inline-block;
+    margin-top: 15px;
+	transition: all 0.5s ease-in-out;
+	border: none;
+}
+
+#searchFormWrapper button:hover,
+#searchFormWrapper button:hover i.material-icons {
+	background: #377d3a;
+}
+
+#searchFormWrapper button i.material-icons {
+	margin-left: 7px;
+	padding: 0;
+	float: right;
+	background: #4caf50;
+	margin-top: -3px;
+	transition: all 0.5s ease-in-out;
+}
+
+
+#searchButtonWrapper {
+    text-align: center;
+}
+
+#fileUpload {
+    display: none;
+}
+
+#searchFormWrapper #uploadButton {
+	padding: 10px 30px;
 }

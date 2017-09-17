@@ -1,316 +1,753 @@
 <div id="libraryWrapper" ng-controller="libraryController" class="container-fluid">
     
 	<div id="loginFormWrapper">
-    <div class="row">
-    <div class="col-sm-1"></div>
-    <div class="col-sm-5" id="libraryInfo">
-        <h1>Library</h1>    
-        <hr />
-        <p>Yha pr bhi kuch likha ja sakta h.. if you want.. baki dekhte h..</p>
-    </div>
-    <div class="col-sm-1"></div>
-    <div class="col-sm-4">
-		<div id="libraryForm">
-			<div class="iconContainer">
-		        <i class="material-icons">school</i>
-		    </div>
-			<select ng-model="selectedBranch" ng-options="item for item in branch"></select>
+        <div class="row">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-5" id="libraryInfo">
+                <h1>Library</h1>    
+                <hr />
+                <p>Yha pr bhi kuch likha ja sakta h.. if you want.. baki dekhte h..</p>
+            </div>
+            <div class="col-sm-1"></div>
+            <div class="col-sm-4">
+                <div id="libraryForm">
+                    <div class="iconContainer">
+                        <i class="material-icons">school</i>
+                    </div>
+                    <select ng-model="selectedBranch" ng-options="item for item in branch"></select>
+                <!--	<div class="iconContainer">
+                        <i class="material-icons">book</i>
+                    </div>
+                    <select ng-model="selectedSemester" ng-options="item for item in semester"></select>
 
-		<!--	<div class="iconContainer">
-		        <i class="material-icons">book</i>
-		    </div>
-			<select ng-model="selectedSemester" ng-options="item for item in semester"></select>
-			
-			<div class="iconContainer">
-		        <i class="material-icons">description</i>
-		    </div>
-			<select ng-model="selectedSubject" ng-options="item for item in subject"></select>
-		-->
-		</div>
-	</div>
-    </div>
-    <div class="col-sm-1"></div>
+                    <div class="iconContainer">
+                        <i class="material-icons">description</i>
+                    </div>
+                    <select ng-model="selectedSubject" ng-options="item for item in subject"></select>
+                -->
+                </div>
+            </div>
+            <div class="col-sm-1"></div>
+        </div>
     </div>
     
     <div id="navbar">
     	<div class="row">
-        	<div class="col-sm-4">
-    			<form>
-    				<i class="material-icons">search</i>
-					<input type="text" name="search" placeholder="search..">
-				</form>
+    		<div class="col-sm-4">
+                <a href="#" class="eMaterials">E-Notes</a>
+            </div>
+    		<div class="col-sm-4">
+    			<a href="#!/library/search" class="eMaterials">Search</a>
 			</div>
-    		<div class="col-sm-4"><a href="#" class="eMaterials">E-Notes</a></div>
-    		<div class="col-sm-4"><a href="#" class="eMaterials">E-Books</a></div>
+    		<div class="col-sm-4">
+                <a href="#" class="eMaterials">E-Books</a>
+            </div>
 		</div>
     </div>
     
 	<div id="libraryList">
-			<div class="row">
-				<div class="col-sm-6">
-					<div class="panel-group" id="accordion">
-						  <div class="panel panel-default">
-						    <div class="panel-heading">
-						      <h4 class="panel-title">
-						        <a data-toggle="collapse" data-parent="#accordion" href="!#collapse1">
-						        <h1>1</h1><p>First Semester</p><i class="material-icons">chevron_right</i></a>
-						      </h4>
-						    </div>
-						    <div id="collapse1" class="panel-collapse collapse">
-						      <div class="panel-body">			
-						      <div class="panel-group innerAccordion" id="accordion1">
-						  <div class="panel panel-default">
-						    <div class="panel-heading">
-						      <h4 class="panel-title">
-						        <a data-toggle="collapse" data-parent="#accordion1" href="!#collapse11">
-						        Subject 1</a>
-						      </h4>
-						    </div>
-						    <div id="collapse11" class="panel-collapse collapse">
-						      <div class="panel-body">
-						      <ul>
-						      	<li>Download Link 11</li>
-						      	<li>Download Link 12</li>
-						      	<li>Download Link 13</li>
-						      	<li>Download Link 14</li>
-						      </ul>
-						      </div>
-						    </div>
-						  </div>
-						  <div class="panel panel-default">
-						    <div class="panel-heading">
-						      <h4 class="panel-title">
-						        <a data-toggle="collapse" data-parent="#accordion1" href="!#collapse12">
-						        Subject 2</a>
-						      </h4>
-						    </div>
-						    <div id="collapse12" class="panel-collapse collapse">
-						      <div class="panel-body">
-						      <ul>
-						      	<li>Download Link 21</li>
-						      	<li>Download Link 22</li>
-						      	<li>Download Link 23</li>
-						      	<li>Download Link 24</li>
-						      </ul>
-						      </div>
-						    </div>
-						  </div>
-						<div class="panel panel-default">
-						    <div class="panel-heading">
-						      <h4 class="panel-title">
-						        <a data-toggle="collapse" data-parent="#accordion1" href="!#collapse13">
-						        Subject 3</a>
-						      </h4>
-						    </div>
-						    <div id="collapse13" class="panel-collapse collapse">
-						      <div class="panel-body">
-						      <ul>
-						      	<li>Download Link 31</li>
-						      	<li>Download Link 32</li>
-						      	<li>Download Link 33</li>
-						      	<li>Download Link 34</li>
-						      </ul>
-						      </div>
-						    </div>
-						  </div>
-						  <div class="panel panel-default">
-						    <div class="panel-heading">
-						      <h4 class="panel-title">
-						        <a data-toggle="collapse" data-parent="#accordion1" href="!#collapse14">
-						        Subject 4</a>
-						      </h4>
-						    </div>
-						    <div id="collapse14" class="panel-collapse collapse">
-						      <div class="panel-body">
-						      <ul>
-						      	<li>Download Link 41</li>
-						      	<li>Download Link 42</li>
-						      	<li>Download Link 43</li>
-						      	<li>Download Link 44</li>
-						      </ul>
-						      </div>
-						    </div>
-						  </div>
-						</div></div>
-						    </div>
-						  </div>
-						  <div class="panel panel-default">
-						    <div class="panel-heading">
-						      <h4 class="panel-title">
-						        <a data-toggle="collapse" data-parent="#accordion" href="!#collapse2">
-						        <h1>2</h1><p>Second Semester</p><i class="material-icons">chevron_right</i></a>
-						      </h4>
-						    </div>
-						    <div id="collapse2" class="panel-collapse collapse">
-						      <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-						      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-						      minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-						      commodo consequat.</div>
-						    </div>
-						  </div>
-						  <div class="panel panel-default">
-						    <div class="panel-heading">
-						      <h4 class="panel-title">
-						        <a data-toggle="collapse" data-parent="#accordion" href="!#collapse3">
-						        <h1>3</h1><p>Third Semester</p><i class="material-icons">chevron_right</i></a>
-						      </h4>
-						    </div>
-						    <div id="collapse3" class="panel-collapse collapse">
-						      <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-						      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-						      minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-						      commodo consequat.</div>
-						    </div>
-						  </div>
-						<div class="panel panel-default">
-						    <div class="panel-heading">
-						      <h4 class="panel-title">
-						        <a data-toggle="collapse" data-parent="#accordion" href="!#collapse4">
-						        <h1>4</h1><p>Fourth Semester</p><i class="material-icons">chevron_right</i></a>
-						      </h4>
-						    </div>
-						    <div id="collapse4" class="panel-collapse collapse">
-						      <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-						      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-						      minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-						      commodo consequat.</div>
-						    </div>
-						  </div>
-						</div>
-					</div>
-				<div class="col-sm-6">
-						<div class="panel-group" id="accordion">
-						  <div class="panel panel-default">
-						    <div class="panel-heading">
-						      <h4 class="panel-title">
-						        <a data-toggle="collapse" data-parent="#accordion" href="!#collapse5">
-						        <h1>5</h1><p>Fifth Semester</p><i class="material-icons">chevron_right</i></a>
-						      </h4>
-						    </div>
-						    <div id="collapse5" class="panel-collapse collapse">
-						      <div class="panel-body">			
-						      <div class="panel-group innerAccordion" id="accordion5">
-						  <div class="panel panel-default">
-						    <div class="panel-heading">
-						      <h4 class="panel-title">
-						        <a data-toggle="collapse" data-parent="#accordion5" href="!#collapse51">
-						        Subject 1</a>
-						      </h4>
-						    </div>
-						    <div id="collapse51" class="panel-collapse collapse">
-						      <div class="panel-body">
-						      <ul>
-						      	<li>Download Link 11</li>
-						      	<li>Download Link 12</li>
-						      	<li>Download Link 13</li>
-						      	<li>Download Link 14</li>
-						      </ul>
-						      </div>
-						    </div>
-						  </div>
-						  <div class="panel panel-default">
-						    <div class="panel-heading">
-						      <h4 class="panel-title">
-						        <a data-toggle="collapse" data-parent="#accordion5" href="!#collapse52">
-						        Subject 2</a>
-						      </h4>
-						    </div>
-						    <div id="collapse52" class="panel-collapse collapse">
-						      <div class="panel-body">
-						      <ul>
-						      	<li>Download Link 21</li>
-						      	<li>Download Link 22</li>
-						      	<li>Download Link 23</li>
-						      	<li>Download Link 24</li>
-						      </ul>
-						      </div>
-						    </div>
-						  </div>
-						<div class="panel panel-default">
-						    <div class="panel-heading">
-						      <h4 class="panel-title">
-						        <a data-toggle="collapse" data-parent="#accordion5" href="!#collapse53">
-						        Subject 3</a>
-						      </h4>
-						    </div>
-						    <div id="collapse53" class="panel-collapse collapse">
-						      <div class="panel-body">
-						      <ul>
-						      	<li>Download Link 31</li>
-						      	<li>Download Link 32</li>
-						      	<li>Download Link 33</li>
-						      	<li>Download Link 34</li>
-						      </ul>
-						      </div>
-						    </div>
-						  </div>
-						  <div class="panel panel-default">
-						    <div class="panel-heading">
-						      <h4 class="panel-title">
-						        <a data-toggle="collapse" data-parent="#accordion5" href="!#collapse54">
-						        Subject 4</a>
-						      </h4>
-						    </div>
-						    <div id="collapse54" class="panel-collapse collapse">
-						      <div class="panel-body">
-						      <ul>
-						      	<li>Download Link 41</li>
-						      	<li>Download Link 42</li>
-						      	<li>Download Link 43</li>
-						      	<li>Download Link 44</li>
-						      </ul>
-						      </div>
-						    </div>
-						  </div>
-						</div></div>
-						    </div>
-						  </div>
-						  <div class="panel panel-default">
-						    <div class="panel-heading">
-						      <h4 class="panel-title">
-						        <a data-toggle="collapse" data-parent="#accordion" href="!#collapse6">
-						        <h1>6</h1><p>Sixth Semester</p><i class="material-icons">chevron_right</i></a>
-						      </h4>
-						    </div>
-						    <div id="collapse6" class="panel-collapse collapse">
-						      <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-						      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-						      minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-						      commodo consequat.</div>
-						    </div>
-						  </div>
-						  <div class="panel panel-default">
-						    <div class="panel-heading">
-						      <h4 class="panel-title">
-						        <a data-toggle="collapse" data-parent="#accordion" href="!#collapse7">
-						        <h1>7</h1><p>Seventh Semester</p><i class="material-icons">chevron_right</i></a>
-						      </h4>
-						    </div>
-						    <div id="collapse7" class="panel-collapse collapse">
-						      <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-						      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-						      minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-						      commodo consequat.</div>
-						    </div>
-						  </div>
-						  <div class="panel panel-default">
-						    <div class="panel-heading">
-						      <h4 class="panel-title">
-						        <a data-toggle="collapse" data-parent="#accordion" href="!#collapse8">
-						        <h1>8</h1><p>Eighth Semester</p><i class="material-icons">chevron_right</i></a>
-						      </h4>
-						    </div>
-						    <div id="collapse8" class="panel-collapse collapse">
-						      <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-						      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-						      minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-						      commodo consequat.</div>
-						    </div>
-						  </div>
-						</div>
-						</div>
-					</div>
-				</div>
-			</div>
-	</div>
-</div>
+        <div class="row">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-6">
+                <div class="panel-group" id="accordion">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="!#collapse1">
+                                    <h1>1</h1>
+                                    <p>First Semester</p>
+                                    <i class="material-icons">chevron_right</i>
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapse1" class="panel-collapse collapse">
+                            <div class="panel-body">			
+                                <div class="panel-group innerAccordion" id="accordion1">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title">
+                                                <a data-toggle="collapse" data-parent="#accordion1" href="!#collapse11">Subject 1</a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapse11" class="panel-collapse collapse">
+                                            <div class="panel-body">
+                                                <ul>
+                                                    <li>Download Link 11</li>
+                                                    <li>Download Link 12</li>
+                                                    <li>Download Link 13</li>
+                                                    <li>Download Link 14</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title">
+                                                <a data-toggle="collapse" data-parent="#accordion1" href="!#collapse12">
+                                                Subject 2</a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapse12" class="panel-collapse collapse">
+                                            <div class="panel-body">
+                                                <ul>
+                                                    <li>Download Link 21</li>
+                                                    <li>Download Link 22</li>
+                                                    <li>Download Link 23</li>
+                                                    <li>Download Link 24</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title">
+                                                <a data-toggle="collapse" data-parent="#accordion1" href="!#collapse13">
+                                                Subject 3</a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapse13" class="panel-collapse collapse">
+                                            <div class="panel-body">
+                                                <ul>
+                                                    <li>Download Link 31</li>
+                                                    <li>Download Link 32</li>
+                                                    <li>Download Link 33</li>
+                                                    <li>Download Link 34</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title">
+                                            <a data-toggle="collapse" data-parent="#accordion1" href="!#collapse14">Subject 4</a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapse14" class="panel-collapse collapse">
+                                            <div class="panel-body">
+                                                <ul>
+                                                    <li>Download Link 41</li>
+                                                    <li>Download Link 42</li>
+                                                    <li>Download Link 43</li>
+                                                    <li>Download Link 44</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="!#collapse2">
+                                    <h1>2</h1>
+                                    <p>Second Semester</p>
+                                    <i class="material-icons">chevron_right</i>
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapse2" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <div class="panel-group innerAccordion" id="accordion2">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <h4 class="panel-title">
+                                                    <a data-toggle="collapse" data-parent="#accordion2" href="!#collapse21">Subject 1</a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapse21" class="panel-collapse collapse">
+                                                <div class="panel-body">
+                                                    <ul>
+                                                        <li>Download Link 11</li>
+                                                        <li>Download Link 12</li>
+                                                        <li>Download Link 13</li>
+                                                        <li>Download Link 14</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <h4 class="panel-title">
+                                                    <a data-toggle="collapse" data-parent="#accordion2" href="!#collapse22">
+                                                    Subject 2</a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapse22" class="panel-collapse collapse">
+                                                <div class="panel-body">
+                                                    <ul>
+                                                        <li>Download Link 21</li>
+                                                        <li>Download Link 22</li>
+                                                        <li>Download Link 23</li>
+                                                        <li>Download Link 24</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <h4 class="panel-title">
+                                                    <a data-toggle="collapse" data-parent="#accordion2" href="!#collapse23">
+                                                    Subject 3</a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapse23" class="panel-collapse collapse">
+                                                <div class="panel-body">
+                                                    <ul>
+                                                        <li>Download Link 31</li>
+                                                        <li>Download Link 32</li>
+                                                        <li>Download Link 33</li>
+                                                        <li>Download Link 34</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <h4 class="panel-title">
+                                                <a data-toggle="collapse" data-parent="#accordion2" href="!#collapse24">Subject 4</a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapse24" class="panel-collapse collapse">
+                                                <div class="panel-body">
+                                                    <ul>
+                                                        <li>Download Link 41</li>
+                                                        <li>Download Link 42</li>
+                                                        <li>Download Link 43</li>
+                                                        <li>Download Link 44</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="!#collapse3">
+                                    <h1>3</h1>
+                                    <p>Third Semester</p>
+                                    <i class="material-icons">chevron_right</i>
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapse3" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <div class="panel-group innerAccordion" id="accordion3">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <h4 class="panel-title">
+                                                    <a data-toggle="collapse" data-parent="#accordion3" href="!#collapse31">Subject 1</a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapse31" class="panel-collapse collapse">
+                                                <div class="panel-body">
+                                                    <ul>
+                                                        <li>Download Link 11</li>
+                                                        <li>Download Link 12</li>
+                                                        <li>Download Link 13</li>
+                                                        <li>Download Link 14</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <h4 class="panel-title">
+                                                    <a data-toggle="collapse" data-parent="#accordion3" href="!#collapse32">
+                                                    Subject 2</a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapse32" class="panel-collapse collapse">
+                                                <div class="panel-body">
+                                                    <ul>
+                                                        <li>Download Link 21</li>
+                                                        <li>Download Link 22</li>
+                                                        <li>Download Link 23</li>
+                                                        <li>Download Link 24</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <h4 class="panel-title">
+                                                    <a data-toggle="collapse" data-parent="#accordion3" href="!#collapse33">
+                                                    Subject 3</a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapse33" class="panel-collapse collapse">
+                                                <div class="panel-body">
+                                                    <ul>
+                                                        <li>Download Link 31</li>
+                                                        <li>Download Link 32</li>
+                                                        <li>Download Link 33</li>
+                                                        <li>Download Link 34</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <h4 class="panel-title">
+                                                <a data-toggle="collapse" data-parent="#accordion3" href="!#collapse34">Subject 4</a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapse34" class="panel-collapse collapse">
+                                                <div class="panel-body">
+                                                    <ul>
+                                                        <li>Download Link 41</li>
+                                                        <li>Download Link 42</li>
+                                                        <li>Download Link 43</li>
+                                                        <li>Download Link 44</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="!#collapse4">
+                                    <h1>4</h1>
+                                    <p>Fourth Semester</p>
+                                    <i class="material-icons">chevron_right</i>
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapse4" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <div class="panel-group innerAccordion" id="accordion4">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <h4 class="panel-title">
+                                                    <a data-toggle="collapse" data-parent="#accordion4" href="!#collapse41">Subject 1</a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapse41" class="panel-collapse collapse">
+                                                <div class="panel-body">
+                                                    <ul>
+                                                        <li>Download Link 11</li>
+                                                        <li>Download Link 12</li>
+                                                        <li>Download Link 13</li>
+                                                        <li>Download Link 14</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <h4 class="panel-title">
+                                                    <a data-toggle="collapse" data-parent="#accordion4" href="!#collapse42">
+                                                    Subject 2</a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapse42" class="panel-collapse collapse">
+                                                <div class="panel-body">
+                                                    <ul>
+                                                        <li>Download Link 21</li>
+                                                        <li>Download Link 22</li>
+                                                        <li>Download Link 23</li>
+                                                        <li>Download Link 24</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <h4 class="panel-title">
+                                                    <a data-toggle="collapse" data-parent="#accordion4" href="!#collapse43">
+                                                    Subject 3</a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapse43" class="panel-collapse collapse">
+                                                <div class="panel-body">
+                                                    <ul>
+                                                        <li>Download Link 31</li>
+                                                        <li>Download Link 32</li>
+                                                        <li>Download Link 33</li>
+                                                        <li>Download Link 34</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <h4 class="panel-title">
+                                                <a data-toggle="collapse" data-parent="#accordion4" href="!#collapse44">Subject 4</a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapse44" class="panel-collapse collapse">
+                                                <div class="panel-body">
+                                                    <ul>
+                                                        <li>Download Link 41</li>
+                                                        <li>Download Link 42</li>
+                                                        <li>Download Link 43</li>
+                                                        <li>Download Link 44</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="!#collapse5">
+                                    <h1>5</h1>
+                                    <p>Fifth Semester</p>
+                                    <i class="material-icons">chevron_right</i>
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapse5" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <div class="panel-group innerAccordion" id="accordion5">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <h4 class="panel-title">
+                                                    <a data-toggle="collapse" data-parent="#accordion5" href="!#collapse51">Subject 1</a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapse51" class="panel-collapse collapse">
+                                                <div class="panel-body">
+                                                    <ul>
+                                                        <li>Download Link 11</li>
+                                                        <li>Download Link 12</li>
+                                                        <li>Download Link 13</li>
+                                                        <li>Download Link 14</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <h4 class="panel-title">
+                                                    <a data-toggle="collapse" data-parent="#accordion5" href="!#collapse52">
+                                                    Subject 2</a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapse52" class="panel-collapse collapse">
+                                                <div class="panel-body">
+                                                    <ul>
+                                                        <li>Download Link 21</li>
+                                                        <li>Download Link 22</li>
+                                                        <li>Download Link 23</li>
+                                                        <li>Download Link 24</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <h4 class="panel-title">
+                                                    <a data-toggle="collapse" data-parent="#accordion5" href="!#collapse53">
+                                                    Subject 3</a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapse53" class="panel-collapse collapse">
+                                                <div class="panel-body">
+                                                    <ul>
+                                                        <li>Download Link 31</li>
+                                                        <li>Download Link 32</li>
+                                                        <li>Download Link 33</li>
+                                                        <li>Download Link 34</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <h4 class="panel-title">
+                                                <a data-toggle="collapse" data-parent="#accordion5" href="!#collapse54">Subject 4</a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapse54" class="panel-collapse collapse">
+                                                <div class="panel-body">
+                                                    <ul>
+                                                        <li>Download Link 41</li>
+                                                        <li>Download Link 42</li>
+                                                        <li>Download Link 43</li>
+                                                        <li>Download Link 44</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="!#collapse6">
+                                    <h1>6</h1>
+                                    <p>Sixth Semester</p>
+                                    <i class="material-icons">chevron_right</i>
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapse6" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <div class="panel-group innerAccordion" id="accordion6">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <h4 class="panel-title">
+                                                    <a data-toggle="collapse" data-parent="#accordion6" href="!#collapse61">Subject 1</a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapse61" class="panel-collapse collapse">
+                                                <div class="panel-body">
+                                                    <ul>
+                                                        <li>Download Link 11</li>
+                                                        <li>Download Link 12</li>
+                                                        <li>Download Link 13</li>
+                                                        <li>Download Link 14</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <h4 class="panel-title">
+                                                    <a data-toggle="collapse" data-parent="#accordion6" href="!#collapse62">
+                                                    Subject 2</a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapse62" class="panel-collapse collapse">
+                                                <div class="panel-body">
+                                                    <ul>
+                                                        <li>Download Link 21</li>
+                                                        <li>Download Link 22</li>
+                                                        <li>Download Link 23</li>
+                                                        <li>Download Link 24</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <h4 class="panel-title">
+                                                    <a data-toggle="collapse" data-parent="#accordion6" href="!#collapse63">
+                                                    Subject 3</a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapse63" class="panel-collapse collapse">
+                                                <div class="panel-body">
+                                                    <ul>
+                                                        <li>Download Link 31</li>
+                                                        <li>Download Link 32</li>
+                                                        <li>Download Link 33</li>
+                                                        <li>Download Link 34</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <h4 class="panel-title">
+                                                <a data-toggle="collapse" data-parent="#accordion6" href="!#collapse64">Subject 4</a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapse64" class="panel-collapse collapse">
+                                                <div class="panel-body">
+                                                    <ul>
+                                                        <li>Download Link 41</li>
+                                                        <li>Download Link 42</li>
+                                                        <li>Download Link 43</li>
+                                                        <li>Download Link 44</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="!#collapse7">
+                                    <h1>7</h1>
+                                    <p>Seventh Semester</p>
+                                    <i class="material-icons">chevron_right</i>
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapse7" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <div class="panel-group innerAccordion" id="accordion7">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <h4 class="panel-title">
+                                                    <a data-toggle="collapse" data-parent="#accordion7" href="!#collapse71">Subject 1</a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapse71" class="panel-collapse collapse">
+                                                <div class="panel-body">
+                                                    <ul>
+                                                        <li>Download Link 11</li>
+                                                        <li>Download Link 12</li>
+                                                        <li>Download Link 13</li>
+                                                        <li>Download Link 14</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <h4 class="panel-title">
+                                                    <a data-toggle="collapse" data-parent="#accordion7" href="!#collapse72">
+                                                    Subject 2</a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapse72" class="panel-collapse collapse">
+                                                <div class="panel-body">
+                                                    <ul>
+                                                        <li>Download Link 21</li>
+                                                        <li>Download Link 22</li>
+                                                        <li>Download Link 23</li>
+                                                        <li>Download Link 24</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <h4 class="panel-title">
+                                                    <a data-toggle="collapse" data-parent="#accordion7" href="!#collapse73">
+                                                    Subject 3</a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapse73" class="panel-collapse collapse">
+                                                <div class="panel-body">
+                                                    <ul>
+                                                        <li>Download Link 31</li>
+                                                        <li>Download Link 32</li>
+                                                        <li>Download Link 33</li>
+                                                        <li>Download Link 34</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <h4 class="panel-title">
+                                                <a data-toggle="collapse" data-parent="#accordion7" href="!#collapse74">Subject 4</a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapse74" class="panel-collapse collapse">
+                                                <div class="panel-body">
+                                                    <ul>
+                                                        <li>Download Link 41</li>
+                                                        <li>Download Link 42</li>
+                                                        <li>Download Link 43</li>
+                                                        <li>Download Link 44</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="!#collapse8">
+                                    <h1>8</h1>
+                                    <p>Eighth Semester</p>
+                                    <i class="material-icons">chevron_right</i>
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapse8" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <div class="panel-group innerAccordion" id="accordion8">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <h4 class="panel-title">
+                                                    <a data-toggle="collapse" data-parent="#accordion8" href="!#collapse81">Subject 1</a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapse81" class="panel-collapse collapse">
+                                                <div class="panel-body">
+                                                    <ul>
+                                                        <li>Download Link 11</li>
+                                                        <li>Download Link 12</li>
+                                                        <li>Download Link 13</li>
+                                                        <li>Download Link 14</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <h4 class="panel-title">
+                                                    <a data-toggle="collapse" data-parent="#accordion8" href="!#collapse82">
+                                                    Subject 2</a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapse82" class="panel-collapse collapse">
+                                                <div class="panel-body">
+                                                    <ul>
+                                                        <li>Download Link 21</li>
+                                                        <li>Download Link 22</li>
+                                                        <li>Download Link 23</li>
+                                                        <li>Download Link 24</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <h4 class="panel-title">
+                                                    <a data-toggle="collapse" data-parent="#accordion8" href="!#collapse83">
+                                                    Subject 3</a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapse83" class="panel-collapse collapse">
+                                                <div class="panel-body">
+                                                    <ul>
+                                                        <li>Download Link 31</li>
+                                                        <li>Download Link 32</li>
+                                                        <li>Download Link 33</li>
+                                                        <li>Download Link 34</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <h4 class="panel-title">
+                                                <a data-toggle="collapse" data-parent="#accordion8" href="!#collapse84">Subject 4</a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapse84" class="panel-collapse collapse">
+                                                <div class="panel-body">
+                                                    <ul>
+                                                        <li>Download Link 41</li>
+                                                        <li>Download Link 42</li>
+                                                        <li>Download Link 43</li>
+                                                        <li>Download Link 44</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3"></div>
+        </div>
+    </div>

@@ -1,10 +1,12 @@
 // Controller for Library Page
 app.controller('libraryController', function($scope, $http) {
 
-	$scope.selectedBranch = 'Select Branch';
-	$scope.selectedSemester = 'Select Semester';
-	$scope.selectedSubject = 'Select Subject';
-    $scope.selectedCategory = "Select Category";
+	$scope.library={};
+	
+	$scope.library.branch = 'Select Branch';
+	$scope.library.semester = 'Select Semester';
+	$scope.library.subject = 'Select Subject';
+    $scope.library.category = "Select Category";
     
     $scope.subjectError = false;
     $scope.semesterError = false;
@@ -13,10 +15,10 @@ app.controller('libraryController', function($scope, $http) {
     $scope.fileNameError = false;
     $scope.uploadFileError = false;
 
-	$scope.branch = ['Select Branch', 'CSE','IT','ECE','EEE'];
-	$scope.semester = ['Select Semester','First', 'Second', 'Third', 'Fourth', 'Fifth', 'Sixth', 'Seventh', 'Eighth'];
-	$scope.subject = ['Select Subject', 'Bot saare'];
-    $scope.categories = ['Select Category', 'E-Books', 'E-Notes'];
+	$scope.selectBranch = ['Select Branch', 'CSE','IT','ECE','EEE'];
+	$scope.selectSemester = ['Select Semester','First', 'Second', 'Third', 'Fourth', 'Fifth', 'Sixth', 'Seventh', 'Eighth'];
+	$scope.selectSubject = ['Select Subject', 'Bot saare'];
+    $scope.selectCategories = ['Select Category', 'E-Books', 'E-Notes'];
     
     $scope.changeText = function() {
     	var labelText = document.getElementById('fileUploadLabel');
@@ -50,19 +52,56 @@ app.controller('libraryController', function($scope, $http) {
 	    $scope.uploadFileError = false;
 	    
 	    $scope.fileNameErrorFunction();
-        if($scope.selectedBranch!='Select Branch' && $scope.selectedSemester!='Select Semester' && $scope.selectedSubject!='Select Subject' && $scope.selectedCategory!='Select Category' && $scope.fileNameError == false) {
-            console.log("uploaded");
-        } else {
-            console.log("file not uploded");
-            if($scope.selectedBranch=='Select Branch')
+    
+            if($scope.library.branch=='Select Branch')
                 $scope.branchError = true;
-            if($scope.selectedSemester=='Select Semester')
+            if($scope.library.semester=='Select Semester')
                 $scope.semesterError = true;
-            if($scope.selectedSubject=='Select Subject')
+            if($scope.library.subject=='Select Subject')
                 $scope.subjectError = true;
-            if($scope.selectedCategory=='Select Category')
+            if($scope.library.category=='Select Category')
                 $scope.categoryError = true;
-        }
+            
+            if($scope.branchError==false && $scope.semesterError==false && $scope.subjectError==false && $scope.categoryError==false)
+            	{
+        
+            	/*
+            	 * Code to upload the Incoming file and making the post request
+            	 */
+					var uploadUrl="/hello";
+					var formData = new FormData();
+					formData.append('uploadedFile',document.getElementById("fileUpload").files[0]);
+            		formData.append('fileDetails', $scope.library);
+            		console.log(formData+ "   " +$scope.library );
+					 $http({
+						 method: 'POST',
+						 url: uploadUrl,
+						 data: formData,
+						 headers: {'Content-Type': undefined},
+            
+						 transformRequest: angular.identity,
+						 transformResponse: [function (data) {
+							 console.log(data);
+							 thisIsResponse=data;
+							 console.log(thisIsResponse);
+							 return data;
+						 }]
+					 }).then(function(response) {
+            
+					console.log("response of success -----");
+        			console.log(thisIsResponse);
+        			responseOfUpload(thisIsResponse);
+            		return response.data;
+            
+					 }, function errorCallback(response) {
+        			console.log("Error in receiving response from backend------" +response);
+            		console.log('Error: '+response);
+         			});
+        
+            	
+            	}
+        
+        
     }
     
     $scope.searchFunction = function() {
@@ -72,17 +111,17 @@ app.controller('libraryController', function($scope, $http) {
 	    $scope.branchError = false;
 	    
 	    $scope.fileNameErrorFunction();
-        if($scope.selectedBranch!='Select Branch' && $scope.selectedSemester!='Select Semester' && $scope.selectedSubject!='Select Subject' && $scope.selectedCategory!='Select Category') {
+        if($scope.library.branch!='Select Branch' && $scope.library.semester!='Select Semester' && $scope.library.subject!='Select Subject' && $scope.library.category!='Select Category') {
             console.log("searching");
         } else {
             console.log("not searching");
-            if($scope.selectedBranch=='Select Branch')
+            if($scope.library.branch=='Select Branch')
                 $scope.branchError = true;
-            if($scope.selectedSemester=='Select Semester')
+            if($scope.library.semester=='Select Semester')
                 $scope.semesterError = true;
-            if($scope.selectedSubject=='Select Subject')
+            if($scope.library.subject=='Select Subject')
                 $scope.subjectError = true;
-            if($scope.selectedCategory=='Select Category')
+            if($scope.library.category=='Select Category')
                 $scope.categoryError = true;
         }
     }

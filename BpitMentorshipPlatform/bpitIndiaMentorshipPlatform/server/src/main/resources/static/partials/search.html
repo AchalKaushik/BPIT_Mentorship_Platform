@@ -14,7 +14,7 @@
                     <div class="iconContainer">
                         <i class="material-icons">school</i>
                     </div>
-                    <select ng-model="selectedBranch" ng-options="item for item in branch"></select>
+                    <select ng-model="library.branch" ng-options="item for item in selectBranch"></select>
                     <p class="errorMessageSignUp" ng-model="branchError" ng-show="branchError">Select a branch</p>
                 <!--	<div class="iconContainer">
                         <i class="material-icons">book</i>
@@ -54,19 +54,19 @@
                 	<div class="iconContainer">
                         <i class="material-icons">book</i>
                     </div>
-                    <select ng-model="selectedSemester" ng-options="item for item in semester"></select>
+                    <select ng-model="library.semester" ng-options="item for item in selectSemester"></select>
                     <p class="errorMessageSignUp" ng-model="semesterError" ng-show="semesterError">Select a semester</p>
                     
                     <div class="iconContainer">
                         <i class="material-icons">description</i>
                     </div>
-                    <select ng-model="selectedSubject" ng-options="item for item in subject"></select>
+                    <select ng-model="library.subject" ng-options="item for item in selectSubject"></select>
                     <p class="errorMessageSignUp" ng-model="subjectError" ng-show="subjectError">Select a subject</p>
                     
                     <div class="iconContainer">
                         <i class="material-icons">book</i>
                     </div>
-                    <select ng-model="selectedCategory" ng-options="item for item in categories"></select>
+                    <select ng-model="library.category" ng-options="item for item in selectCategories"></select>
                      <p class="errorMessageSignUp" ng-model="categoryError" ng-show="categoryError">Select a category</p>
                     
                     <div id="searchButtonWrapper">

@@ -5,6 +5,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -13,6 +14,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
+
+import bpit.india.mentorship.dto.GetInfoToFetchFileNamesDto;
+import bpit.india.mentorship.service.GetAllFileNamesFromLibraryService;
+import bpit.india.mentorship.service.GetUserCourseService;
 
 @RestController
 public class RestControllerExample {
@@ -23,10 +28,17 @@ public class RestControllerExample {
 	@Autowired
 	private RandomService1 randomService1;
 	
-	@RequestMapping(value="/abc")
-	public String print()
+	@Autowired
+	private GetUserCourseService g;
+	
+	@Autowired
+	private GetAllFileNamesFromLibraryService p;
+	
+	@RequestMapping(value="/g")
+	public List<String> print()
 	{
-		return randomService.randomService();
+		GetInfoToFetchFileNamesDto g= new GetInfoToFetchFileNamesDto("abc","abc","lol","abc","abc");
+		return p.getAllFileNames(g);
 		
 	}
 	

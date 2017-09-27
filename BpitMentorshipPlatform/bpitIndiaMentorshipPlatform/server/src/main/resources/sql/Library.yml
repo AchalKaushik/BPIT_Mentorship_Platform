@@ -1,0 +1,4 @@
+library:
+
+ getAllFileNamesFromLibrary: >
+   select fileName from library where semester=:semester and course=:course and subject=:subject and type=:type and stream=:stream;

@@ -2,10 +2,12 @@ package bpit.india.mentorship.service;
 
 import java.io.File;
 
+import org.apache.tomcat.util.http.fileupload.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import bpit.india.mentorship.common.ReadApplicationConstantsFile;
+import bpit.india.mentorship.dto.BTechFolderPathsDto;
 
 @Service
 public class CreateFolderStructureForLibraryService {
@@ -13,11 +15,12 @@ public class CreateFolderStructureForLibraryService {
 	@Autowired
 	private ReadApplicationConstantsFile readApplicationConstantsFile;
 	
-	public String createFolderStructureForLibrary()
+	public BTechFolderPathsDto createFolderStructureForLibrary()
 	{
 		
-		File createBTechFolder = new File(readApplicationConstantsFile.getSaveFilesInFolder()+"BTech");
 		
+		
+		File createBTechFolder = new File(readApplicationConstantsFile.getSaveFilesInFolder()+"BTech");
 		
 		/*
 		 * Create Folder Structure
@@ -588,7 +591,88 @@ public class CreateFolderStructureForLibraryService {
 		File semester8EEEEPQFolder = new File(semester8EEEFolder.getAbsolutePath()+"//Electrical Power Quality");
 		
 		
+		try{
+		/*
+		 * If folder exists then skip mkdir commands 
+		 */
+	
+		if(!createBTechFolder.exists())
+		{
+			/*
+			 * mkdir commands goes here 
+			 */
+			
+			if(!createBTechFolder.mkdir())
+			{
+				/*
+				 * Error occurred while creating Btech Folder 
+				 */
+				throw new Exception();
+			}
+			
+			/*
+			 * mkdir for semester 1 folders 
+			 */
+			
+			if(createBTechSemester1Folder.mkdir())
+			{
+				/*
+				 * Error occurred while creating Semester1 Folder 
+				 */
+				throw new Exception();
+			}
+			
+			if(semester1CSEFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester1 CSE  Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			
+			
+			
+			
+			} // end of If
+		
+		
+		/*
+		 * set dto for all paths and return that dto
+		 */
+		
+		
+		
+		
+			
+		}//  end of try
+		
+		catch(Exception e)
+		{
+			/*
+			 * An error occurred while creating folder structure for Btech
+			 */
+			e.printStackTrace();
+			/*
+			 * Delete entire Btech folder 
+			 */
+			try{
+			FileUtils.deleteDirectory(createBTechFolder);
+			}
+			catch(Exception exp)
+			{
+				/*
+				 * An exception occurred while deleting the Btech folder
+				 */
+				exp.printStackTrace();
+				return null;
+			}
+		}
+		
+		
 		
 		return null;
+		
+		
 	}
 }

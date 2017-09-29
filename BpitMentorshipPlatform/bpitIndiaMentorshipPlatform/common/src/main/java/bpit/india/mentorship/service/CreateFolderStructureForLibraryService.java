@@ -344,7 +344,7 @@ public class CreateFolderStructureForLibraryService {
 		File semester6CSECNFolder = new File(semester6CSEFolder.getAbsolutePath()+"//Computer Networks");
 		File semester6CSEWEFolder = new File(semester6CSEFolder.getAbsolutePath()+"//Web Engineering");
 		File semester6CSEAIFolder = new File(semester6CSEFolder.getAbsolutePath()+"//Artificial Intelligence");
-		
+		File semester6CSEMNMFolder = new File(semester6CSEFolder.getAbsolutePath()+"//Microprocessors and Microcontrollers");
 
 		/*
 		 * Semester 6 IT Folder Structure
@@ -356,6 +356,8 @@ public class CreateFolderStructureForLibraryService {
 		File semester6ITDCNFolder = new File(semester6ITFolder.getAbsolutePath()+"//Data Communication and Networks");
 		File semester6ITWEFolder = new File(semester6ITFolder.getAbsolutePath()+"//Web Engineering");
 		File semester6ITAIFolder = new File(semester6ITFolder.getAbsolutePath()+"//Artificial Intelligence");
+		File semester6ITMNMFolder = new File(semester6ITFolder.getAbsolutePath()+"//Microprocessors and Microcontrollers");
+
 
 		/*		
 		 * Semester 6 ECE Folder Structure
@@ -614,7 +616,7 @@ public class CreateFolderStructureForLibraryService {
 			 * mkdir for semester 1 folders 
 			 */
 			
-			if(createBTechSemester1Folder.mkdir())
+			if(!createBTechSemester1Folder.mkdir())
 			{
 				/*
 				 * Error occurred while creating Semester1 Folder 
@@ -622,7 +624,7 @@ public class CreateFolderStructureForLibraryService {
 				throw new Exception();
 			}
 			
-			if(semester1CSEFolder.mkdir())
+			if(!semester1CSEFolder.mkdir())
 			{
 					/*
 					 * Error occurred while creating Semester1 CSE  Folder 
@@ -630,8 +632,2716 @@ public class CreateFolderStructureForLibraryService {
 					throw new Exception();	
 			}
 			
+			if(!semester1CSEAMFolder.mkdir())
+			{
+				/*
+				 *  Error occurred while creating Semester1 CSE AM  Folder
+				 */
+				throw new Exception();
+			}
+			
+			if(!semester1CSEAPFolder.mkdir())
+			{
+				/*
+				 *  Error occurred while creating Semester1 CSE AP  Folder
+				 */
+				throw new Exception();
+			}
+			
+			if(!semester1CSEETFolder.mkdir())
+			{
+				/*
+				 *  Error occurred while creating Semester1 CSE ET  Folder
+				 */
+				throw new Exception();
+			}
+			
+			if(!semester1CSEMPFolder.mkdir())
+			{
+				/*
+				 *  Error occurred while creating Semester1 CSE MP  Folder
+				 */
+				throw new Exception();
+			}
+			
+			if(!semester1CSEFOCFolder.mkdir())
+			{
+				/*
+				 *  Error occurred while creating Semester1 CSE FOC  Folder
+				 */
+				throw new Exception();
+			}
+			if(!semester1CSEACFolder.mkdir())
+			{
+				/*
+				 *  Error occurred while creating Semester1 CSE AC  Folder
+				 */
+				throw new Exception();
+			}
+			
+			if(!semester1CSEHVPEFolder.mkdir())
+			{
+				/*
+				 *  Error occurred while creating Semester1 CSE HVPE  Folder
+				 */
+				throw new Exception();
+			}
+			if(!semester1CSEEGFolder.mkdir())
+			{
+				/*
+				 *  Error occurred while creating Semester1 CSE EG  Folder
+				 */
+				throw new Exception();
+			}
 			
 			
+			
+			
+			
+			if(!semester1ITFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester1 IT  Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester1ITAMFolder.mkdir())
+			{
+				/*
+				 *  Error occurred while creating Semester1 IT AM  Folder
+				 */
+				throw new Exception();
+			}
+			
+			if(!semester1ITAPFolder.mkdir())
+			{
+				/*
+				 *  Error occurred while creating Semester1 IT AP  Folder
+				 */
+				throw new Exception();
+			}
+			
+			if(!semester1ITMPFolder.mkdir())
+			{
+				/*
+				 *  Error occurred while creating Semester1 IT MP  Folder
+				 */
+				throw new Exception();
+			}
+			
+			if(!semester1ITFOCFolder.mkdir())
+			{
+				/*
+				 *  Error occurred while creating Semester1 IT FOC  Folder
+				 */
+				throw new Exception();
+			}
+			if(!semester1ITACFolder.mkdir())
+			{
+				/*
+				 *  Error occurred while creating Semester1 IT AC  Folder
+				 */
+				throw new Exception();
+			}
+			if(!semester1ITETFolder.mkdir())
+			{
+				/*
+				 *  Error occurred while creating Semester1 IT ET  Folder
+				 */
+				throw new Exception();
+			}
+			if(!semester1ITHVPEFolder.mkdir())
+			{
+				/*
+				 *  Error occurred while creating Semester1 IT HVPE  Folder
+				 */
+				throw new Exception();
+			}
+			if(!semester1ITEGFolder.mkdir())
+			{
+				/*
+				 *  Error occurred while creating Semester1 IT EG  Folder
+				 */
+				throw new Exception();
+			}
+			
+			
+			
+			
+			
+			
+			
+			if(!semester1ECEFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester1 ECE  Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester1ECEAMFolder.mkdir())
+			{
+				/*
+				 *  Error occurred while creating Semester1 ECE AM  Folder
+				 */
+				throw new Exception();
+			}
+			
+			if(!semester1ECEAPFolder.mkdir())
+			{
+				/*
+				 *  Error occurred while creating Semester1 ECE AP  Folder
+				 */
+				throw new Exception();
+			}
+			
+			if(!semester1ECEETFolder.mkdir())
+			{
+				/*
+				 *  Error occurred while creating Semester1 ECE ET  Folder
+				 */
+				throw new Exception();
+			}
+			
+			if(!semester1ECEMPFolder.mkdir())
+			{
+				/*
+				 *  Error occurred while creating Semester1 ECE MP  Folder
+				 */
+				throw new Exception();
+			}
+			
+			if(!semester1ECEFOCFolder.mkdir())
+			{
+				/*
+				 *  Error occurred while creating Semester1 ECE FOC  Folder
+				 */
+				throw new Exception();
+			}
+			if(!semester1ECEACFolder.mkdir())
+			{
+				/*
+				 *  Error occurred while creating Semester1 ECE AC  Folder
+				 */
+				throw new Exception();
+			}
+			
+			if(!semester1ECEHVPEFolder.mkdir())
+			{
+				/*
+				 *  Error occurred while creating Semester1 ECE HVPE  Folder
+				 */
+				throw new Exception();
+			}
+			if(!semester1ECEEGFolder.mkdir())
+			{
+				/*
+				 *  Error occurred while creating Semester1 ECE EG  Folder
+				 */
+				throw new Exception();
+			}
+			
+			
+			
+			
+			
+			
+			
+			
+			if(!semester1EEEFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester1 EEE  Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester1EEEAMFolder.mkdir())
+			{
+				/*
+				 *  Error occurred while creating Semester1 EEE AM  Folder
+				 */
+				throw new Exception();
+			}
+			
+			if(!semester1EEEAPFolder.mkdir())
+			{
+				/*
+				 *  Error occurred while creating Semester1 EEE AP  Folder
+				 */
+				throw new Exception();
+			}
+			
+			if(!semester1EEEMPFolder.mkdir())
+			{
+				/*
+				 *  Error occurred while creating Semester1 EEE MP  Folder
+				 */
+				throw new Exception();
+			}
+			
+			if(!semester1EEEFOCFolder.mkdir())
+			{
+				/*
+				 *  Error occurred while creating Semester1 EEE FOC  Folder
+				 */
+				throw new Exception();
+			}
+			if(!semester1EEEACFolder.mkdir())
+			{
+				/*
+				 *  Error occurred while creating Semester1 EEE AC  Folder
+				 */
+				throw new Exception();
+			}
+			if(!semester1EEEETFolder.mkdir())
+			{
+				/*
+				 *  Error occurred while creating Semester1 EEE ET  Folder
+				 */
+				throw new Exception();
+			}
+			if(!semester1EEEHVPEFolder.mkdir())
+			{
+				/*
+				 *  Error occurred while creating Semester1 EEE HVPE  Folder
+				 */
+				throw new Exception();
+			}
+			if(!semester1EEEEGFolder.mkdir())
+			{
+				/*
+				 *  Error occurred while creating Semester1 EEE EG  Folder
+				 */
+				throw new Exception();
+			}
+			
+			
+			
+			/*
+			 * MKDIR for semester 2 folders.
+			 */
+			
+			if(!createBTechSemester2Folder.mkdir())
+			{
+				/*
+				 *  Error occurred while creating Semester1 Btech Semester 2  Folder
+				 */
+				throw new Exception();
+			}
+			
+			if(!semester2CSEFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester2 CSE Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester2CSEAMFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester2 CSE AM Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester2CSEAPFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester2 CSE AP  Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester2CSEEDFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester2 CSE ED  Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester2CSEEMFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester2 CSE EM  Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester2CSEEVSFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester2 CSE EVS Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester2CSEIPFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester2 CSE IP Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester2CSECSFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester2 CSE CS Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			
+			
+			
+			
+			
+			
+			if(!semester2ITFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester2 IT Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester2ITAMFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester2 IT AM Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester2ITAPFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester2 IT AP  Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester2ITEDFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester2 IT ED  Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester2ITEMFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester2 IT EM  Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester2ITEVSFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester2 IT EVS Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester2ITIPFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester2 IT IP Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester2ITCSFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester2 ITE CS Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			if(!semester2ECEFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester2 ECE Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester2ECEAMFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester2 ECE AM Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester2ECEAPFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester2 ECE AP  Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester2ECEEDFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester2 ECE ED  Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester2CSEEMFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester2 CSE EM  Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester2ECEEVSFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester2 ECE EVS Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester2ECEIPFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester2 ECE IP Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester2ECECSFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester2 ECE CS Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			
+			
+			
+			
+			
+			if(!semester2EEEFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester2 EEE Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester2EEEAMFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester2 EEE AM Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester2EEEAPFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester2 EEE AP  Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester2EEEEDFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester2 EEE ED  Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester2EEEEMFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester2 EEE EM  Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester2EEEEVSFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester2 EEE EVS Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester2EEEIPFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester2 EEE IP Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester2EEECSFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester2 EEE CS Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			
+			
+			
+			
+			/*
+			 * MKDIR for semester 3
+			 */
+			
+			if(!createBTechSemester3Folder.mkdir())
+			{
+				/*
+				 * Error occurred while creating Semester3 Folder 
+				 */
+				throw new Exception();
+			}
+			
+			if(!semester3CSEFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester3 CSE  Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester3CSEAMFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester3 CSE AM  Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester3CSESTLDFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester3 CSE STLD Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester3CSECGFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester3 CSE CG Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester3CSECNSFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester3 CSE CNS  Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester3CSEFOCSFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester3 CSE FOCS Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester3CSEDSFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester3 CSE DS Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			
+			
+			
+			
+			if(!semester3ITFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester3 IT  Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester3ITAMFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester3 IT AM  Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester3ITSTLDFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester3 IT STLD Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester3ITCGFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester3 IT CG Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester3ITCNSFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester3 IT CNS  Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester3ITFOCSFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester3 IT FOCS Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester3ITDSFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester3 IT DS Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			
+			
+			
+			
+			if(!semester3ECEFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester3 ECE  Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester3ECEAMFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester3 ECE AM  Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester3ECESTLDFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester3 ECE STLD Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester3ECESNSFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester3 ECE SNS Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester3ECEAEFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester3 ECE AE  Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester3ECEEIMFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester3 ECE EIM Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester3ECEDSFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester3 ECE DS Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			
+			
+			
+			if(!semester3EEEFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester3 EEE  Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester3EEEAMFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester3 EEE AM  Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester3EEEAE1Folder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester3 EEE AE1 Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester3EEEEMFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester3 EEE EM Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester3EEECNSFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester3 EEE CNS  Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester3EEEMESFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester3 EEE MES Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester3EEEDSFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester3 EEE DS Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			
+			
+			
+			
+			
+			/*
+			 * MKDIR of semester 4
+			 */
+			
+			
+			
+			if(!createBTechSemester4Folder.mkdir())
+			{
+				/*
+				 * Error occurred while creating Semester4 Folder 
+				 */
+				throw new Exception();
+			}
+			
+			
+			
+			if(!semester4CSEFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester4 CSE  Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester4CSEAMFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester4 CSE AM Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester4CSEOOPFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester4 CSE OOP Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester4CSECSFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester4 CSE CS Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester4CSEDBMSFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester4 CSE DBMS Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester4CSECOAFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester4 CSE COA Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester4CSETOCFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester4 CSE TOC Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			
+			
+			
+			
+			
+			
+			
+			if(!semester4ITFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester4 IT  Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester4ITAMFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester4 IT AM Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester4ITOOPFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester4 IT OOP Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester4ITCSFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester4 IT CS Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester4ITDBMSFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester4 IT DBMS Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester4ITCOAFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester4 IT COA Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester4ITTOCFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester4 IT TOC Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			
+			
+			
+			
+		
+			if(!semester4ECEFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester4 ECE  Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester4ECEAMFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester4 ECE AM Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester4ECEAEFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester4 ECE AE Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester4ECECSFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester4 ECE CS Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester4ECEEFTFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester4 ECE EFT Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester4ECECOAFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester4 ECE COA Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester4ECENASFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester4 ECE NAS Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			
+			
+			
+			
+			
+			if(!semester4EEEFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester4 EEE  Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester4EEEEMFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester4 EEE EM Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester4EEEPSFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester4 EEE PS Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester4EEECSFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester4 EEE CS Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester4EEEEEMIFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester4 EEE EEMI Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester4EEEAEFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester4 EEE AE Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester4EEEEFTFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester4 EEE EFT Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			
+			
+			
+			
+			
+			
+			
+			/*
+			 * MKDIR of semester 5
+			 */
+			
+			
+			
+			if(!createBTechSemester5Folder.mkdir())
+			{
+				/*
+				 * Error occurred while creating Semester5 Folder 
+				 */
+				throw new Exception();
+			}
+			
+			
+			
+			if(!semester5CSEFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester5 CSE  Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester5CSEADAFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester5 CSE ADA Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester5CSEDCFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester5 CSE DC Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester5CSECSPFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester5 CSE CSP Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester5CSEIMFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester5 CSE IM Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester5CSEJPFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester5 CSE JP Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester5CSESEFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester5 CSE SE Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			
+			
+			
+			
+			if(!semester5ITFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester5 IT  Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester5ITADAFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester5 IT ADA Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester5ITDCFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester5 IT DC Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester5ITCSPFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester5 IT CSP Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester5ITIMFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester5 IT IM Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester5ITJPFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester5 IT JP Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester5ITSEFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester5 IT SE Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			
+			
+			
+			
+			if(!semester5ECEFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester5 ECE  Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester5ECECSFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester5 ECE CS Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester5CSEDCFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester5 CSE DC Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester5CSECSPFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester5 CSE CSP Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester5CSEIMFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester5 CSE IM Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester5ECEMNMFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester5 ECE MNM Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester5ECEDSDFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester5 ECE DSD Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			if(!semester5EEEFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester5 EEE  Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester5EEEPEFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester5 EEE PE Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester5EEEDCFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester5 EEE DC Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester5EEECSPFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester5 EEE CSP Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester5EEEIMFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester5 EEE IM Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester5EEESNTFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester5 EEE SNT Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester5EEESTLDFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester5 EEE STLD Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			
+			
+			
+			
+			
+			
+			
+			/*
+			 * MKDIR of semester 6
+			 */
+			
+			
+		
+			if(!createBTechSemester6Folder.mkdir())
+			{
+				/*
+				 * Error occurred while creating Semester6 Folder 
+				 */
+				throw new Exception();
+			}
+			
+			
+			
+			if(!semester6CSEFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester6 CSE  Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester6CSECNFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester6 CSE CN Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester6CSEOSFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester6 CSE OS Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester6CSECDFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester6 CSE CD Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester6CSEMNMFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester6 CSE MNM Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester6CSEWEFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester6 CSE WE Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester6CSEAIFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester6 CSE AI Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			if(!semester6ITFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester6 IT  Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester6ITDCNFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester6 IT DCN Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester6ITOSFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester6 IT OS Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester6ITCDFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester6 IT CD Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester6ITMNMFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester6 IT MNM Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester6ITWEFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester6 IT WE Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester6ITAIFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester6 IT AI Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			
+			
+			
+			
+			
+			
+			
+			if(!semester6ECEFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester6 ECE  Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester6ECEDCNFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester6 ECE DCN Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester6ECEMEFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester6 ECE ME Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester6ECEDSPFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester6 ECE DSP Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester6ECEITCFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester6 ECE ITC Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester6ECEANWPFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester6 ECE ANWP Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester6ECEVLSIDFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester6 ECE VLSID Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			
+			
+			
+			
+			if(!semester6EEEFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester6 EEE  Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester6EEEPSFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester6 EEE PS Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester6EEEUEEETFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester6 EEE UEEET Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester6EEEDSPFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester6 EEE DSP Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester6EEEMNMFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester6 EEE MNM Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester6EEEVLSIDFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester6 EEE VLSID Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester6EEEPSPFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester6 EEE PSP Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			
+			
+				
+			
+			/*
+			 * MKDIR of semester 7
+			 */
+			
+			
+		
+			if(!createBTechSemester7Folder.mkdir())
+			{
+				/*
+				 * Error occurred while creating Semester7 Folder 
+				 */
+				throw new Exception();
+			}
+			
+			
+			
+			if(!semester7CSEFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester7 CSE  Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester7CSEWCFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester7 SE WC Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester7CSEISFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester7 CSE IS Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			if(!semester7CSESTQAFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester7 CSE STQA Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester7CSEDMBIFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester7 CSE DMBI Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester7CSEACNFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester7 CSE ACN Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester7CSEADBMSFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester7 CSE ADBMS Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester7CSECTFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester7 CSE CT Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester7CSEIPRFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester7 CSE IPR Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester7CSEESFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester7 CSE ES Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester7CSEACAFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester7 CSE ACA Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester7CSENLPFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester7 CSE NLP Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester7CSEDSPFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester7 CSE DSP Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester7CSESMFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester7 CSE SM Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester7CSECSFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester7 CSE CS Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester7CSESEIHFEFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester7 CSE SEIHFE Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			
+			
+			
+			
+			if(!semester7ITFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester7 IT  Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester7ITACNFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester7 IT ACN Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester7ITWCFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester7 IT WC Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester7ITESFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester7 IT ES Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester7ITADAFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester7 IT ADA Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester7ITSTFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester7 IT ST Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester7ITSEIHFEFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester7 IT SEIHFE Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester7ITOOCFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester7 IT OOC Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester7ITSWTFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester7 IT SWT Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester7ITGCFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester7 IT GC Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester7ITCCFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester7 IT CC Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester7ITDDFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester7 IT DD Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester7ITECJFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester7 IT ECJ Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester7ITDSPFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester7 IT DSP Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester7ITSNAFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester7 IT SNA Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester7ITPGMFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester7 IT PGM Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester7ITNCFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester7 IT NC Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			
+			
+			
+			
+			
+			
+			if(!semester7ECEFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester7 ECE Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester7ECEESFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester7 ECE ES Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester7ECEWCFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester7 ECE WC Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester7ECEAVLSIDFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester7 ECE AVLSID Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester7ECEOOCFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester7 ECE OOC Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester7ECEADSPFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester7 ECE ADSP Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester7ECEIMEMSFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester7 ECE IMEMS Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester7ECEDBMSFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester7 DBMS ECE Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester7ECEBIFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester7 BI ECE Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester7ECEPEFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester7 PE ECE Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester7ECEGCFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester7 GC ECE Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester7ECEPCFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester7 ECE PC Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester7ECEPMFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester7 ECE PM Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester7ECEEFEFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester7 ECE EFE Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester7ECERFDCFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester7 ECE RFDC Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester7ECERERFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester7 ECE RER Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester7ECERANFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester7 ECE RAN Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester7ECEPNSSFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester7 ECE PNSS Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester7ECESEIHFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester7 ECE SEIH Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester7ECESTECEFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester7 ECE STECE Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			
+			
+			
+			if(!semester7EEEFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester7 EEE  Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester7EEEEDFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester7 EEE ED  Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester7EEEACSFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester7 EEE ACS Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester7EEERERFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester7 EEE RER Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester7EEEPDSFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester7 EEE PDS Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester7EEETDASFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester7 EEE TDAS Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester7EEEDBMSFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester7 EEE DBMS Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester7EEEBIFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester7 EEE BI Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester7EEEDSDFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester7 EEE DSD Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester7EEEEMDFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester7 EEE EMD Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester7EEESEIHFEFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester7 EEE SEIHFE Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester7EEEPNSSFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester7 EEE PNSS Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester7EEEPLCCFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester7 EEE PLCC Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester7EEESTEEEFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester7 EEE STEEE Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester7EEEHVEFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester7 EEE HVE Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester7EEEMTFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester7 EEE MT Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester7EEEEAHTFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester7 EEE EAHT Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester7EEEOOCFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester7 EEE OOC Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			
+			
+			
+			
+			
+			/*
+			 * MKDIR of semester 8
+			 */
+			
+			
+		
+			if(!createBTechSemester8Folder.mkdir())
+			{
+				/*
+				 * Error occurred while creating Semester8 Folder 
+				 */
+				throw new Exception();
+			}
+			
+			
+			
+			if(!semester8CSEFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester8 CSE  Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester8CSEMCFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester8 CSE MC Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester8CSEMLFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester8 CSE ML Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester8CSEHVPEFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester8 CSE HVPE Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester8CSEDIPFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester8 CSE DIP Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester8CSESCFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester8 CSE SC Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester8CSEMEFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester8 CSE ME Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester8CSEVLSIDFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester8 CSE VLSID Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester8CSEDSFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester8 CSE DS Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester8CSEOOSEFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester8 CSE OOSE Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester8CSECVFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester8 CSE CV Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester8CSESPMFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester8 CSE SPM Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester8CSEHCIFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester8 CSE HCI Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester8CSEAHSNFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester8 CSE AHSN Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester8CSEITCFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester8 CSE ITC Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester8CSESOAFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester8 CSE SOA Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester8CSEWIBDFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester8 CSE WIBD Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester8CSEMSFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester8 CSE MS Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester8CSEPPLFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester8 CSE PPL Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester8CSETNFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester8 CSE TN Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester8CSERTCSEFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester8 CSE RTCSE Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			
+			
+			
+			
+			
+			if(!semester8ITFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester8 IT  Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester8ITMCFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester8 IT MC Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester8ITBDAFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester8 IT BDA Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester8ITAHSNFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester8 IT AHSN Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester8ITHVPEFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester8 IT HVPE Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester8ITFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester8 IT  Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester8ITSNAFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester8 IT SNA Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester8ITBIFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester8 IT BI Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester8ITSCFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester8 IT SC Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester8ITVLSIDFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester8 IT VLSID Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester8ITITCFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester8 IT ITC Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester8ITHCIFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester8 IT HCI Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester8ITDIPFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester8 IT DIP Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester8ITNGNFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester8 IT NGN Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester8ITSTCFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester8 IT STC Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester8ITECNMCFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester8 IT ECNMC Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester8ITDSFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester8 IT DS Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester8ITRTCSEFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester8 IT RTCSE Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester8ITWADUNFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester8 IT WADUN Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester8ITGNGFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester8 IT GNG Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			if(!semester8ECEFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester8 ECE  Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester8ECEAHSNFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester8 ECE AHSN Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester8ECESTCFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester8 ECE SC Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester8ECEHVPEFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester8 ECE HVPE Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester8ECEDIPFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester8 ECE DIP Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester8ECECEFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester8 ECE CE Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester8ECEASICDFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester8 ECE ASICD Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester8ECEMCFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester8 ECE MC Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester8ECEINFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester8 ECE IN Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester8ECEASPFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester8 ECE ASP Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester8ECENGNFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester8 ECE NGN Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester8ECECGNMFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester8 ECE CGNM Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester8ECEGNGFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester8 ECE GNG Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester8ECERTFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester8 ECE RT Folder 
+					 */
+					throw new Exception();	
+			}
+			
+			
+			
+			
+			
+			
+			if(!semester8EEEFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester8 EEE  Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester8EEENFSFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester8 EEE NFS Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester8EEEPSOCFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester8 EEE PSOC Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester8EEEPPIFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester8 EEE PPI Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester8EEEDCFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester8 EEE DC Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester8EEEHVPEFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester8 EEE HVPE Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester8EEEEPQFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester8 EEE EPQ Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester8EEEOOPCFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester8 EEE OOPC Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester8EEEAPEPSFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester8 EEE APEPS Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester8EEEREAPSFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester8 EEE REAPS Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester8EEEEMFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester8 EEE EM Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester8EEEEECFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester8 EEE EEC Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester8EEEPSASFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester8 EEE PSAS Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester8EEEESDFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester8 EEE ESD Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester8EEEESFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester8 EEE ES Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester8EEEDCNFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester8 EEE DCN Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester8EEEDIPFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester8 EEE DIP Folder 
+					 */
+					throw new Exception();	
+			}
+			if(!semester8EEEISIFolder.mkdir())
+			{
+					/*
+					 * Error occurred while creating Semester8 EEE ISI Folder 
+					 */
+					throw new Exception();	
+			}
 			
 			
 			} // end of If

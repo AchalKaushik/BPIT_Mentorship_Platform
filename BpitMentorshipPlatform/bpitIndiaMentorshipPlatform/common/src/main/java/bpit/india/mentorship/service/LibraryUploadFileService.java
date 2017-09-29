@@ -2,10 +2,16 @@ package bpit.india.mentorship.service;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.HashMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
+
+import bpit.india.mentorship.dto.BTechSemester1And2FolderPathsDto;
+import bpit.india.mentorship.dto.BTechSemester3And4FolderPathsDto;
+import bpit.india.mentorship.dto.BTechSemester5And6FolderPathsDto;
+import bpit.india.mentorship.dto.BTechSemester7And8FolderPathsDto;
 
 @Service
 public class LibraryUploadFileService {
@@ -13,8 +19,25 @@ public class LibraryUploadFileService {
 	@Autowired
 	private LibrarySaveFileService librarySaveFileService;
 	
+	@Autowired
+	private CreateBTechFolderStructureForLibraryService createBTechFolderStructureForLibraryService;
+	
+	@Autowired
+	private BTechSemester1And2FolderPathsDto bTechSemester1And2FolderPathsDto;
+	
+	@Autowired
+	private BTechSemester3And4FolderPathsDto bTechSemester3And4FolderPathsDto;
+	
+	@Autowired
+	private BTechSemester5And6FolderPathsDto bTechSemester5And6FolderPathsDto;
+	
+	@Autowired
+	private BTechSemester7And8FolderPathsDto bTechSemester7And8FolderPathsDto;
+	
 	public String uploadFile(MultipartFile file,String branch,String subject,String category,String fileName,String semester)
 	{
+		HashMap<String, Object> getPathsOfFolders = new HashMap<String, Object>();
+		
 		String course="";
 		/*
 		 * Get couse corresponding to userId from session
@@ -24,8 +47,10 @@ public class LibraryUploadFileService {
 		
 		if(course.equalsIgnoreCase("BTech"))
 		{
+			getPathsOfFolders = createBTechFolderStructureForLibraryService.createFolderStructureForLibrary();
 		switch (semester) {
 		case "1":
+			bTechSemester1And2FolderPathsDto = (BTechSemester1And2FolderPathsDto)getPathsOfFolders.get("Semester1And2");
 			switch (branch) {
 			case "CSE":
 				switch (subject) {
@@ -34,22 +59,25 @@ public class LibraryUploadFileService {
 					 * Get path of Btech->Sem1->cse->AM1 folder from dto
 					 * Set Path variable using that path 
 					 */
-					path=Paths.get("get path from dto"+ file.getOriginalFilename());
+					path=Paths.get(bTechSemester1And2FolderPathsDto.getSemester1CSEAMFolder()+ file.getOriginalFilename());
 					break;
 				case "Applied Physics - I":
+					path=Paths.get(bTechSemester1And2FolderPathsDto.getSemester1CSEAPFolder()+file.getOriginalFilename());
 					break;
 				case "Electrical Technology":
+					path=Paths.get(bTechSemester1And2FolderPathsDto.getSemester1CSEETFolder()+file.getOriginalFilename());
 					break;
 				case "Manufacturing Processes":
+					path=Paths.get(""+file.getOriginalFilename());
 					break;
 				case "Human Values & Professional Ethics - I":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Fundamentals Of Computing":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Applied Chemistry":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Engineering Graphics Lab":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				default:
 					break;
 				}
@@ -57,21 +85,21 @@ public class LibraryUploadFileService {
 			case "IT":
 				switch (subject) {
 				case "Applied Mathematics - I":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Applied Physics - I":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Electrical Technology":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Manufacturing Processes":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Human Values & Professional Ethics - I":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Fundamentals Of Computing":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Applied Chemistry":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Engineering Graphics Lab":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				default:
 					break;
 				}
@@ -79,21 +107,21 @@ public class LibraryUploadFileService {
 			case "ECE":
 				switch (subject) {
 				case "Applied Mathematics - I":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Applied Physics - I":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Electrical Technology":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Manufacturing Processes":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Human Values & Professional Ethics - I":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Fundamentals Of Computing":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Applied Chemistry":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Engineering Graphics Lab":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				default:
 					break;
 				}
@@ -101,21 +129,21 @@ public class LibraryUploadFileService {
 			case "EEE":
 				switch (subject) {
 				case "Applied Mathematics - I":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Applied Physics - I":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Electrical Technology":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Manufacturing Processes":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Human Values & Professional Ethics - I":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Fundamentals Of Computing":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Applied Chemistry":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Engineering Graphics Lab":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				default:
 					break;
 				}
@@ -126,23 +154,24 @@ public class LibraryUploadFileService {
 			break; // End of case 1 (semester)
 		
 		case "2":
+			bTechSemester1And2FolderPathsDto = (BTechSemester1And2FolderPathsDto)getPathsOfFolders.get("Semester1And2");
 			switch (branch) {
 			case "CSE":
 				switch (subject) {
 				case "Applied Mathematics - II":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Applied Physics - II":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Electronic Devices":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Introduction To Programming":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Engineering Mechanics":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Communications Skills":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Environmental Studies":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				default:
 					break;
 				}
@@ -150,19 +179,19 @@ public class LibraryUploadFileService {
 			case "IT":
 				switch (subject) {
 				case "Applied Mathematics - II":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Applied Physics - II":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Electronic Devices":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Introduction To Programming":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Engineering Mechanics":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Communications Skills":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Environmental Studies":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				default:
 					break;
 				}
@@ -170,19 +199,19 @@ public class LibraryUploadFileService {
 			case "ECE":
 				switch (subject) {
 				case "Applied Mathematics - II":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Applied Physics - II":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Electronic Devices":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Introduction To Programming":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Engineering Mechanics":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Communications Skills":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Environmental Studies":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				default:
 					break;
 				}
@@ -190,19 +219,19 @@ public class LibraryUploadFileService {
 			case "EEE":
 				switch (subject) {
 				case "Applied Mathematics - II":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Applied Physics - II":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Electronic Devices":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Introduction To Programming":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Engineering Mechanics":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Communications Skills":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Environmental Studies":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				default:
 					break;
 				}
@@ -213,21 +242,22 @@ public class LibraryUploadFileService {
 			break;
 		
 		case "3":
+			bTechSemester3And4FolderPathsDto = (BTechSemester3And4FolderPathsDto)getPathsOfFolders.get("Semester3And4");
 			switch (branch) {
 			case "CSE":
 				switch (subject) {
 				case "Applied Mathematics - III":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Foundation Of Computer Science":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Switching Theory And Logic Design":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Circuits And Systems":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Data Structure":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Computer Graphics And Multimedia":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				default:
 					break;
 				}
@@ -235,17 +265,17 @@ public class LibraryUploadFileService {
 			case "IT":
 				switch (subject) {
 				case "Applied Mathematics - III":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Foundation Of Computer Science":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Switching Theory And Logic Design":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Circuits And Systems":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Data Structure":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Computer Graphics And Multimedia":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				default:
 					break;
 				}
@@ -253,17 +283,17 @@ public class LibraryUploadFileService {
 			case "ECE":
 				switch (subject) {
 				case "Applied Mathematics - III":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Analog Electronics - I":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Switching Theory And Logic Design":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Electronic Instruments and Measurements":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Data Structure":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Signals and Systems":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				default:
 					break;
 				}
@@ -271,17 +301,17 @@ public class LibraryUploadFileService {
 			case "EEE":
 				switch (subject) {
 				case "Applied Mathematics - III":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Analog Electronics - I":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Switching Theory And Logic Design":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Electronic Instruments and Measurements":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Data Structure":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Signals and Systems":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				default:
 					break;
 				}
@@ -293,21 +323,22 @@ public class LibraryUploadFileService {
 			break;
 		
 		case "4":
+			bTechSemester3And4FolderPathsDto = (BTechSemester3And4FolderPathsDto)getPathsOfFolders.get("Semester3And4");
 			switch (branch) {
 			case "CSE":
 				switch (subject) {
 				case "Applied Mathematics - IV":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Computer Organization And Architecture":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Theory Of Computation":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Database Management Systems":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Communication Systems":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Object Oriented Programming":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				default:
 					break;
 				}
@@ -315,17 +346,17 @@ public class LibraryUploadFileService {
 			case "IT":
 				switch (subject) {
 				case "Applied Mathematics - IV":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Computer Organization And Architecture":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Theory Of Computation":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Database Management Systems":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Communication Systems":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Object Oriented Programming":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				default:
 					break;
 				}
@@ -333,17 +364,17 @@ public class LibraryUploadFileService {
 			case "ECE":
 				switch (subject) {
 				case "Applied Mathematics - IV":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Computer Organization And Architecture":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Analog Electronics – II":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Network Analysis and Synthesis":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Communication Systems":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Electromagnetic Field Theory":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				default:
 					break;
 				}
@@ -351,17 +382,17 @@ public class LibraryUploadFileService {
 			case "EEE":
 				switch (subject) {
 				case "Electrical Machines-II":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Power System– I":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Electrical   and   Electronics   Measuring Instruments":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Database Management Systems":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Electromagnetic Field Theory":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Control Systems":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				default:
 					break;
 				}
@@ -372,21 +403,22 @@ public class LibraryUploadFileService {
 			break;
 		
 		case "5":
+			bTechSemester5And6FolderPathsDto = (BTechSemester5And6FolderPathsDto)getPathsOfFolders.get("Semester5And6");
 			switch (branch) {
 			case "CSE":
 				switch (subject) {
 				case "Algorithms Design And Analysis":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Communication Skills For Professionals":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Software Engineering":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Digital Communication":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Java Programming":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Industrial Management":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 
 				default:
 					break;
@@ -395,17 +427,17 @@ public class LibraryUploadFileService {
 			case "IT":
 				switch (subject) {
 				case "Algorithms Design And Analysis":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Communication Skills For Professionals":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Software Engineering":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Digital Communication":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Java Programming":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Industrial Management":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 
 				default:
 					break;
@@ -414,17 +446,17 @@ public class LibraryUploadFileService {
 			case "ECE":
 				switch (subject) {
 				case "Microprocessors and Microcontrollers":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Communication Skills For Professionals":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Control Systems":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Digital Communication":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Digital System Design":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Industrial Management":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 
 				default:
 					break;
@@ -433,17 +465,17 @@ public class LibraryUploadFileService {
 			case "EEE":
 				switch (subject) {
 				case "Power Electronics":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Communication Skills For Professionals":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Sensors and Transducers":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Digital Communication":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Switching Theory and Logic Design":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Industrial Management":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 
 				default:
 					break;
@@ -456,19 +488,20 @@ public class LibraryUploadFileService {
 			break;
 		
 		case "6":
+			bTechSemester5And6FolderPathsDto = (BTechSemester5And6FolderPathsDto)getPathsOfFolders.get("Semester5And6");
 			switch (branch) {
 			case "CSE":
 				switch (subject) {
 				case "Compiler Design":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Operating Systems":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Computer Networks":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Web Engineering":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Artificial Intelligence":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 
 				default:
 					break;
@@ -477,15 +510,15 @@ public class LibraryUploadFileService {
 			case "IT":
 				switch (subject) {
 				case "Compiler Design":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Operating Systems":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Data Communication and Networks":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Web Engineering":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Artificial Intelligence":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 
 				default:
 					break;
@@ -495,17 +528,17 @@ public class LibraryUploadFileService {
 			case "ECE":
 				switch (subject) {
 				case "Microwave Engineering":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Information Theory and Coding":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Digital Signal Processing":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "VLSI Design":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Data Communication and Networks":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Antenna and Wave Propagation":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 
 				default:
 					break;
@@ -515,17 +548,17 @@ public class LibraryUploadFileService {
 			case "EEE":
 				switch (subject) {
 				case "Power System – II":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Utilization  of  Electrical  Energy  and  Electric Traction":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Digital Signal Processing":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "VLSI Design":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Microprocessor and Microcontroller":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Power Station Practice":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 
 				default:
 					break;
@@ -540,41 +573,42 @@ public class LibraryUploadFileService {
 			break;
 		
 		case "7":
+			bTechSemester7And8FolderPathsDto = (BTechSemester7And8FolderPathsDto)getPathsOfFolders.get("Semester7And8");
 			switch (branch) {
 			case "CSE":
 				switch (subject) {
 				case "Information Security":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Software Testing and Quality Assurance":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Wireless Communication":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Complexity Theory":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Intellectual Property Rights":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Embedded Systems":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Data Mining and Business Intelligence":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Advanced Computer Architecture":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Natural Language Processing":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Digital Signal Processing":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Simulation and Modelling":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Advanced DBMS":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Parallel Computing":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Advanced Computer Networks":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Control System":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Sociology and Elements of Indian History for Engineers":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 
 				default:
 					break;
@@ -583,39 +617,39 @@ public class LibraryUploadFileService {
 			case "IT":
 				switch (subject) {
 				case "Cryptography and Network Security":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Optoelectronics and Optical Communication":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Wireless Communication":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Cloud Computing":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Distributed Databases":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Embedded Systems":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Semantic Web Technologies":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Software Testing":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case ".NET and C# Programming":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Digital Signal Processing":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Enterprise Computing in Java":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "System and Network Administration":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Grid Computing":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Advanced Computer Networks":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Advanced Database Administration":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Probablistic Graphical Models":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Sociology and Elements of Indian History for Engineers":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 
 				default:
 					break;
@@ -625,41 +659,41 @@ public class LibraryUploadFileService {
 			case "ECE":
 				switch (subject) {
 				case "Advanced DSP":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Optoelectronics and Optical Communication":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Wireless Communication":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Introduction to MEMS":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Advanced VLSI Design":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Embedded Systems":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Biomedical Instrumentation":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "PLC and SCADA Systems":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Power Electronics":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "RF Devices and Circuits":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Database Management System":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Renewable Energy Resources":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Grid Computing":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Project Management":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Economics for Engineers":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Parallel Computing":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Selected topics in ECE**":
-					break; 
+					path=Paths.get(""+file.getOriginalFilename());break; 
 				case "Sociology and Elements of Indian History":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 
 				default:
 					break;
@@ -670,39 +704,39 @@ public class LibraryUploadFileService {
 			case "EEE":
 				switch (subject) {
 				case "Electrical Drives":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Optoelectronics and Optical Communication":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Advanced Control Systems":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "EHV AC and HVDC Transmissions":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Power Distribution System":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Telemetry and Data Acquisition Systems":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Biomedical Instrumentation":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "PLC and SCADA Systems":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Mechatronics":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "High Voltage Engineering":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Database Management System":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Renewable Energy Resources":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Selected topics in EEE**":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Digital System Design":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Power line Carrier Communication":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Electrical Machines Design":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Sociology and Elements of Indian History for Engineers":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 
 				default:
 					break;
@@ -717,49 +751,50 @@ public class LibraryUploadFileService {
 			break;
 		
 		case "8":
+			bTechSemester7And8FolderPathsDto = (BTechSemester7And8FolderPathsDto)getPathsOfFolders.get("Semester7And8");
 			switch (branch) {
 			case "CSE":
 				switch (subject) {
 				case "Mobile Computing":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Machine Learning":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Human Values and Professional Ethics-II":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Digital Image Processing":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Microelectronics":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Ad Hoc and Sensor Networks":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Soft Computing":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "VLSI Design":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Distributed Systems":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Object Oriented Software Engineering":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Computer Vision":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Software Project Management":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Human Computer Interaction":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Information Theory and Coding":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Web Intelligence and Big Data":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Service Oriented Architecture":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Multiagent Systems":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Principles of Programming Languages":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Telecommunication Networks":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Selected Topics of Recent Trends in Computer Science and Engineering":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 
 				default:
 					break;
@@ -768,41 +803,41 @@ public class LibraryUploadFileService {
 			case "IT":
 				switch (subject) {
 				case "Mobile Computing":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Big Data Analytics":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Human Values and Professional Ethics-II":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Digital Image Processing":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Social Network Analysis":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Ad Hoc and Sensor Networks":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Soft Computing":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "VLSI Design":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Distributed Systems":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Bio Informatics":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Web Application development using .NET":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Next Generation Networks":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Human Computer Interaction":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Information Theory and Coding":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "GPS and GIS":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Satellite Communication":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "E-Commerce and M-Commerce":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Selected Topics of Recent Trends in Computer Science and Engineering":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 
 				default:
 					break;
@@ -811,31 +846,31 @@ public class LibraryUploadFileService {
 			case "ECE":
 				switch (subject) {
 				case "Mobile Computing":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Consumer Electronics":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Human Values and Professional Ethics-II":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Digital Image Processing":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "ASIC Design":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Ad Hoc and Sensor Networks":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Introduction to Nanotechnology":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Adaptive Signal Processing":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Robotics":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Computer Graphics and Multimedia":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Next Generation Networks":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "GPS and GIS":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Satellite Communication":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 
 				default:
 					break;
@@ -844,39 +879,39 @@ public class LibraryUploadFileService {
 			case "EEE":
 				switch (subject) {
 				case "Neuro-Fuzzy Systems":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Power System Operation and Control":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Human Values and Professional Ethics-II":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Digital Image Processing":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Application   of   Power Electronics to Power Systems":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Reliability   Engineering   and   Application to Power System":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Electrical Machine - III":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Electrical Energy Conservation":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Power System Analysis and Stability":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Electrical System Design":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Embedded Systems":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Data Communication and Networks":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Object Oriented Programming Using C++":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Power Plant Instrumentation":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Intelligent and Smart Instrumentation":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Digital Communication":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 				case "Electrical Power Quality":
-					break;
+					path=Paths.get(""+file.getOriginalFilename());break;
 
 				default:
 					break;
@@ -909,11 +944,43 @@ public class LibraryUploadFileService {
 			 */
 		}
 		
-		librarySaveFileService.saveFile(file, path);
+		/*
+		 * Save file on server 
+		 */
+		
+		String status=librarySaveFileService.saveFile(file, path);
+		if(status==null)
+		{
+			/*
+			 * An error occcurred while saving file on system
+			 */
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		/*
+		 * DONT WRITE ANY CODE BELOW THIS POINT ADD CODE AVOVE HERE ONLY 
+		 * ELSE MERGING CONFLICT WILL ARISE LATER ON 
+		 * IN CASE YOU NEED ANY HELP OR CLARIT REGARDING THIS LET ME KNOW
+		 */
+		
+		
+		
+		
+		
 		
 		/*
 		 * Now code to insert data in database 
 		 */
+		
+		
+		
+		
 		
 		
 		

@@ -1,21 +1,25 @@
 package bpit.india.mentorship.service;
 
 import java.io.File;
+import java.util.HashMap;
 
 import org.apache.tomcat.util.http.fileupload.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import bpit.india.mentorship.common.ReadApplicationConstantsFile;
-import bpit.india.mentorship.dto.BTechFolderPathsDto;
+import bpit.india.mentorship.dto.BTechSemester1And2FolderPathsDto;
+import bpit.india.mentorship.dto.BTechSemester3And4FolderPathsDto;
+import bpit.india.mentorship.dto.BTechSemester5And6FolderPathsDto;
+import bpit.india.mentorship.dto.BTechSemester7And8FolderPathsDto;
 
 @Service
-public class CreateFolderStructureForLibraryService {
+public class CreateBTechFolderStructureForLibraryService {
 
 	@Autowired
 	private ReadApplicationConstantsFile readApplicationConstantsFile;
 	
-	public BTechFolderPathsDto createFolderStructureForLibrary()
+	public HashMap<String, Object> createFolderStructureForLibrary()
 	{
 		
 		
@@ -3351,10 +3355,74 @@ public class CreateFolderStructureForLibraryService {
 		 * set dto for all paths and return that dto
 		 */
 		
+		HashMap<String, Object> btechAll8SemesterPaths = new HashMap<String, Object>();
+		
+		/*
+		 * Setting paths for Semester 1 & semester 2 folders 
+		 */
+		
+		BTechSemester1And2FolderPathsDto sem1And2Paths= new BTechSemester1And2FolderPathsDto(
+				createBTechFolder.getAbsolutePath(),  
+				createBTechSemester1Folder.getAbsolutePath(), semester1CSEFolder.getAbsolutePath(), semester1CSEAMFolder.getAbsolutePath(), semester1CSEAPFolder.getAbsolutePath(), semester1CSEACFolder.getAbsolutePath(), semester1CSEETFolder.getAbsolutePath(), semester1CSEMPFolder.getAbsolutePath(), semester1CSEEGFolder.getAbsolutePath(), semester1CSEFOCFolder.getAbsolutePath(), semester1CSEHVPEFolder.getAbsolutePath(), 
+				semester1ITFolder.getAbsolutePath(), semester1ITAMFolder.getAbsolutePath(), semester1ITAPFolder.getAbsolutePath(), semester1ITETFolder.getAbsolutePath(), semester1ITMPFolder.getAbsolutePath(), semester1ITFOCFolder.getAbsolutePath(), semester1ITACFolder.getAbsolutePath(), semester1ITEGFolder.getAbsolutePath(), 
+				semester1ECEFolder.getAbsolutePath(), semester1ECEAMFolder.getAbsolutePath(), semester1ECEAPFolder.getAbsolutePath(), semester1ECEETFolder.getAbsolutePath(), semester1ECEMPFolder.getAbsolutePath(), semester1ECEHVPEFolder.getAbsolutePath(), semester1ECEFOCFolder.getAbsolutePath(), semester1ECEACFolder.getAbsolutePath(), semester1ECEEGFolder.getAbsolutePath(), 
+				semester1EEEFolder.getAbsolutePath(), semester1EEEAMFolder.getAbsolutePath(), semester1EEEAPFolder.getAbsolutePath(), semester1EEEETFolder.getAbsolutePath(), semester1EEEMPFolder.getAbsolutePath(), semester1EEEHVPEFolder.getAbsolutePath(), semester1EEEFOCFolder.getAbsolutePath(), semester1EEEACFolder.getAbsolutePath(), semester1EEEEGFolder.getAbsolutePath(), 
+				createBTechSemester2Folder.getAbsolutePath(), semester2CSEFolder.getAbsolutePath(), semester2CSEAMFolder.getAbsolutePath(), semester2CSEAPFolder.getAbsolutePath(), semester2CSEEDFolder.getAbsolutePath(), semester2CSEIPFolder.getAbsolutePath(), semester2CSEEMFolder.getAbsolutePath(), semester2CSECSFolder.getAbsolutePath(), semester2CSEEVSFolder.getAbsolutePath(), 
+				semester2ITFolder.getAbsolutePath(), semester2ITAMFolder.getAbsolutePath(), semester2ITAPFolder.getAbsolutePath(), semester2ITEDFolder.getAbsolutePath(), semester2ITIPFolder.getAbsolutePath(), semester2ITEMFolder.getAbsolutePath(), semester2ITCSFolder.getAbsolutePath(), semester2ITEVSFolder.getAbsolutePath(), 
+				semester2ECEFolder.getAbsolutePath(), semester2ECEAMFolder.getAbsolutePath(), semester2ECEAPFolder.getAbsolutePath(), semester2ECEEDFolder.getAbsolutePath(), semester2ECEIPFolder.getAbsolutePath(), semester2ECEEMFolder.getAbsolutePath(), semester2ECECSFolder.getAbsolutePath(), semester2ECEEVSFolder.getAbsolutePath(), 
+				semester2EEEFolder.getAbsolutePath(), semester2EEEAMFolder.getAbsolutePath(), semester2EEEAPFolder.getAbsolutePath(), semester2EEEEDFolder.getAbsolutePath(), semester2EEEIPFolder.getAbsolutePath(), semester2EEEEMFolder.getAbsolutePath(), semester2EEECSFolder.getAbsolutePath(), semester2EEEEVSFolder.getAbsolutePath()
+				);
+		/*
+		 * Setting paths for Semester 3 & semester 4 folders
+		 */
+		
+		BTechSemester3And4FolderPathsDto sem3And4Paths= new  BTechSemester3And4FolderPathsDto(
+				createBTechSemester3Folder.getAbsolutePath(), semester3CSEFolder.getAbsolutePath(), semester3CSEAMFolder.getAbsolutePath(), semester3CSEFOCSFolder.getAbsolutePath(), semester3CSESTLDFolder.getAbsolutePath(), semester3CSECNSFolder.getAbsolutePath(), semester3CSEDSFolder.getAbsolutePath(), semester3CSECGFolder.getAbsolutePath(), 
+				semester3ITFolder.getAbsolutePath(), semester3ITAMFolder.getAbsolutePath(), semester3ITFOCSFolder.getAbsolutePath(), semester3ITSTLDFolder.getAbsolutePath(), semester3ITCNSFolder.getAbsolutePath(), semester3ITDSFolder.getAbsolutePath(), semester3ITCGFolder.getAbsolutePath(), 
+				semester3ECEFolder.getAbsolutePath(), semester3ECEAMFolder.getAbsolutePath(), semester3ECESTLDFolder.getAbsolutePath(), semester3ECEDSFolder.getAbsolutePath(), semester3ECEAEFolder.getAbsolutePath(), semester3ECEEIMFolder.getAbsolutePath(), semester3ECESNSFolder.getAbsolutePath(), 
+				semester3EEEFolder.getAbsolutePath(), semester3EEEAMFolder.getAbsolutePath(), semester3EEEDSFolder.getAbsolutePath(), semester3EEEAE1Folder.getAbsolutePath(), semester3EEECNSFolder.getAbsolutePath(), semester3EEEMESFolder.getAbsolutePath(), semester3EEEEMFolder.getAbsolutePath(), 
+				createBTechSemester4Folder.getAbsolutePath(), semester4CSEFolder.getAbsolutePath(), semester4CSEAMFolder.getAbsolutePath(), semester4CSECOAFolder.getAbsolutePath(), semester4CSETOCFolder.getAbsolutePath(), semester4CSEDBMSFolder.getAbsolutePath(), semester4CSECSFolder.getAbsolutePath(), semester4CSEOOPFolder.getAbsolutePath(), 
+				semester4ITFolder.getAbsolutePath(), semester4ITAMFolder.getAbsolutePath(), semester4ITCOAFolder.getAbsolutePath(), semester4ITTOCFolder.getAbsolutePath(), semester4ITDBMSFolder.getAbsolutePath(), semester4ITCSFolder.getAbsolutePath(), semester4ITOOPFolder.getAbsolutePath(), 
+				semester4ECEFolder.getAbsolutePath(), semester4ECEAMFolder.getAbsolutePath(), semester4ECECOAFolder.getAbsolutePath(), semester4ECECSFolder.getAbsolutePath(), semester4ECEAEFolder.getAbsolutePath(), semester4ECENASFolder.getAbsolutePath(), semester4ECEEFTFolder.getAbsolutePath(), 
+				semester4EEEFolder.getAbsolutePath(), semester4EEEEFTFolder.getAbsolutePath(), semester4EEEEMFolder.getAbsolutePath(), semester4EEEAEFolder.getAbsolutePath(), semester4EEEPSFolder.getAbsolutePath(), semester4EEEEEMIFolder.getAbsolutePath(), semester4EEECSFolder.getAbsolutePath());
+		
+		/*
+		 * Setting Paths for Semester 5 & 6 Folders
+		 */
 		
 		
+		BTechSemester5And6FolderPathsDto sem5And6Paths = new BTechSemester5And6FolderPathsDto(
+				createBTechSemester5Folder.getAbsolutePath(), semester5CSEFolder.getAbsolutePath(), semester5CSEADAFolder.getAbsolutePath(), semester5CSECSPFolder.getAbsolutePath(), semester5CSESEFolder.getAbsolutePath(), semester5CSEDCFolder.getAbsolutePath(), semester5CSEJPFolder.getAbsolutePath(), semester5CSEIMFolder.getAbsolutePath(), 
+				semester5ITFolder.getAbsolutePath(), semester5ITADAFolder.getAbsolutePath(), semester5ITCSPFolder.getAbsolutePath(), semester5ITSEFolder.getAbsolutePath(), semester5ITDCFolder.getAbsolutePath(), semester5ITJPFolder.getAbsolutePath(), semester5ITIMFolder.getAbsolutePath(), 
+				semester5ECEFolder.getAbsolutePath(), semester5ECEIMFolder.getAbsolutePath(), semester5ECECSPFolder.getAbsolutePath(), semester5ECEDCFolder.getAbsolutePath(), semester5ECEMNMFolder.getAbsolutePath(), semester5ECECSFolder.getAbsolutePath(), semester5ECEDSDFolder.getAbsolutePath(), 
+				semester5EEEFolder.getAbsolutePath(), semester5EEEPEFolder.getAbsolutePath(), semester5EEEIMFolder.getAbsolutePath(), semester5EEECSPFolder.getAbsolutePath(), semester5EEEDCFolder.getAbsolutePath(), semester5EEESNTFolder.getAbsolutePath(), semester5EEESTLDFolder.getAbsolutePath(), 
+				createBTechSemester6Folder.getAbsolutePath(), semester6CSEFolder.getAbsolutePath(), semester6CSECDFolder.getAbsolutePath(), semester6CSEOSFolder.getAbsolutePath(), semester6CSECNFolder.getAbsolutePath(), semester6CSEWEFolder.getAbsolutePath(), semester6CSEAIFolder.getAbsolutePath(), semester6CSEMNMFolder.getAbsolutePath(), 
+				semester6ITFolder.getAbsolutePath(), semester6ITCDFolder.getAbsolutePath(), semester6ITOSFolder.getAbsolutePath(), semester6ITDCNFolder.getAbsolutePath(), semester6ITWEFolder.getAbsolutePath(), semester6ITAIFolder.getAbsolutePath(), semester6ITMNMFolder.getAbsolutePath(), 
+				semester6ECEFolder.getAbsolutePath(), semester6ECEMEFolder.getAbsolutePath(), semester6ECEITCFolder.getAbsolutePath(), semester6ECEDSPFolder.getAbsolutePath(), semester6ECEVLSIDFolder.getAbsolutePath(), semester6ECEDCNFolder.getAbsolutePath(), semester6ECEANWPFolder.getAbsolutePath(), 
+				semester6EEEFolder.getAbsolutePath(), semester6EEEPSFolder.getAbsolutePath(), semester6EEEUEEETFolder.getAbsolutePath(), semester6EEEDSPFolder.getAbsolutePath(), semester6EEEVLSIDFolder.getAbsolutePath(), semester6EEEMNMFolder.getAbsolutePath(), semester6EEEPSPFolder.getAbsolutePath());
 		
-			
+		
+		/*
+		 * Setting paths for semester 7 & 8 folders
+		 */
+		
+		BTechSemester7And8FolderPathsDto sem7And8Paths = new BTechSemester7And8FolderPathsDto(
+				createBTechSemester7Folder.getAbsolutePath(), semester7CSEFolder.getAbsolutePath(), semester7CSEISFolder.getAbsolutePath(), semester7CSESTQAFolder.getAbsolutePath(), semester7CSEWCFolder.getAbsolutePath(), semester7CSECTFolder.getAbsolutePath(), semester7CSEIPRFolder.getAbsolutePath(), semester7CSEESFolder.getAbsolutePath(), semester7CSEDMBIFolder.getAbsolutePath(), semester7CSEACAFolder.getAbsolutePath(), semester7CSENLPFolder.getAbsolutePath(), semester7CSEDSPFolder.getAbsolutePath(), semester7CSESMFolder.getAbsolutePath(), semester7CSEADBMSFolder.getAbsolutePath(), semester7CSEPCFolder.getAbsolutePath(), semester7CSEACNFolder.getAbsolutePath(), semester7CSECSFolder.getAbsolutePath(), semester7CSESEIHFEFolder.getAbsolutePath(), 
+				semester7ITFolder.getAbsolutePath(), semester7ITCNSFolder.getAbsolutePath(), semester7ITOOCFolder.getAbsolutePath(), semester7ITWCFolder.getAbsolutePath(), semester7ITCCFolder.getAbsolutePath(), semester7ITDDFolder.getAbsolutePath(), semester7ITESFolder.getAbsolutePath(), semester7ITSWTFolder.getAbsolutePath(), semester7ITSTFolder.getAbsolutePath(), semester7ITNCFolder.getAbsolutePath(), semester7ITDSPFolder.getAbsolutePath(), semester7ITECJFolder.getAbsolutePath(), semester7ITSNAFolder.getAbsolutePath(), semester7ITGCFolder.getAbsolutePath(), semester7ITACNFolder .getAbsolutePath(), semester7ITADAFolder.getAbsolutePath(), semester7ITPGMFolder.getAbsolutePath(), semester7ITSEIHFEFolder.getAbsolutePath(), 
+				semester7ECEFolder.getAbsolutePath(), semester7ECEADSPFolder.getAbsolutePath(), semester7ECEOOCFolder.getAbsolutePath(), semester7ECEWCFolder.getAbsolutePath(), semester7ECEIMEMSFolder.getAbsolutePath(), semester7ECEAVLSIDFolder.getAbsolutePath(), semester7ECEESFolder.getAbsolutePath(), semester7ECEBIFolder.getAbsolutePath(), semester7ECEPNSSFolder.getAbsolutePath(), semester7ECEPEFolder.getAbsolutePath(), semester7ECERFDCFolder.getAbsolutePath(), semester7ECEDBMSFolder.getAbsolutePath(), semester7ECERERFolder.getAbsolutePath(), semester7ECEGCFolder.getAbsolutePath(), semester7ECERANFolder.getAbsolutePath(), semester7ECEPMFolder.getAbsolutePath(), semester7ECEEFEFolder.getAbsolutePath(), semester7ECEPCFolder.getAbsolutePath(), semester7ECESTECEFolder.getAbsolutePath(), semester7ECESEIHFolder.getAbsolutePath(), 
+				semester7EEEFolder.getAbsolutePath(), semester7EEEEDFolder.getAbsolutePath(), semester7EEEOOCFolder.getAbsolutePath(), semester7EEEACSFolder.getAbsolutePath(), semester7EEEEAHTFolder.getAbsolutePath(), semester7EEEPDSFolder.getAbsolutePath(), semester7EEETDASFolder.getAbsolutePath(), semester7EEEBIFolder.getAbsolutePath(), semester7EEEPNSSFolder.getAbsolutePath(), semester7EEEMTFolder.getAbsolutePath(), semester7EEEHVEFolder.getAbsolutePath(), semester7EEEDBMSFolder.getAbsolutePath(), semester7EEERERFolder.getAbsolutePath(), semester7EEESTEEEFolder.getAbsolutePath(), semester7EEEDSDFolder.getAbsolutePath(), semester7EEEPLCCFolder.getAbsolutePath(), semester7EEEEMDFolder.getAbsolutePath(), semester7EEESEIHFEFolder.getAbsolutePath(), 
+				createBTechSemester8Folder.getAbsolutePath(), semester8CSEFolder.getAbsolutePath(), semester8CSEMCFolder.getAbsolutePath(), semester8CSEMLFolder.getAbsolutePath(), semester8CSEHVPEFolder.getAbsolutePath(), semester8CSEDIPFolder.getAbsolutePath(), semester8CSEMEFolder.getAbsolutePath(), semester8CSEAHSNFolder.getAbsolutePath(), semester8CSESCFolder.getAbsolutePath(), semester8CSEVLSIDFolder.getAbsolutePath(), semester8CSEDSFolder.getAbsolutePath(), semester8CSEOOSEFolder.getAbsolutePath(), semester8CSECVFolder.getAbsolutePath(), semester8CSESPMFolder.getAbsolutePath(), semester8CSEHCIFolder.getAbsolutePath(), semester8CSEITCFolder.getAbsolutePath(), semester8CSEWIBDFolder.getAbsolutePath(), semester8CSESOAFolder.getAbsolutePath(), semester8CSEMSFolder.getAbsolutePath(), semester8CSEPPLFolder.getAbsolutePath(), semester8CSETNFolder.getAbsolutePath(), semester8CSERTCSEFolder.getAbsolutePath(), 
+				semester8ITFolder.getAbsolutePath(), semester8ITMCFolder.getAbsolutePath(), semester8ITBDAFolder.getAbsolutePath(), semester8ITHVPEFolder.getAbsolutePath(), semester8ITDIPFolder.getAbsolutePath(), semester8ITSNAFolder.getAbsolutePath(), semester8ITAHSNFolder.getAbsolutePath(), semester8ITSCFolder.getAbsolutePath(), semester8ITVLSIDFolder.getAbsolutePath(), semester8ITDSFolder.getAbsolutePath(), semester8ITBIFolder.getAbsolutePath(), semester8ITWADUNFolder.getAbsolutePath(), semester8ITNGNFolder.getAbsolutePath(), semester8ITHCIFolder.getAbsolutePath(), semester8ITITCFolder.getAbsolutePath(), semester8ITGNGFolder.getAbsolutePath(), semester8ITSTCFolder.getAbsolutePath(), semester8ITECNMCFolder.getAbsolutePath(), semester8ITRTCSEFolder.getAbsolutePath(), 
+				semester8ECEFolder.getAbsolutePath(), semester8ECEMCFolder.getAbsolutePath(), semester8ECECEFolder.getAbsolutePath(), semester8ECEHVPEFolder.getAbsolutePath(), semester8ECEDIPFolder.getAbsolutePath(), semester8ECEASICDFolder.getAbsolutePath(), semester8ECEAHSNFolder.getAbsolutePath(), semester8ECEINFolder.getAbsolutePath(), semester8ECEASPFolder.getAbsolutePath(), semester8ECERTFolder.getAbsolutePath(), semester8ECECGNMFolder.getAbsolutePath(), semester8ECENGNFolder.getAbsolutePath(), semester8ECEGNGFolder.getAbsolutePath(), semester8ECESTCFolder.getAbsolutePath(), 
+				semester8EEEFolder.getAbsolutePath(), semester8EEENFSFolder.getAbsolutePath(), semester8EEEPSOCFolder.getAbsolutePath(), semester8EEEHVPEFolder.getAbsolutePath(), semester8EEEDIPFolder.getAbsolutePath(), semester8EEEAPEPSFolder.getAbsolutePath(), semester8EEEREAPSFolder.getAbsolutePath(), semester8EEEEMFolder.getAbsolutePath(), semester8EEEEECFolder.getAbsolutePath(), semester8EEEPSASFolder.getAbsolutePath(), semester8EEEESDFolder.getAbsolutePath(), semester8EEEESFolder.getAbsolutePath(), semester8EEEDCNFolder.getAbsolutePath(), semester8EEEOOPCFolder.getAbsolutePath(), semester8EEEPPIFolder.getAbsolutePath(), semester8EEEISIFolder.getAbsolutePath(), semester8EEEDCFolder.getAbsolutePath(), semester8EEEEPQFolder.getAbsolutePath());
+		
+		
+		btechAll8SemesterPaths.put("Semester1And2", sem1And2Paths);
+		btechAll8SemesterPaths.put("Semester3And4", sem3And4Paths);
+		btechAll8SemesterPaths.put("Semester5And6", sem5And6Paths);
+		btechAll8SemesterPaths.put("Semester7And8", sem7And8Paths);
+		
+			return btechAll8SemesterPaths;
 		}//  end of try
 		
 		catch(Exception e)
@@ -3377,11 +3445,9 @@ public class CreateFolderStructureForLibraryService {
 				exp.printStackTrace();
 				return null;
 			}
+			
+			return null;
 		}
-		
-		
-		
-		return null;
 		
 		
 	}

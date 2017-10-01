@@ -65,15 +65,10 @@ private String createBTechSemester3Folder;
 	private String semester4EEEFolder;
 	private String semester4EEEEFTFolder;
 	private String semester4EEEEMFolder;
-	private String semester4EEEAEFolder;
+	private String semester4EEEDBMSFolder;
 	private String semester4EEEPSFolder;
 	private String semester4EEEEEMIFolder;
 	private String semester4EEECSFolder;
-	
-	
-	
-	
-	
 	/**
 	 * @param createBTechSemester3Folder
 	 * @param semester3cseFolder
@@ -129,7 +124,7 @@ private String createBTechSemester3Folder;
 	 * @param semester4eeeFolder
 	 * @param semester4eeeeftFolder
 	 * @param semester4eeeemFolder
-	 * @param semester4eeeaeFolder
+	 * @param semester4eeedbmsFolder
 	 * @param semester4eeepsFolder
 	 * @param semester4eeeeemiFolder
 	 * @param semester4eeecsFolder
@@ -161,7 +156,7 @@ private String createBTechSemester3Folder;
 			String semester4ececsFolder, String semester4eceaeFolder,
 			String semester4ecenasFolder, String semester4eceeftFolder,
 			String semester4eeeFolder, String semester4eeeeftFolder,
-			String semester4eeeemFolder, String semester4eeeaeFolder,
+			String semester4eeeemFolder, String semester4eeedbmsFolder,
 			String semester4eeepsFolder, String semester4eeeeemiFolder,
 			String semester4eeecsFolder) {
 		super();
@@ -219,7 +214,7 @@ private String createBTechSemester3Folder;
 		semester4EEEFolder = semester4eeeFolder;
 		semester4EEEEFTFolder = semester4eeeeftFolder;
 		semester4EEEEMFolder = semester4eeeemFolder;
-		semester4EEEAEFolder = semester4eeeaeFolder;
+		semester4EEEDBMSFolder = semester4eeedbmsFolder;
 		semester4EEEPSFolder = semester4eeepsFolder;
 		semester4EEEEEMIFolder = semester4eeeeemiFolder;
 		semester4EEECSFolder = semester4eeecsFolder;
@@ -873,16 +868,16 @@ private String createBTechSemester3Folder;
 		semester4EEEEMFolder = semester4eeeemFolder;
 	}
 	/**
-	 * @return the semester4EEEAEFolder
+	 * @return the semester4EEEDBMSFolder
 	 */
-	public String getSemester4EEEAEFolder() {
-		return semester4EEEAEFolder;
+	public String getSemester4EEEDBMSFolder() {
+		return semester4EEEDBMSFolder;
 	}
 	/**
-	 * @param semester4eeeaeFolder the semester4EEEAEFolder to set
+	 * @param semester4eeedbmsFolder the semester4EEEDBMSFolder to set
 	 */
-	public void setSemester4EEEAEFolder(String semester4eeeaeFolder) {
-		semester4EEEAEFolder = semester4eeeaeFolder;
+	public void setSemester4EEEDBMSFolder(String semester4eeedbmsFolder) {
+		semester4EEEDBMSFolder = semester4eeedbmsFolder;
 	}
 	/**
 	 * @return the semester4EEEPSFolder

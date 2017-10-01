@@ -26,6 +26,7 @@ public class BTechSemester1And2FolderPathsDto {
 	private String semester1ITFOCFolder;
 	private String semester1ITACFolder;
 	private String semester1ITEGFolder;
+	private String semester1ITHVPEFolder;
 	
 	private String semester1ECEFolder;
 	private String semester1ECEAMFolder;
@@ -84,12 +85,6 @@ public class BTechSemester1And2FolderPathsDto {
 	private String semester2EEEEMFolder;
 	private String semester2EEECSFolder;
 	private String semester2EEEEVSFolder;
-	
-	
-	
-	
-	
-	
 	/**
 	 * @param createBTechFolder
 	 * @param createBTechSemester1Folder
@@ -110,6 +105,7 @@ public class BTechSemester1And2FolderPathsDto {
 	 * @param semester1itfocFolder
 	 * @param semester1itacFolder
 	 * @param semester1itegFolder
+	 * @param semester1ithvpeFolder
 	 * @param semester1eceFolder
 	 * @param semester1eceamFolder
 	 * @param semester1eceapFolder
@@ -172,32 +168,32 @@ public class BTechSemester1And2FolderPathsDto {
 			String semester1itapFolder, String semester1itetFolder,
 			String semester1itmpFolder, String semester1itfocFolder,
 			String semester1itacFolder, String semester1itegFolder,
-			String semester1eceFolder, String semester1eceamFolder,
-			String semester1eceapFolder, String semester1eceetFolder,
-			String semester1ecempFolder, String semester1ecehvpeFolder,
-			String semester1ecefocFolder, String semester1eceacFolder,
-			String semester1eceegFolder, String semester1eeeFolder,
-			String semester1eeeamFolder, String semester1eeeapFolder,
-			String semester1eeeetFolder, String semester1eeempFolder,
-			String semester1eeehvpeFolder, String semester1eeefocFolder,
-			String semester1eeeacFolder, String semester1eeeegFolder,
-			String createBTechSemester2Folder, String semester2cseFolder,
-			String semester2cseamFolder, String semester2cseapFolder,
-			String semester2cseedFolder, String semester2cseipFolder,
-			String semester2cseemFolder, String semester2csecsFolder,
-			String semester2cseevsFolder, String semester2itFolder,
-			String semester2itamFolder, String semester2itapFolder,
-			String semester2itedFolder, String semester2itipFolder,
-			String semester2itemFolder, String semester2itcsFolder,
-			String semester2itevsFolder, String semester2eceFolder,
-			String semester2eceamFolder, String semester2eceapFolder,
-			String semester2eceedFolder, String semester2eceipFolder,
-			String semester2eceemFolder, String semester2ececsFolder,
-			String semester2eceevsFolder, String semester2eeeFolder,
-			String semester2eeeamFolder, String semester2eeeapFolder,
-			String semester2eeeedFolder, String semester2eeeipFolder,
-			String semester2eeeemFolder, String semester2eeecsFolder,
-			String semester2eeeevsFolder) {
+			String semester1ithvpeFolder, String semester1eceFolder,
+			String semester1eceamFolder, String semester1eceapFolder,
+			String semester1eceetFolder, String semester1ecempFolder,
+			String semester1ecehvpeFolder, String semester1ecefocFolder,
+			String semester1eceacFolder, String semester1eceegFolder,
+			String semester1eeeFolder, String semester1eeeamFolder,
+			String semester1eeeapFolder, String semester1eeeetFolder,
+			String semester1eeempFolder, String semester1eeehvpeFolder,
+			String semester1eeefocFolder, String semester1eeeacFolder,
+			String semester1eeeegFolder, String createBTechSemester2Folder,
+			String semester2cseFolder, String semester2cseamFolder,
+			String semester2cseapFolder, String semester2cseedFolder,
+			String semester2cseipFolder, String semester2cseemFolder,
+			String semester2csecsFolder, String semester2cseevsFolder,
+			String semester2itFolder, String semester2itamFolder,
+			String semester2itapFolder, String semester2itedFolder,
+			String semester2itipFolder, String semester2itemFolder,
+			String semester2itcsFolder, String semester2itevsFolder,
+			String semester2eceFolder, String semester2eceamFolder,
+			String semester2eceapFolder, String semester2eceedFolder,
+			String semester2eceipFolder, String semester2eceemFolder,
+			String semester2ececsFolder, String semester2eceevsFolder,
+			String semester2eeeFolder, String semester2eeeamFolder,
+			String semester2eeeapFolder, String semester2eeeedFolder,
+			String semester2eeeipFolder, String semester2eeeemFolder,
+			String semester2eeecsFolder, String semester2eeeevsFolder) {
 		super();
 		this.createBTechFolder = createBTechFolder;
 		this.createBTechSemester1Folder = createBTechSemester1Folder;
@@ -218,6 +214,7 @@ public class BTechSemester1And2FolderPathsDto {
 		semester1ITFOCFolder = semester1itfocFolder;
 		semester1ITACFolder = semester1itacFolder;
 		semester1ITEGFolder = semester1itegFolder;
+		semester1ITHVPEFolder = semester1ithvpeFolder;
 		semester1ECEFolder = semester1eceFolder;
 		semester1ECEAMFolder = semester1eceamFolder;
 		semester1ECEAPFolder = semester1eceapFolder;
@@ -497,6 +494,18 @@ public class BTechSemester1And2FolderPathsDto {
 	 */
 	public void setSemester1ITEGFolder(String semester1itegFolder) {
 		semester1ITEGFolder = semester1itegFolder;
+	}
+	/**
+	 * @return the semester1ITHVPEFolder
+	 */
+	public String getSemester1ITHVPEFolder() {
+		return semester1ITHVPEFolder;
+	}
+	/**
+	 * @param semester1ithvpeFolder the semester1ITHVPEFolder to set
+	 */
+	public void setSemester1ITHVPEFolder(String semester1ithvpeFolder) {
+		semester1ITHVPEFolder = semester1ithvpeFolder;
 	}
 	/**
 	 * @return the semester1ECEFolder
@@ -1112,6 +1121,11 @@ public class BTechSemester1And2FolderPathsDto {
 	}
 	
 	
+	
+	
+	
+	
+		
 		
 	
 }

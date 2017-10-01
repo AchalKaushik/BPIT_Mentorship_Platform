@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import bpit.india.mentorship.dao.LibraryUploadFileDao;
 import bpit.india.mentorship.dto.BTechSemester1And2FolderPathsDto;
 import bpit.india.mentorship.dto.BTechSemester3And4FolderPathsDto;
 import bpit.india.mentorship.dto.BTechSemester5And6FolderPathsDto;
@@ -23,16 +24,7 @@ public class LibraryUploadFileService {
 	private CreateBTechFolderStructureForLibraryService createBTechFolderStructureForLibraryService;
 	
 	@Autowired
-	private BTechSemester1And2FolderPathsDto bTechSemester1And2FolderPathsDto;
-	
-	@Autowired
-	private BTechSemester3And4FolderPathsDto bTechSemester3And4FolderPathsDto;
-	
-	@Autowired
-	private BTechSemester5And6FolderPathsDto bTechSemester5And6FolderPathsDto;
-	
-	@Autowired
-	private BTechSemester7And8FolderPathsDto bTechSemester7And8FolderPathsDto;
+	private LibraryUploadFileDao libraryUploadFileDao;
 	
 	public String uploadFile(MultipartFile file,String branch,String subject,String category,String fileName,String semester)
 	{
@@ -44,6 +36,15 @@ public class LibraryUploadFileService {
 		 */
 		
 		Path path=Paths.get("");
+		
+		
+		BTechSemester1And2FolderPathsDto bTechSemester1And2FolderPathsDto;
+		BTechSemester3And4FolderPathsDto bTechSemester3And4FolderPathsDto;
+		BTechSemester5And6FolderPathsDto bTechSemester5And6FolderPathsDto;
+		BTechSemester7And8FolderPathsDto bTechSemester7And8FolderPathsDto;
+		
+
+		
 		
 		String extension=file.getOriginalFilename().substring(file.getOriginalFilename().indexOf("."));
 		
@@ -306,14 +307,14 @@ public class LibraryUploadFileService {
 					path=Paths.get(bTechSemester3And4FolderPathsDto.getSemester3EEEAMFolder()+fileName+extension);break;
 				case "Analog Electronics - I":
 					path=Paths.get(bTechSemester3And4FolderPathsDto.getSemester3EEEAEFolder()+fileName+extension);break;
-				case "Switching Theory And Logic Design":
-					path=Paths.get(bTechSemester3And4FolderPathsDto.getSemester3EEESTLDFolder()+fileName+extension);break;
-				case "Electronic Instruments and Measurements":
+				case "Materials in Electrical Systems":
+					path=Paths.get(bTechSemester3And4FolderPathsDto.getSemester3EEEMESFolder()+fileName+extension);break;
+				case "Electrical Machines-I":
 					path=Paths.get(bTechSemester3And4FolderPathsDto.getSemester3EEEEMFolder()+fileName+extension);break;
 				case "Data Structure":
 					path=Paths.get(bTechSemester3And4FolderPathsDto.getSemester3EEEDSFolder()+fileName+extension);break;
-				case "Signals and Systems":
-					path=Paths.get(bTechSemester3And4FolderPathsDto.getSemester3EEEFolder()+fileName+extension);break;
+				case "Circuits And Systems":
+					path=Paths.get(bTechSemester3And4FolderPathsDto.getSemester3EEECNSFolder()+fileName+extension);break;
 				default:
 					break;
 				}
@@ -981,7 +982,28 @@ public class LibraryUploadFileService {
 		 */
 		
 		
+String userId="";
 		
+		/*
+		 * Get userId directly from session
+		 */
+		
+		HashMap<String, Object> setDataForLibrary = new HashMap<String, Object>();
+		setDataForLibrary.put("fileName", fileName);
+		setDataForLibrary.put("category", category);
+		setDataForLibrary.put("semester", semester);
+		setDataForLibrary.put("branch", branch);
+		setDataForLibrary.put("subject", subject);
+		setDataForLibrary.put("userId", userId);
+		setDataForLibrary.put("course", course);
+		setDataForLibrary.put("locationOfUploadedFile", path.toString());
+		int insertIntoLibraryStatus = libraryUploadFileDao.insertIntoLibrary(setDataForLibrary);
+		if(insertIntoLibraryStatus==-1)
+		{
+			/*
+			 * An error occurred while inserting data in Library table
+			 */
+		}
 		
 		
 		

@@ -8,6 +8,38 @@ import org.springframework.stereotype.Component;
 public class LibraryOperationsConfig {
 
 	private String getAllFileNamesFromLibrary;
+	private String insertIntoLibrary;
+	private String getLibraryIdAndFileName;
+	
+	
+
+	/**
+	 * @return the getLibraryIdAndFileName
+	 */
+	public String getGetLibraryIdAndFileName() {
+		return getLibraryIdAndFileName;
+	}
+
+	/**
+	 * @param getLibraryIdAndFileName the getLibraryIdAndFileName to set
+	 */
+	public void setGetLibraryIdAndFileName(String getLibraryIdAndFileName) {
+		this.getLibraryIdAndFileName = getLibraryIdAndFileName;
+	}
+
+	/**
+	 * @return the insertIntoLibrary
+	 */
+	public String getInsertIntoLibrary() {
+		return insertIntoLibrary;
+	}
+
+	/**
+	 * @param insertIntoLibrary the insertIntoLibrary to set
+	 */
+	public void setInsertIntoLibrary(String insertIntoLibrary) {
+		this.insertIntoLibrary = insertIntoLibrary;
+	}
 
 	/**
 	 * @return the getAllFileNamesFromLibrary

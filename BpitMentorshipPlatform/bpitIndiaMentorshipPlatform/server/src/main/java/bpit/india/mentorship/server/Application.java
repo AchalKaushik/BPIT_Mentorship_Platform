@@ -6,15 +6,18 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.system.ApplicationPidFileWriter;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.ComponentScan.Filter;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
+@SuppressWarnings("unused")
 @Configuration
-@ComponentScan(basePackages={"bpit.India.mentorship"})
-@EnableAutoConfiguration
+@ComponentScan(basePackages={"bpit.india.mentorship"})
+@EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class})
 @EnableScheduling
 
 public class Application 
@@ -23,7 +26,7 @@ public class Application
     private static final Logger LOGGER = LoggerFactory.getLogger(Application.class);
     
     /** The Constant APPLICATION_PID. referenced in the Linux script appAdmin.sh for start/stop/restart */
-    private static final String APPLICATION_PID = "/apps/MentorshipPlatform/application.pid"; 
+    private static final String APPLICATION_PID = "application.pid"; 
     public static void main(String[] args )
     {
          SpringApplicationBuilder builder = new SpringApplicationBuilder(Application.class);

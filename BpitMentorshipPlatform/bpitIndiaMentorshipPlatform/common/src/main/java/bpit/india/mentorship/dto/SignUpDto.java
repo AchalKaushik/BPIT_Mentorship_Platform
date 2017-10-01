@@ -7,7 +7,7 @@ public class SignUpDto {
 	private String password;
 	private String mobileNumber;
 	private String userId;
-	private String uniqueId;
+	private String enrollmentNumber;
 	private String course;
 	private String registeredAs;
 	
@@ -26,12 +26,12 @@ public class SignUpDto {
 	 * @param password
 	 * @param mobileNumber
 	 * @param userId
-	 * @param uniqueId
+	 * @param enrollmentNumber
 	 * @param course
 	 * @param type
 	 */
 	public SignUpDto(String firstName, String lastName, String password,
-			String mobileNumber, String userId, String uniqueId,
+			String mobileNumber, String userId, String enrollmentNumber,
 			String course, String registeredAs) {
 		super();
 		this.firstName = firstName;
@@ -39,7 +39,7 @@ public class SignUpDto {
 		this.password = password;
 		this.mobileNumber = mobileNumber;
 		this.userId = userId;
-		this.uniqueId = uniqueId;
+		this.enrollmentNumber = enrollmentNumber;
 		this.course = course;
 		this.registeredAs = registeredAs;
 	}
@@ -104,16 +104,16 @@ public class SignUpDto {
 		this.userId = userId;
 	}
 	/**
-	 * @return the uniqueId
+	 * @return the enrollmentNumber
 	 */
-	public String getUniqueId() {
-		return uniqueId;
+	public String getEnrollmentNumber() {
+		return enrollmentNumber;
 	}
 	/**
-	 * @param uniqueId the uniqueId to set
+	 * @param enrollmentNumber the enrollmentNumber to set
 	 */
-	public void setUniqueId(String uniqueId) {
-		this.uniqueId = uniqueId;
+	public void setEnrollmentNumber(String enrollmentNumber) {
+		this.enrollmentNumber = enrollmentNumber;
 	}
 	/**
 	 * @return the course

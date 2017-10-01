@@ -1,53 +1,329 @@
 <div id="libraryWrapper" ng-controller="libraryController" class="container-fluid">
     
 	<div id="loginFormWrapper">
-    <div class="row">
-    <div class="col-sm-1"></div>
-    <div class="col-sm-5" id="libraryInfo">
-        <h1>Library</h1>    
-        <hr />
-        <p>Yha pr bhi kuch likha ja sakta h.. if you want.. baki dekhte h..</p>
-    </div>
-    <div class="col-sm-1"></div>
-    <div class="col-sm-4">
-		<div id="libraryForm">
-			<div class="iconContainer">
-		        <i class="material-icons">school</i>
-		    </div>
-			<select ng-model="selectedBranch" ng-options="item for item in branch"></select>
+        <div class="row">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-5" id="libraryInfo">
+                <h1>Library</h1>    
+                <hr />
+                <p>Yha pr bhi kuch likha ja sakta h.. if you want.. baki dekhte h..</p>
+            </div>
+            <div class="col-sm-1"></div>
+            <div class="col-sm-4">
+                <div id="libraryForm">
+                    <div class="iconContainer">
+                        <i class="material-icons">school</i>
+                    </div>
+                    <select ng-model="selectedBranch" ng-options="item for item in branch"></select>
+                <!--	<div class="iconContainer">
+                        <i class="material-icons">book</i>
+                    </div>
+                    <select ng-model="selectedSemester" ng-options="item for item in semester"></select>
 
-			<div class="iconContainer">
-		        <i class="material-icons">book</i>
-		    </div>
-			<select ng-model="selectedSemester" ng-options="item for item in semester"></select>
-			
-			<div class="iconContainer">
-		        <i class="material-icons">description</i>
-		    </div>
-			<select ng-model="selectedSubject" ng-options="item for item in subject"></select>
-		</div>
-	</div>
+                    <div class="iconContainer">
+                        <i class="material-icons">description</i>
+                    </div>
+                    <select ng-model="selectedSubject" ng-options="item for item in subject"></select>
+                -->
+                </div>
+            </div>
+            <div class="col-sm-1"></div>
+        </div>
     </div>
-    <div class="col-sm-1"></div>
-    </div>
-	<div id="libraryList">
-		<ul>
-			<div class="row">
-				<div class="col-sm-4">
-					<a href="#"><li><h1>1</h1><p>First Semester</p><i class="material-icons">chevron_right</i></li></a>
-					<a href="#"><li><h1>2</h1><p>Second Semester</p><i class="material-icons">chevron_right</i></li></a>
-					<a href="#"><li><h1>3</h1><p>Third Semester</p><i class="material-icons">chevron_right</i></li></a>
-				</div>
-                <div class="col-sm-4">
-					<a href="#"><li><h1>4</h1><p>Fourth Semester</p><i class="material-icons">chevron_right</i></li></a>
-					<a href="#"><li><h1>5</h1><p>Fifth Semester</p><i class="material-icons">chevron_right</i></li></a>
-					<a href="#"><li><h1>6</h1><p>Sixth Semester</p><i class="material-icons">chevron_right</i></li></a>
-				</div>
-				<div class="col-sm-4">
-					<a href="#"><li><h1>7</h1><p>Seventh Semester</p><i class="material-icons">chevron_right</i></li></a>
-					<a href="#"><li><h1>8</h1><p>Eighth Semester</p><i class="material-icons">chevron_right</i></li></a>
-				</div>
+    
+    <div id="navbar">
+    	<div class="row">
+    		<div class="col-sm-4">
+                <a href="#" class="eMaterials">E-Notes</a>
+            </div>
+    		<div class="col-sm-4">
+    			<a href="#!/library/search" class="eMaterials">Search</a>
 			</div>
-		</ul>
-	</div>
-</div>
+    		<div class="col-sm-4">
+                <a href="#" class="eMaterials">E-Books</a>
+            </div>
+		</div>
+    </div>
+    
+	<div id="libraryList">
+        <div class="row">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-6">
+                <div class="panel-group" id="accordion">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="!#collapse1" ng-click="sem(1)">
+                                    <h1>1</h1>
+                                    <p>First Semester</p>
+                                    <i class="material-icons">chevron_right</i>
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapse1" class="panel-collapse collapse">
+                            <div class="panel-body">			
+                                <div class="panel-group innerAccordion" id="accordion1">
+                                    <div class="panel panel-default" ng-repeat="sub in subBranch">
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title">
+                                                <a data-toggle="collapse" data-parent="#accordion1" href="!#collapse1{{($index+1)}}">{{sub}}</a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapse1{{($index+1)}}" class="panel-collapse collapse">
+                                            <div class="panel-body">
+                                                <ul>
+                                                    <li>Download Link 21</li>
+                                                    <li>Download Link 22</li>
+                                                    <li>Download Link 23</li>
+                                                    <li>Download Link 24</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="!#collapse2">
+                                    <h1>2</h1>
+                                    <p>Second Semester</p>
+                                    <i class="material-icons">chevron_right</i>
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapse2" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <div class="panel-group innerAccordion" id="accordion2">
+                                    <div class="panel panel-default" ng-repeat="sub in cses2">
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title">
+                                                <a data-toggle="collapse" data-parent="#accordion2" href="!#collapse2{{($index+1)}}">{{sub}}</a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapse2{{($index+1)}}" class="panel-collapse collapse">
+                                            <div class="panel-body">
+                                                <ul>
+                                                    <li>Download Link 21</li>
+                                                    <li>Download Link 22</li>
+                                                    <li>Download Link 23</li>
+                                                    <li>Download Link 24</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="!#collapse3">
+                                    <h1>3</h1>
+                                    <p>Third Semester</p>
+                                    <i class="material-icons">chevron_right</i>
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapse3" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <div class="panel-group innerAccordion" id="accordion3">
+                                    <div class="panel panel-default" ng-repeat="sub in cses3">
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title">
+                                                <a data-toggle="collapse" data-parent="#accordion3" href="!#collapse3{{($index+1)}}">{{sub}}</a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapse3{{($index+1)}}" class="panel-collapse collapse">
+                                            <div class="panel-body">
+                                                <ul>
+                                                    <li>Download Link 21</li>
+                                                    <li>Download Link 22</li>
+                                                    <li>Download Link 23</li>
+                                                    <li>Download Link 24</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="!#collapse4">
+                                    <h1>4</h1>
+                                    <p>Fourth Semester</p>
+                                    <i class="material-icons">chevron_right</i>
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapse4" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <div class="panel-group innerAccordion" id="accordion4">
+                                    <div class="panel panel-default" ng-repeat="sub in cses4">
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title">
+                                                <a data-toggle="collapse" data-parent="#accordion4" href="!#collapse4{{($index+1)}}">{{sub}}</a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapse4{{($index+1)}}" class="panel-collapse collapse">
+                                            <div class="panel-body">
+                                                <ul>
+                                                    <li>Download Link 21</li>
+                                                    <li>Download Link 22</li>
+                                                    <li>Download Link 23</li>
+                                                    <li>Download Link 24</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="!#collapse5">
+                                    <h1>5</h1>
+                                    <p>Fifth Semester</p>
+                                    <i class="material-icons">chevron_right</i>
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapse5" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <div class="panel-group innerAccordion" id="accordion5">
+                                     <div class="panel panel-default" ng-repeat="sub in cses5">
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title">
+                                                <a data-toggle="collapse" data-parent="#accordion5" href="!#collapse5{{($index+1)}}">{{sub}}</a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapse5{{($index+1)}}" class="panel-collapse collapse">
+                                            <div class="panel-body">
+                                                <ul>
+                                                    <li>Download Link 21</li>
+                                                    <li>Download Link 22</li>
+                                                    <li>Download Link 23</li>
+                                                    <li>Download Link 24</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="!#collapse6">
+                                    <h1>6</h1>
+                                    <p>Sixth Semester</p>
+                                    <i class="material-icons">chevron_right</i>
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapse6" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <div class="panel-group innerAccordion" id="accordion6">
+                                     <div class="panel panel-default" ng-repeat="sub in cses6">
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title">
+                                                <a data-toggle="collapse" data-parent="#accordion6" href="!#collapse6{{($index+1)}}">{{sub}}</a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapse6{{($index+1)}}" class="panel-collapse collapse">
+                                            <div class="panel-body">
+                                                <ul>
+                                                    <li>Download Link 21</li>
+                                                    <li>Download Link 22</li>
+                                                    <li>Download Link 23</li>
+                                                    <li>Download Link 24</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="!#collapse7">
+                                    <h1>7</h1>
+                                    <p>Seventh Semester</p>
+                                    <i class="material-icons">chevron_right</i>
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapse7" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <div class="panel-group innerAccordion" id="accordion7">
+                                     <div class="panel panel-default" ng-repeat="sub in cses7">
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title">
+                                                <a data-toggle="collapse" data-parent="#accordion7" href="!#collapse7{{($index+1)}}">{{sub}}</a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapse7{{($index+1)}}" class="panel-collapse collapse">
+                                            <div class="panel-body">
+                                                <ul>
+                                                    <li>Download Link 21</li>
+                                                    <li>Download Link 22</li>
+                                                    <li>Download Link 23</li>
+                                                    <li>Download Link 24</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="!#collapse8">
+                                    <h1>8</h1>
+                                    <p>Eighth Semester</p>
+                                    <i class="material-icons">chevron_right</i>
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapse8" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <div class="panel-group innerAccordion" id="accordion8">
+                                     <div class="panel panel-default" ng-repeat="sub in cses8">
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title">
+                                                <a data-toggle="collapse" data-parent="#accordion8" href="!#collapse8{{($index+1)}}">{{sub}}</a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapse8{{($index+1)}}" class="panel-collapse collapse">
+                                            <div class="panel-body">
+                                                <ul>
+                                                    <li>Download Link 21</li>
+                                                    <li>Download Link 22</li>
+                                                    <li>Download Link 23</li>
+                                                    <li>Download Link 24</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3"></div>
+        </div>
+    </div>

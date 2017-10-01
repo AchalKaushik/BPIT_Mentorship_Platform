@@ -149,7 +149,6 @@ public abstract class AbstractDatasource {
      * @param databaseUsername the new database username
      */
     public void setDatabaseUsername(String databaseUsername) {
-
         this.databaseUsername = databaseUsername;
     }
 

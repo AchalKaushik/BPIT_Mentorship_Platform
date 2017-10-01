@@ -1,4 +1,4 @@
 signUp:
  
  insertIntoSignUp: >
-  INSERT INTO `bpit`.`login` (`userId`, `password`, `firstName`, `lastName`, `mobileNumber`, `uniqueId`, `registeredAs`, `course`) VALUES (:userId, :password, :firstName,:lastName ,:mobileNumber , :uniqueId, :registeredAs, :course);
+  INSERT INTO `bpit`.`login` (`userId`, `password`, `firstName`, `lastName`, `mobileNumber`, `enrollmentNumber`, `registeredAs`, `course`) VALUES (:userId, :password, :firstName,:lastName ,:mobileNumber , :enrollmentNumber, :registeredAs, :course);

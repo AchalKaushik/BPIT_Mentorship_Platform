@@ -38,7 +38,7 @@ public class CreateBBAFolderStructureForLibraryService {
 		 * Semester 2 BBA Folder Structure 
 		 */
 		
-		File semester2BBAFolder = new File (createBBAFolder.getAbsolutePath()+"//Semester1");
+		File semester2BBAFolder = new File (createBBAFolder.getAbsolutePath()+"//Semester2");
 		
 		
 		File semester2BBABOFolder = new File(semester2BBAFolder.getAbsolutePath()+"//Business Organization");
@@ -46,7 +46,7 @@ public class CreateBBAFolderStructureForLibraryService {
 		File semester2BBAQTORMFolder = new File(semester2BBAFolder.getAbsolutePath()+"//Quantitative Techniques and Operations Research in Management");
 		File semester2BBADBMSFolder = new File(semester2BBAFolder.getAbsolutePath()+"//Data Base Management System ");
 		File semester2BBACAFolder = new File(semester2BBAFolder.getAbsolutePath()+"//Cost Accounting");
-		File semester2BBAPDCS2Folder = new File(semester2BBAFolder.getAbsolutePath()+"//rsonality Development & Communication Skills-II");
+		File semester2BBAPDCS2Folder = new File(semester2BBAFolder.getAbsolutePath()+"//Personality Development & Communication Skills-II");
 		
 		
 		
@@ -55,7 +55,7 @@ public class CreateBBAFolderStructureForLibraryService {
 		 * Semester 3 BBA Folder Structure
 		 */
 		
-		File semester3BBAFolder = new File (createBBAFolder.getAbsolutePath()+"//Semester1");
+		File semester3BBAFolder = new File (createBBAFolder.getAbsolutePath()+"//Semester3");
 		
 		
 		File semester3BBAOBFolder = new File(semester3BBAFolder.getAbsolutePath()+"//Organizational Behaviour");
@@ -70,7 +70,7 @@ public class CreateBBAFolderStructureForLibraryService {
 		/*
 		 * Semester 4 BBA Folder Structure
 		 */
-		File semester4BBAFolder = new File (createBBAFolder.getAbsolutePath()+"//Semester1");
+		File semester4BBAFolder = new File (createBBAFolder.getAbsolutePath()+"//Semester4");
 		
 		
 		File semester4BBAHRMFolder = new File(semester4BBAFolder.getAbsolutePath()+"//Human Resource Management");
@@ -86,7 +86,7 @@ public class CreateBBAFolderStructureForLibraryService {
 		/*
 		 * Semester 5 BBA Folder Structure
 		 */
-		File semester5BBAFolder = new File (createBBAFolder.getAbsolutePath()+"//Semester1");
+		File semester5BBAFolder = new File (createBBAFolder.getAbsolutePath()+"//Semester5");
 		
 		
 		File semester5BBAVEBFolder = new File(semester5BBAFolder.getAbsolutePath()+"//Values & Ethics in Business");
@@ -100,7 +100,7 @@ public class CreateBBAFolderStructureForLibraryService {
 		 * Semester 6 BBA Folder Structure
 		 */
 		
-		File semester6BBAFolder = new File (createBBAFolder.getAbsolutePath()+"//Semester1");
+		File semester6BBAFolder = new File (createBBAFolder.getAbsolutePath()+"//Semester6");
 		
 		
 		File semester6BBABPSFolder = new File(semester6BBAFolder.getAbsolutePath()+"//Business Policy & Strategy");

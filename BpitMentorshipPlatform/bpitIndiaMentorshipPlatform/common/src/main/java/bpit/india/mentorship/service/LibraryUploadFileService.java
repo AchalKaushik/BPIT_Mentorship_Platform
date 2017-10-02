@@ -9,10 +9,12 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import bpit.india.mentorship.dao.LibraryUploadFileDao;
+import bpit.india.mentorship.dto.BBAFolderPathsDTO;
 import bpit.india.mentorship.dto.BTechSemester1And2FolderPathsDto;
 import bpit.india.mentorship.dto.BTechSemester3And4FolderPathsDto;
 import bpit.india.mentorship.dto.BTechSemester5And6FolderPathsDto;
 import bpit.india.mentorship.dto.BTechSemester7And8FolderPathsDto;
+import bpit.india.mentorship.dto.MBAFolderPathsDTO;
 
 @Service
 public class LibraryUploadFileService {
@@ -22,6 +24,12 @@ public class LibraryUploadFileService {
 	
 	@Autowired
 	private CreateBTechFolderStructureForLibraryService createBTechFolderStructureForLibraryService;
+	
+	@Autowired
+	private CreateBTechFolderStructureForLibraryService createBBAFolderStructureForLibraryService;
+	
+	@Autowired
+	private CreateBTechFolderStructureForLibraryService createMBAFolderStructureForLibraryService;
 	
 	@Autowired
 	private LibraryUploadFileDao libraryUploadFileDao;
@@ -42,6 +50,9 @@ public class LibraryUploadFileService {
 		BTechSemester3And4FolderPathsDto bTechSemester3And4FolderPathsDto;
 		BTechSemester5And6FolderPathsDto bTechSemester5And6FolderPathsDto;
 		BTechSemester7And8FolderPathsDto bTechSemester7And8FolderPathsDto;
+		BBAFolderPathsDTO bbaFolderPathsDTO = null;
+		MBAFolderPathsDTO mbaFolderPathsDTO = null;
+		
 		
 
 		
@@ -934,10 +945,399 @@ public class LibraryUploadFileService {
 		}
 		else if(course.equalsIgnoreCase("BBA"))
 		{
+			getPathsOfFolders = createBBAFolderStructureForLibraryService.createFolderStructureForLibrary();
+			
+			switch (semester) 
+			{
+			     
+		
+			 case "1" : 
+				  
+			switch (subject)   {
+			
+			case "Principles of Management":
+				path=Paths.get(bbaFolderPathsDTO.getSemester1BBAPOMFolder()+fileName+extension);
+				break;
+			case "Bussiness Economics - I":
+				path=Paths.get(bbaFolderPathsDTO.getSemester1BBABE1Folder()+fileName+extension);
+				break;
+			case "Bussiness Mathematics":
+				path=Paths.get(bbaFolderPathsDTO.getSemester1BBABMFolder()+fileName+extension);
+				break;
+			case "Introduction to IT":
+				path=Paths.get(bbaFolderPathsDTO.getSemester1BBAIITFolder()+fileName+extension);
+				break;
+			case "Financial Accounting":
+				path=Paths.get(bbaFolderPathsDTO.getSemester1BBAFAFolder()+fileName+extension);
+				break;
+			case "Personality Development & Communication Skills-I":
+				path=Paths.get(bbaFolderPathsDTO.getSemester1BBAPDCSFolder()+fileName+extension);
+				break;
+			}
+			break;
+			 case "2" :
+				 
+					switch (subject)   {
+					
+					case "Business Organization":
+						path=Paths.get(bbaFolderPathsDTO.getSemester2BBABOFolder()+fileName+extension);
+						break;
+					case "Business Economics-II":
+						path=Paths.get(bbaFolderPathsDTO.getSemester2BBABE2Folder()+fileName+extension);
+						break;
+					case "Quantitative Techniques and Operations Research in Management":
+						path=Paths.get(bbaFolderPathsDTO.getSemester2BBAQTORMFolder()+fileName+extension);
+						break;
+					case "Data Base Management System":
+						path=Paths.get(bbaFolderPathsDTO.getSemester2BBADBMSFolder()+fileName+extension);
+						break;
+					case "Cost Accounting":
+						path=Paths.get(bbaFolderPathsDTO.getSemester2BBACAFolder()+fileName+extension);
+						break;
+					case "Personality Development & Communication Skills-II":
+						path=Paths.get(bbaFolderPathsDTO.getSemester2BBAPDCS2Folder()+fileName+extension);
+						break;
+					}
+					break;	
+			 case "3" :
+					switch (subject)   {
+					
+					case "Organizational Behaviour":
+						path=Paths.get(bbaFolderPathsDTO.getSemester3BBAOBFolder()+fileName+extension);
+						break;
+					case "Indian Economy":
+						path=Paths.get(bbaFolderPathsDTO.getSemester3BBAIEFolder()+fileName+extension);
+						break;
+					case "Marketing Management":
+						path=Paths.get(bbaFolderPathsDTO.getSemester3BBAMMFolder()+fileName+extension);
+						break;
+					case "Computer Applications -I":
+						path=Paths.get(bbaFolderPathsDTO.getSemester3BBACA1Folder()+fileName+extension);
+						break;
+					case "Management Accounting":
+						path=Paths.get(bbaFolderPathsDTO.getSemester3BBAMAFolder()+fileName+extension);
+						break;
+					case "Personality Development & Communication Skills-III":
+						path=Paths.get(bbaFolderPathsDTO.getSemester3BBAPDCS3Folder()+fileName+extension);
+						break;
+					}
+					break;
+			 case "4"  :	
+					switch (subject)   {
+					
+					case "Human Resource Management":
+						path=Paths.get(bbaFolderPathsDTO.getSemester4BBAHRMFolder()+fileName+extension);
+						break;
+					case "Business Environment":
+						path=Paths.get(bbaFolderPathsDTO.getSemester4BBABEFolder()+fileName+extension);
+						break;
+					case "Marketing Research":
+						path=Paths.get(bbaFolderPathsDTO.getSemester4BBAMRFolder()+fileName+extension);
+						break;
+					case "Computer Applications - II":
+						path=Paths.get(bbaFolderPathsDTO.getSemester4BBACA2Folder()+fileName+extension);
+						break;
+					case "Business Laws":
+						path=Paths.get(bbaFolderPathsDTO.getSemester4BBABLFolder()+fileName+extension);
+						break;
+					case "Taxation Laws":
+						path=Paths.get(bbaFolderPathsDTO.getSemester4BBATLFolder()+fileName+extension);
+						break;					
+					}
+					break;
+			 case "5" :
+					switch (subject)   {
+					
+					case "Values & Ethics in Business":
+						path=Paths.get(bbaFolderPathsDTO.getSemester5BBAVEBFolder()+fileName+extension);
+						break;
+					case "Sales Management":
+						path=Paths.get(bbaFolderPathsDTO.getSemester5BBASMFolder()+fileName+extension);
+						break;
+					case "Production & Operations Management":
+						path=Paths.get(bbaFolderPathsDTO.getSemester5BBAPOMFolder()+fileName+extension);
+						break;
+					case "Management Information System":
+						path=Paths.get(bbaFolderPathsDTO.getSemester5BBAMISFolder()+fileName+extension);
+						break;
+					case "Financial Management":
+						path=Paths.get(bbaFolderPathsDTO.getSemester5BBAFMFolder()+fileName+extension);
+						break;
+					}
+					break;
+			 case "6"  :
+					switch (subject)   {
+					
+					case "Business Policy & Strategy":
+						path=Paths.get(bbaFolderPathsDTO.getSemester6BBABPSFolder()+fileName+extension);
+						break;
+					case "Project Planning & Evaluation":
+						path=Paths.get(bbaFolderPathsDTO.getSemester6BBAPPEFolder()+fileName+extension);
+						break;
+					case "Entrepreneurship Development":
+						path=Paths.get(bbaFolderPathsDTO.getSemester6BBAEDFolder()+fileName+extension);
+						break;
+					case "International Business Management":
+						path=Paths.get(bbaFolderPathsDTO.getSemester6BBAIBMFolder()+fileName+extension);
+						break;
+					case "Environmental Science":
+						path=Paths.get(bbaFolderPathsDTO.getSemester6BBAEVSFolder()+fileName+extension);
+						break;
+					}
+					break;
+					
+			}
 			
 		}
 		else if(course.equalsIgnoreCase("MBA"))
 		{
+			getPathsOfFolders = createMBAFolderStructureForLibraryService.createFolderStructureForLibrary();
+			
+			switch (semester) 
+			{
+			     
+            case "1" : 
+				  
+			switch (subject)   {
+			
+			case "Management Process & Organizational Behaviour":
+				path=Paths.get(mbaFolderPathsDTO.getSemester1MBAMPOBFolder()+fileName+extension);
+				break;
+			case "Decision Sciences":
+				path=Paths.get(mbaFolderPathsDTO.getSemester1MBADSFolder()+fileName+extension);
+				break;
+			case "Managerial Economics":
+				path=Paths.get(mbaFolderPathsDTO.getSemester1MBAMEFolder()+fileName+extension);
+				break;
+			case "Accounting for Management":
+				path=Paths.get(mbaFolderPathsDTO.getSemester1MBAAOMFolder()+fileName+extension);
+				break;
+			case "Information Technology Management":
+				path=Paths.get(mbaFolderPathsDTO.getSemester1MBAITMFolder()+fileName+extension);
+				break;
+			case "Business Communication":
+				path=Paths.get(mbaFolderPathsDTO.getSemester1MBABCFolder()+fileName+extension);
+				break;
+			case "Legal Aspects of Business":
+				path=Paths.get(mbaFolderPathsDTO.getSemester1MBALABFolder()+fileName+extension);
+				break;
+			case "Managerial Skills Development":
+				path=Paths.get(mbaFolderPathsDTO.getSemester1MBAMSDFolder()+fileName+extension);
+				break;
+			
+			}
+			break;
+			
+            case "2" : 
+				  
+    			switch (subject)   {
+    			
+    			case "Management of Technology, Innovation and Change":
+    				path=Paths.get(""+fileName+extension);
+    				break;
+    			case "Financial Management":
+    				path=Paths.get(mbaFolderPathsDTO.getSemester2MBAMTICFolder()+fileName+extension);
+    				break;
+    			case "Marketing Management":
+    				path=Paths.get(mbaFolderPathsDTO.getSemester2MBAMMFolder()+fileName+extension);
+    				break;
+    			case "Business Research Methods":
+    				path=Paths.get(mbaFolderPathsDTO.getSemester2MBABRMFolder()+fileName+extension);
+    				break;
+    			case "Operations Management":
+    				path=Paths.get(mbaFolderPathsDTO.getSemester2MBAOMFolder()+fileName+extension);
+    				break;
+    			case "Human Resources Management":
+    				path=Paths.get(mbaFolderPathsDTO.getSemester2MBAHRMFolder()+fileName+extension);
+    				break;
+    			case "e-Business":
+    				path=Paths.get(mbaFolderPathsDTO.getSemester2MBAEBFolder()+fileName+extension);
+    				break;
+    			case "Business Analytics":
+    				path=Paths.get(mbaFolderPathsDTO.getSemester2MBABAFolder()+fileName+extension);
+    				break;
+    			}
+    			break;
+            case "3" : 
+				  
+    			switch (subject)   {
+    			
+    			case "Management of International Business":
+    				path=Paths.get(mbaFolderPathsDTO.getSemester3MBAMIMBFolder()+fileName+extension);
+    				break;
+    			case "Information Systems Management":
+    				path=Paths.get(mbaFolderPathsDTO.getSemester3MBAISMFolder()+fileName+extension);
+    				break;
+    			case "Entrepreneurship Development":
+    				path=Paths.get(mbaFolderPathsDTO.getSemester3MBAEDFolder()+fileName+extension);
+    				break;
+    			case "Consumer Behavior":
+    				path=Paths.get(mbaFolderPathsDTO.getSemester3MBACBFolder()+fileName+extension);
+    				break;
+    			case "Sales and Distribution Management":
+    				path=Paths.get(mbaFolderPathsDTO.getSemester3MBASDMFolder()+fileName+extension);
+    				break;
+    			case "International Marketing":
+    				path=Paths.get(mbaFolderPathsDTO.getSemester3MBAIMFolder()+fileName+extension);
+    				break;
+    			case "Services Marketing":
+    				path=Paths.get(mbaFolderPathsDTO.getSemester3MBASMFolder()+fileName+extension);
+    				break;
+    			case "Customer Relationship Management":
+    				path=Paths.get(mbaFolderPathsDTO.getSemester3MBACRMFolder()+fileName+extension);
+    				break;
+    			case "International Financial Management":
+    				path=Paths.get(mbaFolderPathsDTO.getSemester3MBAIFMFolder()+fileName+extension);
+    				break;
+    			case "Financial Markets and Institutions":
+    				path=Paths.get(mbaFolderPathsDTO.getSemester3MBAFMIFolder()+fileName+extension);
+    				break;
+    			case "Security Analysis and Investment Management":
+    				path=Paths.get(mbaFolderPathsDTO.getSemester3MBASAIMFolder()+fileName+extension);
+    				break;
+    			case "Corporate Tax Planning":
+    				path=Paths.get(mbaFolderPathsDTO.getSemester3MBACTPFolder()+fileName+extension);
+    				break;
+    			case "Financial Econometrics":
+    				path=Paths.get(mbaFolderPathsDTO.getSemester3MBAFEFolder()+fileName+extension);
+    				break;
+    			case "Compensation Management":
+    				path=Paths.get(mbaFolderPathsDTO.getSemester3MBACMFolder()+fileName+extension);
+    				break;
+    			case "Industrial Relations and Labor Laws":
+    				path=Paths.get(mbaFolderPathsDTO.getSemester3MBAIRLLFolder()+fileName+extension);
+    				break;
+    			case "Training and Development":
+    				path=Paths.get(mbaFolderPathsDTO.getSemester3MBATnDFolder()+fileName+extension);
+    				break;
+    			case "Performance Management":
+    				path=Paths.get(mbaFolderPathsDTO.getSemester3MBAPMFolder()+fileName+extension);
+    				break;
+    			case "Talent Management":
+    				path=Paths.get(mbaFolderPathsDTO.getSemester3MBATMFolder()+fileName+extension);
+    				break;
+    			case "Systems Analysis and Design":
+    				path=Paths.get(mbaFolderPathsDTO.getSemester3MBASADFolder()+fileName+extension);
+    				break;
+    			case "Enterprise Systems":
+    				path=Paths.get(mbaFolderPathsDTO.getSemester3MBAESFolder()+fileName+extension);
+    				break;
+    			case "Network Applications and Management":
+    				path=Paths.get(mbaFolderPathsDTO.getSemester3MBANAMFolder()+fileName+extension);
+    				break;
+    			case "Database Management Systems":
+    				path=Paths.get(mbaFolderPathsDTO.getSemester3MBADBMSFolder()+fileName+extension);
+    				break;
+    			case "Information Security Management":
+    				path=Paths.get(mbaFolderPathsDTO.getSemester3MBAISMFolder()+fileName+extension);
+    				break;
+    			case "International Business Environment":
+    				path=Paths.get(mbaFolderPathsDTO.getSemester3MBAIBEFolder()+fileName+extension);
+    				break;
+    			case "Export, Import Policies, Procedures, and Documentation":
+    				path=Paths.get(mbaFolderPathsDTO.getSemester3MBAEIPPDFolder()+fileName+extension);
+    				break;
+    			case "WTO and Intellectual Property Rights":
+    				path=Paths.get(mbaFolderPathsDTO.getSemester3MBAWIPRFolder()+fileName+extension);
+    				break;
+    			case "International Economics":
+    				path=Paths.get(mbaFolderPathsDTO.getSemester3MBAIEFolder()+fileName+extension);
+    				break;
+    			case "International Business Negotiation":
+    				path=Paths.get(mbaFolderPathsDTO.getSemester3MBAIBNFolder()+fileName+extension);
+    				break;
+    			   				
+    			}
+    			break;
+            case "4" : 
+				  
+    			switch (subject)   {
+    			
+    			case "Project Dissertation":
+    				path=Paths.get(mbaFolderPathsDTO.getSemester4MBAPDFolder()+fileName+extension);
+    				break;
+    			case "Business Intelligence and Applications":
+    				path=Paths.get(mbaFolderPathsDTO.getSemester4MBABIAFolder()+fileName+extension);
+    				break;
+    			case "Strategic Management":
+    				path=Paths.get(mbaFolderPathsDTO.getSemester4MBASMFolder()+fileName+extension);
+    				break;
+    			case "Corporate Social Responsibility, Human Values & Ethics":
+    				path=Paths.get(mbaFolderPathsDTO.getSemester4MBACSRHVEFolder()+fileName+extension);
+    				break;
+    			case "Retail Management":
+    				path=Paths.get(mbaFolderPathsDTO.getSemester4MBARMFolder()+fileName+extension);
+    				break;
+    			case "Advertising and Brand Management":
+    				path=Paths.get(mbaFolderPathsDTO.getSemester4MBAABMFolder()+fileName+extension);
+    				break;
+    			case "Internet Marketing":
+    				path=Paths.get(mbaFolderPathsDTO.getSemester4MBAIMFolder()+fileName+extension);
+    				break;
+    				
+    			case "Business Marketing":
+    				path=Paths.get(mbaFolderPathsDTO.getSemester4MBABMFolder()+fileName+extension);
+    				break;
+    				
+    			case "Mergers, Acquisitions and Corporate Restructuring":
+    				path=Paths.get(mbaFolderPathsDTO.getSemester4MBAMACRFolder()+fileName+extension);
+    				break;
+    				
+    			case "Financial Derivatives":
+    				path=Paths.get(mbaFolderPathsDTO.getSemester4MBAFDFolder()+fileName+extension);
+    				break;
+    				
+    			case "Strategic Financial Management":
+    				path=Paths.get(mbaFolderPathsDTO.getSemester4MBASFMFolder()+fileName+extension);
+    				break;
+    				
+    			case "Behavioral Finance":
+    				path=Paths.get(mbaFolderPathsDTO.getSemester4MBABFFolder()+fileName+extension);
+    				break;
+    				
+    			case "Strategic Human Resource Management":
+    				path=Paths.get(mbaFolderPathsDTO.getSemester4MBASHRMFolder()+fileName+extension);
+    				break;
+    				
+    			case "Organizational Development":
+    				path=Paths.get(mbaFolderPathsDTO.getSemester4MBAODFolder()+fileName+extension);
+    				break;
+    				
+    			case "Team Building":
+    				path=Paths.get(mbaFolderPathsDTO.getSemester4MBATBFolder()+fileName+extension);
+    				break;
+    				
+    			case "Behaviour Testing & Counseling":
+    				path=Paths.get(mbaFolderPathsDTO.getSemester4MBABTCFolder()+fileName+extension);
+    				break;
+    			case "Software Project Management":
+    				path=Paths.get(mbaFolderPathsDTO.getSemester4MBASPMFolder()+fileName+extension);
+    				break;
+    			case "Web Technologies":
+    				path=Paths.get(mbaFolderPathsDTO.getSemester4MBAWTFolder()+fileName+extension);
+    				break;
+    			case "Knowledge Management":
+    				path=Paths.get(mbaFolderPathsDTO.getSemester4MBAKMFolder()+fileName+extension);
+    				break;
+    			case "Digitalization and E-Governance":
+    				path=Paths.get(mbaFolderPathsDTO.getSemester4MBADEGFolder()+fileName+extension);
+    				break;
+    			case "Global Competitiveness and Strategic Alliances":
+    				path=Paths.get(mbaFolderPathsDTO.getSemester4MBAGCSAFolder()+fileName+extension);
+    				break;
+    			case "Supply Chain Management for International Business":
+    				path=Paths.get(mbaFolderPathsDTO.getSemester4MBASCMIBFolder()+fileName+extension);
+    				break;
+    			case "Managing Diversity":
+    				path=Paths.get(mbaFolderPathsDTO.getSemester4MBAMDFolder()+fileName+extension);
+    				break;
+    			case "Global Strategic Management":
+    				path=Paths.get(mbaFolderPathsDTO.getSemester4MBAGSMFolder()+fileName+extension);
+    				break;
+    				
+    			}
+    			break;
+			}
 			
 		}
 		else

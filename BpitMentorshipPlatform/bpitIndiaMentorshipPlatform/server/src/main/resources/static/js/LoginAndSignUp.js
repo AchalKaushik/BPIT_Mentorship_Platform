@@ -3,6 +3,7 @@ app.controller('loginController', function($scope, $http) {
     
 	console.log("In login controller");
     $scope.signUp={};
+    $scope.loginData={};
     
     /*
      *  Login page Angular Script Goes here
@@ -40,6 +41,10 @@ app.controller('loginController', function($scope, $http) {
     $scope.enrollmentNumberError = false;
     $scope.enrollmentNumberRegistered = false;
     $scope.successMsg = false;
+    $scope.loginEmailIdError = false;
+    
+    $scope.loginActive = true;
+    $scope.signupActive = false;
 
 
     $scope.confirmPasswordFlag = false;
@@ -59,6 +64,17 @@ app.controller('loginController', function($scope, $http) {
     $scope.branch = ["CSE", "IT", "ECE", "EEE"];
     // To toggle the visibility of 'Branch' Field
     $scope.toggleBranchField = "false";
+
+	$scope.toggleLoginSignUp = function(data) {
+        console.log("in toggle");
+		if(data==1) {
+			$scope.loginActive = true;
+			$scope.signupActive = false;
+		} else if (data==2) {
+			$scope.loginActive = false;
+			$scope.signupActive = true;
+		}
+	}
     
     $scope.updateEnroll = function() {
         if($scope.signUp.registeredAs=="Teacher" || $scope.signUp.registeredAs=="Mentor") {
@@ -125,7 +141,12 @@ app.controller('loginController', function($scope, $http) {
     $scope.validateEmailId = function() {
         console.log("In validate function");
         var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        if(!re.test($scope.signUp.userId)) 
+        if( !re.test($scope.loginData.userId)) 
+            $scope.loginEmailIdError=true;
+        else
+            $scope.loginEmailIdError=false;
+        
+        if(!re.test($scope.signUp.userId))
             $scope.emailIdError=true;
         else
             $scope.emailIdError=false;

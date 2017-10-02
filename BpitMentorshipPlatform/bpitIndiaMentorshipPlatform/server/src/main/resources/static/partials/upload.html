@@ -9,25 +9,7 @@
                 <p>Yha pr bhi kuch likha ja sakta h.. if you want.. baki dekhte h..</p>
             </div>
             <div class="col-sm-1"></div>
-            <div class="col-sm-4">
-                <div id="libraryForm">
-                    <div class="iconContainer">
-                        <i class="material-icons">school</i>
-                    </div>
-                    <select ng-model="selectedBranch" ng-options="item for item in branch"></select>
-                    <p class="errorMessageSignUp" ng-model="branchError" ng-show="branchError">Select a branch</p>
-                <!--	<div class="iconContainer">
-                        <i class="material-icons">book</i>
-                    </div>
-                    <select ng-model="selectedSemester" ng-options="item for item in semester"></select>
-
-                    <div class="iconContainer">
-                        <i class="material-icons">description</i>
-                    </div>
-                    <select ng-model="selectedSubject" ng-options="item for item in subject"></select>
-                -->
-                </div>
-            </div>
+            <div class="col-sm-4"></div>
             <div class="col-sm-1"></div>
         </div>
     </div>
@@ -35,11 +17,11 @@
     <div id="navbar">
     	<div class="row">
     		<div class="col-sm-4">
-                <a href="#" class="eMaterials">E-Notes</a>
-            </div>
-    		<div class="col-sm-4">
     			<a href="#!/library/search" class="eMaterials">Search</a>
 			</div>
+    		<div class="col-sm-4">
+                <a href="#" class="eMaterials">E-Notes</a>
+            </div>
     		<div class="col-sm-4">
                 <a href="#" class="eMaterials">E-Books</a>
             </div>
@@ -54,31 +36,38 @@
                 	<div class="iconContainer">
                         <i class="material-icons">book</i>
                     </div>
-                    <select ng-model="selectedSemester" ng-options="item for item in semester"></select>
+                    <select ng-model="selectedSemester" ng-options="item for item in semester" ng-change="arrayList()"></select>
                     <p class="errorMessageSignUp" ng-model="semesterError" ng-show="semesterError">Select a semester</p>
+                    
+                    <div class="iconContainer">
+                        <i class="material-icons">school</i>
+                    </div>
+                    <select ng-model="selectedBranch" ng-options="item for item in branch" ng-change="arrayList()"></select>
+                    <p class="errorMessageSignUp" ng-model="branchError" ng-show="branchError">Select a branch</p>
                     
                     <div class="iconContainer">
                         <i class="material-icons">description</i>
                     </div>
-                    <select ng-model="selectedSubject" ng-options="item for item in subject"></select>
+                    <select ng-model="selectedSubject" ng-options="item for item in subBranch" ng-change="arrayList()"></select>
                     <p class="errorMessageSignUp" ng-model="subjectError" ng-show="subjectError">Select a subject</p>
                     
                     <div class="iconContainer">
                         <i class="material-icons">book</i>
                     </div>
-                    <select ng-model="selectedCategory" ng-options="item for item in categories"></select>
+                    <select ng-model="selectedCategory" ng-options="item for item in categories" ng-change="arrayList()"></select>
                     <p class="errorMessageSignUp" ng-model="categoryError" ng-show="categoryError">Select a category</p>
                     
-                    <div class="iconContainer">
+                    <div class="iconContainer" ng-show="allSelected">
                         <i class="material-icons">description</i>
                     </div>
-                    <input type="text" placeholder="* file name" ng-model="fileName" ng-keyup="fileNameErrorFunction();"/>
+                    <input type="text" placeholder="* file name" ng-model="fileName" ng-keyup="fileNameErrorFunction();" ng-show="allSelected"/>
                     <p class="errorMessageSignUp" ng-model="fileNameError" ng-show="fileNameError">File name cannot contain special characters</p>
+                    <p class="errorMessageSignUp" ng-model="fileNameEmptyError" ng-show="fileNameEmptyError && allSelected">File name cannot be empty</p>
                     
-                    <div class="iconContainer">
+                    <div class="iconContainer" ng-show="allSelected">
                         <i class="material-icons">file_upload</i>
                     </div>
-                    <label for="fileUpload" id="fileUploadLabel">Choose File Here</label>
+                    <label for="fileUpload" id="fileUploadLabel" ng-show="allSelected">Choose File Here</label>
                     <p class="errorMessageSignUp" ng-model="uploadFileError" ng-show="uploadFileError">Select a file</p>
                     <input type="file" id="fileUpload" ng-model="fileUploaded" onchange="angular.element(this).scope().changeText(this)">
                     

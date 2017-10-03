@@ -1,15 +1,14 @@
 package bpit.india.mentorship.service;
 
 import java.io.File;
-import java.util.HashMap;
-
 import org.apache.tomcat.util.http.fileupload.FileUtils;
 
 import bpit.india.mentorship.common.ReadApplicationConstantsFile;
+import bpit.india.mentorship.dto.BBAFolderPathsDTO;
 
 public class CreateBBAFolderStructureForLibraryService {
 	private ReadApplicationConstantsFile readApplicationConstantsFile;
-	public HashMap<String, Object> createFolderStructureForLibrary(){
+	public BBAFolderPathsDTO createFolderStructureForLibrary(){
 		
 		
 		File createBBAFolder = new File(readApplicationConstantsFile.getSaveFilesInFolder()+"BBA");                          
@@ -446,8 +445,26 @@ public class CreateBBAFolderStructureForLibraryService {
 				
 			}
 			
-			return null;
 			
+			
+			//HashMap<String, Object> bbaAll8SemesterPaths = new HashMap<String, Object>();
+			
+			/*
+			 * Setting paths for Semester 1 & semester 2 folders 
+			 */
+			
+			
+			BBAFolderPathsDTO b = new BBAFolderPathsDTO(
+					createBBAFolder.getAbsolutePath(), semester1BBAFolder.getAbsolutePath(), semester1BBAPOMFolder.getAbsolutePath(), semester1BBABE1Folder.getAbsolutePath(), semester1BBABMFolder.getAbsolutePath(), semester1BBAIITFolder.getAbsolutePath(), semester1BBAFAFolder.getAbsolutePath(), semester1BBAPDCSFolder.getAbsolutePath(),
+					semester2BBAFolder.getAbsolutePath(), semester2BBABOFolder.getAbsolutePath(), semester2BBABE2Folder.getAbsolutePath(), semester2BBAQTORMFolder.getAbsolutePath(), semester2BBADBMSFolder.getAbsolutePath(), semester2BBACAFolder.getAbsolutePath(), semester2BBAPDCS2Folder.getAbsolutePath(), 
+					semester3BBAFolder.getAbsolutePath(), semester3BBAOBFolder.getAbsolutePath(), semester3BBAIEFolder.getAbsolutePath(), semester3BBAMMFolder.getAbsolutePath(), semester3BBACA1Folder.getAbsolutePath(), semester3BBAMAFolder.getAbsolutePath(), semester3BBAPDCS3Folder.getAbsolutePath(),
+					semester4BBAFolder.getAbsolutePath(), semester4BBAHRMFolder.getAbsolutePath(), semester4BBABEFolder.getAbsolutePath(), semester4BBAMRFolder.getAbsolutePath(), semester4BBACA2Folder.getAbsolutePath(), semester4BBABLFolder.getAbsolutePath(), semester4BBATLFolder.getAbsolutePath(),
+					semester5BBAFolder.getAbsolutePath(), semester5BBAVEBFolder.getAbsolutePath(), semester5BBASMFolder.getAbsolutePath(), semester5BBAPOMFolder.getAbsolutePath(), semester5BBAMISFolder.getAbsolutePath(), semester5BBAFMFolder.getAbsolutePath(), 
+					semester6BBAFolder.getAbsolutePath(), semester6BBABPSFolder.getAbsolutePath(), semester6BBAPPEFolder.getAbsolutePath(), semester6BBAEDFolder.getAbsolutePath(), semester6BBAIBMFolder.getAbsolutePath(), semester6BBAEVSFolder.getAbsolutePath());
+			
+			
+			return b;
+			//return null;
 			
 		}
 				
@@ -458,7 +475,7 @@ public class CreateBBAFolderStructureForLibraryService {
 			 */
 			e.printStackTrace();
 			/*
-			 * Delete entire Btech folder 
+			 * Delete entire BBA folder 
 			 */
 			try{
 			FileUtils.deleteDirectory(createBBAFolder);

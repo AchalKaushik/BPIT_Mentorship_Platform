@@ -26,16 +26,23 @@ public class LibraryUploadFileService {
 	private CreateBTechFolderStructureForLibraryService createBTechFolderStructureForLibraryService;
 	
 	@Autowired
-	private CreateBTechFolderStructureForLibraryService createBBAFolderStructureForLibraryService;
+	private CreateBBAFolderStructureForLibraryService createBBAFolderStructureForLibraryService;
 	
 	@Autowired
-	private CreateBTechFolderStructureForLibraryService createMBAFolderStructureForLibraryService;
+	private CreateMBAFolderStructureForLibraryService createMBAFolderStructureForLibraryService;
 	
 	@Autowired
 	private LibraryUploadFileDao libraryUploadFileDao;
 	
 	public String uploadFile(MultipartFile file,String branch,String subject,String category,String fileName,String semester)
 	{
+		
+		
+		try{
+		/*
+		 * Declaring hashmap to receive  paths of various folders created
+		 */
+		
 		HashMap<String, Object> getPathsOfFolders = new HashMap<String, Object>();
 		
 		String course="";
@@ -58,6 +65,7 @@ public class LibraryUploadFileService {
 		
 		
 		String extension=file.getOriginalFilename().substring(file.getOriginalFilename().indexOf("."));
+		
 		
 		if(course.equalsIgnoreCase("BTech"))
 		{
@@ -945,12 +953,10 @@ public class LibraryUploadFileService {
 		}
 		else if(course.equalsIgnoreCase("BBA"))
 		{
-			getPathsOfFolders = createBBAFolderStructureForLibraryService.createFolderStructureForLibrary();
+			bbaFolderPathsDTO = createBBAFolderStructureForLibraryService.createFolderStructureForLibrary();
 			
 			switch (semester) 
 			{
-			     
-		
 			 case "1" : 
 				  
 			switch (subject)   {
@@ -1091,7 +1097,7 @@ public class LibraryUploadFileService {
 		}
 		else if(course.equalsIgnoreCase("MBA"))
 		{
-			getPathsOfFolders = createMBAFolderStructureForLibraryService.createFolderStructureForLibrary();
+			mbaFolderPathsDTO = createMBAFolderStructureForLibraryService.createFolderStructureForLibrary();
 			
 			switch (semester) 
 			{
@@ -1355,14 +1361,9 @@ public class LibraryUploadFileService {
 		if(status==null)
 		{
 			/*
-			 * An error occcurred while saving file on system
+			 * An error occurred while saving file on system
 			 */
 		}
-		
-		
-		
-		
-		
 		
 		
 		
@@ -1374,15 +1375,12 @@ public class LibraryUploadFileService {
 		
 		
 		
-		
-		
-		
 		/*
 		 * Now code to insert data in database 
 		 */
 		
 		
-String userId="";
+		String userId="";
 		
 		/*
 		 * Get userId directly from session
@@ -1405,9 +1403,16 @@ String userId="";
 			 */
 		}
 		
-		
-		
-		
-		return null;
+
+		return "Success";
+		}
+		catch(Exception e)
+		{
+			/*
+			 * An error occurred while uploading file on system and uploading data in database
+			 */
+			e.printStackTrace();
+			return null;
+		}
 	}
 }

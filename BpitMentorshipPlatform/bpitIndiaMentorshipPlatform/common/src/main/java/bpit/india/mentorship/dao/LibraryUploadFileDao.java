@@ -10,8 +10,10 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
+
 import bpit.india.mentorship.common.AbstractDao;
 import bpit.india.mentorship.config.LibraryOperationsConfig;
+import bpit.india.mentorship.dto.GetInfoToFetchFileNamesDto;
 import bpit.india.mentorship.dto.GetLibraryIdAndFileNameDto;
 
 @Repository
@@ -47,11 +49,14 @@ public class LibraryUploadFileDao extends AbstractDao{
 	
 	private static final GetLibraryIdAndFileNameRowMapper ROW_MAPPER = new  GetLibraryIdAndFileNameRowMapper();
 	
-	public Collection<GetLibraryIdAndFileNameDto> getLibraryIdAndFileName()
+	public Collection<GetLibraryIdAndFileNameDto> getLibraryIdAndFileName(GetInfoToFetchFileNamesDto getInfoToFetchFileNamesDto)
 	{
 		try{
 		Map<String, Object> parameters= new HashMap<String, Object>();
-		parameters.put("","" );
+		parameters.put("course",getInfoToFetchFileNamesDto.getCourse());
+		parameters.put("semester", getInfoToFetchFileNamesDto.getSemester());
+		parameters.put("stream", getInfoToFetchFileNamesDto.getStream());
+		parameters.put("subject", getInfoToFetchFileNamesDto.getSubject());
 		return getJdbcTemplate().query(libraryOperationsConfig.getGetLibraryIdAndFileName(), parameters, ROW_MAPPER);
 		}
 		catch(Exception e)

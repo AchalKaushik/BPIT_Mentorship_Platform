@@ -82,6 +82,12 @@ $scope.clear = function() {
 }
 
 
+$scope.scrollTop = function(){
+	if($scope.selectedBranch=='Select Branch') {
+	    $('html, body').animate({ scrollTop: 300 }, 550);
+	   }
+	}
+
 	$scope.selectedBranch = 'Select Branch';
 	$scope.selectedSemester = 'Select Semester';
 	$scope.selectedSubject = 'Select Subject';
@@ -99,28 +105,40 @@ $scope.clear = function() {
 
     $scope.semester = ['Select Semester','First', 'Second', 'Third', 'Fourth', 'Fifth', 'Sixth', 'Seventh', 'Eighth'];
     $scope.branchEnotes = ['Select Branch', 'CSE','IT','ECE','EEE'];
-    $scope.branch = [];
-    $scope.subject = [];
-    $scope.categories = [];
+    $scope.branch = ['Select Branch'];
+    $scope.subBranch = ['Select Subject'];
+    $scope.categories = ['Select Category'];
     
-    $scope.arrayList = function() {
+    $scope.arrayList = function(check) {
         if($scope.selectedSemester!="Select Semester") {
+        if(check==1) {
+        		$scope.selectedBranch = 'Select Branch';
+        	}
             $scope.branch = ['Select Branch', 'CSE','IT','ECE','EEE'];
+            document.getElementsByTagName("select")[1].removeAttribute("disabled");
         } else {
-            $scope.branch = []; 
+            $scope.branch = ['Select Branch']; 
             $scope.selectedBranch = 'Select Branch';
+            document.getElementsByTagName("select")[1].setAttribute("disabled", "");
         }
         if($scope.selectedSemester!="Select Semester" && $scope.selectedBranch!="Select Branch") {
+        	if(check==2) {
+        		$scope.selectedSubject = 'Select Subject';
+        	}
             $scope.checksem();
+            document.getElementsByTagName("select")[2].removeAttribute("disabled");
         } else {
-            $scope.subject = []; 
+            $scope.subject = ['Select Subject']; 
             $scope.selectedSubject = 'Select Subject';
+            document.getElementsByTagName("select")[2].setAttribute("disabled","");
         }
         if($scope.selectedSemester!="Select Semester" && $scope.selectedBranch!="Select Branch" && $scope.selectedSubject!="Select Subject") {
             $scope.categories = ['Select Category', 'E-Books', 'E-Notes'];
+            document.getElementsByTagName("select")[3].removeAttribute("disabled");
         } else {
-            $scope.categories = []; 
+            $scope.categories = ['Select Category']; 
             $scope.selectedCategory = "Select Category";
+            document.getElementsByTagName("select")[3].setAttribute("disabled","");
         }
         if($scope.selectedCategory != 'Select Category') {
             $scope.allSelected = true;

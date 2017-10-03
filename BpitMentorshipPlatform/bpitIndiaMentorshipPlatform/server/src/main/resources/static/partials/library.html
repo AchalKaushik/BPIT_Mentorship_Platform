@@ -1,6 +1,6 @@
 <div id="libraryWrapper" ng-controller="libraryController" class="container-fluid">
-    
-	<div id="loginFormWrapper">
+
+ 	<div id="loginFormWrapper">
         <div class="row">
             <div class="col-sm-1"></div>
             <div class="col-sm-5" id="libraryInfo">
@@ -35,17 +35,22 @@
     
     <div id="navbar">
     	<div class="row">
-    		<div class="col-sm-4">
+    		<div class="col-sm-3">
     			<a href="#!/library/search" class="eMaterials">Search</a>
 			</div>
-    		<div class="col-sm-4">
+            <div class="col-sm-3">
+                <a href="#!/library/upload" class="eMaterials">Upload</a>
+            </div>
+    		<div class="col-sm-3">
                 <a href="#" class="eMaterials">E-Notes</a>
             </div>
-    		<div class="col-sm-4">
+    		<div class="col-sm-3">
                 <a href="#" class="eMaterials">E-Books</a>
             </div>
 		</div>
     </div>
+    
+    
     
 	<div id="libraryList">
         <div class="row">
@@ -58,7 +63,7 @@
                     <select ng-model="selectedBranch" ng-options="item for item in branchEnotes" ng-change="clear()"></select>
                     <p class="errorMessageSignUp" ng-model="branchError" ng-show="branchError">Select a branch</p>
                 </div>
-                <div class="panel-group" id="accordion">
+                <div class="panel-group" id="accordion" ng-click="scrollTop()">
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <h4 class="panel-title">

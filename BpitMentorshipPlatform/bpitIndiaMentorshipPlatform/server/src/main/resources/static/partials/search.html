@@ -16,13 +16,16 @@
     
     <div id="navbar">
     	<div class="row">
-    		<div class="col-sm-4">
-    			<a href="#" class="eMaterials">Search</a>
+    		<div class="col-sm-3">
+    			<a href="#!/library/search" class="eMaterials">Search</a>
 			</div>
-    		<div class="col-sm-4">
+            <div class="col-sm-3">
+                <a href="#!/library/upload" class="eMaterials">Upload</a>
+            </div>
+    		<div class="col-sm-3">
                 <a href="#" class="eMaterials">E-Notes</a>
             </div>
-    		<div class="col-sm-4">
+    		<div class="col-sm-3">
                 <a href="#" class="eMaterials">E-Books</a>
             </div>
 		</div>
@@ -36,25 +39,25 @@
                 	<div class="iconContainer">
                         <i class="material-icons">book</i>
                     </div>
-                    <select ng-model="selectedSemester" ng-options="item for item in semester" ng-change="arrayList()"></select>
+                    <select ng-model="selectedSemester" ng-options="item for item in semester" ng-change="arrayList(1)"></select>
                     <p class="errorMessageSignUp" ng-model="semesterError" ng-show="semesterError">Select a semester</p>
                     
                     <div class="iconContainer">
                         <i class="material-icons">school</i>
                     </div>
-                    <select ng-model="selectedBranch" ng-options="item for item in branch" ng-change="arrayList()"></select>
+                    <select ng-model="selectedBranch" ng-options="item for item in branch" ng-change="arrayList(2)" disabled></select>
                     <p class="errorMessageSignUp" ng-model="branchError" ng-show="branchError">Select a branch</p>
                     
                     <div class="iconContainer">
                         <i class="material-icons">description</i>
                     </div>
-                    <select ng-model="selectedSubject" ng-options="item for item in subBranch" ng-change="arrayList()"></select>
+                    <select ng-model="selectedSubject" ng-options="item for item in subBranch" ng-change="arrayList()" disabled></select>
                     <p class="errorMessageSignUp" ng-model="subjectError" ng-show="subjectError">Select a subject</p>
                     
                     <div class="iconContainer">
                         <i class="material-icons">book</i>
                     </div>
-                    <select ng-model="selectedCategory" ng-options="item for item in categories" ng-change="arrayList()"></select>
+                    <select ng-model="selectedCategory" ng-options="item for item in categories" ng-change="arrayList()" disabled></select>
                      <p class="errorMessageSignUp" ng-model="categoryError" ng-show="categoryError">Select a category</p>
                     
                     <div id="searchButtonWrapper">

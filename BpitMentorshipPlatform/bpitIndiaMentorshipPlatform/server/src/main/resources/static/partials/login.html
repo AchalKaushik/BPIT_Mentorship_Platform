@@ -1,9 +1,9 @@
-<div id="loginPageWrapper" class="container-fluid">
+<div id="loginPageWrapper" class="container-fluid" ng-controller="loginController">
 <div class="row">
 <!-- Heading of the page -->
     <div class="col-sm-7"></div>
     <div id="loginPageHeading" class="col-sm-4">
-        <h2><span ng-click="toggleLoginSignUp(1)">Login</span> / <span ng-click="toggleLoginSignUp(2)">SignUp</span></h2>
+        <h2><span ng-click="toggleLoginSignup(1)">Login</span> / <span ng-click="toggleLoginSignup(2)">SignUp</span></h2>
     </div>
     <div class="col-sm-1"></div>
 <!-- Heading Ends Here -->
@@ -20,7 +20,9 @@
 </div>    
 <div class="col-sm-1"></div>
 <div class="col-sm-4">
-<div class="loginForm" ng-controller="loginController" ng-show="loginActive">
+<div class="loginForm" ng-show="loginActive">
+<!--  Sign Up Success Message  -->
+    <p id="signUpSuccess" ng-show="successMsg">You have been succesfully registered. <a href="#/">Login</a></p>
     
     <!-- Input fields for Login Form -->
     
@@ -55,10 +57,8 @@
     
 </div>
     
-<div class="signUpForm" ng-controller="loginController" ng-show="signupActive">    
-    <!--  Sign Up Success Message  -->
-    <p id="signUpSuccess" ng-show="successMsg">You have been succesfully registered. <a href="#/">Login</a></p>
-    
+<div class="signUpForm" ng-show="signupActive">    
+      
     <!-- Input fields for Signup Form -->
     
     <!-- First Name -->

@@ -47,7 +47,7 @@ div#navbar input[type=text]:focus {
 	background-color: rgba(255,255,255,0.6);
 }
 
-div#navbar .col-sm-4 {
+div#navbar .col-sm-3 {
 	border-right: 1px solid #444;
 	padding: 0 10px;
 }
@@ -132,6 +132,10 @@ div#navbar form i {
 #libraryList #libraryForm {
     width: 70%;
     margin-bottom: 30px;
+}
+
+#accordion {
+	margin-top: 50px;
 }
 
 #accordion>.panel {

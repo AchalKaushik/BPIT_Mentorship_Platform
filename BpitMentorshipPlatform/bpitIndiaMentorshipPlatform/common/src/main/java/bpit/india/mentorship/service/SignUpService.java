@@ -22,16 +22,24 @@ public class SignUpService {
 		}
 		else if(status==0)
 		{
+			/*
+			 * Duplicate key exception occurrred
+			 */
 			return null;
 		}
 		else
 		{
+			/*
+			 * An other exception occurred while inserting data in database 
+			 */
 			return "Error";
 		}
 		}
 		catch(Exception e)
 		{
-			System.out.println("In exception");
+			/*
+			 * Another error occurred while inserting data in database
+			 */
 			return "Error";
 		}
 	}

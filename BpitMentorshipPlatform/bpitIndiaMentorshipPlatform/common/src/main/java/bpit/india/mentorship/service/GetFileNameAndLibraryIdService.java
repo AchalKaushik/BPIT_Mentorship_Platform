@@ -20,6 +20,9 @@ public class GetFileNameAndLibraryIdService {
 			Collection<GetLibraryIdAndFileNameDto> libraryIdAndFileName =libraryUploadFileDao.getLibraryIdAndFileName(getInfoToFetchFileNamesDto);
 			if(libraryIdAndFileName.equals(null))
 			{
+				/*
+				 * No notes or ebooks corresponding to entered subject exists 
+				 */
 				return null;
 			}
 			else 
@@ -29,6 +32,10 @@ public class GetFileNameAndLibraryIdService {
 		}
 		catch(Exception e)
 		{
+			/*
+			 * An exception occurred while getting list of filenames and libraryid for 
+			 * specific subject notes/ebooks
+			 */
 			e.printStackTrace();
 			return null;
 		}

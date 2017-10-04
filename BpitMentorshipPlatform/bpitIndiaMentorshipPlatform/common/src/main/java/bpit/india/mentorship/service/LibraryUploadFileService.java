@@ -34,7 +34,7 @@ public class LibraryUploadFileService {
 	@Autowired
 	private LibraryUploadFileDao libraryUploadFileDao;
 	
-	public String uploadFile(MultipartFile file,String branch,String subject,String category,String fileName,String semester)
+	public String uploadFile(MultipartFile file,String branch,String subject,String type,String fileName,String semester)
 	{
 		
 		
@@ -1388,7 +1388,7 @@ public class LibraryUploadFileService {
 		
 		HashMap<String, Object> setDataForLibrary = new HashMap<String, Object>();
 		setDataForLibrary.put("fileName", fileName);
-		setDataForLibrary.put("category", category);
+		setDataForLibrary.put("type", type);
 		setDataForLibrary.put("semester", semester);
 		setDataForLibrary.put("branch", branch);
 		setDataForLibrary.put("subject", subject);

@@ -3,12 +3,18 @@ package bpit.india.mentorship.service;
 import java.io.File;
 
 import org.apache.tomcat.util.http.fileupload.FileUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import bpit.india.mentorship.common.ReadApplicationConstantsFile;
 import bpit.india.mentorship.dto.MBAFolderPathsDTO;
 
+@Service
 public class CreateMBAFolderStructureForLibraryService {
+	
+	@Autowired
 	private ReadApplicationConstantsFile readApplicationConstantsFile;
+	
 	public MBAFolderPathsDTO createFolderStructureForLibrary(){
 		
 		File createMBAFolder = new File(readApplicationConstantsFile.getSaveFilesInFolder()+"MBA");                          

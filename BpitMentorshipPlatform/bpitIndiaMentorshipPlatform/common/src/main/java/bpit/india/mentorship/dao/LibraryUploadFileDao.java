@@ -29,7 +29,7 @@ public class LibraryUploadFileDao extends AbstractDao{
 		Map<String, Object> parameters = new HashMap<String, Object>();
 		parameters.put("userId", getDataForLibrary.get("userId"));
 		parameters.put("fileName", getDataForLibrary.get("fileName"));
-		parameters.put("category", getDataForLibrary.get("category"));
+		parameters.put("type", getDataForLibrary.get("type"));
 		parameters.put("semester", getDataForLibrary.get("semester"));
 		parameters.put("course", getDataForLibrary.get("course"));
 		parameters.put("subject", getDataForLibrary.get("subject"));
@@ -55,7 +55,7 @@ public class LibraryUploadFileDao extends AbstractDao{
 		Map<String, Object> parameters= new HashMap<String, Object>();
 		parameters.put("course",getInfoToFetchFileNamesDto.getCourse());
 		parameters.put("semester", getInfoToFetchFileNamesDto.getSemester());
-		parameters.put("stream", getInfoToFetchFileNamesDto.getStream());
+		parameters.put("branch", getInfoToFetchFileNamesDto.getBranch());
 		parameters.put("subject", getInfoToFetchFileNamesDto.getSubject());
 		return getJdbcTemplate().query(libraryOperationsConfig.getGetLibraryIdAndFileName(), parameters, ROW_MAPPER);
 		}

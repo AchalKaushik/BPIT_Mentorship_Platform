@@ -10,8 +10,40 @@ public class LibraryOperationsConfig {
 	private String getAllFileNamesFromLibrary;
 	private String insertIntoLibrary;
 	private String getLibraryIdAndFileName;
+	private String getGetLibraryIdAndFileNameForSearch;
+	private String getFilePathFromLibraryId;
 	
 	
+	
+
+	/**
+	 * @return the getFilePathFromLibraryId
+	 */
+	public String getGetFilePathFromLibraryId() {
+		return getFilePathFromLibraryId;
+	}
+
+	/**
+	 * @param getFilePathFromLibraryId the getFilePathFromLibraryId to set
+	 */
+	public void setGetFilePathFromLibraryId(String getFilePathFromLibraryId) {
+		this.getFilePathFromLibraryId = getFilePathFromLibraryId;
+	}
+
+	/**
+	 * @return the getGetLibraryIdAndFileNameForSearch
+	 */
+	public String getGetGetLibraryIdAndFileNameForSearch() {
+		return getGetLibraryIdAndFileNameForSearch;
+	}
+
+	/**
+	 * @param getGetLibraryIdAndFileNameForSearch the getGetLibraryIdAndFileNameForSearch to set
+	 */
+	public void setGetGetLibraryIdAndFileNameForSearch(
+			String getGetLibraryIdAndFileNameForSearch) {
+		this.getGetLibraryIdAndFileNameForSearch = getGetLibraryIdAndFileNameForSearch;
+	}
 
 	/**
 	 * @return the getLibraryIdAndFileName

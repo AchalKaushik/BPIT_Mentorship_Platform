@@ -6,7 +6,7 @@ public class GetInfoToFetchFileNamesDto {
 	private String course;
 	private String subject;
 	private String type;
-	private String stream;
+	private String branch;
 	
 	
 	
@@ -21,28 +21,16 @@ public class GetInfoToFetchFileNamesDto {
 	 * @param course
 	 * @param subject
 	 * @param type
-	 * @param stream
+	 * @param branch
 	 */
 	public GetInfoToFetchFileNamesDto(String semester, String course,
-			String subject, String type, String stream) {
+			String subject, String type, String branch) {
 		super();
 		this.semester = semester;
 		this.course = course;
 		this.subject = subject;
 		this.type = type;
-		this.stream = stream;
-	}
-	/**
-	 * @return the stream
-	 */
-	public String getStream() {
-		return stream;
-	}
-	/**
-	 * @param stream the stream to set
-	 */
-	public void setStream(String stream) {
-		this.stream = stream;
+		this.branch = branch;
 	}
 	/**
 	 * @return the semester
@@ -91,6 +79,18 @@ public class GetInfoToFetchFileNamesDto {
 	 */
 	public void setType(String type) {
 		this.type = type;
+	}
+	/**
+	 * @return the branch
+	 */
+	public String getBranch() {
+		return branch;
+	}
+	/**
+	 * @param branch the branch to set
+	 */
+	public void setBranch(String branch) {
+		this.branch = branch;
 	}
 	
 	

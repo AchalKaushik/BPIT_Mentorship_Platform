@@ -1,13 +1,21 @@
 package bpit.india.mentorship.service;
 
 import java.io.File;
+
 import org.apache.tomcat.util.http.fileupload.FileUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import bpit.india.mentorship.common.ReadApplicationConstantsFile;
 import bpit.india.mentorship.dto.BBAFolderPathsDTO;
 
+@Service
 public class CreateBBAFolderStructureForLibraryService {
+	
+	@Autowired
 	private ReadApplicationConstantsFile readApplicationConstantsFile;
+	
+	
 	public BBAFolderPathsDTO createFolderStructureForLibrary(){
 		
 		

@@ -23,11 +23,10 @@ public class GetAllFileNamesFromLibraryDao extends AbstractDao{
 	{
 		try{
 		Map<String, String> parameters = new HashMap<String, String>();
-		parameters.put("type", getInfoToFetchFileNamesDto.getType());
 		parameters.put("course", getInfoToFetchFileNamesDto.getCourse());
 		parameters.put("semester", getInfoToFetchFileNamesDto.getSemester());
 		parameters.put("subject", getInfoToFetchFileNamesDto.getSubject());
-		parameters.put("stream", getInfoToFetchFileNamesDto.getStream());
+		parameters.put("branch", getInfoToFetchFileNamesDto.getBranch());
 		return getJdbcTemplate().queryForList(libraryOperationsConfig.getGetAllFileNamesFromLibrary(),parameters,String.class);
 		}
 		catch(DataAccessException e)

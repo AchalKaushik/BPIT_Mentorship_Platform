@@ -136,10 +136,10 @@ app.controller('loginController', function($scope, $http) {
     }
 
     $scope.enrollmentValidate = function() {
-        if($scope.signUp.enrollmentNumber==null) {
+        if($scope.signUp.uniqueId==null) {
             $scope.enrollmentNumberError = true;
         } else {
-            if($scope.signUp.enrollmentNumber.toString().length!=10) {
+            if($scope.signUp.uniqueId.toString().length!=10) {
                 $scope.enrollmentNumberError = true;
             } else {
                 $scope.enrollmentNumberError = false;

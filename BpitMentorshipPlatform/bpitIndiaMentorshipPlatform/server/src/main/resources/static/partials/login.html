@@ -31,7 +31,7 @@
         <i class="material-icons">person</i>
     </div>
     
-    <input type="text" placeholder="* email" min="0" ng-model="loginData.userId" ng-keyup="validateEmailId()" />
+    <input type="text" placeholder="* email" min="0" ng-model="loginData.uniqueId" ng-keyup="validateEmailId()" />
     <p class="errorMessageSignUp" ng-model="loginEmailIdError" ng-show="loginEmailIdError">Enter a valid email</p>
     <!--Validate format of Enrollment Number -->
     
@@ -41,7 +41,7 @@
         <i class="material-icons">lock</i>
     </div>
     
-    <input type="password" placeholder="* password" ng-model="password" ng-keyup="loginPasswordLengthCheck();"/>
+    <input type="password" placeholder="* password" ng-model="loginData.password" ng-keyup="loginPasswordLengthCheck();"/>
     <!-- Error Message if Password is less than 6 characters -->
     <p class="errorMessageSignUp" ng-model="passwordError" ng-show="passwordError">Password cannot be left empty</p>
     <!--Validate for min length of 6 characters password -->
@@ -133,7 +133,7 @@
     <div class="iconContainer">
         <i class="material-icons">credit_card</i>
     </div>
-    <input type="number" placeholder="* {{enroll}}" min="0" ng-model="signUp.enrollmentNumber" ng-keyup="enrollmentValidate();" />
+    <input type="number" placeholder="* {{enroll}}" min="0" ng-model="signUp.uniqueId" ng-keyup="enrollmentValidate();" />
     <p class="errorMessageSignUp" ng-model="enrollmentNumberError" ng-show="enrollmentNumberError">{{enroll}} should be 11 digits long</p>
     <p class="errorMessageSignUp" ng-model="enrollmentNumberRegistered" ng-show="enrollmentNumberRegistered">Enrollment number already registered</p>
     

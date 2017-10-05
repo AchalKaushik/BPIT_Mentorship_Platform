@@ -1,6 +1,6 @@
 <div id="libraryWrapper" ng-controller="libraryController" class="container-fluid">
-    
-	<div id="loginFormWrapper">
+
+ 	<div id="loginFormWrapper">
         <div class="row">
             <div class="col-sm-1"></div>
             <div class="col-sm-5" id="libraryInfo">
@@ -10,11 +10,13 @@
             </div>
             <div class="col-sm-1"></div>
             <div class="col-sm-4">
+<!--
                 <div id="libraryForm">
                     <div class="iconContainer">
                         <i class="material-icons">school</i>
                     </div>
                     <select ng-model="selectedBranch" ng-options="item for item in branch"></select>
+-->
                 <!--	<div class="iconContainer">
                         <i class="material-icons">book</i>
                     </div>
@@ -25,7 +27,7 @@
                     </div>
                     <select ng-model="selectedSubject" ng-options="item for item in subject"></select>
                 -->
-                </div>
+<!--                </div>-->
             </div>
             <div class="col-sm-1"></div>
         </div>
@@ -33,23 +35,35 @@
     
     <div id="navbar">
     	<div class="row">
-    		<div class="col-sm-4">
-                <a href="#" class="eMaterials">E-Notes</a>
-            </div>
-    		<div class="col-sm-4">
+    		<div class="col-sm-3">
     			<a href="#!/library/search" class="eMaterials">Search</a>
 			</div>
-    		<div class="col-sm-4">
+            <div class="col-sm-3">
+                <a href="#!/library/upload" class="eMaterials">Upload</a>
+            </div>
+    		<div class="col-sm-3">
+                <a href="#" class="eMaterials">E-Notes</a>
+            </div>
+    		<div class="col-sm-3">
                 <a href="#" class="eMaterials">E-Books</a>
             </div>
 		</div>
     </div>
     
+    
+    
 	<div id="libraryList">
         <div class="row">
             <div class="col-sm-3"></div>
             <div class="col-sm-6">
-                <div class="panel-group" id="accordion">
+                <div id="libraryForm">
+                    <div class="iconContainer">
+                        <i class="material-icons">school</i>
+                    </div>
+                    <select ng-model="selectedBranch" ng-options="item for item in branchEnotes" ng-change="clear()"></select>
+                    <p class="errorMessageSignUp" ng-model="branchError" ng-show="branchError">Select a branch</p>
+                </div>
+                <div class="panel-group" id="accordion" ng-click="scrollTop()">
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <h4 class="panel-title">
@@ -63,10 +77,10 @@
                         <div id="collapse1" class="panel-collapse collapse">
                             <div class="panel-body">			
                                 <div class="panel-group innerAccordion" id="accordion1">
-                                    <div class="panel panel-default" ng-repeat="sub in subBranch">
+                                    <div class="panel panel-default" ng-repeat="sub in subBranch" ng-if="$index > 0">
                                         <div class="panel-heading">
                                             <h4 class="panel-title">
-                                                <a data-toggle="collapse" data-parent="#accordion1" href="!#collapse1{{($index+1)}}">{{sub}}</a>
+                                                <a data-toggle="collapse" data-parent="#accordion1" href="!#collapse1{{($index+1)}}" ng-click="subDownloadListFunction($index)">{{sub}}</a>
                                             </h4>
                                         </div>
                                         <div id="collapse1{{($index+1)}}" class="panel-collapse collapse">
@@ -87,7 +101,7 @@
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <h4 class="panel-title">
-                                <a data-toggle="collapse" data-parent="#accordion" href="!#collapse2">
+                                <a data-toggle="collapse" data-parent="#accordion" href="!#collapse2" ng-click="sem(2)">
                                     <h1>2</h1>
                                     <p>Second Semester</p>
                                     <i class="material-icons">chevron_right</i>
@@ -97,7 +111,7 @@
                         <div id="collapse2" class="panel-collapse collapse">
                             <div class="panel-body">
                                 <div class="panel-group innerAccordion" id="accordion2">
-                                    <div class="panel panel-default" ng-repeat="sub in cses2">
+                                    <div class="panel panel-default" ng-repeat="sub in subBranch" ng-if="$index > 0">
                                         <div class="panel-heading">
                                             <h4 class="panel-title">
                                                 <a data-toggle="collapse" data-parent="#accordion2" href="!#collapse2{{($index+1)}}">{{sub}}</a>
@@ -121,7 +135,7 @@
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <h4 class="panel-title">
-                                <a data-toggle="collapse" data-parent="#accordion" href="!#collapse3">
+                                <a data-toggle="collapse" data-parent="#accordion" href="!#collapse3" ng-click="sem(3)">
                                     <h1>3</h1>
                                     <p>Third Semester</p>
                                     <i class="material-icons">chevron_right</i>
@@ -131,7 +145,7 @@
                         <div id="collapse3" class="panel-collapse collapse">
                             <div class="panel-body">
                                 <div class="panel-group innerAccordion" id="accordion3">
-                                    <div class="panel panel-default" ng-repeat="sub in cses3">
+                                    <div class="panel panel-default" ng-repeat="sub in subBranch" ng-if="$index > 0">
                                         <div class="panel-heading">
                                             <h4 class="panel-title">
                                                 <a data-toggle="collapse" data-parent="#accordion3" href="!#collapse3{{($index+1)}}">{{sub}}</a>
@@ -155,7 +169,7 @@
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <h4 class="panel-title">
-                                <a data-toggle="collapse" data-parent="#accordion" href="!#collapse4">
+                                <a data-toggle="collapse" data-parent="#accordion" href="!#collapse4" ng-click="sem(4)">
                                     <h1>4</h1>
                                     <p>Fourth Semester</p>
                                     <i class="material-icons">chevron_right</i>
@@ -165,7 +179,7 @@
                         <div id="collapse4" class="panel-collapse collapse">
                             <div class="panel-body">
                                 <div class="panel-group innerAccordion" id="accordion4">
-                                    <div class="panel panel-default" ng-repeat="sub in cses4">
+                                    <div class="panel panel-default" ng-repeat="sub in subBranch" ng-if="$index > 0">
                                         <div class="panel-heading">
                                             <h4 class="panel-title">
                                                 <a data-toggle="collapse" data-parent="#accordion4" href="!#collapse4{{($index+1)}}">{{sub}}</a>
@@ -189,7 +203,7 @@
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <h4 class="panel-title">
-                                <a data-toggle="collapse" data-parent="#accordion" href="!#collapse5">
+                                <a data-toggle="collapse" data-parent="#accordion" href="!#collapse5" ng-click="sem(5)">
                                     <h1>5</h1>
                                     <p>Fifth Semester</p>
                                     <i class="material-icons">chevron_right</i>
@@ -199,7 +213,7 @@
                         <div id="collapse5" class="panel-collapse collapse">
                             <div class="panel-body">
                                 <div class="panel-group innerAccordion" id="accordion5">
-                                     <div class="panel panel-default" ng-repeat="sub in cses5">
+                                     <div class="panel panel-default" ng-repeat="sub in subBranch" ng-if="$index > 0">
                                         <div class="panel-heading">
                                             <h4 class="panel-title">
                                                 <a data-toggle="collapse" data-parent="#accordion5" href="!#collapse5{{($index+1)}}">{{sub}}</a>
@@ -223,7 +237,7 @@
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <h4 class="panel-title">
-                                <a data-toggle="collapse" data-parent="#accordion" href="!#collapse6">
+                                <a data-toggle="collapse" data-parent="#accordion" href="!#collapse6" ng-click="sem(6)">
                                     <h1>6</h1>
                                     <p>Sixth Semester</p>
                                     <i class="material-icons">chevron_right</i>
@@ -233,7 +247,7 @@
                         <div id="collapse6" class="panel-collapse collapse">
                             <div class="panel-body">
                                 <div class="panel-group innerAccordion" id="accordion6">
-                                     <div class="panel panel-default" ng-repeat="sub in cses6">
+                                     <div class="panel panel-default" ng-repeat="sub in subBranch" ng-if="$index > 0">
                                         <div class="panel-heading">
                                             <h4 class="panel-title">
                                                 <a data-toggle="collapse" data-parent="#accordion6" href="!#collapse6{{($index+1)}}">{{sub}}</a>
@@ -257,7 +271,7 @@
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <h4 class="panel-title">
-                                <a data-toggle="collapse" data-parent="#accordion" href="!#collapse7">
+                                <a data-toggle="collapse" data-parent="#accordion" href="!#collapse7" ng-click="sem(7)">
                                     <h1>7</h1>
                                     <p>Seventh Semester</p>
                                     <i class="material-icons">chevron_right</i>
@@ -267,7 +281,7 @@
                         <div id="collapse7" class="panel-collapse collapse">
                             <div class="panel-body">
                                 <div class="panel-group innerAccordion" id="accordion7">
-                                     <div class="panel panel-default" ng-repeat="sub in cses7">
+                                     <div class="panel panel-default" ng-repeat="sub in subBranch" ng-if="$index > 0">
                                         <div class="panel-heading">
                                             <h4 class="panel-title">
                                                 <a data-toggle="collapse" data-parent="#accordion7" href="!#collapse7{{($index+1)}}">{{sub}}</a>
@@ -291,7 +305,7 @@
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <h4 class="panel-title">
-                                <a data-toggle="collapse" data-parent="#accordion" href="!#collapse8">
+                                <a data-toggle="collapse" data-parent="#accordion" href="!#collapse8" ng-click="sem(8)">
                                     <h1>8</h1>
                                     <p>Eighth Semester</p>
                                     <i class="material-icons">chevron_right</i>
@@ -301,7 +315,7 @@
                         <div id="collapse8" class="panel-collapse collapse">
                             <div class="panel-body">
                                 <div class="panel-group innerAccordion" id="accordion8">
-                                     <div class="panel panel-default" ng-repeat="sub in cses8">
+                                     <div class="panel panel-default" ng-repeat="sub in subBranch" ng-if="$index > 0">
                                         <div class="panel-heading">
                                             <h4 class="panel-title">
                                                 <a data-toggle="collapse" data-parent="#accordion8" href="!#collapse8{{($index+1)}}">{{sub}}</a>

@@ -61,6 +61,11 @@ $scope.checksem = function() {
         $scope.subBranch = [];
     }
 }
+
+$scope.searchData = {};
+$scope.fileUploadData = {};
+$scope.fileNameCheck = {};
+$scope.downloadListData = {};
     
 $scope.sem = function(i) {
     $scope.selectedSemester =  i;
@@ -69,6 +74,17 @@ $scope.sem = function(i) {
     } else {
         $scope.checksem();
     }
+}
+
+$scope.subDownloadListFunction = function(subi) {
+    $scope.selectedSubject = $scope.subBranch[subi];
+    console.log($scope.selectedSubject);
+    $scope.downloadListData.course = "";
+    $scope.downloadListData.subject = $scope.selectedSubject;
+    $scope.downloadListData.semester = $scope.selectedSemester;
+    $scope.downloadListData.branch = $scope.selectedBranch;
+    $scope.downloadListData.type = $scope.selectedCategory;
+    console.log("getting download link");
 }
 
 $scope.clear = function() {
@@ -145,6 +161,14 @@ $scope.scrollTop = function(){
         } else {
             $scope.allSelected = false;
         }
+        if($scope.allSelected==true) {
+            $scope.fileNameCheck.course = "";
+            $scope.fileNameCheck.semester = $scope.selectedSemester;
+            $scope.fileNameCheck.branch = $scope.selectedBranch;
+            $scope.fileNameCheck.subject = $scope.selectedSubject;
+            $scope.fileNameCheck.type = $scope.selectedCategory;
+            console.log('getting file name array');
+        }
     }
     
     $scope.changeText = function() {
@@ -186,6 +210,12 @@ $scope.scrollTop = function(){
 	    
 	    $scope.fileNameErrorFunction();
         if($scope.selectedBranch!='Select Branch' && $scope.selectedSemester!='Select Semester' && $scope.selectedSubject!='Select Subject' && $scope.selectedCategory!='Select Category' && $scope.fileNameError == false && ($scope.fileName).length!=0) {
+            $scope.fileUploadData.branch = $scope.selectedBranch;
+            $scope.fileUploadData.type = $scope.selectedCategory;
+            $scope.fileUploadData.fileName = $scope.fileName;
+            $scope.fileUploadData.semester = $scope.selectedSemester;
+            $scope.fileUploadData.subject = $scope.selectedSubject;
+            $scope.fileUploadData.miltipartFile = "";
             console.log("uploaded");
         } else {
             console.log("file not uploded");
@@ -211,6 +241,10 @@ $scope.scrollTop = function(){
 	    
 	    $scope.fileNameErrorFunction();
         if($scope.selectedBranch!='Select Branch' && $scope.selectedSemester!='Select Semester' && $scope.selectedSubject!='Select Subject' && $scope.selectedCategory!='Select Category') {
+            $scope.searchData.semester = $scope.selectedSemester;
+            $scope.searchData.subject = $scope.selectedSubject;
+            $scope.searchData.type = $scope.selectedCategory;
+            $scope.searchData.course = "";
             console.log("searching");
         } else {
             console.log("not searching");

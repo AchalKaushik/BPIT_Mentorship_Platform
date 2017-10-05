@@ -11,15 +11,106 @@ app.controller('loginController', function($scope, $http) {
     
     // Login Function
     $scope.loginFunction = function() {
-        $scope.enrollmentValidate();
+/*        $scope.enrollmentValidate();
         $scope.loginPasswordLengthCheck();
 
-        if($scope.enrollmentNumberError == false && $scope.passwordError==false) {
-            console.log("Login Success: Making Post Request");
+        if($scope.enrollmentNumberError == false && $scope.passwordError==false) {*/
+        	
+        console.log("Login Success: Making Post Request");
+        
         // Make post request from here 
-        } else {
+        
+        var loginURI = "/loginAuthenticate";
+        var loginStatus;
+        
+       $http({
+            url : loginURI,
+            method : "POST",
+            data : $scope.loginData,
+             transformResponse: [function (data)  {
+                console.log(data);
+                loginStatus=data;
+                return data;}]
+         }).then(
+                function(response)
+                {
+                    /*
+                     * Check the returned response if doesnt contain any
+                     * filename and libraryId then show no file exists
+                     */
+                	console.log("Search status :" + loginStatus);
+                	
+                     /* Null is returned in case any exception occurs while inserting data in database */
+                     
+                    if(loginStatus=="Success")
+                        {
+                        
+                         /** 
+                          * Authenticated user
+                          * */ 
+                         
+                        console.log("Authenticated user");
+                        
+                        /*
+                         * Making get request to  get userRole on whose basic routing will be done 
+                         */
+                        
+                        /*
+                         * Get request goes here
+                         */
+
+                        var userRole;
+                        
+                        /*
+                         * Set userId 
+                         */
+                        
+                        $http.get(
+                                "/getUserRole?userId="+"setUserIdHere", {
+                                    transformResponse: [function (data)  {
+                                        console.log(data);
+                                        userRole=data;
+                                        return data;}]
+                            }
+                            ).then(function(response) {
+                             
+                            	console.log(userRole);
+                             
+                            /*
+                              * routing on basis of user role received
+                              */        
+                            	
+                            	
+                            });
+                        
+                        
+                        
+                        }
+                    
+                    else if(loginStatus=="Error")
+                    	{
+                    	/*
+                    	 * Unauthenticated user take appropriate action here  
+                    	 */
+                    	console.log("Unauthenticated user");
+                    	
+                    	}
+                    else
+                        {
+                        
+                         /** 
+                          * Exception occurred  
+                          */
+
+                        console.log("Exception occurred");
+                        }
+                }
+                );
+        
+/*        } 
+        else {
             console.log("Error while login: Invalid Data");
-        }
+        }*/
     };
     
     /*

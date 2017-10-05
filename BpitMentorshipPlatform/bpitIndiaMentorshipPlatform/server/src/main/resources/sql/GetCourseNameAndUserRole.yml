@@ -1,0 +1,7 @@
+couseNameAndUserRole:
+ 
+ getUserCourse: >
+   select course from login where userId = :userId;
+
+ getUserRole: >    
+   select registeredAs from login where userId = :userId;

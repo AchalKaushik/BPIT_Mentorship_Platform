@@ -41,7 +41,7 @@
         <i class="material-icons">lock</i>
     </div>
     
-    <input type="password" placeholder="* password" ng-model="loginData.password" ng-keyup="loginPasswordLengthCheck();"/>
+    <input type="password" placeholder="* password" ng-model="loginData.password" />
     <!-- Error Message if Password is less than 6 characters -->
     <p class="errorMessageSignUp" ng-model="passwordError" ng-show="passwordError">Password cannot be left empty</p>
     <!--Validate for min length of 6 characters password -->

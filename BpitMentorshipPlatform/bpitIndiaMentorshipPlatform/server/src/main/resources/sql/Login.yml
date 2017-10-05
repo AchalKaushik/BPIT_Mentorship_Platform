@@ -1,0 +1,4 @@
+login:
+
+ matchUniqueIdAndPassword: >
+   select exists(select * from login where userId=:userId and password=:password);

@@ -24,16 +24,36 @@ public class GetLibraryIdAndFileNameForSearchDao extends AbstractDao{
 	
 	private static final GetLibraryIdAndFileNameForSearchRowMapper ROW_MAPPER = new  GetLibraryIdAndFileNameForSearchRowMapper();
 	
-	public Collection<GetLibraryIdAndFileNameDto> getLibraryIdAndFileNameForSearch(GetInfoToFetchFileNamesDto getInfoToFetchFileNamesDto)
+	public Collection<GetLibraryIdAndFileNameDto> getLibraryIdAndFileNameForSearch(GetInfoToFetchFileNamesDto getInfoToFetchFileNamesDto,String typeOfRequest)
 	{
 		try{
 			Map<String, Object> parameters= new HashMap<String, Object>();
-			parameters.put("course",getInfoToFetchFileNamesDto.getCourse());
+			/*
+			 * Hardcoding course for now ( till session management is done ) 
+			 */
+			parameters.put("course", getInfoToFetchFileNamesDto.getCourse());
 			parameters.put("semester", getInfoToFetchFileNamesDto.getSemester());
 			parameters.put("branch", getInfoToFetchFileNamesDto.getBranch());
 			parameters.put("subject", getInfoToFetchFileNamesDto.getSubject());
-			parameters.put("type", getInfoToFetchFileNamesDto.getType());
-			return getJdbcTemplate().query(libraryOperationsConfig.getGetGetLibraryIdAndFileNameForSearch(), parameters, ROW_MAPPER);
+			
+			
+			if(typeOfRequest.equalsIgnoreCase("Search"))
+			{
+				parameters.put("type", getInfoToFetchFileNamesDto.getType());
+				return getJdbcTemplate().query(libraryOperationsConfig.getGetLibraryIdAndFileNameForSearch(), parameters, ROW_MAPPER);
+			}
+			else if(typeOfRequest.equalsIgnoreCase("FileNameValidation"))
+			{
+				return getJdbcTemplate().query(libraryOperationsConfig.getGetAllFileNamesFromLibrary(), parameters, ROW_MAPPER);
+			}
+			else
+			{
+				/*
+				 * Type of request not recognized ..
+				 */
+				return null;
+			}
+			
 			}
 			catch(Exception e)
 			{

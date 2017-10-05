@@ -17,19 +17,11 @@ public class GetLibraryIdAndFileNameForSearchService {
 	
 	public Collection<GetLibraryIdAndFileNameDto> getLibraryIdAndFileNameForSearch(GetInfoToFetchFileNamesDto getInfoToFetchFileNamesDto) 
 	{
+		String typeOfRequest = "Search";
+
 		try{
-			Collection<GetLibraryIdAndFileNameDto> libraryIdAndFileNameForSearch = getLibraryIdAndFileNameForSearchDao.getLibraryIdAndFileNameForSearch(getInfoToFetchFileNamesDto);
-			if(libraryIdAndFileNameForSearch.equals(null))
-			{
-				/*
-				 * No notes or ebooks corresponding to entered subject exists 
-				 */
-				return null;
-			}
-			else 
-			{
-				return libraryIdAndFileNameForSearch;
-			}
+			Collection<GetLibraryIdAndFileNameDto> libraryIdAndFileNameForSearch = getLibraryIdAndFileNameForSearchDao.getLibraryIdAndFileNameForSearch(getInfoToFetchFileNamesDto,typeOfRequest);
+			return libraryIdAndFileNameForSearch;
 		}
 		catch(Exception e)
 		{

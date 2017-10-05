@@ -8,13 +8,13 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Repository;
 
 import bpit.india.mentorship.common.AbstractDao;
-import bpit.india.mentorship.config.GetUserCourseConfig;
+import bpit.india.mentorship.config.GetUserCourseAndUserRoleConfig;
 
 @Repository
 public class GetUserCourseDao extends AbstractDao {
 
  @Autowired
- private GetUserCourseConfig getUserCourseConfig;
+ private GetUserCourseAndUserRoleConfig getUserCourseConfig;
  /*
   * Function to get Course name corresponding to user
   */

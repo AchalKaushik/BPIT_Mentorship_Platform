@@ -3,12 +3,18 @@ package bpit.india.mentorship.controller;
 import java.util.HashMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import bpit.india.mentorship.dto.LoginUniqueIdAndPasswordDto;
 import bpit.india.mentorship.dto.SignUpDto;
+import bpit.india.mentorship.service.GetUserCourseService;
+import bpit.india.mentorship.service.GetUserRoleService;
+import bpit.india.mentorship.service.LoginService;
 import bpit.india.mentorship.service.SignUpService;
 
 @RestController
@@ -16,6 +22,15 @@ public class LoginSignupController {
 
 	@Autowired
 	private SignUpService signUpService;
+	
+	@Autowired
+	private LoginService loginService;
+	
+	@Autowired
+	private GetUserCourseService getUserCourseService;
+	
+	@Autowired
+	private GetUserRoleService getUserRoleService;
 	
 	@RequestMapping(value="/SignUp",method=RequestMethod.POST,produces = "application/json")
 	public String SignUp(@RequestBody SignUpDto signUpDto)
@@ -28,5 +43,25 @@ public class LoginSignupController {
 	
 		return signUpService.signUp(signUpDto);
 	}
+	
+	
+	
+	
+	@RequestMapping(value="/loginAuthenticate",method=RequestMethod.POST,produces = "application/json")
+	public String loginAuthenticate(@RequestBody LoginUniqueIdAndPasswordDto loginUniqueIdAndPasswordDto)
+	{
+		return loginService.login(loginUniqueIdAndPasswordDto); 
+	}
+	
+	
+	
+	@RequestMapping(value="/getUserRole",method=RequestMethod.GET,produces = "application/json")
+	public String getUserRole(@RequestParam("userId") String userId)
+	{
+		 return getUserRoleService.getUserRole(userId);
+		 
+	}
+	
+	
 }
 

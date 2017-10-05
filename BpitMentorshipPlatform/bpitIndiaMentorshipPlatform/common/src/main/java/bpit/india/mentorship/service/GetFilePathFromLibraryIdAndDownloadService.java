@@ -2,8 +2,7 @@ package bpit.india.mentorship.service;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.IOException;
-
+import javax.activation.MimetypesFileTypeMap;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,16 +16,18 @@ public class GetFilePathFromLibraryIdAndDownloadService {
 	@Autowired
 	private GetFilePathFromLibraryIdDao getFilePathFromLibraryIdDao;
 	
-	public String getFilePathFromLibraryIdAndDownload(String libraryId,HttpServletResponse response)
+	public void getFilePathFromLibraryIdAndDownload(String libraryId,String fileName,HttpServletResponse response)
 	{
 		String filePath = getFilePathFromLibraryIdDao.getFilePathFromLibraryIdDao(libraryId);
+		
+		System.out.println("FilePath is  : " + filePath);
+		
 		if(filePath==null)
 		{
 			/*
 			 * An exception occurred while fetching path of file 
 			 */
 			
-			return null;
 		}
 		else
 		{
@@ -37,24 +38,21 @@ public class GetFilePathFromLibraryIdAndDownloadService {
 			try 
 			{
 				FileInputStream is = new FileInputStream(new File(filePath));
-				response.setContentType("application/zip");
-		    	//response.setHeader("Content-disposition", "attachment; filename="+ fileName+".zip");
+				
+				MimetypesFileTypeMap getContentTypeOfFile =  new MimetypesFileTypeMap();
+				response.setContentType(getContentTypeOfFile.getContentType(filePath));
+				response.setHeader("Content-disposition", "attachment; filename="+fileName+filePath.substring(filePath.indexOf(".")));
 				org.apache.commons.io.IOUtils.copy(is,response.getOutputStream());
 			} 
-			catch (IOException ex) 
+			catch (Exception e) 
 			{
-		      throw new RuntimeException("IOError writing file to output stream");
+				/*
+				 * An error occurred while downloading a file 
+				 */
+				e.printStackTrace();
+				//return null;
 		    }
-			catch (Exception e) {
-				
-				// Error message 
-			}
-			
-			
-			
-			
-			
+	
 		}
-		return null;
 	}
 }

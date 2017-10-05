@@ -4,12 +4,28 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
 @Component
-@ConfigurationProperties(prefix = "couseNameAndAllFilesName", locations = "classpath:sql/GetCourseName.yml")
-public class GetUserCourseConfig {
+@ConfigurationProperties(prefix = "couseNameAndUserRole", locations = "classpath:sql/GetCourseNameAndUserRole.yml")
+public class GetUserCourseAndUserRoleConfig {
 
  private String getUserCourse;
+ private String getUserRole;
+ 
 
  /**
+ * @return the getUserRole
+ */
+public String getGetUserRole() {
+	return getUserRole;
+}
+
+/**
+ * @param getUserRole the getUserRole to set
+ */
+public void setGetUserRole(String getUserRole) {
+	this.getUserRole = getUserRole;
+}
+
+/**
   * @return the getUserCourse
   */
  public String getGetUserCourse() {

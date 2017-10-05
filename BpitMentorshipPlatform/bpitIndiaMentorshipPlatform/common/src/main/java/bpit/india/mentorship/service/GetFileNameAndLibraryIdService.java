@@ -1,10 +1,11 @@
 package bpit.india.mentorship.service;
 
 import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import bpit.india.mentorship.dao.LibraryUploadFileDao;
+import bpit.india.mentorship.dao.GetLibraryIdAndFileNameForSearchDao;
 import bpit.india.mentorship.dto.GetInfoToFetchFileNamesDto;
 import bpit.india.mentorship.dto.GetLibraryIdAndFileNameDto;
 
@@ -12,23 +13,17 @@ import bpit.india.mentorship.dto.GetLibraryIdAndFileNameDto;
 public class GetFileNameAndLibraryIdService {
 
 	@Autowired
-	private LibraryUploadFileDao libraryUploadFileDao;
+	private GetLibraryIdAndFileNameForSearchDao getLibraryIdAndFileNameForSearchDao;
 	
 	public Collection<GetLibraryIdAndFileNameDto> getfileNameAndLibraryId(GetInfoToFetchFileNamesDto getInfoToFetchFileNamesDto)
 	{
+		String typeOfRequest = "FileNameValidation";
+		System.out.println("In service" + getInfoToFetchFileNamesDto.getBranch());
+		
 		try{
-			Collection<GetLibraryIdAndFileNameDto> libraryIdAndFileName =libraryUploadFileDao.getLibraryIdAndFileName(getInfoToFetchFileNamesDto);
-			if(libraryIdAndFileName.equals(null))
-			{
-				/*
-				 * No notes or ebooks corresponding to entered subject exists 
-				 */
-				return null;
-			}
-			else 
-			{
+			Collection<GetLibraryIdAndFileNameDto> libraryIdAndFileName =getLibraryIdAndFileNameForSearchDao.getLibraryIdAndFileNameForSearch(getInfoToFetchFileNamesDto,typeOfRequest);
 				return libraryIdAndFileName;
-			}
+		
 		}
 		catch(Exception e)
 		{

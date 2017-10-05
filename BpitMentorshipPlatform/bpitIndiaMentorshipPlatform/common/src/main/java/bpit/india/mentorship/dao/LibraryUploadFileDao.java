@@ -47,41 +47,4 @@ public class LibraryUploadFileDao extends AbstractDao{
 	}
 	
 	
-	private static final GetLibraryIdAndFileNameRowMapper ROW_MAPPER = new  GetLibraryIdAndFileNameRowMapper();
-	
-	public Collection<GetLibraryIdAndFileNameDto> getLibraryIdAndFileName(GetInfoToFetchFileNamesDto getInfoToFetchFileNamesDto)
-	{
-		try{
-		Map<String, Object> parameters= new HashMap<String, Object>();
-		parameters.put("course",getInfoToFetchFileNamesDto.getCourse());
-		parameters.put("semester", getInfoToFetchFileNamesDto.getSemester());
-		parameters.put("branch", getInfoToFetchFileNamesDto.getBranch());
-		parameters.put("subject", getInfoToFetchFileNamesDto.getSubject());
-		return getJdbcTemplate().query(libraryOperationsConfig.getGetLibraryIdAndFileName(), parameters, ROW_MAPPER);
-		}
-		catch(Exception e)
-		{
-			/*
-			 * An error occurred while getting fileNames and libraryId for required files 
-			 */
-			e.printStackTrace();
-			return null;
-		}
-	}
-	
-	 private static class GetLibraryIdAndFileNameRowMapper implements RowMapper<GetLibraryIdAndFileNameDto> {
-
-			@Override
-			public GetLibraryIdAndFileNameDto mapRow(ResultSet resultSet, int rowNum)
-					throws SQLException {
-			    String libraryId = resultSet.getString("libraryId");
-				String fileName = resultSet.getString("fileName");
-				
-				return new GetLibraryIdAndFileNameDto(libraryId, fileName);
-			}
-
-		}
-		
-	
-	
 }

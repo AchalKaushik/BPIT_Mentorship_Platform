@@ -74,7 +74,7 @@ app.controller('loginController', function($scope, $http) {
                             }
                             ).then(function(response) {
                              
-                            	console.log(userRole);
+                            	console.log("user role is :"+userRole);
                              
                             /*
                               * routing on basis of user role received
@@ -82,6 +82,42 @@ app.controller('loginController', function($scope, $http) {
                             	
                             	
                             });
+                        
+                        
+                        
+                        
+//                        /*
+//                         * Code to get user course 
+//                         */
+//                        
+//                        console.log("Getting user course");
+//                        
+//                        var userCourse;
+//                        
+//                        $http.get(
+//                                "/getUserCourse?userId="+"setUserIdHere", {
+//                                    transformResponse: [function (data)  {
+//                                        console.log(data);
+//                                        userCourse=data;
+//                                        return data;}]
+//                            }
+//                            ).then(function(response) {
+//                             
+//                            	console.log(userCourse);
+//                             
+//                            /*
+//                              * routing on basis of user role received
+//                              */        
+//                            	
+//                            	
+//                            });
+//                        
+                        
+                        
+                        
+                        
+                        
+                        
                         
                         
                         
@@ -346,7 +382,7 @@ app.controller('loginController', function($scope, $http) {
                             
                           /*   * Error occurs ( route to error page)*/ 
                              
-                                window.location.assign("/#!/error");
+                            window.location.assign("/#!/error");
                             console.log("Error occurs");
                             }
                         else

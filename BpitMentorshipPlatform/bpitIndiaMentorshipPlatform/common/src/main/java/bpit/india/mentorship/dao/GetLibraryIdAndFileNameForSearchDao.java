@@ -14,6 +14,7 @@ import bpit.india.mentorship.common.AbstractDao;
 import bpit.india.mentorship.config.LibraryOperationsConfig;
 import bpit.india.mentorship.dto.GetInfoToFetchFileNamesDto;
 import bpit.india.mentorship.dto.GetLibraryIdAndFileNameDto;
+import bpit.india.mentorship.service.GetUserCourseService;
 
 @Repository
 public class GetLibraryIdAndFileNameForSearchDao extends AbstractDao{
@@ -21,6 +22,8 @@ public class GetLibraryIdAndFileNameForSearchDao extends AbstractDao{
 	@Autowired
 	private LibraryOperationsConfig libraryOperationsConfig;
 	
+	@Autowired
+	private GetUserCourseService getUserCourseService;
 	
 	private static final GetLibraryIdAndFileNameForSearchRowMapper ROW_MAPPER = new  GetLibraryIdAndFileNameForSearchRowMapper();
 	
@@ -28,10 +31,13 @@ public class GetLibraryIdAndFileNameForSearchDao extends AbstractDao{
 	{
 		try{
 			Map<String, Object> parameters= new HashMap<String, Object>();
+			
 			/*
 			 * Hardcoding course for now ( till session management is done ) 
 			 */
-			parameters.put("course", getInfoToFetchFileNamesDto.getCourse());
+			
+			
+			parameters.put("course", getUserCourseService.getUserCouse(getInfoToFetchFileNamesDto.getUserId()));
 			parameters.put("semester", getInfoToFetchFileNamesDto.getSemester());
 			parameters.put("branch", getInfoToFetchFileNamesDto.getBranch());
 			parameters.put("subject", getInfoToFetchFileNamesDto.getSubject());

@@ -11,14 +11,12 @@ public class GetUserCourseService {
 	@Autowired
 	private GetUserCourseDao getUserCourseDao;
 	
-	public String getUserCouse()
+	public String getUserCouse(String userId)
 	{
 		try{
 			/*
 			 * set userId from session 
 			 */
-			
-			String userId="";
 			
 		/*
 		 * If null is returned then an error has occurred

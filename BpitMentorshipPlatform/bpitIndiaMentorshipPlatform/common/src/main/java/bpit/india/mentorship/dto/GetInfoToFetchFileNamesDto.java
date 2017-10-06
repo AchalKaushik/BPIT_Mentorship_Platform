@@ -7,6 +7,7 @@ public class GetInfoToFetchFileNamesDto {
 	private String subject;
 	private String type;
 	private String branch;
+	private String userId;
 	
 	
 	
@@ -22,15 +23,17 @@ public class GetInfoToFetchFileNamesDto {
 	 * @param subject
 	 * @param type
 	 * @param branch
+	 * @param userId
 	 */
 	public GetInfoToFetchFileNamesDto(String semester, String course,
-			String subject, String type, String branch) {
+			String subject, String type, String branch, String userId) {
 		super();
 		this.semester = semester;
 		this.course = course;
 		this.subject = subject;
 		this.type = type;
 		this.branch = branch;
+		this.userId = userId;
 	}
 	/**
 	 * @return the semester
@@ -92,6 +95,20 @@ public class GetInfoToFetchFileNamesDto {
 	public void setBranch(String branch) {
 		this.branch = branch;
 	}
+	/**
+	 * @return the userId
+	 */
+	public String getUserId() {
+		return userId;
+	}
+	/**
+	 * @param userId the userId to set
+	 */
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
 	
+	
+		
 	
 }

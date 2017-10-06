@@ -37,7 +37,7 @@ public class LibraryController {
 	@RequestMapping(value="/searchForFile",method=RequestMethod.POST,produces = "application/json") 
 	public Collection<GetLibraryIdAndFileNameDto> searchForFile(@RequestBody GetInfoToFetchFileNamesDto getInfoToFetchFileNamesDto)
 	{
-		System.out.println("In search for file ");
+		System.out.println("In search for file " + getInfoToFetchFileNamesDto.getUserId()+ getInfoToFetchFileNamesDto.getSemester());
 		/*
 		 * Setting the semester into numeric form and setting it in DTo
 		 */

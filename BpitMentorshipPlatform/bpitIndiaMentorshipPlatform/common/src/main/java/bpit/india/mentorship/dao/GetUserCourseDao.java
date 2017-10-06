@@ -22,6 +22,7 @@ public class GetUserCourseDao extends AbstractDao {
   try {
    Map < String, String > parameters = new HashMap < String, String > ();
    parameters.put("userId", userId);
+   System.out.println(userId);
    return getJdbcTemplate().queryForObject(getUserCourseConfig.getGetUserCourse(), parameters, String.class);
   } catch (EmptyResultDataAccessException e) {
    /*

@@ -63,5 +63,13 @@ public class LoginSignupController {
 	}
 	
 	
+	@RequestMapping(value="/getUserCourse",method=RequestMethod.GET,produces = "application/json")
+	public String getUserCourse(@RequestParam("userId") String userId)
+	{
+		 return getUserCourseService.getUserCouse(userId);
+		 
+	}
+	
+	
 }
 

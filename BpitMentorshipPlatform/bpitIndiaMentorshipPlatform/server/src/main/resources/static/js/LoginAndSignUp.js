@@ -1,4 +1,13 @@
 // Controller for Login Form
+
+
+var userRole;
+
+app.controller('navController', function($scope) {
+	console.log(userRole);
+	$scope.logoutToggle = "true";
+});
+
 app.controller('loginController', function($scope, $http) {
     
 	console.log("In login controller");
@@ -22,6 +31,8 @@ app.controller('loginController', function($scope, $http) {
         
         var loginURI = "/loginAuthenticate";
         var loginStatus;
+        
+        $scope.logoutToggle="true";
         
        $http({
             url : loginURI,
@@ -50,6 +61,7 @@ app.controller('loginController', function($scope, $http) {
                           * */ 
                          
                         console.log("Authenticated user");
+                        window.location.assign("#!/home")
                         
                         /*
                          * Making get request to  get userRole on whose basic routing will be done 
@@ -58,8 +70,6 @@ app.controller('loginController', function($scope, $http) {
                         /*
                          * Get request goes here
                          */
-
-                        var userRole;
                         
                         /*
                          * Set userId 
@@ -73,8 +83,11 @@ app.controller('loginController', function($scope, $http) {
                                         return data;}]
                             }
                             ).then(function(response) {
-                             
+                            	
+                            	userRole = "mentee";
+                            	alert("");
                             	console.log("user role is :"+userRole);
+                            	
                              
                             /*
                               * routing on basis of user role received
@@ -129,7 +142,6 @@ app.controller('loginController', function($scope, $http) {
                     	 * Unauthenticated user take appropriate action here  
                     	 */
                     	console.log("Unauthenticated user");
-                    	
                     	}
                     else
                         {

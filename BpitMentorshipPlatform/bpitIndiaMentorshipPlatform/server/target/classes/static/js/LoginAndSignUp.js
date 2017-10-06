@@ -1,9 +1,24 @@
 // Controller for Login Form
-app.controller('loginController', function($scope, $http) {
+
+
+var userRole;
+
+app.controller('navController', function($scope) {
+	$scope.logoutToggle = "false";
+});
+
+app.controller('loginController', function($scope, $rootScope, $http) {
     
 	console.log("In login controller");
     $scope.signUp={};
     $scope.loginData={};
+    
+    $scope.signUp.firstName = "";
+    $scope.signUp.lastName = "";
+    $scope.loginError = false;
+    
+    $rootScope.userRole = "mentee";
+    console.log($rootScope.userRole);
     
     /*
      *  Login page Angular Script Goes here
@@ -11,15 +26,141 @@ app.controller('loginController', function($scope, $http) {
     
     // Login Function
     $scope.loginFunction = function() {
-        $scope.enrollmentValidate();
+/*        $scope.enrollmentValidate();
         $scope.loginPasswordLengthCheck();
 
-        if($scope.enrollmentNumberError == false && $scope.passwordError==false) {
-            console.log("Login Success: Making Post Request");
+        if($scope.enrollmentNumberError == false && $scope.passwordError==false) {*/
+        	
+        console.log("Login Success: Making Post Request");
+        
         // Make post request from here 
-        } else {
+        
+        var loginURI = "/loginAuthenticate";
+        var loginStatus;
+        
+        $scope.logoutToggle="true";
+        
+       $http({
+            url : loginURI,
+            method : "POST",
+            data : $scope.loginData,
+             transformResponse: [function (data)  {
+                console.log(data);
+                loginStatus=data;
+                return data;}]
+         }).then(
+                function(response)
+                {
+                    /*
+                     * Check the returned response if doesnt contain any
+                     * filename and libraryId then show no file exists
+                     */
+                	console.log("Search status :" + loginStatus);
+                	
+                     /* Null is returned in case any exception occurs while inserting data in database */
+                     
+                    if(loginStatus=="Success")
+                        {
+                        
+                         /** 
+                          * Authenticated user
+                          * */ 
+                         
+                        console.log("Authenticated user");
+                        window.location.assign("#!/home")
+                        
+                        /*
+                         * Making get request to  get userRole on whose basic routing will be done 
+                         */
+                        
+                        /*
+                         * Get request goes here
+                         */
+                        
+                        /*
+                         * Set userId 
+                         */
+                        
+                        $http.get(
+                                "/getUserRole?userId="+"setUserIdHere", {
+                                    transformResponse: [function (data)  {
+                                        console.log(data);
+                                        userRole=data;
+                                        return data;}]
+                            }
+                            ).then(function(response) {
+                            	                            	
+                            /*
+                              * routing on basis of user role received
+                              */        
+                            	
+                            	
+                            });
+                        
+                        
+                        
+                        
+//                        /*
+//                         * Code to get user course 
+//                         */
+//                        
+//                        console.log("Getting user course");
+//                        
+//                        var userCourse;
+//                        
+//                        $http.get(
+//                                "/getUserCourse?userId="+"setUserIdHere", {
+//                                    transformResponse: [function (data)  {
+//                                        console.log(data);
+//                                        userCourse=data;
+//                                        return data;}]
+//                            }
+//                            ).then(function(response) {
+//                             
+//                            	console.log(userCourse);
+//                             
+//                            /*
+//                              * routing on basis of user role received
+//                              */        
+//                            	
+//                            	
+//                            });
+//                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        }
+                    
+                    else if(loginStatus=="Error")
+                    	{
+                    	/*
+                    	 * Unauthenticated user take appropriate action here  
+                    	 */
+                        $scope.loginError = true;
+                    	console.log("Unauthenticated user");
+                    	}
+                    else
+                        {
+                        
+                         /** 
+                          * Exception occurred  
+                          */
+                            window.location.assign("/#!/error");
+                        console.log("Exception occurred");
+                        }
+                }
+                );
+        
+/*        } 
+        else {
             console.log("Error while login: Invalid Data");
-        }
+        }*/
     };
     
     /*
@@ -50,11 +191,11 @@ app.controller('loginController', function($scope, $http) {
     $scope.confirmPasswordFlag = false;
 
 	// Options for 'Post' & 'Courses' Field 
-    $scope.post = ["Teacher", "Mentor", "Mentee"];
+    $scope.post = ["Mentor", "Mentee"];
     $scope.courses = ["BTech", "MBA", "BBA"];
     
     // Initializing Dropdown menu options 
-    $scope.signUp.registeredAs = "Teacher";
+    $scope.signUp.registeredAs = "Mentee";
     $scope.signUp.course = "BTech";
     $scope.signUp.selectedBranch = "CSE";
     
@@ -255,7 +396,7 @@ app.controller('loginController', function($scope, $http) {
                             
                           /*   * Error occurs ( route to error page)*/ 
                              
-                                window.location.assign("/#!/error");
+                            window.location.assign("/#!/error");
                             console.log("Error occurs");
                             }
                         else

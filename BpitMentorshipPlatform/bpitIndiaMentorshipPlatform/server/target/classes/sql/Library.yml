@@ -1,0 +1,15 @@
+library:
+
+ getAllFileNamesFromLibrary: >
+   select fileName,libraryId from library where semester=:semester and course=:course and subject=:subject and branch=:branch;
+   
+ InsertIntoLibrary: >
+   INSERT INTO `bpit`.`library` (`userId`, `fileName`, `type`, `semester`, `course`, `subject`, `branch`, `locationOfUploadedFile`, `uploadDate`) VALUES (:userId, :fileName, :type, :semester, :course, :subject, :branch, :locationOfUploadedFile, :uploadDate);
+     
+ getLibraryIdAndFileNameForSearch: >
+   select fileName,libraryId from library  where semester=:semester and course=:course and branch=:branch and subject=:subject and type=:type;
+   
+ getFilePathFromLibraryId: >
+   select locationOfUploadedFile from library where libraryId=:libraryId;  
+   
+         

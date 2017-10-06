@@ -36,6 +36,8 @@
             <div class="col-sm-4"></div>
             <div class="col-sm-4">
                 <div id="libraryForm">
+                	
+	            	<a href="#" id="searchDownloadLink" ng-model="searchDownload" ng-show="toggleSearchDownload">{{searchDownload}}</a>
                 	<div class="iconContainer">
                         <i class="material-icons">book</i>
                     </div>
@@ -60,6 +62,7 @@
                     <select ng-model="selectedCategory" ng-options="item for item in categories" ng-change="arrayList()" disabled></select>
                      <p class="errorMessageSignUp" ng-model="categoryError" ng-show="categoryError">Select a category</p>
                     
+                    
                     <div id="searchButtonWrapper">
                         <button ng-click="searchFunction();">SEARCH <i class="material-icons">search</i></button>
                     </div>
@@ -68,3 +71,4 @@
             <div class="col-sm-4"></div>
         </div>
     </div>
+</div>

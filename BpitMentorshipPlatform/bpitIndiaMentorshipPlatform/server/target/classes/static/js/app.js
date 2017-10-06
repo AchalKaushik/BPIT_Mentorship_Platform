@@ -1,6 +1,7 @@
 //Declaring the app
 var app = angular.module('bpit', ["ngRoute"]);
 
+
 app.config(function($routeProvider, $httpProvider) {
     $routeProvider
     .when("/", {
@@ -20,6 +21,9 @@ app.config(function($routeProvider, $httpProvider) {
     })
     .when("/library/upload", {
         templateUrl : "partials/upload.html"
+    })
+    .when("/construction", {
+        templateUrl : "partials/construction.html"
     })
     .otherwise({
         redirectTo: '/'

@@ -295,6 +295,16 @@ div#navbar form i {
     text-align: center;
 }
 
+#searchDownloadLink {
+    display: block;
+    text-align: center;
+    background: green;
+    color: #fff;
+    font-weight: 600;
+    padding: 10px;
+    border-radius: 2px;
+}
+
 #fileUpload {
     display: none;
 }

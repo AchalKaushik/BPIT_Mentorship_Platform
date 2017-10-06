@@ -1,5 +1,8 @@
 // Controller for Library Page
-app.controller('libraryController', function($scope, $http) {
+app.controller('libraryController', function($scope, $rootScope, $http) {
+    
+    console.log("in library controller");
+    console.log($rootScope.userRole);
 
 $scope.checksem = function() {
 	if($scope.selectedBranch != "Select Branch" && ($scope.selectedSemester==1 || $scope.selectedSemester=="First")) {
@@ -66,6 +69,9 @@ $scope.searchData = {};
 $scope.fileUploadData = {};
 $scope.fileNameCheck = {};
 $scope.downloadListData = {};
+$scope.toggleSearchDownload = false;
+
+$scope.searchDownload = "abc";
     
 $scope.sem = function(i) {
     $scope.selectedSemester =  i;
@@ -79,12 +85,104 @@ $scope.sem = function(i) {
 $scope.subDownloadListFunction = function(subi) {
     $scope.selectedSubject = $scope.subBranch[subi];
     console.log($scope.selectedSubject);
-    $scope.downloadListData.course = "";
+    
+    /*
+     * Get course from root scope 
+     */
+    
+    //$scope.downloadListData.course = "Btech";
+    
+    
     $scope.downloadListData.subject = $scope.selectedSubject;
     $scope.downloadListData.semester = $scope.selectedSemester;
     $scope.downloadListData.branch = $scope.selectedBranch;
-    $scope.downloadListData.type = $scope.selectedCategory;
-    console.log("getting download link");
+    
+    /*
+     *get type from the head selected E-Books or E-Notes 
+     */
+    
+    $scope.downloadListData.type = "E-Books";
+    
+    
+    /*
+     * Getting user role as per userId 
+     */
+    
+  /*
+  * Code to get user course 
+  */
+ 
+// console.log("Getting user course");
+// 
+// var userCourse;
+// 
+// $http.get(
+//         "/getUserCourse?userId="+"ruchit.jain15@gmail.com", {
+//             transformResponse: [function (data)  {
+//                 console.log(data);
+//                 userCourse=data;
+//                 return data;}]
+//     }
+//     ).then(function(response) {
+//    	 console.log("then response : " +userCourse);
+//     });
+//
+// $scope.downloadListData.course = userCourse;
+//    
+//    console.log("user course for search : " + $scope.downloadListData.course );
+//    
+    /*
+     * filename & lib id post goes here 
+     * making exactly the same request as made in search
+     * code is same..
+     */
+    
+    $scope.downloadListData.userId = "ruchit.jain15@gmail.com";
+    
+    console.log($scope.downloadListData.userId);
+    
+    var searchURI = "/searchForFile";
+    var searchStatus;
+    
+   $http({
+        url : searchURI,
+        method : "POST",
+        data : $scope.downloadListData,
+         transformResponse: [function (data)  {
+            console.log(data);
+            searchStatus=data;
+            return data;}]
+     }).then(
+            function(response)
+            {
+                /*
+                 * Check the returned response if doesnt contain any
+                 * filename and libraryId then show no file exists
+                 */
+            	console.log("Search status :" + searchStatus);
+            	
+                 /* Null is returned in case any exception occurs while inserting data in database */
+                 
+                if(searchStatus=="")
+                    {
+                    
+                     /** Error occurs*/ 
+                     
+                    window.location.assign("/#!/error");
+                console.log("An exception occurred ");
+                    }
+                else
+                    {
+                    
+                     /** Successfully got filenames and libraryid */
+
+                    console.log("Success");
+                    }
+            }
+            );
+   
+   console.log("user course for search After post: " + $scope.downloadListData.course );
+    
 }
 
 $scope.clear = function() {
@@ -107,7 +205,7 @@ $scope.scrollTop = function(){
 	$scope.selectedBranch = 'Select Branch';
 	$scope.selectedSemester = 'Select Semester';
 	$scope.selectedSubject = 'Select Subject';
-    $scope.selectedCategory = "Select Category";
+    $scope.selectedCategory = "E-Notes";
     $scope.fileName = "";
     
     $scope.subjectError = false;
@@ -161,13 +259,64 @@ $scope.scrollTop = function(){
         } else {
             $scope.allSelected = false;
         }
-        if($scope.allSelected==true) {
-            $scope.fileNameCheck.course = "";
+        if($scope.allSelected==true && $scope.fileArrayCheck==true) {
+           // $scope.fileNameCheck.course = "";
             $scope.fileNameCheck.semester = $scope.selectedSemester;
             $scope.fileNameCheck.branch = $scope.selectedBranch;
             $scope.fileNameCheck.subject = $scope.selectedSubject;
-            $scope.fileNameCheck.type = $scope.selectedCategory;
+       
+            /* 
+             * getting file names 
+             */
+            
             console.log('getting file name array');
+            
+            
+            var fileNamesURI = "/getFileNameAndLibraryId";
+            var fileNamesStatus;
+            
+            console.log("Sem "+  $scope.searchData.semester+"sub " + $scope.searchData.subject);
+            
+            
+            $http({
+                url : fileNamesURI,
+                method : "POST",
+                data : $scope.fileNameCheck,
+                 transformResponse: [function (data)  {
+                    console.log(data);
+                    fileNamesStatus=data;
+                    return data;}]
+             }).then(
+                    function(response)
+                    {
+                        /*
+                         * Check the returned response if doesnt contain any
+                         * filename and libraryId then show no file exists
+                         */
+                    	console.log("Search status :" + fileNamesStatus);
+                    	
+                         /* Null is returned in case any exception occurs while inserting data in database */
+                         
+                        if(fileNamesStatus=="")
+                            {
+                            
+                             /** Error occurs*/ 
+                             console.log("all wale m");
+                                
+//                            window.location.assign("/#!/error");
+                            console.log("An exception occurred ");
+                            }
+                        else
+                            {
+                            
+                             /** Successfully got filenames and libraryid */
+
+                            console.log("Success");
+                            }
+                    }
+                    );
+            
+            
         }
     }
     
@@ -216,6 +365,11 @@ $scope.scrollTop = function(){
             $scope.fileUploadData.semester = $scope.selectedSemester;
             $scope.fileUploadData.subject = $scope.selectedSubject;
             $scope.fileUploadData.miltipartFile = "";
+            
+            /*
+             * post goes here ...
+             */
+            
             console.log("uploaded");
         } else {
             console.log("file not uploded");
@@ -244,7 +398,55 @@ $scope.scrollTop = function(){
             $scope.searchData.semester = $scope.selectedSemester;
             $scope.searchData.subject = $scope.selectedSubject;
             $scope.searchData.type = $scope.selectedCategory;
-            $scope.searchData.course = "";
+            $scope.searchData.branch = $scope.selectedBranch;
+           // $scope.searchData.course = "";
+            
+            var searchURI = "/searchForFile";
+            var searchStatus;
+            
+            $scope.searchData.userId = "ruchit.jain15@gmail.com";
+            
+            console.log("Sem "+  $scope.searchData.semester+"sub " + $scope.searchData.subject);
+            console.log("iski maa ka bhosda");
+            
+            $http({
+                url : searchURI,
+                method : "POST",
+                data : $scope.searchData,
+                 transformResponse: [function (data)  {
+                    console.log(data);
+                    searchStatus=data;
+                    return data;}]
+             }).then(
+                    function(response)
+                    {
+                        /*
+                         * Check the returned response if doesnt contain any
+                         * filename and libraryId then show no file exists
+                         */
+                    	console.log("Search status :" + searchStatus);
+                    	
+                         /* Null is returned in case any exception occurs while inserting data in database */
+                         
+                        if(searchStatus=="")
+                            {
+                            
+                             /** Error occurs*/ 
+                             
+                            window.location.assign("/#!/error");
+                            console.log("An exception occurred ");
+                            }
+                        else
+                            {
+                            
+                             /** Successfully got filenames and libraryid */
+//                            $scope.searchStatus = {"libraryId":"6", "filename":"hey"};
+                                $scope.toggleSearchDownload = true;
+                                $scope.searchDownload = $scope.searchStatus.filename;
+                            console.log("Success");
+                            }
+                    }
+                    );
             console.log("searching");
         } else {
             console.log("not searching");
@@ -258,4 +460,26 @@ $scope.scrollTop = function(){
                 $scope.categoryError = true;
         }
     }
+    
 });
+
+/*
+ * The following code has been tested just change the name of function and adjust it in code 
+ * and set libraryId and fileName
+ * 
+ *  $scope.foc= function()
+    {
+    	 
+          
+        var downloadFileURI = "/downloadFile";
+      	
+        var libraryIdAndFileName = "?libraryId="+"setLibraryIdhere"+"&fileName="+"setfileNamehere";
+      	
+        var urldata = downloadFileURI+libraryIdAndFileName;
+        
+        window.open(urldata);
+    }
+ */
+
+
+

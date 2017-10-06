@@ -24,6 +24,9 @@
 <!--  Sign Up Success Message  -->
     <p id="signUpSuccess" ng-show="successMsg">You have been succesfully registered. <a href="#/">Login</a></p>
     
+    <!-- Error Message if Enrollment Number/Password is wrong  -->
+    <p class="errorMessageSignUp" ng-model="loginError" ng-show="loginError" >Username or Password is Incorrect</p>
+    
     <!-- Input fields for Login Form -->
     
     <!-- Enrollment Number -->
@@ -45,10 +48,6 @@
     <!-- Error Message if Password is less than 6 characters -->
     <p class="errorMessageSignUp" ng-model="passwordError" ng-show="passwordError">Password cannot be left empty</p>
     <!--Validate for min length of 6 characters password -->
-    
-    
-    <!-- Error Message if Enrollment Number/Password is wrong  -->
-    <p class="errorMessageLogin" ng-model="loginError" ng-show="loginError" >Username or Password is Incorrect</p>
 
     <!-- Login Button -->
     <div id="submitButton">
@@ -60,6 +59,8 @@
 <div class="signUpForm" ng-show="signupActive">    
       
     <!-- Input fields for Signup Form -->
+    
+    <p class="errorMessageSignUp" ng-model="enrollmentNumberRegistered" ng-show="enrollmentNumberRegistered">Enrollment Number or Email is already registered</p>
     
     <!-- First Name -->
     <div class="iconContainer">
@@ -135,7 +136,6 @@
     </div>
     <input type="number" placeholder="* {{enroll}}" min="0" ng-model="signUp.uniqueId" ng-keyup="enrollmentValidate();" />
     <p class="errorMessageSignUp" ng-model="enrollmentNumberError" ng-show="enrollmentNumberError">{{enroll}} should be 11 digits long</p>
-    <p class="errorMessageSignUp" ng-model="enrollmentNumberRegistered" ng-show="enrollmentNumberRegistered">Enrollment number already registered</p>
     
     
     

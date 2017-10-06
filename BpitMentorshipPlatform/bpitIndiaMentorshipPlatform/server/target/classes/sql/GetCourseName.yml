@@ -1,0 +1,6 @@
+couseNameAndAllFilesName:
+ 
+ getUserCourse: >
+   select course from login where userId = :userId;
+
+     

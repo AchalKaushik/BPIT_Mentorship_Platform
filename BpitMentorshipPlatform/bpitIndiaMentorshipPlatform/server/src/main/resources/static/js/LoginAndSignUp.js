@@ -4,15 +4,21 @@
 var userRole;
 
 app.controller('navController', function($scope) {
-	console.log(userRole);
-	$scope.logoutToggle = "true";
+	$scope.logoutToggle = "false";
 });
 
-app.controller('loginController', function($scope, $http) {
+app.controller('loginController', function($scope, $rootScope, $http) {
     
 	console.log("In login controller");
     $scope.signUp={};
     $scope.loginData={};
+    
+    $scope.signUp.firstName = "";
+    $scope.signUp.lastName = "";
+    $scope.loginError = false;
+    
+    $rootScope.userRole = "mentee";
+    console.log($rootScope.userRole);
     
     /*
      *  Login page Angular Script Goes here
@@ -136,6 +142,7 @@ app.controller('loginController', function($scope, $http) {
                     	/*
                     	 * Unauthenticated user take appropriate action here  
                     	 */
+                        $scope.loginError = true;
                     	console.log("Unauthenticated user");
                     	}
                     else
@@ -144,7 +151,7 @@ app.controller('loginController', function($scope, $http) {
                          /** 
                           * Exception occurred  
                           */
-
+                            window.location.assign("/#!/error");
                         console.log("Exception occurred");
                         }
                 }
@@ -184,11 +191,11 @@ app.controller('loginController', function($scope, $http) {
     $scope.confirmPasswordFlag = false;
 
 	// Options for 'Post' & 'Courses' Field 
-    $scope.post = ["Teacher", "Mentor", "Mentee"];
+    $scope.post = ["Mentor", "Mentee"];
     $scope.courses = ["BTech", "MBA", "BBA"];
     
     // Initializing Dropdown menu options 
-    $scope.signUp.registeredAs = "Teacher";
+    $scope.signUp.registeredAs = "Mentee";
     $scope.signUp.course = "BTech";
     $scope.signUp.selectedBranch = "CSE";
     

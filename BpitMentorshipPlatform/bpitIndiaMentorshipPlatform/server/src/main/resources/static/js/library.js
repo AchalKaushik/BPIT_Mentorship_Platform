@@ -1,5 +1,8 @@
 // Controller for Library Page
-app.controller('libraryController', function($scope, $http) {
+app.controller('libraryController', function($scope, $rootScope, $http) {
+    
+    console.log("in library controller");
+    console.log($rootScope.userRole);
 
 $scope.checksem = function() {
 	if($scope.selectedBranch != "Select Branch" && ($scope.selectedSemester==1 || $scope.selectedSemester=="First")) {
@@ -66,6 +69,9 @@ $scope.searchData = {};
 $scope.fileUploadData = {};
 $scope.fileNameCheck = {};
 $scope.downloadListData = {};
+$scope.toggleSearchDownload = false;
+
+$scope.searchDownload = "abc";
     
 $scope.sem = function(i) {
     $scope.selectedSemester =  i;
@@ -162,7 +168,8 @@ $scope.subDownloadListFunction = function(subi) {
                     
                      /** Error occurs*/ 
                      
-                    console.log("An exception occurred ");
+                    window.location.assign("/#!/error");
+                console.log("An exception occurred ");
                     }
                 else
                     {
@@ -198,7 +205,7 @@ $scope.scrollTop = function(){
 	$scope.selectedBranch = 'Select Branch';
 	$scope.selectedSemester = 'Select Semester';
 	$scope.selectedSubject = 'Select Subject';
-    $scope.selectedCategory = "Select Category";
+    $scope.selectedCategory = "E-Notes";
     $scope.fileName = "";
     
     $scope.subjectError = false;
@@ -252,7 +259,7 @@ $scope.scrollTop = function(){
         } else {
             $scope.allSelected = false;
         }
-        if($scope.allSelected==true) {
+        if($scope.allSelected==true && $scope.fileArrayCheck==true) {
            // $scope.fileNameCheck.course = "";
             $scope.fileNameCheck.semester = $scope.selectedSemester;
             $scope.fileNameCheck.branch = $scope.selectedBranch;
@@ -294,7 +301,9 @@ $scope.scrollTop = function(){
                             {
                             
                              /** Error occurs*/ 
-                             
+                             console.log("all wale m");
+                                
+//                            window.location.assign("/#!/error");
                             console.log("An exception occurred ");
                             }
                         else
@@ -424,19 +433,20 @@ $scope.scrollTop = function(){
                             
                              /** Error occurs*/ 
                              
+                            window.location.assign("/#!/error");
                             console.log("An exception occurred ");
                             }
                         else
                             {
                             
                              /** Successfully got filenames and libraryid */
-
+//                            $scope.searchStatus = {"libraryId":"6", "filename":"hey"};
+                                $scope.toggleSearchDownload = true;
+                                $scope.searchDownload = $scope.searchStatus.filename;
                             console.log("Success");
                             }
                     }
                     );
-            
-          
             console.log("searching");
         } else {
             console.log("not searching");

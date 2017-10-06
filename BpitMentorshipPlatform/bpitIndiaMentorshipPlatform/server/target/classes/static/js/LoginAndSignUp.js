@@ -86,6 +86,7 @@ app.controller('loginController', function($scope, $rootScope, $http) {
                                     transformResponse: [function (data)  {
                                         console.log(data);
                                         userRole=data;
+                                        $rootScope.userRole = userRole;
                                         return data;}]
                             }
                             ).then(function(response) {

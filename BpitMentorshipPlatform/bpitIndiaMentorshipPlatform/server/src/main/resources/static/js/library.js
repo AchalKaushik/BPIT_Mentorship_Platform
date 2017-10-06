@@ -169,14 +169,14 @@ $scope.subDownloadListFunction = function(subi) {
                     
                      /** Error occurs*/ 
                      
-                    window.location.assign("/#!/error");
+//                    window.location.assign("/#!/error");
                 console.log("An exception occurred ");
                     }
                 else
                     {
                     
                      /** Successfully got filenames and libraryid */
-
+                            $scope.steps = searchStatus;
                     console.log("Success");
                     }
             }
@@ -471,7 +471,7 @@ $scope.scrollTop = function(){
                             
                              /** Error occurs*/ 
                              
-                            window.location.assign("/#!/error");
+//                            window.location.assign("/#!/error");
                             console.log("An exception occurred ");
                             }
                         else

@@ -3,6 +3,12 @@ app.controller('libraryController', function($scope, $rootScope, $http) {
     
     console.log("in library controller");
     console.log($rootScope.userRole);
+    
+    $scope.steps = [
+    {companyName: true},
+    {businessType: true},
+    {physicalAddress: true}
+];
 
 $scope.checksem = function() {
 	if($scope.selectedBranch != "Select Branch" && ($scope.selectedSemester==1 || $scope.selectedSemester=="First")) {
@@ -139,6 +145,7 @@ $scope.subDownloadListFunction = function(subi) {
     
     $scope.downloadListData.userId = "ruchit.jain15@gmail.com";
     
+    
     console.log($scope.downloadListData.userId);
     
     var searchURI = "/searchForFile";
@@ -168,7 +175,7 @@ $scope.subDownloadListFunction = function(subi) {
                     
                      /** Error occurs*/ 
                      
-                    window.location.assign("/#!/error");
+//                    window.location.assign("/#!/error");
                 console.log("An exception occurred ");
                     }
                 else
@@ -259,7 +266,7 @@ $scope.scrollTop = function(){
         } else {
             $scope.allSelected = false;
         }
-        if($scope.allSelected==true && $scope.fileArrayCheck==true) {
+        if($scope.allSelected==true) {
            // $scope.fileNameCheck.course = "";
             $scope.fileNameCheck.semester = $scope.selectedSemester;
             $scope.fileNameCheck.branch = $scope.selectedBranch;
@@ -370,6 +377,43 @@ $scope.scrollTop = function(){
              * post goes here ...
              */
             
+            var formData = new FormData();
+            console.log('File is :'+file);
+            var file = document.getElementById('fileUpload').files[0];
+            formData.append('branch', $scope.fileUploadData.branch);
+            formData.append('type', $scope.fileUploadData.type);
+            formData.append('fileName',$scope.fileUploadData.fileName);
+            formData.append('semester',$scope.fileUploadData.semester);
+            formData.append('subject',$scope.fileUploadData.subject);
+            formData.append('userId',"ruchit.jain15@gmail.com");
+            formData.append('file',  document.getElementById('fileUpload').files[0]);
+            var uploadUrl= "/uploadFile";
+            
+            $http({
+            	method: 'POST',
+            	url: uploadUrl,
+                data: formData,
+                headers: {'Content-Type': undefined},
+                
+                transformRequest: angular.identity,
+                transformResponse: [function (data) {
+                	console.log(data);
+                	thisIsResponse=data;
+                	console.log(thisIsResponse);
+                	return data;
+                }]
+            }).then(function(response) {
+                
+            	console.log("response of success -----");
+            	console.log(thisIsResponse);
+            	responseOfUpload(thisIsResponse);
+                
+            }, function errorCallback(response) {
+            	console.log("Error in receiving response from backend------" +response);
+                console.log('Error: '+response);
+             });
+            
+            
             console.log("uploaded");
         } else {
             console.log("file not uploded");
@@ -433,7 +477,7 @@ $scope.scrollTop = function(){
                             
                              /** Error occurs*/ 
                              
-                            window.location.assign("/#!/error");
+//                            window.location.assign("/#!/error");
                             console.log("An exception occurred ");
                             }
                         else
@@ -442,7 +486,8 @@ $scope.scrollTop = function(){
                              /** Successfully got filenames and libraryid */
 //                            $scope.searchStatus = {"libraryId":"6", "filename":"hey"};
                                 $scope.toggleSearchDownload = true;
-                                $scope.searchDownload = $scope.searchStatus.filename;
+                                console.log(searchStatus.fileName);
+                                $scope.searchDownload = searchStatus.fileName;
                             console.log("Success");
                             }
                     }

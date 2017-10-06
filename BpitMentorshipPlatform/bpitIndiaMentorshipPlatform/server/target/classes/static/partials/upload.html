@@ -72,7 +72,7 @@
                     </div>
                     <label for="fileUpload" id="fileUploadLabel" ng-show="allSelected">Choose File Here</label>
                     <p class="errorMessageSignUp" ng-model="uploadFileError" ng-show="uploadFileError">Select a file</p>
-                    <input type="file" id="fileUpload" ng-model="fileUploaded" onchange="angular.element(this).scope().changeText(this)">
+                    <input type="file" id="fileUpload"  onchange="angular.element(this).scope().changeText(this)">
                     
                     <div id="searchButtonWrapper">
                         <button id="uploadButton" ng-click="uploadFunction();">UPLOAD</button>

@@ -16,6 +16,9 @@ app.config(function($routeProvider, $httpProvider) {
     .when("/library", {
         templateUrl : "partials/library.html"
     })
+    .when("/error", {
+        templateUrl : "partials/error.html"
+    })
     .when("/library/search", {
         templateUrl : "partials/search.html"
     })

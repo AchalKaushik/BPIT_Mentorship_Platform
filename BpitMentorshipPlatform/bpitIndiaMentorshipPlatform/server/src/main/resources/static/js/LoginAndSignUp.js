@@ -83,12 +83,7 @@ app.controller('loginController', function($scope, $http) {
                                         return data;}]
                             }
                             ).then(function(response) {
-                            	
-                            	userRole = "mentee";
-                            	alert("");
-                            	console.log("user role is :"+userRole);
-                            	
-                             
+                            	                            	
                             /*
                               * routing on basis of user role received
                               */        

@@ -84,7 +84,7 @@ $scope.subDownloadListFunction = function(subi) {
      * Get course from root scope 
      */
     
-    $scope.downloadListData.course = "Btech";
+    //$scope.downloadListData.course = "Btech";
     
     
     $scope.downloadListData.subject = $scope.selectedSubject;
@@ -97,14 +97,43 @@ $scope.subDownloadListFunction = function(subi) {
     
     $scope.downloadListData.type = "E-Books";
     
-    console.log("getting download link");
     
+    /*
+     * Getting user role as per userId 
+     */
+    
+  /*
+  * Code to get user course 
+  */
+ 
+// console.log("Getting user course");
+// 
+// var userCourse;
+// 
+// $http.get(
+//         "/getUserCourse?userId="+"ruchit.jain15@gmail.com", {
+//             transformResponse: [function (data)  {
+//                 console.log(data);
+//                 userCourse=data;
+//                 return data;}]
+//     }
+//     ).then(function(response) {
+//    	 console.log("then response : " +userCourse);
+//     });
+//
+// $scope.downloadListData.course = userCourse;
+//    
+//    console.log("user course for search : " + $scope.downloadListData.course );
+//    
     /*
      * filename & lib id post goes here 
      * making exactly the same request as made in search
      * code is same..
      */
     
+    $scope.downloadListData.userId = "ruchit.jain15@gmail.com";
+    
+    console.log($scope.downloadListData.userId);
     
     var searchURI = "/searchForFile";
     var searchStatus;
@@ -144,6 +173,8 @@ $scope.subDownloadListFunction = function(subi) {
                     }
             }
             );
+   
+   console.log("user course for search After post: " + $scope.downloadListData.course );
     
 }
 
@@ -364,8 +395,10 @@ $scope.scrollTop = function(){
             var searchURI = "/searchForFile";
             var searchStatus;
             
-            console.log("Sem "+  $scope.searchData.semester+"sub " + $scope.searchData.subject);
+            $scope.searchData.userId = "ruchit.jain15@gmail.com";
             
+            console.log("Sem "+  $scope.searchData.semester+"sub " + $scope.searchData.subject);
+            console.log("iski maa ka bhosda");
             
             $http({
                 url : searchURI,

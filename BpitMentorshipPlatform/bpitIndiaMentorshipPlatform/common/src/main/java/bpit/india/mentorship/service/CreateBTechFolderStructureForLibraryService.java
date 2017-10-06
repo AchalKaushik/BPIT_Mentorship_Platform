@@ -465,7 +465,7 @@ public class CreateBTechFolderStructureForLibraryService {
 		File semester7ECEPMFolder = new File(semester7ECEFolder.getAbsolutePath()+"//Project Management");
 		File semester7ECEEFEFolder = new File(semester7ECEFolder.getAbsolutePath()+"//Economics for Engineers");
 		File semester7ECEPCFolder = new File(semester7ECEFolder.getAbsolutePath()+"//Parallel Computing");
-		File semester7ECESTECEFolder = new File(semester7ECEFolder.getAbsolutePath()+"//Selected topics in ECE**");
+		File semester7ECESTECEFolder = new File(semester7ECEFolder.getAbsolutePath()+"//Selected topics in ECE");
 		File semester7ECESEIHFolder = new File(semester7ECEFolder.getAbsolutePath()+"//Sociology and Elements of Indian History");
 	
 		
@@ -486,7 +486,7 @@ public class CreateBTechFolderStructureForLibraryService {
 		File semester7EEEHVEFolder = new File(semester7EEEFolder.getAbsolutePath()+"//High Voltage Engineering");
 		File semester7EEEDBMSFolder = new File(semester7EEEFolder.getAbsolutePath()+"//Database Management System");
 		File semester7EEERERFolder = new File(semester7EEEFolder.getAbsolutePath()+"//Renewable Energy Resources");
-		File semester7EEESTEEEFolder = new File(semester7EEEFolder.getAbsolutePath()+"//Selected topics in EEE**");
+		File semester7EEESTEEEFolder = new File(semester7EEEFolder.getAbsolutePath()+"//Selected topics in EEE");
 		File semester7EEEDSDFolder = new File(semester7EEEFolder.getAbsolutePath()+"//Digital System Design");
 		File semester7EEEPLCCFolder = new File(semester7EEEFolder.getAbsolutePath()+"//Power line Carrier Communication");
 		File semester7EEEEMDFolder = new File(semester7EEEFolder.getAbsolutePath()+"//Electrical Machines Design");
@@ -1110,7 +1110,7 @@ public class CreateBTechFolderStructureForLibraryService {
 					throw new Exception();	
 			}
 			
-			if(!semester2CSEEMFolder.mkdir())
+			if(!semester2ECEEMFolder.mkdir())
 			{
 					/*
 					 * Error occurred while creating Semester2 CSE EM  Folder 
@@ -1883,7 +1883,7 @@ public class CreateBTechFolderStructureForLibraryService {
 					throw new Exception();	
 			}
 			
-			if(!semester5CSEDCFolder.mkdir())
+			if(!semester5ECEDCFolder.mkdir())
 			{
 					/*
 					 * Error occurred while creating Semester5 CSE DC Folder 
@@ -1891,7 +1891,7 @@ public class CreateBTechFolderStructureForLibraryService {
 					throw new Exception();	
 			}
 			
-			if(!semester5CSECSPFolder.mkdir())
+			if(!semester5ECECSPFolder.mkdir())
 			{
 					/*
 					 * Error occurred while creating Semester5 CSE CSP Folder 
@@ -1899,7 +1899,7 @@ public class CreateBTechFolderStructureForLibraryService {
 					throw new Exception();	
 			}
 			
-			if(!semester5CSEIMFolder.mkdir())
+			if(!semester5ECEIMFolder.mkdir())
 			{
 					/*
 					 * Error occurred while creating Semester5 CSE IM Folder 
@@ -3000,13 +3000,13 @@ public class CreateBTechFolderStructureForLibraryService {
 					 */
 					throw new Exception();	
 			}
-			if(!semester8ITFolder.mkdir())
-			{
-					/*
-					 * Error occurred while creating Semester8 IT  Folder 
-					 */
-					throw new Exception();	
-			}
+//			if(!semester8ITFolder.mkdir())
+//			{
+//					/*
+//					 * Error occurred while creating Semester8 IT  Folder 
+//					 */
+//					throw new Exception();	
+//			}
 			if(!semester8ITSNAFolder.mkdir())
 			{
 					/*

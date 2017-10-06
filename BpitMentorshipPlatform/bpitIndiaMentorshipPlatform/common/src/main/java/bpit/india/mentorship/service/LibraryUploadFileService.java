@@ -34,7 +34,10 @@ public class LibraryUploadFileService {
 	@Autowired
 	private LibraryUploadFileDao libraryUploadFileDao;
 	
-	public String uploadFile(MultipartFile file,String branch,String subject,String type,String fileName,String semester)
+	@Autowired
+	private GetUserCourseService getUserCourseService;
+	
+	public String uploadFile(MultipartFile file,String branch,String subject,String type,String fileName,String semester,String userd)
 	{
 		
 		
@@ -45,10 +48,12 @@ public class LibraryUploadFileService {
 		
 		HashMap<String, Object> getPathsOfFolders = new HashMap<String, Object>();
 		
-		String course="";
+		String course=getUserCourseService.getUserCouse(userd);
 		/*
 		 * Get couse corresponding to userId from session
 		 */
+		
+		System.out.println("Course is  : " + course);
 		
 		Path path=Paths.get("");
 		
@@ -69,6 +74,7 @@ public class LibraryUploadFileService {
 		
 		if(course.equalsIgnoreCase("BTech"))
 		{
+			System.out.println("In Btech");
 			getPathsOfFolders = createBTechFolderStructureForLibraryService.createFolderStructureForLibrary();
 		switch (semester) {
 		case "1":
@@ -84,7 +90,9 @@ public class LibraryUploadFileService {
 					path=Paths.get(bTechSemester1And2FolderPathsDto.getSemester1CSEAMFolder()+ fileName+extension); 
 					break;
 				case "Applied Physics - I":
-					path=Paths.get(bTechSemester1And2FolderPathsDto.getSemester1CSEAPFolder()+ fileName+extension);
+					System.out.println("Path AP is : "+bTechSemester1And2FolderPathsDto.getSemester1CSEAPFolder()+ fileName+extension);
+					path=Paths.get(bTechSemester1And2FolderPathsDto.getSemester1CSEAPFolder()+"//"+fileName+extension);
+					System.out.println("Path : " + path.toString());
 					break;
 				case "Electrical Technology":
 					path=Paths.get(bTechSemester1And2FolderPathsDto.getSemester1CSEETFolder()+ fileName+extension);
@@ -1372,7 +1380,7 @@ public class LibraryUploadFileService {
 		 * ELSE MERGING CONFLICT WILL ARISE LATER ON 
 		 * IN CASE YOU NEED ANY HELP OR CLARIT REGARDING THIS LET ME KNOW
 		 */
-		
+		System.out.println("Path  is  : " + path);
 		
 		
 		/*
@@ -1380,7 +1388,7 @@ public class LibraryUploadFileService {
 		 */
 		
 		
-		String userId="";
+		String userId=userd;
 		
 		/*
 		 * Get userId directly from session

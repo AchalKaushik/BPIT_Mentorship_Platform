@@ -1,7 +1,6 @@
 // Controller for Login Form
 
 
-var userRole;
 
 app.controller('navController', function($scope) {
 	$scope.logoutToggle = "false";
@@ -17,7 +16,7 @@ app.controller('loginController', function($scope, $rootScope, $http) {
     $scope.signUp.lastName = "";
     $scope.loginError = false;
     
-    $rootScope.userRole = "mentee";
+  //  $rootScope.userRole = "mentee";
     console.log($rootScope.userRole);
     
     /*
@@ -65,7 +64,8 @@ app.controller('loginController', function($scope, $rootScope, $http) {
                          /** 
                           * Authenticated user
                           * */ 
-                         
+                         $rootScope.userId = $scope.loginData.userId;
+                         console.log("userId in root scope is  :" + $rootScope.userId);
                         console.log("Authenticated user");
                         window.location.assign("#!/home")
                         
@@ -80,13 +80,18 @@ app.controller('loginController', function($scope, $rootScope, $http) {
                         /*
                          * Set userId 
                          */
+                        var userRole;
                         
                         $http.get(
-                                "/getUserRole?userId="+"setUserIdHere", {
+                                "/getUserRole?userId="+$rootScope.userId, {
                                     transformResponse: [function (data)  {
                                         console.log(data);
                                         userRole=data;
                                         $rootScope.userRole = userRole;
+                                        
+                                        //yha pe ni krna? undefined object aa jaaega
+                                        // to kha pe kru set userRole? are tu phle useridd set kr jo login kei time dali thi 
+                                        console.log($rootScope.userRole);
                                         return data;}]
                             }
                             ).then(function(response) {
@@ -94,7 +99,7 @@ app.controller('loginController', function($scope, $rootScope, $http) {
                             /*
                               * routing on basis of user role received
                               */        
-                            	
+                            	console.log("User role after login is  : "+ userRole+$rootScope.userRole);
                             	
                             });
                         
@@ -127,6 +132,7 @@ app.controller('loginController', function($scope, $rootScope, $http) {
 //                            	
 //                            });
 //                        
+                        
                         
                         
                         

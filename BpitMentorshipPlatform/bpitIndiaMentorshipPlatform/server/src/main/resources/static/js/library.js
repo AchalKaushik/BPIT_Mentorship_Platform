@@ -77,8 +77,12 @@ $scope.searchDownload = "abc";
     
 $scope.sem = function(i) {
     $scope.selectedSemester =  i;
-    if($scope.selectedBranch=='Select Branch') {
-        $scope.branchError = true;
+    if($scope.selectedBranch=='Select Branch' || $scope.selectedCategory=='Select Category') {
+        console.log($scope.selectedCategory);
+        if($scope.selectedBranch == 'Select Branch')
+            $scope.branchError = true;
+        if($scope.selectedCategory == 'Select Category')
+            $scope.categoryError = true;
     } else {
         $scope.checksem();
     }
@@ -103,7 +107,7 @@ $scope.subDownloadListFunction = function(subi) {
      *get type from the head selected E-Books or E-Notes 
      */
     
-    $scope.downloadListData.type = "E-Books";
+    $scope.downloadListData.type = $scope.selectedCategory;
     
     
     /*
@@ -185,21 +189,31 @@ $scope.subDownloadListFunction = function(subi) {
    
    console.log("user course for search After post: " + $scope.downloadListData.course );
     
+            data1 = [{'id':'6','fileName':'hi'}, {'id':'15','fileName':'this'}]
+            $scope.steps = data1;
 }
+
+$scope.counter = 0;
 
 $scope.clear = function() {
     $scope.selectedSemester = "";
-    if($scope.selectedBranch!='Select Branch') {
-        $scope.branchError = false;
-    } else {
-        $scope.branchError = true;
-    }
+        if($scope.selectedBranch!='Select Branch')
+            $scope.branchError = false;
+        else {
+            $scope.branchError = true;
+        }
+    
+        if($scope.selectedCategory!='Select Category')
+            $scope.categoryError = false;
+        else {
+            $scope.categoryError = true;
+        }
     $scope.checksem();
 }
 
 
 $scope.scrollTop = function(){
-	if($scope.selectedBranch=='Select Branch') {
+	if($scope.selectedBranch=='Select Branch' || $scope.selectedCategory == 'Select Category') {
 	    $('html, body').animate({ scrollTop: 300 }, 550);
 	   }
 	}
@@ -207,14 +221,16 @@ $scope.scrollTop = function(){
 	$scope.selectedBranch = 'Select Branch';
 	$scope.selectedSemester = 'Select Semester';
 	$scope.selectedSubject = 'Select Subject';
-    $scope.selectedCategory = "E-Notes";
+    $scope.selectedCategory = "Select Category";
     $scope.fileName = "";
     
     $scope.subjectError = false;
+        $scope.uploadCheck = false;
     $scope.semesterError = false;
     $scope.categoryError = false;
     $scope.branchError = false;
     $scope.fileNameError = false;
+    $scope.fileNameMatchError = false;
     $scope.fileNameEmptyError = false;
     $scope.uploadFileError = false;
     $scope.allSelected = false;
@@ -224,8 +240,9 @@ $scope.scrollTop = function(){
     $scope.branch = ['Select Branch'];
     $scope.subBranch = ['Select Subject'];
     $scope.categories = ['Select Category'];
+    $scope.categoriesLib = ['Select Category', 'E-Books', 'E-Notes'];
     
-    $scope.arrayList = function(check) {
+    $scope.arrayList = function(check,up) {
         if($scope.selectedSemester!="Select Semester") {
         if(check==1) {
         		$scope.selectedBranch = 'Select Branch';
@@ -261,7 +278,8 @@ $scope.scrollTop = function(){
         } else {
             $scope.allSelected = false;
         }
-        if($scope.allSelected==true) {
+        console.log($scope.allSelected+ "  "+ up);
+        if($scope.allSelected==true && up==1) {
            // $scope.fileNameCheck.course = "";
             $scope.fileNameCheck.semester = $scope.selectedSemester;
             $scope.fileNameCheck.branch = $scope.selectedBranch;
@@ -312,7 +330,7 @@ $scope.scrollTop = function(){
                             {
                             
                              /** Successfully got filenames and libraryid */
-
+                             $scope.fileNameArray = fileNamesStatus;
                             console.log("Success");
                             }
                     }
@@ -358,9 +376,10 @@ $scope.scrollTop = function(){
 	    $scope.branchError = false;
 	    $scope.fileNameError = false;
 	    $scope.uploadFileError = false;
+        $scope.compareFileName();
 	    
 	    $scope.fileNameErrorFunction();
-        if($scope.selectedBranch!='Select Branch' && $scope.selectedSemester!='Select Semester' && $scope.selectedSubject!='Select Subject' && $scope.selectedCategory!='Select Category' && $scope.fileNameError == false && ($scope.fileName).length!=0) {
+        if($scope.selectedBranch!='Select Branch' && $scope.selectedSemester!='Select Semester' && $scope.selectedSubject!='Select Subject' && $scope.selectedCategory!='Select Category' && $scope.fileNameError == false && $scope.fileNameMatchError == false && ($scope.fileName).length!=0) {
             $scope.fileUploadData.branch = $scope.selectedBranch;
             $scope.fileUploadData.type = $scope.selectedCategory;
             $scope.fileUploadData.fileName = $scope.fileName;
@@ -407,6 +426,14 @@ $scope.scrollTop = function(){
             	console.log("Error in receiving response from backend------" +response);
                 console.log('Error: '+response);
              });
+            $scope.selectedBranch = 'Select Branch';
+	$scope.selectedSemester = 'Select Semester';
+	$scope.selectedSubject = 'Select Subject';
+    $scope.selectedCategory = "Select Category";
+    $scope.fileName = "";
+            var labelText = document.getElementById('fileUploadLabel');
+            labelText.innerHTML = "Choose File Here";
+            $scope.uploadCheck = true;
             
             
             console.log("uploaded");
@@ -422,6 +449,7 @@ $scope.scrollTop = function(){
                 $scope.categoryError = true;
             if($scope.fileName.length == 0) {
                 $scope.fileNameEmptyError = true;
+            $scope.compareFileName();
             }
         }
     }
@@ -487,6 +515,9 @@ $scope.scrollTop = function(){
                                }
                        }
                        );
+            data1 = [{'id':'6','fileName':'hi'}, {'id':'15','fileName':'this'}]
+            $scope.steps = data1;
+            $scope.toggleSearchDownload = true;
             console.log("searching");
         } else {
             console.log("not searching");
@@ -501,25 +532,44 @@ $scope.scrollTop = function(){
         }
     }
     
-});
-
-/*
+    $scope.fileNameArray = [{'id':'6','fileName':'hi'}, {'id':'15','fileName':'this'}]
+    $scope.compareFileName = function() {
+    var len = $scope.fileNameArray.length;
+    for(li=0; li<len; li++){
+       if(Object.keys($scope.fileNameArray[li])[1]=='fileName') {
+           if($scope.fileName == Object.values($scope.fileNameArray[li])[1]) {
+                console.log("bhai match kr gya");
+                $scope.fileNameMatchError = true;
+               break;
+           } else {
+               $scope.fileNameMatchError = false;
+        }
+       }
+    }
+}
+    
+    /*
  * The following code has been tested just change the name of function and adjust it in code 
  * and set libraryId and fileName
- * 
- *  $scope.foc= function()
+ */
+    
+  $scope.downloadFileViaLink= function(libid, filename)
     {
     	 
-          
-        var downloadFileURI = "/downloadFile";
-      	
-        var libraryIdAndFileName = "?libraryId="+"setLibraryIdhere"+"&fileName="+"setfileNamehere";
-      	
-        var urldata = downloadFileURI+libraryIdAndFileName;
-        
-        window.open(urldata);
+         console.log($scope.steps);
+      console.log(libid);
+      console.log(filename);
+//        var downloadFileURI = "/downloadFile";
+//      	
+//        var libraryIdAndFileName = "?libraryId="+libid+"&fileName="+filename;
+//      	
+//        var urldata = downloadFileURI+libraryIdAndFileName;
+//        
+//        window.open(urldata);
     }
- */
+ 
+    
+});
 
 
 

@@ -35,17 +35,14 @@
     
     <div id="navbar">
     	<div class="row">
-    		<div class="col-sm-3">
+    		<div class="col-sm-4">
     			<a href="#!/library/search" class="eMaterials">Search</a>
 			</div>
-            <div class="col-sm-3">
+            <div class="col-sm-4">
                 <a href="#!/library/upload" class="eMaterials">Upload</a>
             </div>
-    		<div class="col-sm-3">
-                <a href="#" class="eMaterials">E-Notes</a>
-            </div>
-    		<div class="col-sm-3">
-                <a href="#" class="eMaterials">E-Books</a>
+            <div class="col-sm-4">
+                <a href="#!/library" class="eMaterials">E-Books/E-Notes</a>
             </div>
 		</div>
     </div>
@@ -62,6 +59,11 @@
                     </div>
                     <select ng-model="selectedBranch" ng-options="item for item in branchEnotes" ng-change="clear()"></select>
                     <p class="errorMessageSignUp" ng-model="branchError" ng-show="branchError">Select a branch</p>
+                    <div class="iconContainer">
+                        <i class="material-icons">book</i>
+                    </div>
+                    <select ng-model="selectedCategory" ng-options="item for item in categoriesLib" ng-change="clear()"></select>
+                     <p class="errorMessageSignUp" ng-model="categoryError" ng-show="categoryError">Select a category</p>
                 </div>
                 <div class="panel-group" id="accordion" ng-click="scrollTop()">
                     <div class="panel panel-default">
@@ -86,7 +88,7 @@
                                         <div id="collapse1{{($index+1)}}" class="panel-collapse collapse">
                                             <div class="panel-body">
                                                 <ul ng-repeat="step in steps">
-                                                    <li ng-repeat="(key, value) in step" ng-if="key=='fileName'">{{value}}</li>
+                                                    <li ng-repeat="(key, value) in step" ng-if="key=='fileName'" ng-click="downloadFileViaLink(counter,value)">{{value}}</li>
                                                 </ul>
                                             </div>
                                         </div>

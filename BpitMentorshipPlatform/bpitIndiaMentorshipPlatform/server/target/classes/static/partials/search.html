@@ -16,17 +16,14 @@
     
     <div id="navbar">
     	<div class="row">
-    		<div class="col-sm-3">
+    		<div class="col-sm-4">
     			<a href="#!/library/search" class="eMaterials">Search</a>
 			</div>
-            <div class="col-sm-3">
+            <div class="col-sm-4">
                 <a href="#!/library/upload" class="eMaterials">Upload</a>
             </div>
-    		<div class="col-sm-3">
-                <a href="#" class="eMaterials">E-Notes</a>
-            </div>
-    		<div class="col-sm-3">
-                <a href="#" class="eMaterials">E-Books</a>
+            <div class="col-sm-4">
+                <a href="#!/library" class="eMaterials">E-Books/E-Notes</a>
             </div>
 		</div>
     </div>
@@ -35,9 +32,11 @@
         <div class="row">
             <div class="col-sm-4"></div>
             <div class="col-sm-4">
-                <div id="libraryForm">
-                	
-	            	<a href="#" id="searchDownloadLink" ng-model="searchDownload" ng-show="toggleSearchDownload">{{searchDownload}}</a>
+                <div id="libraryForm"> 
+                	<ul ng-repeat="step in steps" id="searchDownloadLink" ng-model="searchDownload" ng-show="toggleSearchDownload">
+                        <li ng-repeat="(key, value) in step"  ng-if="key=='fileName'">{{value}}</li>
+                    </ul>
+	            	
                 	<div class="iconContainer">
                         <i class="material-icons">book</i>
                     </div>

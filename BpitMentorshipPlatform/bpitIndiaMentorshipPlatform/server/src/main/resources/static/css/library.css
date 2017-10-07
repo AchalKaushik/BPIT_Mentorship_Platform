@@ -47,7 +47,7 @@ div#navbar input[type=text]:focus {
 	background-color: rgba(255,255,255,0.6);
 }
 
-div#navbar .col-sm-3 {
+div#navbar .col-sm-4 {
 	border-right: 1px solid #444;
 	padding: 0 10px;
 }
@@ -302,12 +302,22 @@ div#navbar form i {
     color: #fff;
     font-weight: 600;
     padding: 10px;
-    border-radius: 2px;
+    border-bottom: 1px solid #f1f1f1;
+    margin: 0;
+    cursor: pointer;
+}
+
+#searchDownloadLink li {
+    list-style-type: none;
 }
 
 #fileUpload {
     display: none;
 }
+
+#uploadmsg {
+color: #fff;
+text-align: center;
 
 #searchFormWrapper #uploadButton {
 	padding: 10px 30px;

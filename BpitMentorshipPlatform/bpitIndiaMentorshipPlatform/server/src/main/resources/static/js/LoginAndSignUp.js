@@ -2,8 +2,11 @@
 
 
 
-app.controller('navController', function($scope) {
-	$scope.logoutToggle = "false";
+app.controller('navController', function($scope, $rootScope) {
+	$scope.logoutToggle = false;
+    $scope.navModel = "";
+    console.log("in nav ctrl");
+    console.log($rootScope.logoutToggle);
 });
 
 app.controller('loginController', function($scope, $rootScope, $http) {
@@ -15,6 +18,8 @@ app.controller('loginController', function($scope, $rootScope, $http) {
     $scope.signUp.firstName = "";
     $scope.signUp.lastName = "";
     $scope.loginError = false;
+    
+    $rootScope.userRole = "Teacher";
     
   //  $rootScope.userRole = "mentee";
     console.log($rootScope.userRole);
@@ -37,7 +42,6 @@ app.controller('loginController', function($scope, $rootScope, $http) {
         var loginURI = "/loginAuthenticate";
         var loginStatus;
         
-        $scope.logoutToggle="true";
         
        $http({
             url : loginURI,
@@ -67,7 +71,7 @@ app.controller('loginController', function($scope, $rootScope, $http) {
                          $rootScope.userId = $scope.loginData.userId;
                          console.log("userId in root scope is  :" + $rootScope.userId);
                         console.log("Authenticated user");
-                        window.location.assign("#!/home")
+                        window.location.assign("#!/home");
                         
                         /*
                          * Making get request to  get userRole on whose basic routing will be done 
@@ -100,6 +104,7 @@ app.controller('loginController', function($scope, $rootScope, $http) {
                               * routing on basis of user role received
                               */        
                             	console.log("User role after login is  : "+ userRole+$rootScope.userRole);
+                            $rootScope.logoutToggle = true;
                             	
                             });
                         

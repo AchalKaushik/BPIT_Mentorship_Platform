@@ -34,7 +34,7 @@
             <div class="col-sm-4">
                 <div id="libraryForm"> 
                 	<ul ng-repeat="step in steps" id="searchDownloadLink" ng-model="searchDownload" ng-show="toggleSearchDownload">
-                        <li ng-repeat="(key, value) in step"  ng-if="key=='fileName'">{{value}}</li>
+                        <li ng-repeat="(key, value) in step"  ng-if="key=='fileName'"  ng-click="downloadFileViaLink(value)">{{value}}</li>
                     </ul>
 	            	
                 	<div class="iconContainer">

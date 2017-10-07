@@ -223,6 +223,12 @@ $scope.scrollTop = function(){
     $scope.selectedCategory = "Select Category";
     $scope.fileName = "";
     
+    $scope.uploadToggle = false;
+    
+    if($rootScope.userRole=="Teacher") {
+        $scope.uploadToggle = true;
+    }
+    
     $scope.subjectError = false;
         $scope.uploadCheck = false;
     $scope.semesterError = false;

@@ -4,6 +4,8 @@
 
 app.controller('navController', function($scope, $rootScope) {
 	$scope.logoutToggle = false;
+	
+	// aap bs mujhe vha pocha do jha pe login succes ho rha hok
     $scope.navModel = "";
     console.log("in nav ctrl");
     console.log($rootScope.logoutToggle);
@@ -68,6 +70,8 @@ app.controller('loginController', function($scope, $rootScope, $http) {
                          /** 
                           * Authenticated user
                           * */ 
+                    	$rootScope.logoutToggle = true;
+                    	console.log("ho gya" + $rootScope.logoutToggle);
                          $rootScope.userId = $scope.loginData.userId;
                          console.log("userId in root scope is  :" + $rootScope.userId);
                         console.log("Authenticated user");
@@ -105,6 +109,7 @@ app.controller('loginController', function($scope, $rootScope, $http) {
                               */        
                             	console.log("User role after login is  : "+ userRole+$rootScope.userRole);
                             $rootScope.logoutToggle = true;
+//                            ye kyn ni ho rha.. bhai....
                             	
                             });
                         

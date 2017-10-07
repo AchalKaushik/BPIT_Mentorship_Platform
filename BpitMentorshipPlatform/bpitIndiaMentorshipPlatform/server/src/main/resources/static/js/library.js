@@ -1,6 +1,7 @@
 // Controller for Library Page
 app.controller('libraryController', function($scope, $rootScope, $http) {
-    
+	$scope.logoutToggle=true;
+	console.log("dikhna chahaiye ??"+$scope.logoutToggle );
     console.log("in library controller");
     console.log("userid from root scope is  : "+ $rootScope.userId);
 
@@ -74,9 +75,11 @@ $scope.downloadListData = {};
 $scope.toggleSearchDownload = false;
 
 $scope.searchDownload = "abc";
-    
+    // tu vha sei hr baar 1 ni bhej rha ??? usko change krke seleted sem ni krna padega?
+//dekho
 $scope.sem = function(i) {
     $scope.selectedSemester =  i;
+    console.log($scope.selectedSemester);
     if($scope.selectedBranch=='Select Branch' || $scope.selectedCategory=='Select Category') {
         console.log($scope.selectedCategory);
         if($scope.selectedBranch == 'Select Branch')
@@ -89,8 +92,12 @@ $scope.sem = function(i) {
 }
 
 $scope.subDownloadListFunction = function(subi) {
+	
+	 $scope.steps={};
+	console.log($scope.steps);
     $scope.selectedSubject = $scope.subBranch[subi];
-    console.log($scope.selectedSubject);
+    console.log($scope.selectedSubject); //ye bhi ni aa rha h..hmm
+    //applied chem m aa rha h jabki wait
     
     /*
      * Get course from root scope 
@@ -143,7 +150,7 @@ $scope.subDownloadListFunction = function(subi) {
      * code is same..
      */
     
-    $scope.downloadListData.userId = "ruchit.jain15@gmail.com";
+    $scope.downloadListData.userId = $rootScope.userId;
     
     
     console.log($scope.downloadListData.userId);
@@ -173,6 +180,7 @@ $scope.subDownloadListFunction = function(subi) {
                      /** Error occurs*/ 
                      
 //                    window.location.assign("/#!/error");
+                $scope.steps=[{libraryId : "1",fileName : "No Record Found"}];	
                 console.log(" No Record Found ");
                     }
                 else
@@ -189,8 +197,8 @@ $scope.subDownloadListFunction = function(subi) {
    
    console.log("user course for search After post: " + $scope.downloadListData.course );
     
-            data1 = [{'id':'6','fileName':'hi'}, {'id':'15','fileName':'this'}]
-            $scope.steps = data1;
+          //  data1 = [{'id':'6','fileName':'hi'}, {'id':'15','fileName':'this'}]
+            //$scope.steps = data1;
 }
 
 
@@ -234,6 +242,7 @@ $scope.scrollTop = function(){
     $scope.semesterError = false;
     $scope.categoryError = false;
     $scope.branchError = false;
+    $scope.errorCheck = false;
     $scope.fileNameError = false;
     $scope.fileNameMatchError = false;
     $scope.fileNameEmptyError = false;
@@ -289,6 +298,7 @@ $scope.scrollTop = function(){
             $scope.fileNameCheck.semester = $scope.selectedSemester;
             $scope.fileNameCheck.branch = $scope.selectedBranch;
             $scope.fileNameCheck.subject = $scope.selectedSubject;
+            $scope.fileNameCheck.userId = $rootScope.userId;
        
             /* 
              * getting file names 
@@ -298,19 +308,15 @@ $scope.scrollTop = function(){
             
             
             var fileNamesURI = "/getFileNameAndLibraryId";
-            var fileNamesStatus;
+           // var fileNamesStatus;
             
-            console.log("Sem "+  $scope.searchData.semester+"sub " + $scope.searchData.subject);
+           // console.log("Sem "+  $scope.searchData.semester+"sub " + $scope.searchData.subject);
             
             
             $http({
                 url : fileNamesURI,
                 method : "POST",
                 data : $scope.fileNameCheck,
-                 transformResponse: [function (data)  {
-                    console.log(data);
-                    fileNamesStatus=data;
-                    return data;}]
              }).then(
                     function(response)
                     {
@@ -318,11 +324,11 @@ $scope.scrollTop = function(){
                          * Check the returned response if doesnt contain any
                          * filename and libraryId then show no file exists
                          */
-                    	console.log("Search status :" + fileNamesStatus);
+                    	console.log("Search status :" + response.data);
                     	
                          /* Null is returned in case any exception occurs while inserting data in database */
                          
-                        if(fileNamesStatus=="")
+                        if(response.data=="")
                             {
                             
                              /** Error occurs*/ 
@@ -335,7 +341,7 @@ $scope.scrollTop = function(){
                             {
                             
                              /** Successfully got filenames and libraryid */
-                             $scope.fileNameArray = fileNamesStatus;
+                             $scope.fileNameArray = response.data;
                             console.log("Success");
                             }
                     }
@@ -375,6 +381,9 @@ $scope.scrollTop = function(){
     
     
     $scope.uploadFunction = function() {
+    	$scope.errorCheck = false;
+    	$scope.uploadCheck = false;
+//    	done
     	$scope.subjectError = false;
 	    $scope.semesterError = false;
 	    $scope.categoryError = false;
@@ -391,7 +400,7 @@ $scope.scrollTop = function(){
             $scope.fileUploadData.semester = $scope.selectedSemester;
             $scope.fileUploadData.subject = $scope.selectedSubject;
             $scope.fileUploadData.miltipartFile = "";
-            
+            //kha h excpetion
             /*
              * post goes here ...
              */
@@ -425,20 +434,28 @@ $scope.scrollTop = function(){
                 
             	console.log("response of success -----");
             	console.log(thisIsResponse);
+
+            	//lol
+            	$scope.selectedBranch = 'Select Branch';
+            	$scope.selectedSemester = 'Select Semester';
+            	$scope.selectedSubject = 'Select Subject';
+                $scope.selectedCategory = "Select Category";
+                $scope.allSelected = false;
+                $scope.fileName = "";
+                        var labelText = document.getElementById('fileUploadLabel');
+                        labelText.innerHTML = "Choose File Here";
+                        $scope.uploadCheck = true;
+                        
+                        //done
             	responseOfUpload(thisIsResponse);
                 
             }, function errorCallback(response) {
             	console.log("Error in receiving response from backend------" +response);
                 console.log('Error: '+response);
+                //kha h success? isme e
+                $scope.errorCheck = true;
              });
-            $scope.selectedBranch = 'Select Branch';
-	$scope.selectedSemester = 'Select Semester';
-	$scope.selectedSubject = 'Select Subject';
-    $scope.selectedCategory = "Select Category";
-    $scope.fileName = "";
-            var labelText = document.getElementById('fileUploadLabel');
-            labelText.innerHTML = "Choose File Here";
-            $scope.uploadCheck = true;
+            
             
             
             console.log("uploaded");
@@ -520,8 +537,8 @@ $scope.scrollTop = function(){
                                }
                        }
                        );
-            data1 = [{'id':'6','fileName':'hi'}, {'id':'15','fileName':'this'}]
-            $scope.steps = data1;
+           // data1 = [{'id':'6','fileName':'hi'}, {'id':'15','fileName':'this'}]
+          //  $scope.steps = data1;
             $scope.toggleSearchDownload = true;
             console.log("searching");
         } else {
@@ -537,9 +554,19 @@ $scope.scrollTop = function(){
         }
     }
     
-    $scope.fileNameArray = [{'id':'6','fileName':'hi'}, {'id':'15','fileName':'this'}]
+    //ye change ni  hua... are vo set hoke aa rha ho
+  
     $scope.compareFileName = function() {
+    	console.log("In compare func ");
+//    	aare isme define ka kyn aa rha h js h ye
+    	var li=0;
+    	//kynki shyad.. console dekho mere w
+    //check ab kru ?? haan fir dynamiccc data kyu ni chal rha.. ruk ek min jra
+    	 // $scope.fileNameArray = [{'id':'6','fileName':'hi'}, {'id':'15','fileName':'this'}];  	
+    	console.log("key up wala" + $scope.fileNameArray);
     var len = $scope.fileNameArray.length;
+    console.log(Object.values($scope.fileNameArray[li]));
+    // aapke m sidha aaray show hota h
     for(li=0; li<len; li++){
        if(Object.keys($scope.fileNameArray[li])[1]=='fileName') {
            if($scope.fileName == Object.values($scope.fileNameArray[li])[1]) {
@@ -564,6 +591,7 @@ $scope.scrollTop = function(){
     	 
          console.log($scope.steps);
         console.log(filename);
+        var libid;
         var len = $scope.steps.length;
         for(li=0; li<len; li++){
            if(Object.values($scope.steps[li])[1]==filename) {

@@ -318,6 +318,12 @@ div#navbar form i {
 #uploadmsg {
 color: #fff;
 text-align: center;
+}
+
+#errorCheck {
+	color:#ff0000;
+	text-align: center;
+}
 
 #searchFormWrapper #uploadButton {
 	padding: 10px 30px;

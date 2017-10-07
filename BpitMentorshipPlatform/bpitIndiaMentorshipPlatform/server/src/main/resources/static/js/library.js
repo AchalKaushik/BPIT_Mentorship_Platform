@@ -285,27 +285,24 @@ $scope.scrollTop = function(){
             $scope.fileNameCheck.branch = $scope.selectedBranch;
             $scope.fileNameCheck.subject = $scope.selectedSubject;
        
+            $scope.fileNameCheck.userId = $rootScope.userId;
+            
             /* 
              * getting file names 
              */
             
             console.log('getting file name array');
-            
+            console.log('root scope user id ' + $scope.fileNameCheck.userId);
             
             var fileNamesURI = "/getFileNameAndLibraryId";
-            var fileNamesStatus;
             
-            console.log("Sem "+  $scope.searchData.semester+"sub " + $scope.searchData.subject);
+           // console.log("Sem "+  $scope.searchData.semester+"sub " + $scope.searchData.subject);
             
             
             $http({
                 url : fileNamesURI,
                 method : "POST",
                 data : $scope.fileNameCheck,
-                 transformResponse: [function (data)  {
-                    console.log(data);
-                    fileNamesStatus=data;
-                    return data;}]
              }).then(
                     function(response)
                     {
@@ -313,11 +310,11 @@ $scope.scrollTop = function(){
                          * Check the returned response if doesnt contain any
                          * filename and libraryId then show no file exists
                          */
-                    	console.log("Search status :" + fileNamesStatus);
+                    //	console.log("Search status :" + fileNamesStatus);
                     	
                          /* Null is returned in case any exception occurs while inserting data in database */
                          
-                        if(fileNamesStatus=="")
+                        if(response.data=="")
                             {
                             
                              /** Error occurs*/ 
@@ -330,8 +327,9 @@ $scope.scrollTop = function(){
                             {
                             
                              /** Successfully got filenames and libraryid */
-                             $scope.fileNameArray = fileNamesStatus;
-                            console.log("Success");
+                             $scope.fileNameArray = response.data;
+                             console.log($scope.fileNameArray);
+                             console.log("Success");
                             }
                     }
                     );
@@ -485,8 +483,7 @@ $scope.scrollTop = function(){
                 }).then(
                        function(response)
                        {
-                           /*yh wala udhr le ja code.. usme hum transform response sei response le rhe hai isme hum
-                            * response kei object sei le rhe hai..to le jao na
+                           /*
                             * Check the returned response if doesnt contain any
                             * filename and libraryId then show no file exists
                             */

@@ -2,7 +2,7 @@
 app.controller('libraryController', function($scope, $rootScope, $http) {
     
     console.log("in library controller");
-    console.log("userrole from root scope is  : "+ $rootScope.userRole);
+    console.log("userid from root scope is  : "+ $rootScope.userId);
 
     $scope.steps={};
     
@@ -154,7 +154,8 @@ $scope.subDownloadListFunction = function(subi) {
      }).then(
             function(response)
             {
-                /*
+                /*yh wala udhr le ja code.. usme hum transform response sei response le rhe hai isme hum
+                 * response kei object sei le rhe hai..to le jao na
                  * Check the returned response if doesnt contain any
                  * filename and libraryId then show no file exists
                  */
@@ -439,53 +440,53 @@ $scope.scrollTop = function(){
             $scope.searchData.branch = $scope.selectedBranch;
            // $scope.searchData.course = "";
             
-            var searchURI = "/searchForFile";
-            var searchStatus;
+           
             
             $scope.searchData.userId = "ruchit.jain15@gmail.com";
             
             console.log("Sem "+  $scope.searchData.semester+"sub " + $scope.searchData.subject);
-            console.log("iski maa ka bhosda");
+           
             
-            $http({
-                url : searchURI,
-                method : "POST",
-                data : $scope.searchData,
-                 transformResponse: [function (data)  {
-                    console.log(data);
-                    searchStatus=data;
-                    return data;}]
-             }).then(
-                    function(response)
-                    {
-                        /*
-                         * Check the returned response if doesnt contain any
-                         * filename and libraryId then show no file exists
-                         */
-                    	console.log("Search status :" + searchStatus);
-                    	
-                         /* Null is returned in case any exception occurs while inserting data in database */
-                         
-                        if(searchStatus=="")
-                            {
+            var searchURI = "/searchForFile";
+            //   var searchStatus;
+               
+              $http({
+                   url : searchURI,
+                   method : "POST",
+                   data : $scope.searchData,
+                }).then(
+                       function(response)
+                       {
+                           /*yh wala udhr le ja code.. usme hum transform response sei response le rhe hai isme hum
+                            * response kei object sei le rhe hai..to le jao na
+                            * Check the returned response if doesnt contain any
+                            * filename and libraryId then show no file exists
+                            */
+                       	console.log("Search status :" + response.data);
+                       	
+                            /* Null is returned in case any exception occurs while inserting data in database */
                             
-                             /** Error occurs*/ 
-                             
-//                            window.location.assign("/#!/error");
-                            console.log("An exception occurred ");
-                            }
-                        else
-                            {
-                            
-                             /** Successfully got filenames and libraryid */
-//                            $scope.searchStatus = {"libraryId":"6", "filename":"hey"};
-                                $scope.toggleSearchDownload = true;
-                                console.log(searchStatus.fileName);
-                                $scope.searchDownload = searchStatus.fileName;
-                            console.log("Success");
-                            }
-                    }
-                    );
+                           if(response.data=="")
+                               {
+                               
+                                /** Error occurs*/ 
+                                
+//                               window.location.assign("/#!/error");
+                           console.log(" No Record Found ");
+                               }
+                           else
+                               {
+                               
+                                /** Successfully got filenames and libraryid  result isi mei chahiye ?haan*/
+                                       $scope.steps = response.data;
+                                       $scope.toggleSearchDownload = true;
+                               console.log("Success" + response.data);
+                               console.log("Success $scope.steps " + $scope.steps);
+                               console.log("Success $scope.steps.data " + $scope.steps.data);
+                               
+                               }
+                       }
+                       );
             console.log("searching");
         } else {
             console.log("not searching");

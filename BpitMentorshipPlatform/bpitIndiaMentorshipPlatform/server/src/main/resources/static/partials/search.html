@@ -35,9 +35,15 @@
         <div class="row">
             <div class="col-sm-4"></div>
             <div class="col-sm-4">
-                <div id="libraryForm">
-                	
-	            	<a href="#" id="searchDownloadLink" ng-model="searchDownload" ng-show="toggleSearchDownload">{{searchDownload}}</a>
+                <div id="libraryForm"> 
+                	<ul ng-repeat="step in steps">
+                        <li ng-repeat="(key, value) in step" ng-model="searchDownload" ng-show="toggleSearchDownload" ng-if="key=='fileName'">{{value}}</li>
+                    </ul>
+                    
+                    <!--  iska to ye mtlb h ki values repeat ho rhi h but aapne case m to ni ho rhi ..keys kei lie bol rha ah ishayd.. ng repeat same keys pei itera
+                    te krne mei rota hoga.. isklyie i think track by index kr rha hai ki keys ko check ni krega sahyd..try kr de
+                    khte hau ok yha pe kyn aa jat h y ebaar bara  pata ni tu kuch kr rha hoga..haha-->
+	            	
                 	<div class="iconContainer">
                         <i class="material-icons">book</i>
                     </div>

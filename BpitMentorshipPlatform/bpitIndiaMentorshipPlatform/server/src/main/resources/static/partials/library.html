@@ -83,17 +83,10 @@
                                                 <a data-toggle="collapse" data-parent="#accordion1" href="!#collapse1{{($index+1)}}" ng-click="subDownloadListFunction($index)">{{sub}}</a>
                                             </h4>
                                         </div>
-
-                                        <div ng-repeat="step in steps">
-                                            <div ng-repeat="(key, value) in step">
-                                                {{key}} : {{value}}
-                                            </div>
-                                        </div>
-
                                         <div id="collapse1{{($index+1)}}" class="panel-collapse collapse">
                                             <div class="panel-body">
                                                 <ul ng-repeat="step in steps">
-                                                    <li ng-repeat="(key, value) in step">{{key}} : {{value}}</li>
+                                                    <li ng-repeat="(key, value) in step" ng-if="key=='fileName'">{{value}}</li>
                                                 </ul>
                                             </div>
                                         </div>

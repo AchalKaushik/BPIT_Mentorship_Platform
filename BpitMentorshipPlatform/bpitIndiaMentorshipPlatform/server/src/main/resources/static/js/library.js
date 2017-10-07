@@ -193,7 +193,6 @@ $scope.subDownloadListFunction = function(subi) {
             $scope.steps = data1;
 }
 
-$scope.counter = 0;
 
 $scope.clear = function() {
     $scope.selectedSemester = "";
@@ -285,24 +284,27 @@ $scope.scrollTop = function(){
             $scope.fileNameCheck.branch = $scope.selectedBranch;
             $scope.fileNameCheck.subject = $scope.selectedSubject;
        
-            $scope.fileNameCheck.userId = $rootScope.userId;
-            
             /* 
              * getting file names 
              */
             
             console.log('getting file name array');
-            console.log('root scope user id ' + $scope.fileNameCheck.userId);
+            
             
             var fileNamesURI = "/getFileNameAndLibraryId";
+            var fileNamesStatus;
             
-           // console.log("Sem "+  $scope.searchData.semester+"sub " + $scope.searchData.subject);
+            console.log("Sem "+  $scope.searchData.semester+"sub " + $scope.searchData.subject);
             
             
             $http({
                 url : fileNamesURI,
                 method : "POST",
                 data : $scope.fileNameCheck,
+                 transformResponse: [function (data)  {
+                    console.log(data);
+                    fileNamesStatus=data;
+                    return data;}]
              }).then(
                     function(response)
                     {
@@ -310,11 +312,11 @@ $scope.scrollTop = function(){
                          * Check the returned response if doesnt contain any
                          * filename and libraryId then show no file exists
                          */
-                    //	console.log("Search status :" + fileNamesStatus);
+                    	console.log("Search status :" + fileNamesStatus);
                     	
                          /* Null is returned in case any exception occurs while inserting data in database */
                          
-                        if(response.data=="")
+                        if(fileNamesStatus=="")
                             {
                             
                              /** Error occurs*/ 
@@ -327,9 +329,8 @@ $scope.scrollTop = function(){
                             {
                             
                              /** Successfully got filenames and libraryid */
-                             $scope.fileNameArray = response.data;
-                             console.log($scope.fileNameArray);
-                             console.log("Success");
+                             $scope.fileNameArray = fileNamesStatus;
+                            console.log("Success");
                             }
                     }
                     );
@@ -483,7 +484,8 @@ $scope.scrollTop = function(){
                 }).then(
                        function(response)
                        {
-                           /*
+                           /*yh wala udhr le ja code.. usme hum transform response sei response le rhe hai isme hum
+                            * response kei object sei le rhe hai..to le jao na
                             * Check the returned response if doesnt contain any
                             * filename and libraryId then show no file exists
                             */
@@ -550,20 +552,28 @@ $scope.scrollTop = function(){
  * and set libraryId and fileName
  */
     
-  $scope.downloadFileViaLink= function(libid, filename)
+  $scope.downloadFileViaLink= function(filename)
     {
+      if(filename != "No Record Found") {
     	 
          console.log($scope.steps);
-      console.log(libid);
-      console.log(filename);
-//        var downloadFileURI = "/downloadFile";
-//      	
-//        var libraryIdAndFileName = "?libraryId="+libid+"&fileName="+filename;
-//      	
-//        var urldata = downloadFileURI+libraryIdAndFileName;
-//        
-//        window.open(urldata);
+        console.log(filename);
+        var len = $scope.steps.length;
+        for(li=0; li<len; li++){
+           if(Object.values($scope.steps[li])[1]==filename) {
+              console.log(Object.values($scope.steps[li])[0]);
+               libid = Object.values($scope.steps[li])[0];
+           }
+        }
+        var downloadFileURI = "/downloadFile";
+      	
+        var libraryIdAndFileName = "?libraryId="+libid+"&fileName="+filename;
+      	
+        var urldata = downloadFileURI+libraryIdAndFileName;
+        
+        window.open(urldata);
     }
+  }
  
     
 });

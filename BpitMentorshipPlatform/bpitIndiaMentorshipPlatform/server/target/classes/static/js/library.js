@@ -193,7 +193,6 @@ $scope.subDownloadListFunction = function(subi) {
             $scope.steps = data1;
 }
 
-$scope.counter = 0;
 
 $scope.clear = function() {
     $scope.selectedSemester = "";
@@ -553,20 +552,28 @@ $scope.scrollTop = function(){
  * and set libraryId and fileName
  */
     
-  $scope.downloadFileViaLink= function(libid, filename)
+  $scope.downloadFileViaLink= function(filename)
     {
+      if(filename != "No Record Found") {
     	 
          console.log($scope.steps);
-      console.log(libid);
-      console.log(filename);
-//        var downloadFileURI = "/downloadFile";
-//      	
-//        var libraryIdAndFileName = "?libraryId="+libid+"&fileName="+filename;
-//      	
-//        var urldata = downloadFileURI+libraryIdAndFileName;
-//        
-//        window.open(urldata);
+        console.log(filename);
+        var len = $scope.steps.length;
+        for(li=0; li<len; li++){
+           if(Object.values($scope.steps[li])[1]==filename) {
+              console.log(Object.values($scope.steps[li])[0]);
+               libid = Object.values($scope.steps[li])[0];
+           }
+        }
+        var downloadFileURI = "/downloadFile";
+      	
+        var libraryIdAndFileName = "?libraryId="+libid+"&fileName="+filename;
+      	
+        var urldata = downloadFileURI+libraryIdAndFileName;
+        
+        window.open(urldata);
     }
+  }
  
     
 });

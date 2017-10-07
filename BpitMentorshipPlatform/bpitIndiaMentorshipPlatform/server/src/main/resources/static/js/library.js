@@ -2,8 +2,10 @@
 app.controller('libraryController', function($scope, $rootScope, $http) {
     
     console.log("in library controller");
-    console.log($rootScope.userRole);
+    console.log("userrole from root scope is  : "+ $rootScope.userRole);
 
+    $scope.steps={};
+    
 $scope.checksem = function() {
 	if($scope.selectedBranch != "Select Branch" && ($scope.selectedSemester==1 || $scope.selectedSemester=="First")) {
 	    $scope.subBranch = ["Select Subject", "Applied Mathematics - I", "Applied Physics - I","Electrical Technology","Manufacturing Processes","Human Values & Professional Ethics - I","Fundamentals Of Computing","Applied Chemistry","Engineering Graphics Lab"];
@@ -143,16 +145,12 @@ $scope.subDownloadListFunction = function(subi) {
     console.log($scope.downloadListData.userId);
     
     var searchURI = "/searchForFile";
-    var searchStatus;
+ //   var searchStatus;
     
    $http({
         url : searchURI,
         method : "POST",
         data : $scope.downloadListData,
-         transformResponse: [function (data)  {
-            console.log(data);
-            searchStatus=data;
-            return data;}]
      }).then(
             function(response)
             {
@@ -160,24 +158,26 @@ $scope.subDownloadListFunction = function(subi) {
                  * Check the returned response if doesnt contain any
                  * filename and libraryId then show no file exists
                  */
-            	console.log("Search status :" + searchStatus);
+            	console.log("Search status :" + response.data);
             	
                  /* Null is returned in case any exception occurs while inserting data in database */
                  
-                if(searchStatus=="")
+                if(response.data=="")
                     {
                     
                      /** Error occurs*/ 
                      
 //                    window.location.assign("/#!/error");
-                console.log("An exception occurred ");
+                console.log(" No Record Found ");
                     }
                 else
                     {
                     
                      /** Successfully got filenames and libraryid */
-                            $scope.steps = searchStatus;
-                    console.log("Success");
+                            $scope.steps = response.data;
+                    console.log("Success" + response.data);
+                    console.log("Success $scope.steps " + $scope.steps);
+                    console.log("Success $scope.steps.data " + $scope.steps.data);
                     }
             }
             );

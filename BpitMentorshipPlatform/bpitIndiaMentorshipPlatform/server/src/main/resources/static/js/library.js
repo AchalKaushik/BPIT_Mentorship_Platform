@@ -616,6 +616,8 @@ $scope.scrollTop = function(){
              */
             var thisIsResponse;
             
+            
+            
             var formData = new FormData();
             console.log('File is :'+file);
             //var file = document.getElementById('fileUpload').files[0];
@@ -654,12 +656,12 @@ $scope.scrollTop = function(){
             		$scope.uploadCheck=true;
             		}
                 
-            }, function errorCallback(response) {
+            },function errorCallback(response) {
             	console.log("Error in receiving response from backend------" +response);
                 console.log('Error: '+response);
                 $scope.errorCheck=true;
              });
-            $scope.selectedBranch = 'Select Branch';
+    $scope.selectedBranch = 'Select Branch';
 	$scope.selectedSemester = 'Select Semester';
 	$scope.selectedSubject = 'Select Subject';
     $scope.selectedCategory = "Select Category";

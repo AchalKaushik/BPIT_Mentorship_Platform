@@ -987,7 +987,7 @@ public class LibraryUploadFileService {
 			case "Principles of Management":
 				path=Paths.get(bbaFolderPathsDTO.getSemester1BBAPOMFolder()+"//"+fileName+extension);
 				break;
-			case "Bussiness Economics - I":
+			case "Business Economics-I":
 				path=Paths.get(bbaFolderPathsDTO.getSemester1BBABE1Folder()+"//"+fileName+extension);
 				break;
 			case "Bussiness Mathematics":
@@ -1379,6 +1379,13 @@ public class LibraryUploadFileService {
 		/*
 		 * Save file on server 
 		 */
+		System.out.println("Path  is  : " + path);
+		
+		if(path==null)
+		{
+			System.out.println("Path is null");
+			return null;
+		}
 		
 		String status=librarySaveFileService.saveFile(file, path);
 		if(status==null)
@@ -1386,6 +1393,8 @@ public class LibraryUploadFileService {
 			/*
 			 * An error occurred while saving file on system
 			 */
+			System.out.println("Exception occurred while savinf file on system");
+			return  null;
 		}
 		
 		
@@ -1413,6 +1422,12 @@ public class LibraryUploadFileService {
 		setDataForLibrary.put("fileName", fileName);
 		setDataForLibrary.put("type", type);
 		setDataForLibrary.put("semester", semester);
+		
+		if(branch.trim().equalsIgnoreCase("Select Branch"))
+		{
+			System.out.println("Branch set to null");
+			branch="NULL";
+		}
 		setDataForLibrary.put("branch", branch);
 		setDataForLibrary.put("subject", subject);
 		setDataForLibrary.put("userId", userId);
@@ -1424,6 +1439,7 @@ public class LibraryUploadFileService {
 			/*
 			 * An error occurred while inserting data in Library table
 			 */
+			return null;
 		}
 		
 

@@ -36,9 +36,24 @@ public class GetLibraryIdAndFileNameForSearchDao extends AbstractDao{
 			 * Hardcoding course for now ( till session management is done ) 
 			 */
 				
+			System.out.println("Branch in search is : "+ getInfoToFetchFileNamesDto.getBranch());
+			
+			
+			
+			
 			parameters.put("course", getUserCourseService.getUserCouse(getInfoToFetchFileNamesDto.getUserId()));
 			parameters.put("semester", getInfoToFetchFileNamesDto.getSemester());
+			
+			if(getInfoToFetchFileNamesDto.getBranch().trim().equalsIgnoreCase("Select Branch"))
+			{
+				parameters.put("branch","NULL");
+			}
+			else
+			{
 			parameters.put("branch", getInfoToFetchFileNamesDto.getBranch());
+			}
+			
+			
 			parameters.put("subject", getInfoToFetchFileNamesDto.getSubject());
 			
 			if(typeOfRequest.equalsIgnoreCase("Search"))

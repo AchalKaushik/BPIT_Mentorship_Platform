@@ -45,7 +45,7 @@ public class CreateMBAFolderStructureForLibraryService {
 		 * Semester 2 MBA Folder Structure
 		 */
 		
-		File semester2MBAFolder = new File (createMBAFolder.getAbsolutePath()+"//Semester1");
+		File semester2MBAFolder = new File (createMBAFolder.getAbsolutePath()+"//Semester2");
 
 		File semester2MBAMTICFolder = new File(semester2MBAFolder.getAbsolutePath()+"//Management of Technology, Innovation and Change");
 		File semester2MBAFMFolder = new File(semester2MBAFolder.getAbsolutePath()+"//Financial Management");
@@ -61,7 +61,7 @@ public class CreateMBAFolderStructureForLibraryService {
 		 * Semester 3 MBA Folder Structure
 		 */
 		
-		File semester3MBAFolder = new File (createMBAFolder.getAbsolutePath()+"//Semester1");
+		File semester3MBAFolder = new File (createMBAFolder.getAbsolutePath()+"//Semester3");
 		
 		File semester3MBAMIMBFolder = new File(semester3MBAFolder.getAbsolutePath()+"//Management of International Business");
 		File semester3MBAISMFolder = new File(semester3MBAFolder.getAbsolutePath()+"//Information Systems Management");
@@ -85,7 +85,7 @@ public class CreateMBAFolderStructureForLibraryService {
 		File semester3MBAESFolder = new File(semester3MBAFolder.getAbsolutePath()+"//Enterprise Systems");
 		File semester3MBANAMFolder = new File(semester3MBAFolder.getAbsolutePath()+"//Network Applications and Management");
 		File semester3MBADBMSFolder = new File(semester3MBAFolder.getAbsolutePath()+"//Database Management Systems");
-		File semester3MBAISMaFolder = new File(semester3MBAFolder.getAbsolutePath()+"//Information Security Management");
+		File semester3MBAISMAFolder = new File(semester3MBAFolder.getAbsolutePath()+"//Information Security Management");
 		File semester3MBAIBEFolder = new File(semester3MBAFolder.getAbsolutePath()+"//International Business Environment");
 		File semester3MBAEIPPDFolder = new File(semester3MBAFolder.getAbsolutePath()+"//Export, Import Policies, Procedures, and Documentation");
 		File semester3MBAWIPRFolder = new File(semester3MBAFolder.getAbsolutePath()+"//WTO and Intellectual Property Rights");
@@ -97,7 +97,7 @@ public class CreateMBAFolderStructureForLibraryService {
 		 *Semester 4 MBA Folder Structure 
 		 */
 		
-		File semester4MBAFolder = new File (createMBAFolder.getAbsolutePath()+"//Semester1");
+		File semester4MBAFolder = new File (createMBAFolder.getAbsolutePath()+"//Semester4");
 		
 		File semester4MBAPDFolder = new File(semester4MBAFolder.getAbsolutePath()+"//Project Dissertation");
 		File semester4MBABIAFolder = new File(semester4MBAFolder.getAbsolutePath()+"//Business Intelligence and Applications");
@@ -443,10 +443,10 @@ public class CreateMBAFolderStructureForLibraryService {
 					 */
 					throw new Exception();
 				}
-				if(!semester3MBAISMFolder.mkdir())
+				if(!semester3MBAISMAFolder.mkdir())
 				{
-					/*
-					 * Error occurred while creating MBA Semester 3 ISM Folder 
+					
+					/* Error occurred while creating MBA Semester 3 ISM Folder 
 					 */
 					throw new Exception();
 				}
@@ -678,7 +678,7 @@ public class CreateMBAFolderStructureForLibraryService {
 			MBAFolderPathsDTO mbaFoldersPath= new MBAFolderPathsDTO(
 					createMBAFolder.getAbsolutePath(), semester1MBAMPOBFolder.getAbsolutePath(), semester1MBADSFolder.getAbsolutePath(), semester1MBAMEFolder .getAbsolutePath(), semester1MBAAOMFolder.getAbsolutePath(), semester1MBAITMFolder.getAbsolutePath(), semester1MBABCFolder.getAbsolutePath(), semester1MBALABFolder.getAbsolutePath(), semester1MBAMSDFolder.getAbsolutePath(), 
 					semester2MBAMTICFolder.getAbsolutePath(), semester2MBAFMFolder.getAbsolutePath(), semester2MBAMMFolder.getAbsolutePath(), semester2MBABRMFolder.getAbsolutePath(), semester2MBAOMFolder.getAbsolutePath(), semester2MBAHRMFolder.getAbsolutePath(), semester2MBAEBFolder.getAbsolutePath(), semester2MBABAFolder.getAbsolutePath(), 
-					semester3MBAMIMBFolder.getAbsolutePath(), semester3MBAISMFolder.getAbsolutePath(), semester3MBAEDFolder.getAbsolutePath(), semester3MBACBFolder.getAbsolutePath(), semester3MBASDMFolder.getAbsolutePath(), semester3MBAIMFolder.getAbsolutePath(), semester3MBASMFolder.getAbsolutePath(), semester3MBACRMFolder.getAbsolutePath(), semester3MBAIFMFolder.getAbsolutePath(), semester3MBAFMIFolder.getAbsolutePath(), semester3MBASAIMFolder.getAbsolutePath(), semester3MBACTPFolder.getAbsolutePath(), semester3MBAFEFolder.getAbsolutePath(), semester3MBACMFolder.getAbsolutePath(), semester3MBAIRLLFolder.getAbsolutePath(), semester3MBATnDFolder.getAbsolutePath(), semester3MBAPMFolder.getAbsolutePath(), semester3MBATMFolder.getAbsolutePath(), semester3MBASADFolder.getAbsolutePath(), semester3MBAESFolder.getAbsolutePath(), semester3MBANAMFolder.getAbsolutePath(), semester3MBADBMSFolder.getAbsolutePath(), semester3MBAISMaFolder.getAbsolutePath(), semester3MBAIBEFolder.getAbsolutePath(), semester3MBAEIPPDFolder.getAbsolutePath(), semester3MBAWIPRFolder.getAbsolutePath(), semester3MBAIEFolder.getAbsolutePath(), semester3MBAIBNFolder.getAbsolutePath(), 
+					semester3MBAMIMBFolder.getAbsolutePath(), semester3MBAISMFolder.getAbsolutePath(), semester3MBAEDFolder.getAbsolutePath(), semester3MBACBFolder.getAbsolutePath(), semester3MBASDMFolder.getAbsolutePath(), semester3MBAIMFolder.getAbsolutePath(), semester3MBASMFolder.getAbsolutePath(), semester3MBACRMFolder.getAbsolutePath(), semester3MBAIFMFolder.getAbsolutePath(), semester3MBAFMIFolder.getAbsolutePath(), semester3MBASAIMFolder.getAbsolutePath(), semester3MBACTPFolder.getAbsolutePath(), semester3MBAFEFolder.getAbsolutePath(), semester3MBACMFolder.getAbsolutePath(), semester3MBAIRLLFolder.getAbsolutePath(), semester3MBATnDFolder.getAbsolutePath(), semester3MBAPMFolder.getAbsolutePath(), semester3MBATMFolder.getAbsolutePath(), semester3MBASADFolder.getAbsolutePath(), semester3MBAESFolder.getAbsolutePath(), semester3MBANAMFolder.getAbsolutePath(), semester3MBADBMSFolder.getAbsolutePath(), semester3MBAISMAFolder.getAbsolutePath(), semester3MBAIBEFolder.getAbsolutePath(), semester3MBAEIPPDFolder.getAbsolutePath(), semester3MBAWIPRFolder.getAbsolutePath(), semester3MBAIEFolder.getAbsolutePath(), semester3MBAIBNFolder.getAbsolutePath(), 
 					semester4MBAPDFolder.getAbsolutePath(), semester4MBABIAFolder.getAbsolutePath(), semester4MBASMFolder.getAbsolutePath(), semester4MBACSRHVEFolder.getAbsolutePath(), semester4MBARMFolder.getAbsolutePath(), semester4MBAABMFolder.getAbsolutePath(), semester4MBAIMFolder.getAbsolutePath(), semester4MBABMFolder.getAbsolutePath(), semester4MBAMACRFolder.getAbsolutePath(), semester4MBAFDFolder.getAbsolutePath(), semester4MBASFMFolder.getAbsolutePath(), semester4MBABFFolder.getAbsolutePath(), semester4MBASHRMFolder.getAbsolutePath(), semester4MBAODFolder.getAbsolutePath(), semester4MBATBFolder.getAbsolutePath(), semester4MBABTCFolder.getAbsolutePath(), semester4MBASPMFolder.getAbsolutePath(), semester4MBAWTFolder.getAbsolutePath(), semester4MBAKMFolder.getAbsolutePath(), semester4MBADEGFolder.getAbsolutePath(), semester4MBAGCSAFolder.getAbsolutePath(), semester4MBASCMIBFolder.getAbsolutePath(), semester4MBAMDFolder.getAbsolutePath(), semester4MBAGSMFolder.getAbsolutePath());
 			
 		return mbaFoldersPath;

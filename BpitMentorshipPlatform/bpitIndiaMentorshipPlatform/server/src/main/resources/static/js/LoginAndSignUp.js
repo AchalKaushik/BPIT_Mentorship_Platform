@@ -21,7 +21,6 @@ app.controller('loginController', function($scope, $rootScope, $http) {
     $scope.signUp.lastName = "";
     $scope.loginError = false;
     
-    $rootScope.userRole = "Teacher";
     
   //  $rootScope.userRole = "mentee";
     console.log($rootScope.userRole);
@@ -116,41 +115,33 @@ app.controller('loginController', function($scope, $rootScope, $http) {
                         
                         
                         
-//                        /*
-//                         * Code to get user course 
-//                         */
+                        /*
+                         * Code to get user course 
+                         */
+                        
+                        console.log("Getting user course");
+                        
+                        var userCourse;
+                        
+                        $http.get(
+                                "/getUserCourse?userId="+"setUserIdHere", {
+                                    transformResponse: [function (data)  {
+                                        console.log(data);
+                                        userCourse=data;
+                                        return data;}]
+                            }
+                            ).then(function(response) {
+                                
+                                $rootScope.userCourse = userCourse;
+                            	console.log(userCourse);
+                             
+                            /*
+                              * routing on basis of user role received
+                              */        
+                            	
+                            	
+                            });
 //                        
-//                        console.log("Getting user course");
-//                        
-//                        var userCourse;
-//                        
-//                        $http.get(
-//                                "/getUserCourse?userId="+"setUserIdHere", {
-//                                    transformResponse: [function (data)  {
-//                                        console.log(data);
-//                                        userCourse=data;
-//                                        return data;}]
-//                            }
-//                            ).then(function(response) {
-//                             
-//                            	console.log(userCourse);
-//                             
-//                            /*
-//                              * routing on basis of user role received
-//                              */        
-//                            	
-//                            	
-//                            });
-//                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
                         
                         }
                     

@@ -6,30 +6,11 @@
             <div class="col-sm-5" id="libraryInfo">
                 <h1>Library</h1>    
                 <hr />
-                <p><b><i>A central repository of BPIT </i></b></p>
+                <p><b><i>A central repository of BPIT</i></b></p>
                 <p>E-Notes & E-Books just a few clicks away</p>
             </div>
             <div class="col-sm-1"></div>
-            <div class="col-sm-4">
-<!--
-                <div id="libraryForm">
-                    <div class="iconContainer">
-                        <i class="material-icons">school</i>
-                    </div>
-                    <select ng-model="selectedBranch" ng-options="item for item in branch"></select>
--->
-                <!--	<div class="iconContainer">
-                        <i class="material-icons">book</i>
-                    </div>
-                    <select ng-model="selectedSemester" ng-options="item for item in semester"></select>
-
-                    <div class="iconContainer">
-                        <i class="material-icons">description</i>
-                    </div>
-                    <select ng-model="selectedSubject" ng-options="item for item in subject"></select>
-                -->
-<!--                </div>-->
-            </div>
+            <div class="col-sm-4"></div>
             <div class="col-sm-1"></div>
         </div>
     </div>
@@ -54,11 +35,11 @@
         <div class="row">
             <div class="col-sm-3"></div>
             <div class="col-sm-6">
-                <div id="libraryForm">
+                <div id="libraryForm" ng-show="bbaToggle">
                     <div class="iconContainer">
                         <i class="material-icons">school</i>
                     </div>
-                    <select ng-model="selectedBranch" ng-options="item for item in branchEnotes" ng-change="clear()"></select>
+                    <select ng-model="selectedBranch" ng-options="item for item in branchEnotes" ng-change="clear()" ng-show="bbaToggle"></select>
                     <p class="errorMessageSignUp" ng-model="branchError" ng-show="branchError">Select a branch</p>
                     <div class="iconContainer">
                         <i class="material-icons">book</i>
@@ -120,7 +101,7 @@
                                         <div id="collapse2{{($index+1)}}" class="panel-collapse collapse">
                                             <div class="panel-body">
                                                 <ul ng-repeat="step in steps">
-                                                    <li ng-repeat="(key, value) in step" ng-if="key=='fileName'" ng-click="downloadFileViaLink(counter,value)">{{value}}</li>
+                                                    <li ng-repeat="(key, value) in step" ng-if="key=='fileName'" ng-click="downloadFileViaLink(value)">{{value}}</li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -151,7 +132,7 @@
                                         <div id="collapse3{{($index+1)}}" class="panel-collapse collapse">
                                             <div class="panel-body">
                                                 <ul ng-repeat="step in steps">
-                                                    <li ng-repeat="(key, value) in step" ng-if="key=='fileName'" ng-click="downloadFileViaLink(counter,value)">{{value}}</li>
+                                                    <li ng-repeat="(key, value) in step" ng-if="key=='fileName'" ng-click="downloadFileViaLink(value)">{{value}}</li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -182,7 +163,7 @@
                                         <div id="collapse4{{($index+1)}}" class="panel-collapse collapse">
                                             <div class="panel-body">
                                                 <ul ng-repeat="step in steps">
-                                                    <li ng-repeat="(key, value) in step" ng-if="key=='fileName'" ng-click="downloadFileViaLink(counter,value)">{{value}}</li>
+                                                    <li ng-repeat="(key, value) in step" ng-if="key=='fileName'" ng-click="downloadFileViaLink(value)">{{value}}</li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -191,7 +172,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="panel panel-default">
+                    <div class="panel panel-default" ng-show="mbaToggle">
                         <div class="panel-heading">
                             <h4 class="panel-title">
                                 <a data-toggle="collapse" data-parent="#accordion" href="!#collapse5" ng-click="sem(5)">
@@ -213,7 +194,7 @@
                                         <div id="collapse5{{($index+1)}}" class="panel-collapse collapse">
                                             <div class="panel-body">
                                                 <ul ng-repeat="step in steps">
-                                                    <li ng-repeat="(key, value) in step" ng-if="key=='fileName'" ng-click="downloadFileViaLink(counter,value)">{{value}}</li>
+                                                    <li ng-repeat="(key, value) in step" ng-if="key=='fileName'" ng-click="downloadFileViaLink(value)">{{value}}</li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -222,7 +203,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="panel panel-default">
+                    <div class="panel panel-default" ng-show="mbaToggle">
                         <div class="panel-heading">
                             <h4 class="panel-title">
                                 <a data-toggle="collapse" data-parent="#accordion" href="!#collapse6" ng-click="sem(6)">
@@ -244,7 +225,7 @@
                                         <div id="collapse6{{($index+1)}}" class="panel-collapse collapse">
                                             <div class="panel-body">
                                                 <ul ng-repeat="step in steps">
-                                                    <li ng-repeat="(key, value) in step" ng-if="key=='fileName'" ng-click="downloadFileViaLink(counter,value)">{{value}}</li>
+                                                    <li ng-repeat="(key, value) in step" ng-if="key=='fileName'" ng-click="downloadFileViaLink(value)">{{value}}</li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -253,7 +234,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="panel panel-default">
+                    <div class="panel panel-default" ng-show="bbaToggle">
                         <div class="panel-heading">
                             <h4 class="panel-title">
                                 <a data-toggle="collapse" data-parent="#accordion" href="!#collapse7" ng-click="sem(7)">
@@ -275,7 +256,7 @@
                                         <div id="collapse7{{($index+1)}}" class="panel-collapse collapse">
                                             <div class="panel-body">
                                                 <ul ng-repeat="step in steps">
-                                                    <li ng-repeat="(key, value) in step" ng-if="key=='fileName'" ng-click="downloadFileViaLink(counter,value)">{{value}}</li>
+                                                    <li ng-repeat="(key, value) in step" ng-if="key=='fileName'" ng-click="downloadFileViaLink(value)">{{value}}</li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -284,7 +265,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="panel panel-default">
+                    <div class="panel panel-default" ng-show="bbaToggle">
                         <div class="panel-heading">
                             <h4 class="panel-title">
                                 <a data-toggle="collapse" data-parent="#accordion" href="!#collapse8" ng-click="sem(8)">
@@ -306,7 +287,7 @@
                                         <div id="collapse8{{($index+1)}}" class="panel-collapse collapse">
                                             <div class="panel-body">
                                                 <ul ng-repeat="step in steps">
-                                                    <li ng-repeat="(key, value) in step" ng-if="key=='fileName'" ng-click="downloadFileViaLink(counter,value)">{{value}}</li>
+                                                    <li ng-repeat="(key, value) in step" ng-if="key=='fileName'" ng-click="downloadFileViaLink(value)">{{value}}</li>
                                                 </ul>
                                             </div>
                                         </div>

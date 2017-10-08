@@ -389,6 +389,8 @@ $scope.scrollTop = function(){
         $scope.uploadToggle = true;
     }
     
+    // aap fiel ki value kasie le rhe ho?
+    
     $scope.subjectError = false;
         $scope.uploadCheck = false;
     $scope.semesterError = false;
@@ -400,8 +402,6 @@ $scope.scrollTop = function(){
     $scope.fileNameEmptyError = false;
     $scope.uploadFileError = false;
     $scope.allSelected = false;
-
-    //kya drame h mba mei 4 hote  hai...krne to do
     if($rootScope.userCourse=="BTech") { 
     $scope.semester = ['Select Semester','First', 'Second', 'Third', 'Fourth', 'Fifth', 'Sixth', 'Seventh', 'Eighth'];
     }else if($rootScope.userCourse=="BBA"){
@@ -575,15 +575,41 @@ $scope.scrollTop = function(){
 	    $scope.fileNameError = false;
 	    $scope.uploadFileError = false;
         $scope.compareFileName();
-	    
+        
+        //kha pe chekc kr rhe ho ki file aay aki nhi  vo check tu kr rha hai.. maine bs post maari hai
+        // aur response laaya hu... ok wait
+        var file;
 	    $scope.fileNameErrorFunction();
-        if(($scope.selectedBranch!='Select Branch' && $rootScope.userCourse=="BTech" && $scope.selectedSemester!='Select Semester' && $scope.selectedSubject!='Select Subject' && $scope.selectedCategory!='Select Category' && $scope.fileNameError == false && $scope.fileNameMatchError == false && ($scope.fileName).length!=0) || ($rootScope.userCourse!="BTech" && $scope.selectedSemester!='Select Semester' && $scope.selectedSubject!='Select Subject' && $scope.selectedCategory!='Select Category' && $scope.fileNameError == false && $scope.fileNameMatchError == false && ($scope.fileName).length!=0)) {
+         file= document.getElementById('fileUpload').files[0];
+	    // but ye error ni aayega kuch nhi chalau? haan bs ek panga h wait solve
+        //isme ye hoga ki agr aap kuch bhi select na kro aur upload pe click kr do
+        //to bs file empty error aayega baki error ni aayegn
+        console.log("fiel= "+file);
+        
+        if(file==undefined)
+        	{
+        	console.log("without brackets");
+        	}
+        if(file=="undefined")
+    	{
+    	console.log("with brackets");
+    	}
+        
+     /*   if(file==undefined) {
+        	$scope.uploadFileError = true;
+        	console.log("not uploaded");
+        } else*/ 
+        //ek aur yh kya bklol error aa rha hai wait  i think ho gya hoga ab
+        // undefined quotoes m aayega phele check krk lo
+        
+        
+        	if((file!=undefined && $scope.selectedBranch!='Select Branch' && $rootScope.userCourse=="BTech" && $scope.selectedSemester!='Select Semester' && $scope.selectedSubject!='Select Subject' && $scope.selectedCategory!='Select Category' && $scope.fileNameError == false && $scope.fileNameMatchError == false && ($scope.fileName).length!=0) || (file!=undefined && $rootScope.userCourse!="BTech" && $scope.selectedSemester!='Select Semester' && $scope.selectedSubject!='Select Subject' && $scope.selectedCategory!='Select Category' && $scope.fileNameError == false && $scope.fileNameMatchError == false && ($scope.fileName).length!=0)) {
             $scope.fileUploadData.branch = $scope.selectedBranch;
             $scope.fileUploadData.type = $scope.selectedCategory;
             $scope.fileUploadData.fileName = $scope.fileName;
             $scope.fileUploadData.semester = $scope.selectedSemester;
             $scope.fileUploadData.subject = $scope.selectedSubject;
-            $scope.fileUploadData.miltipartFile = "";
+            $scope.fileUploadData.multipartFile = "";
             
             /*
              * post goes here ...
@@ -592,7 +618,7 @@ $scope.scrollTop = function(){
             
             var formData = new FormData();
             console.log('File is :'+file);
-            var file = document.getElementById('fileUpload').files[0];
+            //var file = document.getElementById('fileUpload').files[0];
             formData.append('branch', $scope.fileUploadData.branch);
             formData.append('type', $scope.fileUploadData.type);
             formData.append('fileName',$scope.fileUploadData.fileName);
@@ -658,6 +684,11 @@ $scope.scrollTop = function(){
                 $scope.fileNameEmptyError = true;
             $scope.compareFileName();
             }
+            if(file==undefined) {
+            	$scope.uploadFileError = true;
+            	console.log("not uploaded");
+            }
+            //done
         }
     }
     

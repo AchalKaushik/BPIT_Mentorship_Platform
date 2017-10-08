@@ -24,7 +24,7 @@ $scope.checksem = function() {
             $scope.subBranch = ["Select Subject", "Compiler Design","Operating Systems","Computer Networks","Web Engineering","Artificial Intelligence"];
         } else if($scope.selectedBranch == "CSE" && ($scope.selectedSemester==7 || $scope.selectedSemester=="Seventh")) {
             $scope.subBranch = ["Select Subject", "Information Security","Software Testing and Quality Assurance","Wireless Communication","Complexity Theory","Intellectual Property Rights","Embedded Systems","Data Mining and Business Intelligence","Advanced Computer Architecture","Natural Language Processing","Digital Signal Processing","Simulation and Modelling","Advanced DBMS","Parallel Computing","Advanced Computer Networks","Control System","Sociology and Elements of Indian History for Engineers"];
-        } else if($scope.selectedBranch == "CSE" && ($scope.selectedSemester==8  || $scope.selectedSemester=="Eigth")) {
+        } else if($scope.selectedBranch == "CSE" && ($scope.selectedSemester==8  || $scope.selectedSemester=="Eighth")) {
             $scope.subBranch = ["Select Subject", "Mobile Computing","Machine Learning","Human Values and Professional Ethics-II","Digital Image Processing","Microelectronics","Ad Hoc and Sensor Networks","Soft Computing","VLSI Design","Distributed Systems","Object Oriented Software Engineering","Computer Vision","Software Project Management","Human Computer Interaction","Information Theory and Coding","Web Intelligence and Big Data","Service Oriented Architecture","Multiagent Systems","Principles of Programming Languages","Telecommunication Networks","Selected Topics of Recent Trends in Computer Science and Engineering"];
         //IT Subjects
         } else if($scope.selectedBranch == "IT" && ($scope.selectedSemester==3 || $scope.selectedSemester=="Third")) {
@@ -37,7 +37,7 @@ $scope.checksem = function() {
             $scope.subBranch = ["Select Subject", "Compiler Design","Operating Systems","Data Communication and Networks","Web Engineering","Artificial Intelligence"];  
         } else if($scope.selectedBranch == "IT" && ($scope.selectedSemester==7 || $scope.selectedSemester=="Seventh")) {
             $scope.subBranch = ["Select Subject", "Advanced Computer Networks","Cryptography and Network Security","Wireless Communication","Embedded Systems","Optoelectronics and Optical Communication","Cloud Computing","Distributed Databases","Semantic Web Technologies","Software Testing","Digital Signal Processing",".NET and C# Programming","Enterprise Computing in Java","System and Network Administration","Grid Computing","Advanced Database Administration","Probablistic Graphical Models","Sociology and Elements of Indian History for Engineers"];  
-        } else if($scope.selectedBranch == "IT" && ($scope.selectedSemester==8  || $scope.selectedSemester=="Eigth")) {
+        } else if($scope.selectedBranch == "IT" && ($scope.selectedSemester==8  || $scope.selectedSemester=="Eighth")) {
             $scope.subBranch = ["Select Subject", "Mobile Computing","Ad hoc and Sensor Networks","Human Values and Professional Ethics-II","Big Data Analytics","Social Network Analysis","Soft Computing","Bio Informatics","Web Application development using .NET","VLSI Design","Information Theory and Coding","Human Computer Interaction","Digital Image Processing","Next Generation Networks","GPS and GIS","Satellite Communication","E-Commerce and M-Commerce","Distributed Systems","Selected Topics of Recent Trends in Information Technology"];  
             //ECE
         } else if($scope.selectedBranch == "ECE" && ($scope.selectedSemester==3 || $scope.selectedSemester=="Third")) {
@@ -50,7 +50,7 @@ $scope.checksem = function() {
             $scope.subBranch = ["Select Subject", "Microwave Engineering","Information Theory and Coding ","Digital Signal Processing","VLSI Design","Data Communication and Networks","Antenna and Wave Propagation"];  
         } else if($scope.selectedBranch == "ECE" && ($scope.selectedSemester==7 || $scope.selectedSemester=="Seventh")) {
             $scope.subBranch = ["Select Subject", "Embedded Systems","Optoelectronics and Optical Communication","Wireless Communication","Advanced DSP","Introduction to MEMS","Advanced VLSI Design","Biomedical Instrumentation ","PLC and SCADA Systems","Power Electronics","RF Devices and Circuits","Database Management System","Renewable Energy Resources","Radar and Navigation","Project Management","Economics for Engineers","Sociology and Elements of Indian History","Grid Computing","Parallel Computing","Selected topics in ECE**"];  
-        } else if($scope.selectedBranch == "ECE" && ($scope.selectedSemester==8  || $scope.selectedSemester=="Eigth")) {
+        } else if($scope.selectedBranch == "ECE" && ($scope.selectedSemester==8  || $scope.selectedSemester=="Eighth")) {
             $scope.subBranch = ["Select Subject", "Ad Hoc and Sensor Networks","Satellite Communication","Human Values and Professional Ethics-II","Digital Image Processing","Consumer Electronics","ASIC Design","Mobile Computing","Introduction to Nanotechnology","GPS and GIS","Adaptive Signal Processing","Robotics","Computer Graphics and Multimedia","Next Generation Networks"];
         // EEE    
         } else if($scope.selectedBranch == "EEE" && ($scope.selectedSemester==3 || $scope.selectedSemester=="Third")) {
@@ -63,8 +63,9 @@ $scope.checksem = function() {
             $scope.subBranch = ["Select Subject", "Power System – II","Utilization  of  Electrical  Energy  and  Electric Traction","Digital Signal Processing","VLSI Design","Microprocessor and Microcontroller","Power Station Practice"];  
         } else if($scope.selectedBranch == "EEE" && ($scope.selectedSemester==7 || $scope.selectedSemester=="Seventh")) {
             $scope.subBranch = ["Select Subject", "Electrical Drives","Advanced Control Systems","EHV AC and HVDC Transmissions","Renewable Energy Resources","Power Distribution System","Telemetry and Data Acquisition Systems","PLC and SCADA System","Mechatronics","High Voltage Engineering","Selected topics in EEE**","Optoelectronics and Optical Communication","Database Management Systems","Biomedical Instrumentation","Digital System Design","Power line Carrier  Communication","Electrical Machines Design","Sociology and Elements of Indian History for Engineers"];
-        } else if($scope.selectedBranch == "EEE" && ($scope.selectedSemester==8  || $scope.selectedSemester=="Eigth")) {
+        } else if($scope.selectedBranch == "EEE" && ($scope.selectedSemester==8  || $scope.selectedSemester=="Eighth")) {
             $scope.subBranch = ["Select Subject", "Neuro-Fuzzy Systems","Power System Operation and Control","Human Values and Professional Ethics-II","Application of Power Electronics to Power Systems","Reliability   Engineering   and   Application to Power System","Electrical Machine - III","Electrical Energy Conservation","Power System Analysis and Stability","Electrical System Design","Embedded Systems","Data Communication and Networks","Digital Image Processing","Object Oriented Programming Using C++","Power Plant Instrumentation","Intelligent and Smart Instrumentation","Digital Communication","Electrical Power Quality"];
+            console.log("aaya yha pe");
         } else {
             $scope.subBranch = [];
         }
@@ -73,36 +74,36 @@ $scope.checksem = function() {
     //BBA
     else if($rootScope.userCourse=="BBA") {
         if($scope.selectedSemester==1 || $scope.selectedSemester=="First") {
-            $scope.subBranch = ["Principles of Management", "Business Economics-I", "Business Mathematics", "Introduction to IT", "Financial Accounting", "Personality Development & Communication Skills-I"];
+            $scope.subBranch = ["Select Subject", "Principles of Management", "Business Economics-I", "Business Mathematics", "Introduction to IT", "Financial Accounting", "Personality Development & Communication Skills-I"];
         } else if($scope.selectedSemester==2 || $scope.selectedSemester=="Second") {
-            $scope.subBranch =["Business Organization",
+            $scope.subBranch =["Select Subject", "Business Organization",
             "Business Economics-II",
             "Quantitative Techniques and Operations Research in Management",
             "Data Base Management System",
             "Cost Accounting",
             "Personality Development & Communication Skills-II"]
         } else if($scope.selectedSemester==3 || $scope.selectedSemester=="Third") {
-            $scope.subBranch = ["Organizational Behaviour",
+            $scope.subBranch = ["Select Subject", "Organizational Behaviour",
             "Indian Economy",
             "Marketing Management",
             "Computer Applications -I",
             "Management Accounting",
             "Personality Development & Communication Skills-III"]
         } else if($scope.selectedSemester==4 || $scope.selectedSemester=="Fourth") {
-            $scope.subBranch = ["Human Resource Management",
+            $scope.subBranch = ["Select Subject", "Human Resource Management",
             "Business Environment",
             "Marketing Research",
             "Computer Applications - II",
             "Business Laws",
             "Taxation Laws"]
         } else if($scope.selectedSemester==5 || $scope.selectedSemester=="Fifth") {
-            $scope.subBranch = ["Values & Ethics in Business",
+            $scope.subBranch = ["Select Subject", "Values & Ethics in Business",
             "Sales Management",
             "Production & Operations Management",
             "Management Information System",
             "Financial Management"]
         } else if($scope.selectedSemester==6 || $scope.selectedSemester=="Sixth") {
-            $scope.subBranch =  ["Business Policy & Strategy",
+            $scope.subBranch =  ["Select Subject", "Business Policy & Strategy",
             "Project Planning & Evaluation",
             "Entrepreneurship Development",
             "International Business Management",
@@ -115,7 +116,7 @@ $scope.checksem = function() {
     //MBA
     else if($rootScope.userCourse=="MBA") {
         if($scope.selectedSemester==1 || $scope.selectedSemester=="First") {
-            $scope.subBranch = ["Management Process & Organizational Behaviour",
+            $scope.subBranch = ["Select Subject", "Management Process & Organizational Behaviour",
             "Decision Sciences",
             "Managerial Economics",
             "Accounting for Management",
@@ -124,7 +125,7 @@ $scope.checksem = function() {
             "Legal Aspects of Business",
             "Managerial Skills Development"]
         } else if($scope.selectedSemester==2 || $scope.selectedSemester=="Second") {
-            $scope.subBranch = ["Management of Technology, Innovation and Change",
+            $scope.subBranch = ["Select Subject", "Management of Technology, Innovation and Change",
             "Financial Management",
             "Marketing Management",
             "Business Research Methods",
@@ -133,7 +134,7 @@ $scope.checksem = function() {
             "e-Business",
             "Business Analytics"]
         } else if($scope.selectedSemester==3 || $scope.selectedSemester=="Third") {
-            $scope.subBranch =     ["Management of International Business",
+            $scope.subBranch =     ["Select Subject", "Management of International Business",
             "Information Systems Management",
             "Entrepreneurship Development",
             "Consumer Behavior",
@@ -162,7 +163,7 @@ $scope.checksem = function() {
             "International Economics",
             "International Business Negotiation"]
         } else if($scope.selectedSemester==4 || $scope.selectedSemester=="Fourth") {
-            $scope.subBranch = ["Project Dissertation",
+            $scope.subBranch = ["Select Subject", "Project Dissertation",
             "Business Intelligence and Applications",
             "Strategic Management",
             "Corporate Social Responsibility, Human Values & Ethics",
@@ -346,6 +347,7 @@ $scope.subDownloadListFunction = function(subi) {
 
 $scope.clear = function() {
     $scope.selectedSemester = "";
+    if($rootScope.userCourse=="BTech"){
         if($scope.selectedBranch!='Select Branch')
             $scope.branchError = false;
         else {
@@ -357,6 +359,14 @@ $scope.clear = function() {
         else {
             $scope.categoryError = true;
         }
+    } else {
+    	if($scope.selectedCategory!='Select Category')
+            $scope.categoryError = false;
+        else {
+            $scope.categoryError = true;
+        }
+    	
+    }
     $scope.checksem();
 }
 
@@ -391,7 +401,14 @@ $scope.scrollTop = function(){
     $scope.uploadFileError = false;
     $scope.allSelected = false;
 
+    //kya drame h mba mei 4 hote  hai...krne to do
+    if($rootScope.userCourse=="BTech") { 
     $scope.semester = ['Select Semester','First', 'Second', 'Third', 'Fourth', 'Fifth', 'Sixth', 'Seventh', 'Eighth'];
+    }else if($rootScope.userCourse=="BBA"){
+    	$scope.semester = ['Select Semester','First', 'Second', 'Third', 'Fourth', 'Fifth', 'Sixth'];
+    } else if ($rootScope.userCourse=="MBA") {
+    	$scope.semester = ['Select Semester','First', 'Second', 'Third', 'Fourth'];
+    }
     $scope.branchEnotes = ['Select Branch', 'CSE','IT','ECE','EEE'];
     $scope.branch = ['Select Branch'];
     $scope.subBranch = ['Select Subject'];
@@ -571,6 +588,7 @@ $scope.scrollTop = function(){
             /*
              * post goes here ...
              */
+            var thisIsResponse;
             
             var formData = new FormData();
             console.log('File is :'+file);
@@ -580,7 +598,7 @@ $scope.scrollTop = function(){
             formData.append('fileName',$scope.fileUploadData.fileName);
             formData.append('semester',$scope.fileUploadData.semester);
             formData.append('subject',$scope.fileUploadData.subject);
-            formData.append('userId',"ruchit.jain15@gmail.com");
+            formData.append('userId',$rootScope.userId);
             formData.append('file',  document.getElementById('fileUpload').files[0]);
             var uploadUrl= "/uploadFile";
             
@@ -601,11 +619,19 @@ $scope.scrollTop = function(){
                 
             	console.log("response of success -----");
             	console.log(thisIsResponse);
-            	responseOfUpload(thisIsResponse);
+            	if(thisIsResponse=="")
+            		{
+            		$scope.errorCheck=true;
+            		}
+            	else
+            		{
+            		$scope.uploadCheck=true;
+            		}
                 
             }, function errorCallback(response) {
             	console.log("Error in receiving response from backend------" +response);
                 console.log('Error: '+response);
+                $scope.errorCheck=true;
              });
             $scope.selectedBranch = 'Select Branch';
 	$scope.selectedSemester = 'Select Semester';
@@ -651,9 +677,9 @@ $scope.searchFunction = function() {
             
            
             
-            $scope.searchData.userId = "ruchit.jain15@gmail.com";
+            $scope.searchData.userId = $rootScope.userId;;
             
-            console.log("Sem "+  $scope.searchData.semester+"sub " + $scope.searchData.subject);
+           // console.log("Sem "+  $scope.searchData.semester+"sub " + $scope.searchData.subject);
            
             
             var searchURI = "/searchForFile";
@@ -682,6 +708,7 @@ $scope.searchFunction = function() {
                                 
 //                               window.location.assign("/#!/error");
                            console.log(" No Record Found ");
+                           $scope.steps = [{libraryId : "1",fileName : "No Record Found"}];
                                }
                            else
                                {
@@ -696,8 +723,8 @@ $scope.searchFunction = function() {
                                }
                        }
                        );
-            data1 = [{'id':'6','fileName':'hi'}, {'id':'15','fileName':'this'}]
-            $scope.steps = data1;
+           /* data1 = [{'id':'6','fileName':'hi'}, {'id':'15','fileName':'this'}]
+            $scope.steps = data1;*/
             $scope.toggleSearchDownload = true;
             console.log("searching");
         } else {

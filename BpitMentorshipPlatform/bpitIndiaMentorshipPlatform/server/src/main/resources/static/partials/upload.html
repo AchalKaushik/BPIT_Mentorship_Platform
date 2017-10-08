@@ -14,16 +14,16 @@
         </div>
     </div>
     
-        <div id="navbar">
+       <div id="navbar">
     	<div class="row">
+            <div class="col-sm-4">
+                <a href="#!/library" class="eMaterials">E-Books/E-Notes</a>
+            </div>
     		<div class="col-sm-4">
     			<a href="#!/library/search" class="eMaterials">Search</a>
 			</div>
-            <div class="col-sm-4">
-                <a href="#!/library/upload" class="eMaterials">Upload</a>
-            </div>
-            <div class="col-sm-4">
-                <a href="#!/library" class="eMaterials">E-Books/E-Notes</a>
+            <div class="col-sm-4 active">
+                <a href="#!/library/upload" class="eMaterials" ng-show="uploadToggle">Upload</a>
             </div>
 		</div>
     </div>
@@ -42,10 +42,10 @@
                     <select ng-model="selectedSemester" ng-options="item for item in semester" ng-change="arrayList(1,1)"></select>
                     <p class="errorMessageSignUp" ng-model="semesterError" ng-show="semesterError">Select a semester</p>
                     
-                    <div class="iconContainer">
+                    <div class="iconContainer" ng-show="bbaToggle">
                         <i class="material-icons">school</i>
                     </div>
-                    <select ng-model="selectedBranch" ng-options="item for item in branch" ng-change="arrayList(2,1)" disabled></select>
+                    <select ng-model="selectedBranch" ng-options="item for item in branch" ng-change="arrayList(2,1)" disabled ng-show="bbaToggle"></select>
                     <p class="errorMessageSignUp" ng-model="branchError" ng-show="branchError">Select a branch</p>
                     
                     <div class="iconContainer">

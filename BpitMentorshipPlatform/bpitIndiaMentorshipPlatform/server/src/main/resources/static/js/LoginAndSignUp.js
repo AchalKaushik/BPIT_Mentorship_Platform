@@ -124,7 +124,7 @@ app.controller('loginController', function($scope, $rootScope, $http) {
                         var userCourse;
                         
                         $http.get(
-                                "/getUserCourse?userId="+"setUserIdHere", {
+                                "/getUserCourse?userId="+$rootScope.userId, {
                                     transformResponse: [function (data)  {
                                         console.log(data);
                                         userCourse=data;

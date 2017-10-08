@@ -327,3 +327,7 @@ text-align: center;
 #searchFormWrapper #uploadButton {
 	padding: 10px 30px;
 }
+
+#navbar .active {
+	background: #ed1c24;
+}

@@ -17,7 +17,7 @@
     
     <div id="navbar">
     	<div class="row">
-            <div class="col-sm-4">
+            <div class="col-sm-4 active">
                 <a href="#!/library" class="eMaterials">E-Books/E-Notes</a>
             </div>
     		<div class="col-sm-4">
@@ -35,8 +35,8 @@
         <div class="row">
             <div class="col-sm-3"></div>
             <div class="col-sm-6">
-                <div id="libraryForm" ng-show="bbaToggle">
-                    <div class="iconContainer">
+                <div id="libraryForm">
+                    <div class="iconContainer" ng-show="bbaToggle">
                         <i class="material-icons">school</i>
                     </div>
                     <select ng-model="selectedBranch" ng-options="item for item in branchEnotes" ng-change="clear()" ng-show="bbaToggle"></select>

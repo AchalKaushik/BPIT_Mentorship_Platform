@@ -49,6 +49,14 @@ public class LibraryUploadFileService {
 		HashMap<String, Object> getPathsOfFolders = new HashMap<String, Object>();
 		
 		String course=getUserCourseService.getUserCouse(userd);
+		
+		if(course == null)
+		{
+			/*
+			 * Exception occurred while getting course
+			 */
+			return null;
+		}
 		/*
 		 * Get course corresponding to userId from session
 		 */
@@ -105,7 +113,9 @@ public class LibraryUploadFileService {
 				case "Fundamentals Of Computing":
 					path=Paths.get(bTechSemester1And2FolderPathsDto.getSemester1CSEFOCFolder()+"//"+fileName+extension);break;
 				case "Applied Chemistry":
-					path=Paths.get(bTechSemester1And2FolderPathsDto.getSemester1CSEACFolder()+"//"+fileName+extension);break;
+					path=Paths.get(bTechSemester1And2FolderPathsDto.getSemester1CSEACFolder()+"//"+fileName+extension);
+					System.out.println(path.toString()+"    "+fileName+extension);
+					break;
 				case "Engineering Graphics Lab":
 					path=Paths.get(bTechSemester1And2FolderPathsDto.getSemester1CSEEGFolder()+"//"+fileName+extension);break;
 				default:

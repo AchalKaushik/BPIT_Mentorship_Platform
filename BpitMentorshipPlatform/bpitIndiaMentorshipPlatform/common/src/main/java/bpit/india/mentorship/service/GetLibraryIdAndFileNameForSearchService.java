@@ -21,6 +21,7 @@ public class GetLibraryIdAndFileNameForSearchService {
 
 		try{
 			Collection<GetLibraryIdAndFileNameDto> libraryIdAndFileNameForSearch = getLibraryIdAndFileNameForSearchDao.getLibraryIdAndFileNameForSearch(getInfoToFetchFileNamesDto,typeOfRequest);
+			System.out.println(libraryIdAndFileNameForSearch);
 			return libraryIdAndFileNameForSearch;
 		}
 		catch(Exception e)

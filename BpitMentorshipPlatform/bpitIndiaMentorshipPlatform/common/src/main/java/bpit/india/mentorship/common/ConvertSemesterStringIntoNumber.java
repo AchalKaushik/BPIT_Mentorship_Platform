@@ -9,19 +9,19 @@ public class ConvertSemesterStringIntoNumber {
 	{
 		if(semester.equalsIgnoreCase("First") || semester.equalsIgnoreCase("1"))
 			return "1";
-		else if(semester.equalsIgnoreCase("Second"))
+		else if(semester.equalsIgnoreCase("Second") || semester.equalsIgnoreCase("2"))
 			return "2";
-		else if(semester.equalsIgnoreCase("Third"))
+		else if(semester.equalsIgnoreCase("Third") || semester.equalsIgnoreCase("3"))
 			return "3";
-		else if(semester.equalsIgnoreCase("Fourth"))
+		else if(semester.equalsIgnoreCase("Fourth") || semester.equalsIgnoreCase("4"))
 			return "4";
-		else if(semester.equalsIgnoreCase("Fifth"))
+		else if(semester.equalsIgnoreCase("Fifth") || semester.equalsIgnoreCase("5"))
 			return "5";
-		else if(semester.equalsIgnoreCase("Sixth"))
+		else if(semester.equalsIgnoreCase("Sixth") || semester.equalsIgnoreCase("6"))
 			return "6";
-		else if(semester.equalsIgnoreCase("Seventh"))
+		else if(semester.equalsIgnoreCase("Seventh") || semester.equalsIgnoreCase("7"))
 			return "7";
-		else if(semester.equalsIgnoreCase("Eighth"))
+		else if(semester.equalsIgnoreCase("Eighth") || semester.equalsIgnoreCase("8"))
 			return "8";
 		else
 			return null;

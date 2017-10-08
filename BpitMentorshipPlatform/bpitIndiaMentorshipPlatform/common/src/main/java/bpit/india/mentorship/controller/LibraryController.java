@@ -90,10 +90,10 @@ public class LibraryController {
 		
 		System.out.println("branch is  : " + branch + userId + semester + fileName);
 		
-		libraryUploadFileService.uploadFile(file, branch, subject, type, fileName, semester, userId);
+		return libraryUploadFileService.uploadFile(file, branch, subject, type, fileName, semester, userId);
 		
 		
-	  return "success";
+	  
 	}
 	
 	

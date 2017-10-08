@@ -4,7 +4,7 @@ app.controller('libraryController', function($scope, $rootScope, $http) {
 	console.log("dikhna chahaiye ??"+$scope.logoutToggle );
     console.log("in library controller");
     console.log("userid from root scope is  : "+ $rootScope.userId);
-
+    $scope.fileNameArray={};
     $scope.steps={};
     
 $scope.checksem = function() {
@@ -116,7 +116,7 @@ $scope.subDownloadListFunction = function(subi) {
     
     $scope.downloadListData.type = $scope.selectedCategory;
     
-    
+    console.log("sem is :" + $scope.downloadListData.semester);
     /*
      * Getting user role as per userId 
      */
@@ -178,7 +178,7 @@ $scope.subDownloadListFunction = function(subi) {
                     {
                     
                      /** Error occurs*/ 
-                     
+                	console.log(" Response is : " + response.data);   
 //                    window.location.assign("/#!/error");
                 $scope.steps=[{libraryId : "1",fileName : "No Record Found"}];	
                 console.log(" No Record Found ");
@@ -333,7 +333,7 @@ $scope.scrollTop = function(){
                             
                              /** Error occurs*/ 
                              console.log("all wale m");
-                                
+                             $scope.fileNameArray = response.data;
 //                            window.location.assign("/#!/error");
                             console.log("An exception occurred ");
                             }
@@ -413,9 +413,11 @@ $scope.scrollTop = function(){
             formData.append('fileName',$scope.fileUploadData.fileName);
             formData.append('semester',$scope.fileUploadData.semester);
             formData.append('subject',$scope.fileUploadData.subject);
-            formData.append('userId',"ruchit.jain15@gmail.com");
+            formData.append('userId',$rootScope.userId);
             formData.append('file',  document.getElementById('fileUpload').files[0]);
             var uploadUrl= "/uploadFile";
+            
+            var thisIsResponse;
             
             $http({
             	method: 'POST',
@@ -432,7 +434,7 @@ $scope.scrollTop = function(){
                 }]
             }).then(function(response) {
                 
-            	console.log("response of success -----");
+            	console.log("response of success -----"+thisIsResponse);
             	console.log(thisIsResponse);
 
             	//lol
@@ -444,15 +446,23 @@ $scope.scrollTop = function(){
                 $scope.fileName = "";
                         var labelText = document.getElementById('fileUploadLabel');
                         labelText.innerHTML = "Choose File Here";
-                        $scope.uploadCheck = true;
                         
+                        if(thisIsResponse=="")
+                        	{
+                        	console.log("An error occurred while uploading fie kindly try again");
+                        	$scope.errorCheck = true;
+                        	}
+                        else 
+                        	{
+                        $scope.uploadCheck = true;
+                        	}
                         //done
-            	responseOfUpload(thisIsResponse);
+            	//responseOfUpload(thisIsResponse);
                 
             }, function errorCallback(response) {
             	console.log("Error in receiving response from backend------" +response);
                 console.log('Error: '+response);
-                //kha h success? isme e
+                
                 $scope.errorCheck = true;
              });
             
@@ -492,7 +502,7 @@ $scope.scrollTop = function(){
             
            
             
-            $scope.searchData.userId = "ruchit.jain15@gmail.com";
+            $scope.searchData.userId = $rootScope.userId;
             
             console.log("Sem "+  $scope.searchData.semester+"sub " + $scope.searchData.subject);
            
@@ -565,6 +575,10 @@ $scope.scrollTop = function(){
     	 // $scope.fileNameArray = [{'id':'6','fileName':'hi'}, {'id':'15','fileName':'this'}];  	
     	console.log("key up wala" + $scope.fileNameArray);
     var len = $scope.fileNameArray.length;
+    
+    if(!($scope.fileNameArray==""))
+    	{
+    	
     console.log(Object.values($scope.fileNameArray[li]));
     // aapke m sidha aaray show hota h
     for(li=0; li<len; li++){
@@ -578,6 +592,7 @@ $scope.scrollTop = function(){
         }
        }
     }
+    	}
 }
     
     /*

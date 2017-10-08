@@ -71,7 +71,7 @@ app.controller('loginController', function($scope, $rootScope, $http) {
                           * Authenticated user
                           * */ 
                     	$rootScope.logoutToggle = true;
-                    	console.log("ho gya" + $rootScope.logoutToggle);
+                    	console.log("ho gya" + $rootScope.logoutToggle); // dikhaio code html ka iska
                          $rootScope.userId = $scope.loginData.userId;
                          console.log("userId in root scope is  :" + $rootScope.userId);
                         console.log("Authenticated user");

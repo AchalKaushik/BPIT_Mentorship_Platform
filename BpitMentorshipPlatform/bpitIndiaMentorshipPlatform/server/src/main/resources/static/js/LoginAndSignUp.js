@@ -19,6 +19,12 @@ app.controller('loginController', function($scope, $rootScope, $http) {
     
     $scope.signUp.firstName = "";
     $scope.signUp.lastName = "";
+    $scope.signUp.password = "";
+    $scope.signUp.confirmPassword = "";
+    $scope.signUp.mobileNumber = "";
+    //sorrry i missd it.. firse puch
+    //email kya h? uniqueId/ email kouserId mei le rha hu.. nd 
+    $scope.signUp.userId="";
     $scope.loginError = false;
     
     
@@ -207,7 +213,8 @@ app.controller('loginController', function($scope, $rootScope, $http) {
     $scope.signUp.course = "BTech";
     $scope.signUp.selectedBranch = "CSE";
     
-    $scope.enroll = "teacher id";
+    //yw
+    $scope.enroll = "enrollment number";
     
     // Options for "Branch' Field in the Form
     $scope.branch = ["CSE", "IT", "ECE", "EEE"];
@@ -276,7 +283,7 @@ app.controller('loginController', function($scope, $rootScope, $http) {
         if($scope.signUp.mobileNumber==null) {
             $scope.mobileNumberError = true;
         } else {
-            if($scope.signUp.mobileNumber.toString().length!=10) {
+            if(($scope.signUp.mobileNumber.toString()).length!=10) {
                 $scope.mobileNumberError = true;
             } else {
                 $scope.mobileNumberError = false;
@@ -314,11 +321,11 @@ app.controller('loginController', function($scope, $rootScope, $http) {
     // Email Validation function ends here
 
     
-    
+    //ok
     // Function to check the length of the password
     $scope.checkLength = function() {
 
-        if($scope.signUp.password.length<6) 
+        if(($scope.signUp.password).length<6) 
             $scope.passwordError=true; 
         else
             $scope.passwordError=false;

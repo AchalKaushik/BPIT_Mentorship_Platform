@@ -11,6 +11,35 @@ public class LibraryOperationsConfig {
 	private String insertIntoLibrary;
 	private String getLibraryIdAndFileNameForSearch;
 	private String getFilePathFromLibraryId;
+	private String getLibraryIdFileNameSemesterBranchTypeCourse;
+	private String deleteFromLibrary;
+	
+	
+	/**
+	 * @return the deleteFromLibrary
+	 */
+	public String getDeleteFromLibrary() {
+		return deleteFromLibrary;
+	}
+	/**
+	 * @param deleteFromLibrary the deleteFromLibrary to set
+	 */
+	public void setDeleteFromLibrary(String deleteFromLibrary) {
+		this.deleteFromLibrary = deleteFromLibrary;
+	}
+	/**
+	 * @return the getLibraryIdFileNameSemesterBranchTypeCourse
+	 */
+	public String getGetLibraryIdFileNameSemesterBranchTypeCourse() {
+		return getLibraryIdFileNameSemesterBranchTypeCourse;
+	}
+	/**
+	 * @param getLibraryIdFileNameSemesterBranchTypeCourse the getLibraryIdFileNameSemesterBranchTypeCourse to set
+	 */
+	public void setGetLibraryIdFileNameSemesterBranchTypeCourse(
+			String getLibraryIdFileNameSemesterBranchTypeCourse) {
+		this.getLibraryIdFileNameSemesterBranchTypeCourse = getLibraryIdFileNameSemesterBranchTypeCourse;
+	}
 	/**
 	 * @return the getAllFileNamesFromLibrary
 	 */

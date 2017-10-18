@@ -6,6 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import bpit.india.mentorship.dto.GetLibraryIdFileNameSemesterBranchTypeCourseDto;
+import bpit.india.mentorship.service.DeleteUploadedFileService;
+import bpit.india.mentorship.service.GetLibraryIdAndFileNameFromUserIdService;
+
 @RestController
 public class RestControllerExample {
 
@@ -15,10 +19,17 @@ public class RestControllerExample {
 	@Autowired
 	private RandomService1 randomService1;
 	
+	@Autowired
+	private GetLibraryIdAndFileNameFromUserIdService getLibraryIdAndFileNameFromUserIdService;
+	
+	@Autowired
+	private DeleteUploadedFileService deleteUploadedFileService;
+	
 	@RequestMapping(value="/abc")
 	public String print()
 	{
-		return randomService.randomService();
+		String libraryId="58";
+		return deleteUploadedFileService.deleteUploadedFile(libraryId);
 		
 	}
 	
@@ -27,4 +38,12 @@ public class RestControllerExample {
 	{
 		return randomService1.randomService1();
 	}
+	
+	@RequestMapping(value="/qwert")
+	public Collection<GetLibraryIdFileNameSemesterBranchTypeCourseDto> print2()
+	{
+		return getLibraryIdAndFileNameFromUserIdService.getLibraryIdAndFileNameFromUserId();
+	}
+	
+	
 }

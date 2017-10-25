@@ -28,6 +28,9 @@ app.config(function($routeProvider, $httpProvider) {
     .when("/construction", {
         templateUrl : "partials/construction.html"
     })
+    .when("/manage", {
+        templateUrl : "partials/manage.html"
+    })
     .otherwise({
         redirectTo: '/'
     });

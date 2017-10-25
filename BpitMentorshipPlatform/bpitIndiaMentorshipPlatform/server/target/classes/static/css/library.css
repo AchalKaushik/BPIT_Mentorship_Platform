@@ -298,7 +298,6 @@ div#navbar form i {
 #searchDownloadLink {
     display: block;
     text-align: center;
-    background: green;
     color: #fff;
     font-weight: 600;
     padding: 10px;
@@ -318,7 +317,17 @@ div#navbar form i {
 #uploadmsg {
 color: #fff;
 text-align: center;
+}
+
+#errorCheck {
+	color:#ff0000;
+	text-align: center;
+}
 
 #searchFormWrapper #uploadButton {
 	padding: 10px 30px;
+}
+
+#navbar .active {
+	background: #ed1c24;
 }

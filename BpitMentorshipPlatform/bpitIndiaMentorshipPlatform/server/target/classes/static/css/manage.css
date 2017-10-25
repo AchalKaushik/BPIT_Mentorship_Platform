@@ -1,0 +1,10 @@
+.manage.table-container table.table {
+    background: rgba(0,0,0,0.5);
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.4);
+    margin-top: 50px;
+}
+
+.manage.table-container table.table thead {
+	background: rgba(238, 64, 61, 0.8);
+}

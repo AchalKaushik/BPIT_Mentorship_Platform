@@ -234,6 +234,15 @@ $scope.sem = function(i) {
     }
 }
 
+$http.get("/qwert")
+.then(function(response) {
+    $scope.filedata = response.data;
+});
+
+$scope.delfile = function(libraryId) {
+    //del func goes here
+}
+
 $scope.subDownloadListFunction = function(subi) {
 	
 	 $scope.steps={};

@@ -1,0 +1,45 @@
+<div ng-controller="libraryController">
+        <div id="loginFormWrapper">
+                <div class="row">
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-5" id="libraryInfo">
+                        <h1>Manage</h1>    
+                        <hr />
+                        <p><b><i>Manage all your files here</i></b></p>
+                    </div>
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-4"></div>
+                    <div class="col-sm-1"></div>
+                </div>
+            </div>
+    <div class="container-fluid manage table-container">
+        <div class="row">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-10">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>File Name</th>
+                        <th>Semester</th>
+                        <th>Branch</th>
+                        <th>Category</th>
+                        <th>Course</th>
+                        <th>Manage</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="fdata in filedata">
+                        <td>{{fdata.fileName}}</td>
+                        <td>{{fdata.semester}}</td>
+                        <td>{{fdata.branch}}</td>
+                        <td>{{fdata.type}}</td>
+                        <td>{{fdata.course}}</td>
+                        <td ng-click="delfile(fdata.libraryId)"><span class="glyphicon glyphicon-trash"></span> Delete</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-sm-1"></div>
+        </div>
+    </div>
+</div>

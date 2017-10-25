@@ -4,6 +4,8 @@
 
 app.controller('navController', function($scope, $rootScope) {
 	$scope.logoutToggle = false;
+	
+	// aap bs mujhe vha pocha do jha pe login succes ho rha hok
     $scope.navModel = "";
     console.log("in nav ctrl");
     console.log($rootScope.logoutToggle);
@@ -17,9 +19,14 @@ app.controller('loginController', function($scope, $rootScope, $http) {
     
     $scope.signUp.firstName = "";
     $scope.signUp.lastName = "";
+    $scope.signUp.password = "";
+    $scope.signUp.confirmPassword = "";
+    $scope.signUp.mobileNumber = "";
+    //sorrry i missd it.. firse puch
+    //email kya h? uniqueId/ email kouserId mei le rha hu.. nd 
+    $scope.signUp.userId="";
     $scope.loginError = false;
     
-    $rootScope.userRole = "Teacher";
     
   //  $rootScope.userRole = "mentee";
     console.log($rootScope.userRole);
@@ -68,6 +75,8 @@ app.controller('loginController', function($scope, $rootScope, $http) {
                          /** 
                           * Authenticated user
                           * */ 
+                    	$rootScope.logoutToggle = true;
+                    	console.log("ho gya" + $rootScope.logoutToggle); // dikhaio code html ka iska
                          $rootScope.userId = $scope.loginData.userId;
                          console.log("userId in root scope is  :" + $rootScope.userId);
                         console.log("Authenticated user");
@@ -105,47 +114,40 @@ app.controller('loginController', function($scope, $rootScope, $http) {
                               */        
                             	console.log("User role after login is  : "+ userRole+$rootScope.userRole);
                             $rootScope.logoutToggle = true;
+//                            ye kyn ni ho rha.. bhai....
                             	
                             });
                         
                         
                         
                         
-//                        /*
-//                         * Code to get user course 
-//                         */
+                        /*
+                         * Code to get user course 
+                         */
+                        
+                        console.log("Getting user course");
+                        
+                        var userCourse;
+                        
+                        $http.get(
+                                "/getUserCourse?userId="+$rootScope.userId, {
+                                    transformResponse: [function (data)  {
+                                        console.log(data);
+                                        userCourse=data;
+                                        return data;}]
+                            }
+                            ).then(function(response) {
+                                
+                                $rootScope.userCourse = userCourse;
+                            	console.log(userCourse);
+                             
+                            /*
+                              * routing on basis of user role received
+                              */        
+                            	
+                            	
+                            });
 //                        
-//                        console.log("Getting user course");
-//                        
-//                        var userCourse;
-//                        
-//                        $http.get(
-//                                "/getUserCourse?userId="+"setUserIdHere", {
-//                                    transformResponse: [function (data)  {
-//                                        console.log(data);
-//                                        userCourse=data;
-//                                        return data;}]
-//                            }
-//                            ).then(function(response) {
-//                             
-//                            	console.log(userCourse);
-//                             
-//                            /*
-//                              * routing on basis of user role received
-//                              */        
-//                            	
-//                            	
-//                            });
-//                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
                         
                         }
                     
@@ -211,7 +213,8 @@ app.controller('loginController', function($scope, $rootScope, $http) {
     $scope.signUp.course = "BTech";
     $scope.signUp.selectedBranch = "CSE";
     
-    $scope.enroll = "teacher id";
+    //yw
+    $scope.enroll = "enrollment number";
     
     // Options for "Branch' Field in the Form
     $scope.branch = ["CSE", "IT", "ECE", "EEE"];
@@ -280,7 +283,7 @@ app.controller('loginController', function($scope, $rootScope, $http) {
         if($scope.signUp.mobileNumber==null) {
             $scope.mobileNumberError = true;
         } else {
-            if($scope.signUp.mobileNumber.toString().length!=10) {
+            if(($scope.signUp.mobileNumber.toString()).length!=10) {
                 $scope.mobileNumberError = true;
             } else {
                 $scope.mobileNumberError = false;
@@ -318,11 +321,11 @@ app.controller('loginController', function($scope, $rootScope, $http) {
     // Email Validation function ends here
 
     
-    
+    //ok
     // Function to check the length of the password
     $scope.checkLength = function() {
 
-        if($scope.signUp.password.length<6) 
+        if(($scope.signUp.password).length<6) 
             $scope.passwordError=true; 
         else
             $scope.passwordError=false;

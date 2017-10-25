@@ -28,7 +28,7 @@ public class GetLibraryIdFileNameSemesterBranchTypeCourseFromUserIdDao extends A
 		try{
 		Map<String, String> parameters = new HashMap<String, String>();
 		
-		String userId="achalkaushik@bpitindia.com";
+		String userId="nik@gmail.com";
 		
 		parameters.put("userId", userId);
 		

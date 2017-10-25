@@ -11,5 +11,9 @@ library:
    
  getFilePathFromLibraryId: >
    select locationOfUploadedFile from library where libraryId=:libraryId;  
-   
-         
+ 
+ getLibraryIdFileNameSemesterBranchTypeCourse: >
+   select libraryId,fileName,semester,branch,type,course from library where userId = :userId;  
+  
+ deleteFromLibrary: >
+   delete from library where libraryId = :libraryId;        

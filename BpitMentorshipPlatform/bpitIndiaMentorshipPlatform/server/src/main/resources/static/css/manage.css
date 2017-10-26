@@ -8,3 +8,7 @@
 .manage.table-container table.table thead {
 	background: rgba(238, 64, 61, 0.8);
 }
+
+.manage.table-container table.table .de-btn {
+	cursor: pointer;
+}

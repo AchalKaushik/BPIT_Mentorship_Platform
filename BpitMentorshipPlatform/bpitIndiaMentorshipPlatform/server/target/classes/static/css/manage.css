@@ -12,3 +12,7 @@
 .manage.table-container table.table .de-btn {
 	cursor: pointer;
 }
+
+.fileDelModal {
+	top: 25% !important;
+}

@@ -1,16 +1,5 @@
 // Controller for Login Form
 
-
-
-app.controller('navController', function($scope, $rootScope) {
-	$scope.logoutToggle = false;
-	
-	// aap bs mujhe vha pocha do jha pe login succes ho rha hok
-    $scope.navModel = "";
-    console.log("in nav ctrl");
-    console.log($rootScope.logoutToggle);
-});
-
 app.controller('loginController', function($scope, $rootScope, $http) {
     
 	console.log("In login controller");

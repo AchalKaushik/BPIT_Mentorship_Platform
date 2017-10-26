@@ -406,6 +406,7 @@ $scope.scrollTop = function(){
     
     if($rootScope.userRole=="Teacher") {
         $scope.uploadToggle = true;
+        $rootScope.manageToggle = true;
     }
     
     // aap fiel ki value kasie le rhe ho?

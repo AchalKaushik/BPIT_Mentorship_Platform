@@ -198,6 +198,13 @@ $scope.fileUploadData = {};
 $scope.fileNameCheck = {};
 $scope.downloadListData = {};
 $scope.toggleSearchDownload = false;
+$scope.currentDeleteFileBuffer = "";
+$scope.currentDeleteFileBufferId = "";
+
+$scope.setFileBuffer = (id,file)=> {
+    $scope.currentDeleteFileBufferId = id;
+    $scope.currentDeleteFileBuffer = file;
+}
 
 $scope.searchDownload = "abc";
 $scope.mbaToggle = true;
@@ -240,6 +247,8 @@ $http.get("/qwert")
 });
 
 $scope.delfile = function(libraryId) {
+    $scope.currentDeleteFileBuffer = "";
+    $scope.currentDeleteFileBufferId = "";
     //del func goes here
     console.log('del func called for lib id = ' + libraryId);
 }

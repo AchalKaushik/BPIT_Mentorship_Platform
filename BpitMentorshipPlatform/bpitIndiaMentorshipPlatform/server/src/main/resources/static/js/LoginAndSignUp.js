@@ -38,6 +38,10 @@ app.controller('loginController', function($scope, $rootScope, $http) {
         var loginURI = "/loginAuthenticate";
         var loginStatus;
 
+        $rootScope.userId = localStorage.getItem('user');
+         $rootScope.userRole = localStorage.getItem('userRole');
+
+
 
        $http({
             url : loginURI,
@@ -75,8 +79,11 @@ app.controller('loginController', function($scope, $rootScope, $http) {
 //                      To remove the value(in case of logout) from the key value store use the following line
 //                      localStorage.removeItem('user');
 
-                        myStore = window.localStorage;
                         localStorage.setItem('user', $rootScope.userId);
+
+                        //assign User Id to rootScope on each reload
+                        $rootScope.userId = localStorage.getItem('user');
+
                         var getUser = localStorage.getItem('user');
                         console.log("User Persistence ID is " + localStorage.getItem('user'));
 
@@ -97,7 +104,9 @@ app.controller('loginController', function($scope, $rootScope, $http) {
                          * Set userId
                          */
                         var userRole;
+                        $rootScope.userRole = localStorage.getItem('userRole');
 
+                        console.log("getting user role using user id");
                         $http.get(
                                 "/getUserRole?userId="+$rootScope.userId, {
                                     transformResponse: [function (data)  {
@@ -105,9 +114,16 @@ app.controller('loginController', function($scope, $rootScope, $http) {
                                         userRole=data;
                                         $rootScope.userRole = userRole;
 
+
+                                        //Store user role in local storage
+                                        localStorage.setItem('userRole', $rootScope.userRole);
+
+                                        //Store user role in rootScope(Recursive set up)
+
+
                                         //yha pe ni krna? undefined object aa jaaega
                                         // to kha pe kru set userRole? are tu phle useridd set kr jo login kei time dali thi
-                                        console.log($rootScope.userRole);
+
                                         return data;}]
                             }
                             ).then(function(response) {
@@ -142,6 +158,10 @@ app.controller('loginController', function($scope, $rootScope, $http) {
                             ).then(function(response) {
 
                                 $rootScope.userCourse = userCourse;
+
+                                //Store in local Storage
+                                localStorage.setItem('userCourse', $rootScope.userCourse);
+
                             	console.log(userCourse);
                             	console.log("User Persistance ID is " + localStorage.getItem('user'));
 

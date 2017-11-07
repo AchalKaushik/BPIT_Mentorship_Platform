@@ -1,9 +1,20 @@
 // Controller for Library Page
-app.controller('libraryController', function($scope, $rootScope, $http) {
+app.controller('libraryController', function($scope, $rootScope, $http, $route) {
+	console.log("in lib controller");
 	$scope.logoutToggle=true;
+	console.log("Setting the value in rootScope..." + localStorage.getItem('user'));
+	$rootScope.userId = localStorage.getItem('user');
+    $rootScope.userRole = localStorage.getItem('userRole');
+    $rootScope.userCourse = localStorage.getItem('userCourse');
+	$scope.delMsg = false;
+	
+    if($rootScope.userRole == null) {
+        location.assign("#!/");
+    }
+
 	console.log("dikhna chahaiye ??"+$scope.logoutToggle );
     console.log("in library controller");
-    console.log("userid from root scope is  : "+ $rootScope.userId);
+    console.log("userid from root scope is  : "+ $rootScope.userId + " " + localStorage.getItem('user'));
     $scope.fileNameArray={};
     $scope.steps={};
     
@@ -251,6 +262,10 @@ $scope.delfile = function(libraryId) {
     $scope.currentDeleteFileBufferId = "";
     //del func goes here
     console.log('del func called for lib id = ' + libraryId);
+    
+    //if delete success
+    $scope.delMsg = true;
+    setTimeout(function(){$route.reload();},2000);
 }
 
 $scope.subDownloadListFunction = function(subi) {
@@ -406,6 +421,7 @@ $scope.scrollTop = function(){
     
     if($rootScope.userRole=="Teacher") {
         $scope.uploadToggle = true;
+        $rootScope.manageToggle = true;
     }
     
     // aap fiel ki value kasie le rhe ho?

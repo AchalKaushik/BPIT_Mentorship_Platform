@@ -7,4 +7,10 @@ app.controller('navController', function($scope, $rootScope) {
     $scope.navModel = "";
     console.log("in nav ctrl");
     console.log($rootScope.logoutToggle);
+
+    $scope.logoutFunction = function(){
+        localStorage.removeItem('user');
+        localStorage.removeItem('userRole');
+        localStorage.removeItem('userCourse');
+    }
 });

@@ -234,7 +234,7 @@ div#navbar form i {
 
 .innerAccordion>.panel>.panel-heading>.panel-title>a {
 	text-decoration: none;
-	color: #999;
+	color: #fff;
 	font-size: 15px;
 	display: block;
 	padding: 5px;
@@ -255,7 +255,7 @@ div#navbar form i {
 
 .innerAccordion ul li {
 	padding: 5px;
-	color: #444;
+	color: #e1e1e1;
 	cursor: pointer;
 }
 

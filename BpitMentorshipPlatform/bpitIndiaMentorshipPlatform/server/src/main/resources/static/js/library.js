@@ -1,5 +1,5 @@
 // Controller for Library Page
-app.controller('libraryController', function($scope, $rootScope, $http) {
+app.controller('libraryController', function($scope, $rootScope, $http, $route) {
 	$scope.logoutToggle=true;
 	console.log("Setting the value in rootScope..." + localStorage.getItem('user'));
 	$rootScope.userId = localStorage.getItem('user');
@@ -256,6 +256,52 @@ $scope.delfile = function(libraryId) {
     $scope.currentDeleteFileBufferId = "";
     //del func goes here
     console.log('del func called for lib id = ' + libraryId);
+    
+    var delURI = "/delFile";
+    var delStatus;
+
+    //$rootScope.userId = localStorage.getItem('user');
+    //$rootScope.userRole = localStorage.getItem('userRole');
+
+   $http({
+        url : delURI,
+        method : "POST",
+        data : libraryId,
+         transformResponse: [function (data)  {
+            console.log(data);
+            delStatus=data;
+            return data;}]
+     }).then(
+            function(response)
+            {
+                /*
+                 * Check the returned response if doesnt contain any
+                 * filename and libraryId then show no file exists
+                 */
+            	console.log("Del status :" + delStatus);
+
+                 /* Null is returned in case any exception occurs while inserting data in database */
+
+                if(delStatus=="Success")
+                    {
+
+                     /**
+                      * Authenticated user
+                      * */
+                	console.log("File deleted sucessfully");
+                	var mod = document.getElementById("myModalTrig");
+                	mod.click();
+                	}
+                else
+                	{
+                	console.log("An error occurred");
+                	}
+            });
+            
+}
+
+$scope.relFunc = function() {
+	$route.reload();
 }
 
 $scope.subDownloadListFunction = function(subi) {

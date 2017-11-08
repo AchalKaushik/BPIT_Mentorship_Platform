@@ -1,8 +1,21 @@
 // Controller for Login Form
 
-app.controller('loginController', function($scope, $rootScope, $http) {
+app.controller('loginController', function($scope, $rootScope, $http, $location, $window) {
 
 	console.log("In login controller");
+	
+	
+	
+	 if(localStorage.getItem('user')==null)
+		 {
+		 $rootScope.logoutToggle=false;
+		 $rootScope.manageToggle=false;
+		 }
+	 else
+		 {
+		 $rootScope.logoutToggle=true;
+		 $rootScope.manageToggle=false;
+		 }
     $scope.signUp={};
     $scope.loginData={};
 
@@ -20,6 +33,7 @@ app.controller('loginController', function($scope, $rootScope, $http) {
   //  $rootScope.userRole = "mentee";
     console.log($rootScope.userRole);
 
+    
     /*
      *  Login page Angular Script Goes here
      */
@@ -39,9 +53,11 @@ app.controller('loginController', function($scope, $rootScope, $http) {
         var loginStatus;
 
         $rootScope.userId = localStorage.getItem('user');
-         $rootScope.userRole = localStorage.getItem('userRole');
+        $rootScope.userRole = localStorage.getItem('userRole');
 
 
+         
+         
 
        $http({
             url : loginURI,
@@ -103,10 +119,13 @@ app.controller('loginController', function($scope, $rootScope, $http) {
                         /*
                          * Set userId
                          */
+                        console.log("....................", $rootScope.userId);
                         var userRole;
+                        console.log("login m andr la local storage", localStorage.getItem('userRole'));
                         $rootScope.userRole = localStorage.getItem('userRole');
 
                         console.log("getting user role using user id");
+                        //ye wala get request ni chl rha h... and i have no idea why
                         $http.get(
                                 "/getUserRole?userId="+$rootScope.userId, {
                                     transformResponse: [function (data)  {

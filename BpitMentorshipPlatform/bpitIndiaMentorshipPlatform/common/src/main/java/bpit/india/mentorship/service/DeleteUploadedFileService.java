@@ -24,14 +24,13 @@ public class DeleteUploadedFileService {
 		/*
 		 * Getting path of file
 		 */
-		libraryId = "59";
-		
 		String pathOfUploadedFile = getUploadedFilePathAndDeleteThatRecordDao.getUploadedFilePath(libraryId);		
 		if(pathOfUploadedFile== null)
 		{
 			/*
 			 * An error occurred while fetching path corresponding librarayId
 			 */
+			System.out.println("Path:" + pathOfUploadedFile);
 			return null;
 		}
 		
@@ -40,6 +39,7 @@ public class DeleteUploadedFileService {
 		 */
 		
 		File deleteFile = new File(pathOfUploadedFile);
+		try{
 		
 		if(deleteFile.delete())
 		{
@@ -47,13 +47,15 @@ public class DeleteUploadedFileService {
 			 * File deleted successfully from server 
 			 * Now delete corresponding record from DB
 			 */
-			
+			System.out.println("In deletefile.delete" );
 			int status = getUploadedFilePathAndDeleteThatRecordDao.deleteFromLibrary(libraryId);
+			System.out.println(status);
 			if(status==-1)
 			{
 				/*
 				 * An error occurred while deleting record from DB 
 				 */
+				System.out.println("Error deleting from DB");
 				return null;
 			}
 			else 
@@ -71,6 +73,13 @@ public class DeleteUploadedFileService {
 			/*
 			 * Error deleting file from server 
 			 */
+			System.out.println("Error deleting from Server");
+			return null;
+		}
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
 			return null;
 		}
 	}

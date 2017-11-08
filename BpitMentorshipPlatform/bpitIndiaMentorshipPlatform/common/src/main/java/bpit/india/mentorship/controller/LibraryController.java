@@ -17,6 +17,8 @@ import org.springframework.web.multipart.MultipartFile;
 import bpit.india.mentorship.common.ConvertSemesterStringIntoNumber;
 import bpit.india.mentorship.dto.GetInfoToFetchFileNamesDto;
 import bpit.india.mentorship.dto.GetLibraryIdAndFileNameDto;
+import bpit.india.mentorship.dto.SignUpDto;
+import bpit.india.mentorship.service.DeleteUploadedFileService;
 import bpit.india.mentorship.service.GetFileNameAndLibraryIdService;
 import bpit.india.mentorship.service.GetFilePathFromLibraryIdAndDownloadService;
 import bpit.india.mentorship.service.GetLibraryIdAndFileNameForSearchService;
@@ -40,6 +42,9 @@ public class LibraryController {
 	
 	@Autowired
 	private LibraryUploadFileService libraryUploadFileService;
+	
+	@Autowired
+	private DeleteUploadedFileService deleteUploadedFileService;
 	
 	
 	@RequestMapping(value="/searchForFile",method=RequestMethod.POST,produces = "application/json") 
@@ -97,6 +102,12 @@ public class LibraryController {
 	  
 	}
 	
+	@RequestMapping(value="/delFile", method = { RequestMethod.GET, RequestMethod.POST },consumes=MediaType.ALL_VALUE)
+	public String delFile(@RequestBody String libraryId)
+	{
+		System.out.println("In del file controller : " + libraryId );
+		return deleteUploadedFileService.deleteUploadedFile(libraryId);
+	}
 	
 	
 }

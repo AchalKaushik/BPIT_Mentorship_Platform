@@ -1,0 +1,76 @@
+<div ng-controller="forumController">
+    <div id="loginFormWrapper">
+            <div class="row">
+                <div class="col-sm-1"></div>
+                <div class="col-sm-5" id="libraryInfo">
+                    <h1>Forum</h1>    
+                    <hr />
+                    <p><b><i>Yha pe kuch text</i></b></p>
+                </div>
+                <div class="col-sm-1"></div>
+                <div class="col-sm-4"></div>
+                <div class="col-sm-1"></div>
+            </div>
+        </div>
+<div class="container-fluid manage table-container">
+    <div class="row">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-10">
+            <table class="table f-table">
+                <tbody>
+                <tr>
+                    <td><a href="">First Semester</a></td>
+                </tr>
+                <tr>
+                    <td><a href="">Second Semester</a></td>
+                </tr>
+                <tr>
+                    <td><a href="">Third Semester</a></td>
+                </tr>
+                <tr>
+                    <td><a href="">Fourth Semester</a></td>
+                </tr>
+                <tr>
+                    <td><a href="">Fifth Semester</a></td>
+                </tr>
+                <tr>
+                    <td><a href="">Sixth Semester</a></td>
+                </tr>
+                <tr>
+                    <td><a href="">Seventh Semester</a></td>
+                </tr>
+                <tr>
+                    <td><a href="">Eighth Semester</a></td>
+                </tr>
+                <tr>
+                    <td><a href="">Projects</a></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-sm-1"></div>
+    </div>
+</div>
+
+<!-- Confirmation Box -->
+<div id="myModal" class="modal fade fileDelModal" role="dialog">
+    <div class="modal-dialog">
+  
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Delete File</h4>
+        </div>
+        <div class="modal-body">
+          <p>Are you sure you want to delete file '{{currentDeleteFileBuffer}}'?</p>
+        </div>
+        <div class="modal-footer">
+            <button ng-click="delfile(currentDeleteFileBufferId)" class="btn btn-danger" data-dismiss="modal">Delete</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+        </div>
+      </div>
+  
+    </div>
+  </div>
+</div>

@@ -1,159 +1,151 @@
 <div id="loginPageWrapper" class="container-fluid" ng-controller="loginController">
-<div class="row">
-<!-- Heading of the page -->
-    <div class="col-sm-7"></div>
-    <div id="loginPageHeading" class="col-sm-4">
-        <h2><span ng-click="toggleLoginSignup(1)">Login</span> / <span ng-click="toggleLoginSignup(2)">SignUp</span></h2>
+    <div class="row">
+        <!-- Heading of the page -->
+        <div class="col-sm-7"></div>
+        <div id="loginPageHeading" class="col-sm-4">
+            <h2><span ng-click="toggleLoginSignup(1)">Login</span> / <span ng-click="toggleLoginSignup(2)">SignUp</span></h2>
+        </div>
+        <div class="col-sm-1"></div>
+        <!-- Heading Ends Here -->
     </div>
-    <div class="col-sm-1"></div>
-<!-- Heading Ends Here -->
-</div>
 
-<div class="row">
-<div class="col-sm-1"></div>
-<div class="col-sm-5" id="loginInfo">
-    <h1>BPIT Connect</h1>
-    <hr/>
-     <p><b><i>A centralized premium platform to connect the whole BPIT family </i></b></p>
-    <!-- <p>Yha pr mene para bhi change kiya h .. ye bhi pata ni kynkiya h but it's fine</p> -->
-<!--    <div id="loginImage"></div>-->
-</div>    
-<div class="col-sm-1"></div>
-<div class="col-sm-4">
-<div class="loginForm" ng-show="loginActive">
-<!--  Sign Up Success Message  -->
-    <p id="signUpSuccess" ng-show="successMsg">You have been succesfully registered. <a href="#/">Login</a></p>
-    
-    <!-- Error Message if Enrollment Number/Password is wrong  -->
-    <p class="errorMessageSignUp" ng-model="loginError" ng-show="loginError" >Username or Password is Incorrect</p>
-    
-    <!-- Input fields for Login Form -->
-    
-    <!-- Enrollment Number -->
-    <div class="iconContainer">
-        <i class="material-icons">person</i>
-    </div>
-    
-    <input type="text" placeholder="* email" min="0" ng-model="loginData.userId" ng-keyup="validateEmailId()" />
-    <p class="errorMessageSignUp" ng-model="loginEmailIdError" ng-show="loginEmailIdError">Enter a valid email</p>
-    <!--Validate format of Enrollment Number -->
-    
-    
-    <!-- Password -->
-    <div class="iconContainer">
-        <i class="material-icons">lock</i>
-    </div>
-    
-    <input type="password" placeholder="* password" ng-model="loginData.password" />
-    <!-- Error Message if Password is less than 6 characters -->
-    <p class="errorMessageSignUp" ng-model="passwordError" ng-show="passwordError">Password cannot be left empty</p>
-    <!--Validate for min length of 6 characters password -->
+    <div class="row">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-5" id="loginInfo">
+            <h1>BPIT Connect</h1>
+            <hr/>
+            <p><b><i>A centralized premium platform to connect the whole BPIT family </i></b></p>
+        </div>    
+        <div class="col-sm-1"></div>
+        <div class="col-sm-4">
+            <div class="loginForm" ng-show="loginActive">
+                <!--  Sign Up Success Message  -->
+                <p id="signUpSuccess" ng-show="successMsg">You have been succesfully registered. <a href="#/">Login</a></p>
+                
+                <!-- Error Message if Enrollment Number/Password is wrong  -->
+                <p class="errorMessageSignUp" ng-model="loginError" ng-show="loginError" >Username or Password is Incorrect</p>
+                
+                <!-- Input fields for Login Form -->
+                
+                <!-- Enrollment Number -->
+                <div class="iconContainer">
+                    <i class="material-icons">person</i>
+                </div>
+                
+                <input type="text" placeholder="* email" min="0" ng-model="loginData.userId" ng-keyup="validateEmailId()" />
+                <p class="errorMessageSignUp" ng-model="loginEmailIdError" ng-show="loginEmailIdError">Enter a valid email</p>
+                <!--Validate format of Enrollment Number -->
+                
+                <!-- Password -->
+                <div class="iconContainer">
+                    <i class="material-icons">lock</i>
+                </div>
+                
+                <input type="password" placeholder="* password" ng-model="loginData.password" />
+                <!-- Error Message if Password is less than 6 characters -->
+                <p class="errorMessageSignUp" ng-model="passwordError" ng-show="passwordError">Password cannot be left empty</p>
+                <!--Validate for min length of 6 characters password -->
 
-    <!-- Login Button -->
-    <div id="submitButton">
-        <button ng-click="loginFunction()">LOGIN</button>
-    </div>
-    
-</div>
-    
-<div class="signUpForm" ng-show="signupActive">    
-      
-    <!-- Input fields for Signup Form -->
-    
-    <p class="errorMessageSignUp" ng-model="enrollmentNumberRegistered" ng-show="enrollmentNumberRegistered">Enrollment Number or Email is already registered</p>
-    
-    <!-- First Name -->
-    <div class="iconContainer">
-        <i class="material-icons">person</i>
-    </div>
-    <input type="text" placeholder="* firstname" ng-model="signUp.firstName" ng-keyup="firstNameValidate()" />
-     <!-- Error Message if Password is less than 6 characters -->
-    <p class="errorMessageSignUp" ng-model="emptyFirstNameError" ng-show="emptyFirstNameError">Firstname cannot be left empty</p>
-    <p class="errorMessageSignUp" ng-model="numberInFirstName" ng-show="numberInFirstName">Firstname cannot contain number(s)</p>
+                <!-- Login Button -->
+                <div id="submitButton">
+                    <button ng-click="loginFunction()">LOGIN</button>
+                </div>
+            </div>
+            
+            <div class="signUpForm" ng-show="signupActive">    
+                
+                <!-- Input fields for Signup Form -->
+                <p class="errorMessageSignUp" ng-model="enrollmentNumberRegistered" ng-show="enrollmentNumberRegistered">Enrollment Number or Email is already registered</p>
+                
+                <!-- First Name -->
+                <div class="iconContainer">
+                    <i class="material-icons">person</i>
+                </div>
+                <input type="text" placeholder="* firstname" ng-model="signUp.firstName" ng-keyup="firstNameValidate()" />
+                <!-- Error Message if Password is less than 6 characters -->
+                <p class="errorMessageSignUp" ng-model="emptyFirstNameError" ng-show="emptyFirstNameError">Firstname cannot be left empty</p>
+                <p class="errorMessageSignUp" ng-model="numberInFirstName" ng-show="numberInFirstName">Firstname cannot contain number(s)</p>
 
-    <!-- Last Name -->
-    <div class="iconContainer">
-        <i class="material-icons">person</i>
-    </div>
-    <input type="text" placeholder="* lastname" ng-model="signUp.lastName" ng-keyup="lastNameValidate()" />
-     <!-- Error Message if Password is less than 6 characters -->
-    <p class="errorMessageSignUp" ng-model="emptyLastNameError" ng-show="emptyLastNameError">Lastname cannot be left empty</p>
-    <p class="errorMessageSignUp" ng-model="numberInLastName" ng-show="numberInLastName">Lastname cannot contain  number(s)</p>
+                <!-- Last Name -->
+                <div class="iconContainer">
+                    <i class="material-icons">person</i>
+                </div>
+                <input type="text" placeholder="* lastname" ng-model="signUp.lastName" ng-keyup="lastNameValidate()" />
+                <!-- Error Message if Password is less than 6 characters -->
+                <p class="errorMessageSignUp" ng-model="emptyLastNameError" ng-show="emptyLastNameError">Lastname cannot be left empty</p>
+                <p class="errorMessageSignUp" ng-model="numberInLastName" ng-show="numberInLastName">Lastname cannot contain  number(s)</p>
 
-    <!-- Password -->
-    <div class="iconContainer">
-        <i class="material-icons">lock</i>
-    </div>
-    <input type="password" placeholder="* password" ng-model="signUp.password" ng-keyup="checkLength();"/>
-    <!-- Error Message if Password is less than 6 characters -->
-    <p class="errorMessageSignUp" ng-model="passwordError" ng-show="passwordError">Password must be of minimum 6 characters</p>
-    
-    <!-- Confirm Password -->
-    <div class="iconContainer">
-        <i class="material-icons">lock</i>
-    </div>
-    
-    <input type="password" placeholder="* confirm password" ng-model="signUp.confirmPassword" ng-keyup="matchPasswordAndConfirmPassword()" />
-    
-    <!-- Error Message if Passwords does not match -->
-    <p class="errorMessageSignUp" ng-model="confirmPasswordError" ng-show="confirmPasswordError">Password and ConfirmPassword Mismatch</p>
-    
-    
-    <!-- Mobile Number -->
-    
-    <div class="iconContainer">
-        <i class="material-icons">call</i>
-    </div>
-    
-    <input type="number" placeholder="* mobile" min="0" ng-model="signUp.mobileNumber" ng-keyup="mobileValidate()" />
-    <p class="errorMessageSignUp" ng-model="mobileNumberError" ng-show="mobileNumberError">Mobile Number should be 10 digits long</p>
+                <!-- Password -->
+                <div class="iconContainer">
+                    <i class="material-icons">lock</i>
+                </div>
+                <input type="password" placeholder="* password" ng-model="signUp.password" ng-keyup="checkLength();"/>
+                <!-- Error Message if Password is less than 6 characters -->
+                <p class="errorMessageSignUp" ng-model="passwordError" ng-show="passwordError">Password must be of minimum 6 characters</p>
+                
+                <!-- Confirm Password -->
+                <div class="iconContainer">
+                    <i class="material-icons">lock</i>
+                </div>
+                
+                <input type="password" placeholder="* confirm password" ng-model="signUp.confirmPassword" ng-keyup="matchPasswordAndConfirmPassword()" />
+                
+                <!-- Error Message if Passwords does not match -->
+                <p class="errorMessageSignUp" ng-model="confirmPasswordError" ng-show="confirmPasswordError">Password and ConfirmPassword Mismatch</p>
+                
+                
+                <!-- Mobile Number -->
+                
+                <div class="iconContainer">
+                    <i class="material-icons">call</i>
+                </div>
+                
+                <input type="number" placeholder="* mobile" min="0" ng-model="signUp.mobileNumber" ng-keyup="mobileValidate()" />
+                <p class="errorMessageSignUp" ng-model="mobileNumberError" ng-show="mobileNumberError">Mobile Number should be 10 digits long</p>
 
-    <!-- Email -->
-    
-    <div class="iconContainer">
-        <i class="material-icons">email</i>
-    </div>
-    
-    <input type="email" id='validate' placeholder="* email" ng-keyup="validateEmailId()" ng-model="signUp.userId" />
-    <!-- Error msg if the email entered is not valid -->
-    <p class="errorMessageSignUp" ng-model="emailIdError" ng-show="emailIdError">Enter a valid Email Id</p>
+                <!-- Email -->
+                
+                <div class="iconContainer">
+                    <i class="material-icons">email</i>
+                </div>
+                
+                <input type="email" id='validate' placeholder="* email" ng-keyup="validateEmailId()" ng-model="signUp.userId" />
+                <!-- Error msg if the email entered is not valid -->
+                <p class="errorMessageSignUp" ng-model="emailIdError" ng-show="emailIdError">Enter a valid Email Id</p>
 
-    <!-- Sign Up As: Teacher, Mentor or Mentee -->
-    <div class="iconContainer">
-        <i class="material-icons">person</i>
-    </div>
-    <select ng-options="item for item in post" ng-model="signUp.registeredAs" ng-change="updateEnroll();"></select>
-    
-    <!-- Course -->
-    <div class="iconContainer">
-        <i class="material-icons">school</i>
-    </div>
-    <select ng-options="item for item in courses" ng-model="signUp.course"></select>
+                <!-- Sign Up As: Teacher, Mentor or Mentee -->
+                <div class="iconContainer">
+                    <i class="material-icons">person</i>
+                </div>
+                <select ng-options="item for item in post" ng-model="signUp.registeredAs" ng-change="updateEnroll();"></select>
+                
+                <!-- Course -->
+                <div class="iconContainer">
+                    <i class="material-icons">school</i>
+                </div>
+                <select ng-options="item for item in courses" ng-model="signUp.course"></select>
 
-    <!-- Enrollment Number -->
-    <div class="iconContainer">
-        <i class="material-icons">credit_card</i>
-    </div>
-    <input type="number" placeholder="* {{enroll}}" min="0" ng-model="signUp.uniqueId" ng-keyup="enrollmentValidate();" />
-    <p class="errorMessageSignUp" ng-model="enrollmentNumberError" ng-show="enrollmentNumberError">{{enroll}} should be 11 digits long</p>
-    
-    
-    
-    <!-- Branch: Appears on the basis of enrollment number -->
-    <!-- Default: Hidd"src/main/resources/static/js/LoginAndSignUp.js"en Field -->
-    <div class="iconContainer" ng-show="{{toggleBranchField}}">
-        <i class="material-icons">school</i>
-    </div>
-    <select ng-show="{{toggleBranchField}}" ng-options="item for item in branch" ng-model="signUp.selectedBranch" disabled></select>
+                <!-- Enrollment Number -->
+                <div class="iconContainer">
+                    <i class="material-icons">credit_card</i>
+                </div>
+                <input type="number" placeholder="* {{enroll}}" min="0" ng-model="signUp.uniqueId" ng-keyup="enrollmentValidate();" />
+                <p class="errorMessageSignUp" ng-model="enrollmentNumberError" ng-show="enrollmentNumberError">{{enroll}} should be 11 digits long</p>
+                
+                <!-- Branch: Appears on the basis of enrollment number -->
+                <!-- Default: Hidd"src/main/resources/static/js/LoginAndSignUp.js"en Field -->
+                <div class="iconContainer" ng-show="{{toggleBranchField}}">
+                    <i class="material-icons">school</i>
+                </div>
+                <select ng-show="{{toggleBranchField}}" ng-options="item for item in branch" ng-model="signUp.selectedBranch" disabled></select>
 
-     
-    <!-- Submit Button -->
-    <div id="submitButton">
-        <button ng-click="submitFunction()">SUBMIT</button>
+                <!-- Submit Button -->
+                <div id="submitButton">
+                    <button ng-click="submitFunction()">SUBMIT</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-1"></div>
     </div>
-</div>
-</div>
-<div class="col-sm-1"></div>
-</div>
-<!-- Login Form ends here -->
+    <!-- Login Form ends here -->
 </div>

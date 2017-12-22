@@ -1,48 +1,42 @@
 <div ng-controller="libraryController">
-        <div id="loginFormWrapper">
-                <div class="row" class="manage-top">
-                    <div class="col-sm-1"></div>
-                    <div class="col-sm-5" id="libraryInfo">
-                        <h1>Manage</h1>    
-                        <hr />
-                        <p><b><i>Manage all your files here</i></b></p>
-                    </div>
-                    <div class="col-sm-1"></div>
-                    <div class="col-sm-4"></div>
-                    <div class="col-sm-1"></div>
-                </div>
-            </div>
-    <div class="container-fluid manage table-container">
+    <div id="loginFormWrapper">
         <div class="row">
-            <div class="col-sm-4"></div>
-            <div class="col-sm-4">
-                <p>File Successfully deleted</p>
+            <div class="col-sm-1"></div>
+            <div class="col-sm-5" id="libraryInfo">
+                <h1>Manage</h1>    
+                <hr />
+                <p><b><i>Manage all your files here</i></b></p>
             </div>
+            <div class="col-sm-1"></div>
             <div class="col-sm-4"></div>
+            <div class="col-sm-1"></div>
         </div>
+    </div>
+    <div class="container-fluid manage table-container">
+    	
         <div class="row">
             <div class="col-sm-1"></div>
             <div class="col-sm-10">
                 <table class="table">
                     <thead>
-                    <tr>
-                        <th>File Name</th>
-                        <th>Semester</th>
-                        <th>Branch</th>
-                        <th>Category</th>
-                        <th>Course</th>
-                        <th>Manage</th>
-                    </tr>
+                        <tr>
+                            <th>File Name</th>
+                            <th>Semester</th>
+                            <th>Branch</th>
+                            <th>Category</th>
+                            <th>Course</th>
+                            <th>Manage</th>
+                        </tr>
                     </thead>
                     <tbody>
-                    <tr ng-repeat="fdata in filedata">
-                        <td>{{fdata.fileName}}</td>
-                        <td>{{fdata.semester}}</td>
-                        <td>{{fdata.branch}}</td>
-                        <td>{{fdata.type}}</td>
-                        <td>{{fdata.course}}</td>
-                        <td class="de-btn" data-toggle="modal" data-target="#myModal" ng-click="setFileBuffer(fdata.libraryId, fdata.fileName)"><span class="glyphicon glyphicon-trash"></span> Delete</td>
-                    </tr>
+                        <tr ng-repeat="fdata in filedata">
+                            <td>{{fdata.fileName}}</td>
+                            <td>{{fdata.semester}}</td>
+                            <td>{{fdata.branch}}</td>
+                            <td>{{fdata.type}}</td>
+                            <td>{{fdata.course}}</td>
+                            <td class="de-btn" data-toggle="modal" data-target="#myModal" ng-click="setFileBuffer(fdata.libraryId, fdata.fileName)"><span class="glyphicon glyphicon-trash"></span> Delete</td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
@@ -50,25 +44,47 @@
         </div>
     </div>
 
-    <!-- Confirmation Box -->
+    <!-- Confirmation Box for deleting a file -->
     <div id="myModal" class="modal fade fileDelModal" role="dialog">
         <div class="modal-dialog">
       
-          <!-- Modal content-->
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal">&times;</button>
-              <h4 class="modal-title">Delete File</h4>
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Delete File</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to delete file '{{currentDeleteFileBuffer}}'?</p>
+                </div>
+                <div class="modal-footer">
+                    <button ng-click="delfile(currentDeleteFileBufferId)" class="btn btn-danger" data-dismiss="modal">Delete</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                </div>
             </div>
-            <div class="modal-body">
-              <p>Are you sure you want to delete file '{{currentDeleteFileBuffer}}'?</p>
+
+        </div>
+    </div>
+    <button id="myModalTrig" data-toggle="modal" data-target="#myModal1" style="display: none;"></button>
+    
+    <!-- Success Box for deleted file -->
+    <div id="myModal1" class="modal fade fileDelModal" role="dialog">
+        <div class="modal-dialog">
+      
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Delete Success</h4>
+                </div>
+                <div class="modal-body">
+                    <p>File Deleted Successfully</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="relFunc()">Ok</button>
+                </div>
             </div>
-            <div class="modal-footer">
-                <button ng-click="delfile(currentDeleteFileBufferId)" class="btn btn-danger" data-dismiss="modal">Delete</button>
-                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-            </div>
-          </div>
       
         </div>
-      </div>
+    </div>
 </div>

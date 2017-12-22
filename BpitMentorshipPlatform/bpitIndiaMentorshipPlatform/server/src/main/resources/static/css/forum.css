@@ -1,0 +1,92 @@
+.addPost {
+    width: 80%;
+    margin: auto;
+    margin-top: 30px;
+    background: rgba(0,0,0,0.4);
+    padding: 20px;
+    border-radius: 2px;
+    margin-bottom: 20px;
+}
+
+.addPost h5 {
+	color: #fff;
+	font-family: "Roboto Slab", sans-serif;
+	font-weight: 400;
+	margin-bottom: 10px;
+}
+
+.addPost textarea,
+.addPost input {
+    width: 100%;
+    resize: none;
+    outline: none;
+    padding: 5px 10px;
+    border: none;
+}
+
+.addPost input {
+	border-bottom: 1px dashed rgba(0,0,0,0.2);
+	height: 35px;
+}
+
+.addPost .addPostButton {
+    text-align: right;
+}
+
+.addPost .addPostButton button {
+	background: #4CAF50;
+	text-transform: uppercase;
+	color: #fff;
+	font-weight: 500;
+	border: none;
+	border-radius: 2px;
+	padding: 7px 30px;
+	
+}
+
+.forumPosts {
+	margin-top: 30px;
+	border: 1px solid rgba(255,255,255,0.30);
+	padding: 20px;
+	background: rgba(0,0,0,0.6);
+}
+
+.forumPosts .forumProfile {
+	text-align: center;
+	border-right: 1px dashed rgba(255,255,255,0.30);
+}
+
+.forumPosts .postName {
+	font-weight: 600;
+	color: #fff;
+}
+
+.forumDP {
+	margin-top: 10px;
+}
+
+.forumPosts .forumDP img {
+	width: 100px;
+	height: 100px;
+}
+
+.forumPosts .forumContent p.topicHeading {
+	font-weight: 600;
+	color: #fff;
+	border-bottom: 1px solid rgba(255,255,255,0.30);
+	padding-bottom: 5px;
+	margin-bottom: 10px;
+}
+
+.forumPosts .forumContent p.topicContent {
+	color: #e8e8e8;
+}
+
+.table a {
+	color: #f1f1f1;
+	font-weight: 600;		
+}
+
+.f-table {
+	margin-top: 20px;
+}

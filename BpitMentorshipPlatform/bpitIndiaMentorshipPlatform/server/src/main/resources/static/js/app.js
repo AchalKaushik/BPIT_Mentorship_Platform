@@ -1,7 +1,6 @@
 //Declaring the app
 var app = angular.module('bpit', ["ngRoute"]);
 
-
 app.config(function($routeProvider, $httpProvider) {
     $routeProvider
     .when("/", {

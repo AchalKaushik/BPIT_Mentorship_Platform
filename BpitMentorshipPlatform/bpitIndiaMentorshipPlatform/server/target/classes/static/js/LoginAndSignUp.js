@@ -1,205 +1,134 @@
 // Controller for Login Form
 
-app.controller('loginController', function($scope, $rootScope, $http, $route) {
+app.controller('loginController', function($scope, $rootScope, $http, $location, $window) {
 
 	console.log("In login controller");
+    
+    // Declaring the Login and SignUp data objects
     $scope.signUp={};
     $scope.loginData={};
 
+    // Initializing the variables
     $scope.signUp.firstName = "";
     $scope.signUp.lastName = "";
     $scope.signUp.password = "";
     $scope.signUp.confirmPassword = "";
     $scope.signUp.mobileNumber = "";
-    //sorrry i missd it.. firse puch
-    //email kya h? uniqueId/ email kouserId mei le rha hu.. nd
     $scope.signUp.userId="";
     $scope.loginError = false;
-
-
-  //  $rootScope.userRole = "mentee";
-    console.log($rootScope.userRole);
 
     /*
      *  Login page Angular Script Goes here
      */
 
-    // Login Function
     $scope.loginFunction = function() {
-/*        $scope.enrollmentValidate();
-        $scope.loginPasswordLengthCheck();
 
-        if($scope.enrollmentNumberError == false && $scope.passwordError==false) {*/
+        /*$scope.enrollmentValidate();
+        $scope.loginPasswordLengthCheck();
+        if($scope.enrollmentNumberError == false && $scope.passwordError==false){*/
 
         console.log("Login Success: Making Post Request");
 
         // Make post request from here
-
         var loginURI = "/loginAuthenticate";
         var loginStatus;
 
-        $rootScope.userId = localStorage.getItem('user');
-         $rootScope.userRole = localStorage.getItem('userRole');
-
-
-
-       $http({
+        $http({
             url : loginURI,
             method : "POST",
             data : $scope.loginData,
-             transformResponse: [function (data)  {
+            transformResponse: [function (data)  {
                 console.log(data);
                 loginStatus=data;
                 return data;}]
-         }).then(
-                function(response)
-                {
+        }).then(
+            function(response) {
+                /*
+                    * Check the returned response if doesnt contain any
+                    * filename and libraryId then show no file exists
+                    */
+                console.log("Search status :" + loginStatus);
+
+                /* Null is returned in case any exception occurs while inserting data in database */
+                if(loginStatus=="Success") {
+
+                    /**
+                     * Authenticated user
+                    **/
+                    $rootScope.logoutToggle = true;
+                    console.log("ho gya" + $rootScope.logoutToggle);
+                    $rootScope.userId = $scope.loginData.userId;
+
+                    console.log("Authenticated user" );
+                    window.location.assign("#!/home");
+
                     /*
-                     * Check the returned response if doesnt contain any
-                     * filename and libraryId then show no file exists
-                     */
-                	console.log("Search status :" + loginStatus);
+                        * Making get request to  get userRole on whose basic routing will be done
+                        */
 
-                     /* Null is returned in case any exception occurs while inserting data in database */
+                    /*
+                        * Get request goes here
+                        */
 
-                    if(loginStatus=="Success")
-                        {
+                    /*
+                        * Set userId
+                        */
+                    var userRole;
 
-                         /**
-                          * Authenticated user
-                          * */
-                    	$rootScope.logoutToggle = true;
-                    	console.log("ho gya" + $rootScope.logoutToggle); // dikhaio code html ka iska
-                         $rootScope.userId = $scope.loginData.userId;
-
-                        //Code for rootScope persistence
-                        //use the following line for accessing value from local storage key value store
-//                        localStorage.getItem('user');
-
-//                      To remove the value(in case of logout) from the key value store use the following line
-//                      localStorage.removeItem('user');
-
-                        localStorage.setItem('user', $rootScope.userId);
-
-                        //assign User Id to rootScope on each reload
-                        $rootScope.userId = localStorage.getItem('user');
-
-                        var getUser = localStorage.getItem('user');
-                        console.log("User Persistence ID is " + localStorage.getItem('user'));
-
-                        console.log("userId in root scope is  :" + $rootScope.userId + " " +localStorage.getItem('user'));
-                        console.log("Authenticated user" );
-                        window.location.assign("#!/home");
-
+                    $http.get(
+                        "/getUserRole?userId="+$rootScope.userId, {
+                            transformResponse: [function (data)  {
+                                console.log(data);
+                                userRole=data;
+                                $rootScope.userRole = userRole;
+                                return data;}]
+                    }
+                    ).then(function(response) {
                         /*
-
-                         * Making get request to  get userRole on whose basic routing will be done
-                         */
-
-                        /*
-                         * Get request goes here
-                         */
-
-                        /*
-                         * Set userId
-                         */
-                        var userRole;
-                        $rootScope.userRole = localStorage.getItem('userRole');
-
-                        console.log("getting user role using user id");
-                        $http.get(
-                                "/getUserRole?userId="+$rootScope.userId, {
-                                    transformResponse: [function (data)  {
-                                        console.log(data);
-                                        userRole=data;
-                                        $rootScope.userRole = userRole;
-
-
-                                        //Store user role in local storage
-                                        localStorage.setItem('userRole', $rootScope.userRole);
-
-                                        //Store user role in rootScope(Recursive set up)
-
-
-                                        //yha pe ni krna? undefined object aa jaaega
-                                        // to kha pe kru set userRole? are tu phle useridd set kr jo login kei time dali thi
-
-                                        return data;}]
-                            }
-                            ).then(function(response) {
-
-                            /*
-                              * routing on basis of user role received
-                              */
-                            	console.log("User role after login is  : "+ userRole+$rootScope.userRole);
-                            $rootScope.logoutToggle = true;
-//                            ye kyn ni ho rha.. bhai....
-
-                            });
-
-
-
-
-                        /*
-                         * Code to get user course
-                         */
-
-                        console.log("Getting user course");
-
-                        var userCourse;
-
-                        $http.get(
-                                "/getUserCourse?userId="+$rootScope.userId, {
-                                    transformResponse: [function (data)  {
-                                        console.log(data);
-                                        userCourse=data;
-                                        return data;}]
-                            }
-                            ).then(function(response) {
-
-                                $rootScope.userCourse = userCourse;
-
-                                //Store in local Storage
-                                localStorage.setItem('userCourse', $rootScope.userCourse);
-
-                            	console.log(userCourse);
-                            	console.log("User Persistance ID is " + localStorage.getItem('user'));
-
-                            /*
-                              * routing on basis of user role received
-                              */
-
-
-                            });
-//
-
+                        * routing on basis of user role received
+                        */
+                        console.log("User role after login is  : "+ userRole+$rootScope.userRole);
+                        $rootScope.logoutToggle = true;
+                    });
+                    /*
+                        * Code to get user course
+                        */
+                    console.log("Getting user course");
+                    var userCourse;
+                    $http.get(
+                        "/getUserCourse?userId="+$rootScope.userId, {
+                            transformResponse: [function (data)  {
+                                console.log(data);
+                                userCourse=data;
+                                return data;
+                            }]
                         }
-
-                    else if(loginStatus=="Error")
-                    	{
-                    	/*
-                    	 * Unauthenticated user take appropriate action here
-                    	 */
-                        $scope.loginError = true;
-                        console.log("User Persistance ID is " + localStorage.getItem('user'));
-                    	console.log("Unauthenticated user");
-                    	}
-                    else
-                        {
-
-                         /**
-                          * Exception occurred
-                          */
-                            window.location.assign("/#!/error");
-                        console.log("Exception occurred");
-                        }
+                    ).then(function(response) {
+                        $rootScope.userCourse = userCourse;
+                        /*
+                        * routing on basis of user role received
+                        */
+                    });
+                } else if (loginStatus=="Error") {
+                    /*
+                        * Unauthenticated user take appropriate action here
+                        */
+                    $scope.loginError = true;
+                    console.log("Unauthenticated user");
+                    }
+                else {
+                    /**
+                     * Exception occurred
+                    */
+                    window.location.assign("/#!/error");
+                    console.log("Exception occurred");
                 }
-                );
-
-/*        }
-        else {
-            console.log("Error while login: Invalid Data");
-        }*/
+            }
+        );
+            /*}
+                else {
+                console.log("Error while login: Invalid Data");
+            }*/
     };
 
     /*
@@ -238,7 +167,6 @@ app.controller('loginController', function($scope, $rootScope, $http, $route) {
     $scope.signUp.course = "BTech";
     $scope.signUp.selectedBranch = "CSE";
 
-    //yw
     $scope.enroll = "enrollment number";
 
     // Options for "Branch' Field in the Form
@@ -246,19 +174,21 @@ app.controller('loginController', function($scope, $rootScope, $http, $route) {
     // To toggle the visibility of 'Branch' Field
     $scope.toggleBranchField = "false";
 
+    // Toggle between Login and SignUp
 	$scope.toggleLoginSignup = function(data) {
-        console.log("toggle called");
+        console.log("Toggle Called");
+
         // Setting Errors display as false
-    $scope.passwordError=false;
-    $scope.confirmPasswordError=false;
-    $scope.emailIdError=false;
-    $scope.emptyFirstNameError = false;
-    $scope.numberInFirstName = false;
-    $scope.mobileNumberError = false;
-    $scope.enrollmentNumberError = false;
-    $scope.enrollmentNumberRegistered = false;
-    $scope.successMsg = false;
-    $scope.loginEmailIdError = false;
+        $scope.passwordError=false;
+        $scope.confirmPasswordError=false;
+        $scope.emailIdError=false;
+        $scope.emptyFirstNameError = false;
+        $scope.numberInFirstName = false;
+        $scope.mobileNumberError = false;
+        $scope.enrollmentNumberError = false;
+        $scope.enrollmentNumberRegistered = false;
+        $scope.successMsg = false;
+        $scope.loginEmailIdError = false;
 		if(data==1) {
 			$scope.loginActive = true;
 			$scope.signupActive = false;
@@ -329,7 +259,6 @@ app.controller('loginController', function($scope, $rootScope, $http, $route) {
     }
 
     // Function to validate EmailId
-
     $scope.validateEmailId = function() {
         console.log("In validate function");
         var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -342,14 +271,11 @@ app.controller('loginController', function($scope, $rootScope, $http, $route) {
             $scope.emailIdError=true;
         else
             $scope.emailIdError=false;
-        }
+    }
     // Email Validation function ends here
 
-
-    //ok
     // Function to check the length of the password
     $scope.checkLength = function() {
-
         if(($scope.signUp.password).length<6)
             $scope.passwordError=true;
         else
@@ -366,7 +292,6 @@ app.controller('loginController', function($scope, $rootScope, $http, $route) {
 
     // Function to check the length of the password
     $scope.loginPasswordLengthCheck = function() {
-
         if($scope.signUp.password.length==0)
             $scope.passwordError=true;
         else
@@ -407,8 +332,6 @@ app.controller('loginController', function($scope, $rootScope, $http, $route) {
             var singUpURI = "/SignUp";
             var signUpStatus;
 
-
-
             $http({
                 url : singUpURI,
                 method : "POST",
@@ -420,9 +343,7 @@ app.controller('loginController', function($scope, $rootScope, $http, $route) {
              }).then(
                     function(response)
                     {
-
-                         /* Null is returned in case any exception occurs while inserting data in database */
-
+                        /* Null is returned in case any exception occurs while inserting data in database */
                         if(signUpStatus=="")
                             {
 
@@ -455,9 +376,8 @@ app.controller('loginController', function($scope, $rootScope, $http, $route) {
             console.log("Error Submitting Form: Invalid Data");
         }
     }
-
     /*
      *  Sign up Angular Script ends here
      */
 
-    });
+});

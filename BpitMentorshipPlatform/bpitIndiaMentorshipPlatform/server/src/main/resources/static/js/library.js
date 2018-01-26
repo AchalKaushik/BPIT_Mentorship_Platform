@@ -257,6 +257,11 @@ app.controller('libraryController', function($scope, $rootScope, $http, $route) 
         $scope.currentDeleteFileBuffer = "";
         $scope.currentDeleteFileBufferId = "";
         
+        userIdL = localStorage.getItem("userId");
+        delDetails = {'libraryId' : libraryId, 'userId': userIdL};
+        
+        console.log(delDetails);
+        
         //del func goes here
         console.log('del func called for lib id = ' + libraryId);
         
@@ -266,7 +271,7 @@ app.controller('libraryController', function($scope, $rootScope, $http, $route) 
         $http({
             url : delURI,
             method : "POST",
-            data : libraryId,
+            data : delDetails,
             transformResponse: [function (data)  {
                 console.log(data);
                 delStatus=data;
@@ -649,7 +654,7 @@ app.controller('libraryController', function($scope, $rootScope, $http, $route) 
             formData.append('fileName',$scope.fileUploadData.fileName);
             formData.append('semester',$scope.fileUploadData.semester);
             formData.append('subject',$scope.fileUploadData.subject);
-            formData.append('userId',$rootScope.userId);
+            formData.append('userId',localStorage.getItem("userId"));
             formData.append('file',  document.getElementById('fileUpload').files[0]);
             var uploadUrl= "/uploadFile";
             

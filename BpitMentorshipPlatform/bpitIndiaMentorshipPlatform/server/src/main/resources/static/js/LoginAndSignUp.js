@@ -3,7 +3,7 @@
 app.controller('loginController', function($scope, $rootScope, $http, $location, $window) {
 
 	console.log("In login controller");
-	console.log("set h ya nhi: ", localStorage.getItem("userid"));
+	console.log("set h ya nhi: ", localStorage.getItem("userId"));
 	
 	if(localStorage.getItem("userid")!=null) {
 		window.location.assign("#!/home");
@@ -80,8 +80,8 @@ app.controller('loginController', function($scope, $rootScope, $http, $location,
                     /*
                         * Set userId
                         */                        
-					localStorage.setItem("userid", $rootScope.userId);
-					console.log("local wala: ", localStorage.getItem("userid"));
+					localStorage.setItem("userId", $rootScope.userId);
+					console.log("local wala: ", localStorage.getItem("userId"));
 					
                     var userRole;
 
@@ -91,6 +91,8 @@ app.controller('loginController', function($scope, $rootScope, $http, $location,
                                 console.log(data);
                                 userRole=data;
                                 $rootScope.userRole = userRole;
+								localStorage.setItem("userRole", userRole);
+								console.log("local wala role : ", localStorage.getItem("userRole"));
                                 return data;}]
                     }
                     ).then(function(response) {
@@ -98,7 +100,9 @@ app.controller('loginController', function($scope, $rootScope, $http, $location,
                         * routing on basis of user role received
                         */
                         console.log("User role after login is  : "+ userRole+$rootScope.userRole);
-                        $rootScope.logoutToggle = true;
+						localStorage.setItem("logoutToggle", true);
+						console.log("local wala logout : ", localStorage.getItem("logoutToggle"));
+						$rootScope.logoutToggle = localStorage.getItem("logoutToggle");
                     });
                     /*
                         * Code to get user course

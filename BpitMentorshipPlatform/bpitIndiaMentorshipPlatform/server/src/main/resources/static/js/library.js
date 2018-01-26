@@ -2,14 +2,15 @@
 app.controller('libraryController', function($scope, $rootScope, $http, $route) {
     console.log("In Library Controller");
     
-    if(localStorage.getItem("userid")==null) {
+    if(localStorage.getItem("userId")==null) {
 		console.log("set ni h bhai, phele set kr k aa");
 		window.location.assign("#!/login");
 	}
     
-    $scope.logoutToggle=true;
+    $scope.logoutToggle=localStorage.getItem("logoutToggle");
     $scope.fileNameArray={};
     $scope.steps={};
+    
     
     $scope.checksem = function() {
         //BTech
@@ -432,9 +433,10 @@ app.controller('libraryController', function($scope, $rootScope, $http, $route) 
     
     $scope.uploadToggle = false;
     
-    if($rootScope.userRole=="Teacher") {
+    if(localStorage.getItem("userRole")=="Teacher") {
         $scope.uploadToggle = true;
-        $rootScope.manageToggle = true;
+      	localStorage.setItem("manageToggle", true);
+        $rootScope.manageToggle = localStorage.getItem("manageToggle");
     }
     
     $scope.subjectError = false;

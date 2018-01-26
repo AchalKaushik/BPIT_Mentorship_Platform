@@ -4,6 +4,9 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.HashMap;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -37,26 +40,34 @@ public class LibraryUploadFileService {
 	@Autowired
 	private GetUserCourseService getUserCourseService;
 	
+	private static final Logger LOGGER = LoggerFactory.getLogger(LibraryUploadFileService.class);
+	
 	public String uploadFile(MultipartFile file,String branch,String subject,String type,String fileName,String semester,String userd)
 	{
 		
 		
-		try{
+		try{ 
+			
+			LOGGER.debug("Entering into the try block");
+			LOGGER.debug("Declaring hashmap to receive  paths of various folders created");
 		/*
 		 * Declaring hashmap to receive  paths of various folders created
 		 */
 		
 		HashMap<String, Object> getPathsOfFolders = new HashMap<String, Object>();
-		
+		LOGGER.debug("Hashmap decalared ");
+		LOGGER.debug("creating the String course");		
 		String course=getUserCourseService.getUserCouse(userd);
-		
+		LOGGER.debug("got the value of the course from the user"+ course);
 		if(course == null)
 		{
+			LOGGER.debug("Exception occurred while getting course");
 			/*
 			 * Exception occurred while getting course
 			 */
 			return null;
 		}
+		LOGGER.debug("Got the value of course corresponding to userId from session");
 		/*
 		 * Get course corresponding to userId from session
 		 */
@@ -75,11 +86,11 @@ public class LibraryUploadFileService {
 		
 		
 
-		
+		LOGGER.debug("creating the string extension");
 		
 		String extension=file.getOriginalFilename().substring(file.getOriginalFilename().indexOf("."));
-		
-		
+		LOGGER.debug("Succesfully craeted the extenstion string for the file extension " + extension);
+		LOGGER.debug("entering into the if statement to check the cousrse");
 		if(course.equalsIgnoreCase("BTech"))
 		{
 			System.out.println("In Btech");

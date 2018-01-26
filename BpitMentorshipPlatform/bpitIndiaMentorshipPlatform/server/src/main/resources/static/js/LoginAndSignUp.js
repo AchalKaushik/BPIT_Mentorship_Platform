@@ -5,6 +5,9 @@ app.controller('loginController', function($scope, $rootScope, $http, $location,
 	console.log("In login controller");
 	console.log("set h ya nhi: ", localStorage.getItem("userId"));
 	
+	
+    console.log("logout toggle rootscope wala: ", $rootScope.logoutToggle);
+	
 	if(localStorage.getItem("userid")!=null) {
 		window.location.assign("#!/home");
 	}
@@ -114,6 +117,7 @@ app.controller('loginController', function($scope, $rootScope, $http, $location,
                             transformResponse: [function (data)  {
                                 console.log(data);
                                 userCourse=data;
+                                localStorage.setItem("userCourse", userCourse);
                                 return data;
                             }]
                         }

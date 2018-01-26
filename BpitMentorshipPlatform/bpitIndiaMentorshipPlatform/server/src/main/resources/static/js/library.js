@@ -7,10 +7,13 @@ app.controller('libraryController', function($scope, $rootScope, $http, $route) 
 		window.location.assign("#!/login");
 	}
     
+    
     $scope.logoutToggle=localStorage.getItem("logoutToggle");
+    console.log("logout toggle local wala: ", localStorage.getItem("logoutToggle"));
     $scope.fileNameArray={};
     $scope.steps={};
     
+    $rootScope.userCourse = localStorage.getItem("userCourse");
     
     $scope.checksem = function() {
         //BTech

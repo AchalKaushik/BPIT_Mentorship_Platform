@@ -2,6 +2,9 @@ package bpit.india.mentorship.service;
 
 import java.util.Collection;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +19,6 @@ public class GetLibraryIdAndFileNameForSearchService {
 	@Autowired
 	private GetLibraryIdAndFileNameForSearchDao getLibraryIdAndFileNameForSearchDao;
 	
-	LOGGER.debug("creating a object of collection for getting lib id and filename for search ");
 	public Collection<GetLibraryIdAndFileNameDto> getLibraryIdAndFileNameForSearch(GetInfoToFetchFileNamesDto getInfoToFetchFileNamesDto) 
 	{
 		LOGGER.debug("creating a string for type of request");

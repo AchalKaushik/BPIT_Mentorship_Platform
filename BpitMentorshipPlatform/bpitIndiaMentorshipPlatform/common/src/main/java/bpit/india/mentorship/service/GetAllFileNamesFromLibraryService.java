@@ -2,7 +2,8 @@ package bpit.india.mentorship.service;
 
 
 import java.util.List;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,7 +18,7 @@ public class GetAllFileNamesFromLibraryService {
 	@Autowired
 	private GetAllFileNamesFromLibraryDao getAllFileNamesFromLibraryDao;
 	
-	LOGGER.debug("creating the list for the file names from library service");
+	
 	public List<String> getAllFileNames(GetInfoToFetchFileNamesDto getInfoToFetchFileNamesDto)
 	{
 		LOGGER.debug("successfully created the list for the filenames");

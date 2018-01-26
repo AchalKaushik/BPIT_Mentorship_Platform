@@ -6,6 +6,9 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
@@ -24,9 +27,9 @@ public class GetLibraryIdAndFileNameForSearchDao extends AbstractDao{
 	
 	@Autowired
 	private GetUserCourseService getUserCourseService;
-	LOGGER.debug("creating the reference of the GetLibraryIdAndFileNameForSearchRowMapper ");
+	
 	private static final GetLibraryIdAndFileNameForSearchRowMapper ROW_MAPPER = new  GetLibraryIdAndFileNameForSearchRowMapper();
-	LOGGER.debug("successfully created the reference");
+	
 	public Collection<GetLibraryIdAndFileNameDto> getLibraryIdAndFileNameForSearch(GetInfoToFetchFileNamesDto getInfoToFetchFileNamesDto,String typeOfRequest)
 	{
 		try{

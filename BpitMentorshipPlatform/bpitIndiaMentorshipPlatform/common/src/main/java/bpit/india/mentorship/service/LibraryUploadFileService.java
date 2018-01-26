@@ -4,6 +4,9 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.HashMap;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -58,7 +61,7 @@ public class LibraryUploadFileService {
 		LOGGER.debug("got the value of the course from the user"+ course);
 		if(course == null)
 		{
-			LOGGER.debug("Exception occurred while getting course")
+			LOGGER.debug("Exception occurred while getting course");
 			/*
 			 * Exception occurred while getting course
 			 */

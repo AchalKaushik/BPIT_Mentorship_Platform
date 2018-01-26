@@ -3,6 +3,11 @@
 app.controller('loginController', function($scope, $rootScope, $http, $location, $window) {
 
 	console.log("In login controller");
+	console.log("set h ya nhi: ", localStorage.getItem("userid"));
+	
+	if(localStorage.getItem("userid")!=null) {
+		window.location.assign("#!/home");
+	}
     
     // Declaring the Login and SignUp data objects
     $scope.signUp={};
@@ -58,6 +63,8 @@ app.controller('loginController', function($scope, $rootScope, $http, $location,
                     $rootScope.logoutToggle = true;
                     console.log("ho gya" + $rootScope.logoutToggle);
                     $rootScope.userId = $scope.loginData.userId;
+                    
+                    
 
                     console.log("Authenticated user" );
                     window.location.assign("#!/home");
@@ -72,7 +79,10 @@ app.controller('loginController', function($scope, $rootScope, $http, $location,
 
                     /*
                         * Set userId
-                        */
+                        */                        
+					localStorage.setItem("userid", $rootScope.userId);
+					console.log("local wala: ", localStorage.getItem("userid"));
+					
                     var userRole;
 
                     $http.get(

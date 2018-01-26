@@ -2,6 +2,11 @@
 app.controller('libraryController', function($scope, $rootScope, $http, $route) {
     console.log("In Library Controller");
     
+    if(localStorage.getItem("userid")==null) {
+		console.log("set ni h bhai, phele set kr k aa");
+		window.location.assign("#!/login");
+	}
+    
     $scope.logoutToggle=true;
     $scope.fileNameArray={};
     $scope.steps={};

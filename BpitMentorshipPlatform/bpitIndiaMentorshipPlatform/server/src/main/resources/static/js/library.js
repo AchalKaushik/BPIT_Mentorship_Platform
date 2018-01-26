@@ -692,8 +692,6 @@ app.controller('libraryController', function($scope, $rootScope, $http, $route) 
             $scope.fileName = "";
             var labelText = document.getElementById('fileUploadLabel');
             labelText.innerHTML = "Choose File Here";
-            $scope.uploadCheck = true;
-            console.log("uploaded");
         } else {
             console.log("file not uploded");
             if($scope.selectedBranch=='Select Branch' && $rootScope.userCourse=="BTech")

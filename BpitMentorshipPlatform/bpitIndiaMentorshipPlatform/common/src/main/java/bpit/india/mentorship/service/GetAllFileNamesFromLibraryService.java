@@ -12,12 +12,17 @@ import bpit.india.mentorship.dto.GetInfoToFetchFileNamesDto;
 @Service
 public class GetAllFileNamesFromLibraryService {
 
+	private static final Logger LOGGER = LoggerFactory.getLogger(GetAllFileNamesFromLibraryService.class);
+	
 	@Autowired
 	private GetAllFileNamesFromLibraryDao getAllFileNamesFromLibraryDao;
 	
+	LOGGER.debug("creating the list for the file names from library service");
 	public List<String> getAllFileNames(GetInfoToFetchFileNamesDto getInfoToFetchFileNamesDto)
 	{
+		LOGGER.debug("successfully created the list for the filenames");
 		try{
+			LOGGER.debug("inside try block");
 			/*
 			 * If null is returned then an exception have occurred while
 			 * getting fileNames corresponding type,semester,course,subject 
@@ -26,6 +31,7 @@ public class GetAllFileNamesFromLibraryService {
 		}
 		catch(Exception e)
 		{
+			LOGGER.error("An exception occurred while returning all file names");
 			/*
 			 * An exception occurred while returning all file names 
 			 */

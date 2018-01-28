@@ -625,6 +625,8 @@ app.controller('libraryController', function($scope, $rootScope, $http, $route) 
 	    $scope.branchError = false;
 	    $scope.fileNameError = false;
 	    $scope.uploadFileError = false;
+	    $scope.uploadCheck = false;
+	    $scope.waitingCheck = true;
         $scope.compareFileName();
         
         var file;
@@ -640,6 +642,11 @@ app.controller('libraryController', function($scope, $rootScope, $http, $route) 
             $scope.fileUploadData.semester = $scope.selectedSemester;
             $scope.fileUploadData.subject = $scope.selectedSubject;
             $scope.fileUploadData.multipartFile = "";
+            
+            var mod = document.getElementById("myModalTrig");
+			mod.click();
+			
+			console.log("hiihihihihih");
             
             /*
              * post goes here ...
@@ -676,8 +683,10 @@ app.controller('libraryController', function($scope, $rootScope, $http, $route) 
             	console.log(thisIsResponse);
             	if(thisIsResponse=="") {
             		$scope.errorCheck=true;
+	    			$scope.waitingCheck = false;
             	} else {
             		$scope.uploadCheck=true;
+	    			$scope.waitingCheck = false;
             	}
             },function errorCallback(response) {
             	console.log("Error in receiving response from backend------" +response);
@@ -706,7 +715,7 @@ app.controller('libraryController', function($scope, $rootScope, $http, $route) 
                 $scope.fileNameEmptyError = true;
             $scope.compareFileName();
             }
-            if(file==undefined) {
+            if(file==undefined && $scope.selectedCategory!='Select Category') {
             	$scope.uploadFileError = true;
             	console.log("not uploaded");
             }
@@ -773,23 +782,26 @@ app.controller('libraryController', function($scope, $rootScope, $http, $route) 
   
     $scope.compareFileName = function() {
     	console.log("In Compare Function");
+    	
+    	if($scope.selectedCategory!='Select Category') {
         
-        var li=0;
-        var len = $scope.fileNameArray.length;
-
-        if(!($scope.fileNameArray=="")) {
-            console.log(Object.values($scope.fileNameArray[li]));
-            for(li=0; li<len; li++) {
-                if(Object.keys($scope.fileNameArray[li])[1]=='fileName') {
-                    if($scope.fileName == Object.values($scope.fileNameArray[li])[1]) {
-                        console.log("Match Found");
-                        $scope.fileNameMatchError = true;
-                        break;
-                    } else {
-                        $scope.fileNameMatchError = false;
-                    }
-                }
-            }
+	        var li=0;
+	        var len = $scope.fileNameArray.length;
+	
+	        if(!($scope.fileNameArray=="")) {
+	            console.log(Object.values($scope.fileNameArray[li]));
+	            for(li=0; li<len; li++) {
+	                if(Object.keys($scope.fileNameArray[li])[1]=='fileName') {
+	                    if($scope.fileName == Object.values($scope.fileNameArray[li])[1]) {
+	                        console.log("Match Found");
+	                        $scope.fileNameMatchError = true;
+	                        break;
+	                    } else {
+	                        $scope.fileNameMatchError = false;
+	                    }
+	                }
+	            }
+	    	}
     	}
     }
     

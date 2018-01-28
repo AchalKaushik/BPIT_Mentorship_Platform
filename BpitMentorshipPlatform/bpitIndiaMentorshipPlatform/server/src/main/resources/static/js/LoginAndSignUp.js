@@ -8,7 +8,7 @@ app.controller('loginController', function($scope, $rootScope, $http, $location,
 	
     console.log("logout toggle rootscope wala: ", $rootScope.logoutToggle);
 	
-	if(localStorage.getItem("userid")!=null) {
+	if(localStorage.getItem("userId")!=null) {
 		window.location.assign("#!/home");
 	}
     

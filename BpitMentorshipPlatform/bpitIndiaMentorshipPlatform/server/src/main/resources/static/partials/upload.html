@@ -34,8 +34,6 @@
             <div class="col-sm-4"></div>
             <div class="col-sm-4">
                 <div id="libraryForm">
-                    <p ng-show="uploadCheck" id="uploadmsg">File Uploaded</p>
-                    <p ng-show="errorCheck" id="errorCheck">An error occurred while uploading the file. Kindly try again</p>
                     
                 	<div class="iconContainer">
                         <i class="material-icons">book</i>
@@ -74,13 +72,42 @@
                     </div>
                     <label for="fileUpload" id="fileUploadLabel" ng-show="allSelected">Choose File Here</label>
                     <p class="errorMessageSignUp" ng-model="uploadFileError" ng-show="uploadFileError">Select a file</p>
-                    <input type="file" id="fileUpload"  onchange="angular.element(this).scope().changeText(this)">
+                    <input type="file" multiple id="fileUpload"  onchange="angular.element(this).scope().changeText(this)">
                     
                     <div id="searchButtonWrapper">
                         <button id="uploadButton" ng-click="uploadFunction();arrayList();">UPLOAD</button>
+    					<button id="myModalTrig" data-toggle="modal" data-target="#myModal" style="display: none;"></button>
+                        
+                            <!-- <td class="de-btn"  ng-click="setFileBuffer(fdata.libraryId, fdata.fileName)"><span class="glyphicon glyphicon-trash"></span> Delete</td> -->
                     </div>
                 </div>                
             </div>
             <div class="col-sm-4"></div>
         </div>
+        <!-- Confirmation Box for deleting a file -->
+    <div id="myModal" class="modal fade fileDelModal" role="dialog">
+        <div class="modal-dialog">
+      
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Uploading File</h4>
+                </div>
+                <div class="modal-body">
+                <p ng-show="waitingCheck" id="uploadmsg">Waiting for backend response...</p>
+                <p ng-show="uploadCheck" id="uploadmsg">File Uploaded</p>
+                    <p ng-show="errorCheck" id="errorCheck">An error occurred while uploading the file. Kindly try again</p>
+                    
+                    <div id='progressBar' style='border: 1px solid green; border-radius:2px; margin-bottom: 20px'>
+			            <div id='bar' style='height: 100%; padding: 10px; background: #33dd33; width: 0%'>
+			            </div>
+			        </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" style="padding-right: 15px;">OK </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
     </div>

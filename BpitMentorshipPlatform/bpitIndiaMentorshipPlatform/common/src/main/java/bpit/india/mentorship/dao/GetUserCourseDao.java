@@ -24,10 +24,10 @@ public class GetUserCourseDao extends AbstractDao {
  public String getUserCourse(String userId) {
   try {
 	  LOGGER.debug("inside try block");
-		LOGGER.debug("creating the hashmap");
-   Map < String, String > parameters = new HashMap < String, String > ();
-   LOGGER.debug("hashmap successfully created");
-   parameters.put("userId", userId);
+	  LOGGER.debug("creating the hashmap");
+	  Map < String, String > parameters = new HashMap < String, String > ();
+	  LOGGER.debug("hashmap successfully created");
+	  parameters.put("userId", userId);
    LOGGER.debug("got the userid " );
    System.out.println(userId);
    return getJdbcTemplate().queryForObject(getUserCourseConfig.getGetUserCourse(), parameters, String.class);

@@ -15,6 +15,7 @@ public class GetUserRoleService {
 	
 	public String getUserRole(String userId)
 	{ 
+		
 		LOGGER.debug("succefuclly get into the fuction get-user-role");
 		LOGGER.debug("the user id is " + userId);
 		try{

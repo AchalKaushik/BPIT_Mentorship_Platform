@@ -9,7 +9,7 @@ public class PasswordUtils {
 		textEncryptor.setPassword(encryptionKey);
 		//return textEncryptor.decrypt(databasePassword);
 		
-		return "Nikhil.1711";
+		return "qwerty";
 	}
 
 	public static String encrypt(String encryptionKey, String databasePassword) {

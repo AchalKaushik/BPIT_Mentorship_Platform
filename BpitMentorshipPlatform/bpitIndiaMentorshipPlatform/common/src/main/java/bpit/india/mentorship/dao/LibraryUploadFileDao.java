@@ -1,9 +1,6 @@
 package bpit.india.mentorship.dao;
 
 import java.sql.Date;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -11,13 +8,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import bpit.india.mentorship.common.AbstractDao;
 import bpit.india.mentorship.config.LibraryOperationsConfig;
-import bpit.india.mentorship.dto.GetInfoToFetchFileNamesDto;
-import bpit.india.mentorship.dto.GetLibraryIdAndFileNameDto;
 
 @Repository
 public class LibraryUploadFileDao extends AbstractDao{

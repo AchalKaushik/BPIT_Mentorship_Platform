@@ -5,7 +5,6 @@ import java.nio.file.Path;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -22,16 +21,19 @@ public class LibrarySaveFileService {
 			/*
 			 * Reading the uploaded file( in bytestream)
 			 */
+		
+			  byte[] bytes=file.getBytes();
+	
 			
-			byte[] bytes=file.getBytes();
+			 // Saving the file at desired location
+			 
+			 Files.write(path, bytes);
+			
+			
+			LOGGER.debug("Path for saving file is  :" + path.toString());
+			//File destFile = new File(path.toString());
 			LOGGER.debug("Saving the file at desired location");
-			
-			/*
-			 * Saving the file at desired location
-			 */
-			Files.write(path, bytes);
-			LOGGER.debug("Saved the file at desired location");
-			
+			//file.transferTo(destFile);
 			
 			return "Success";
 		}

@@ -16,13 +16,10 @@ public class CreateBBAFolderStructureForLibraryService {
 	private ReadApplicationConstantsFile readApplicationConstantsFile;
 	
 	
-	public BBAFolderPathsDTO createFolderStructureForLibrary(){
-		
+	public BBAFolderPathsDTO createFolderStructureForLibrary(){	
 		
 		File createBBAFolder = new File(readApplicationConstantsFile.getSaveFilesInFolder()+"BBA");                          
 		
-		
-
 		/*
 		 * Create Folder Structure
 		 */

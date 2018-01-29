@@ -46,7 +46,7 @@ public class DeleteUploadedFileService {
 		 */
 		LOGGER.debug("creating the reference of the file ");
 		File deleteFile = new File(pathOfUploadedFile);
-		LOGGER.debug("reference created");
+		LOGGER.debug("reference created ..path fetched is  ..: " + pathOfUploadedFile);
 		try{
 			LOGGER.debug("inside try block");
 			

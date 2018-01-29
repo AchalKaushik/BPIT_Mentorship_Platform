@@ -13,7 +13,8 @@ app.controller('libraryController', function($scope, $rootScope, $http, $route) 
     $scope.fileNameArray={};
     $scope.steps={};
     
-    $rootScope.userCourse = localStorage.getItem("userCourse");
+    $rootScope.userCourse = localStorage.getItem("userCourse");    
+    $rootScope.userId = localStorage.getItem("userId");
     
     $scope.checksem = function() {
         //BTech
@@ -364,7 +365,7 @@ app.controller('libraryController', function($scope, $rootScope, $http, $route) 
             * code is same..
             */
         
-        $scope.downloadListData.userId = $rootScope.userId;
+        $scope.downloadListData.userId = localStorage.getItem('userId');
         
         console.log($scope.downloadListData.userId);
         
@@ -471,9 +472,14 @@ app.controller('libraryController', function($scope, $rootScope, $http, $route) 
     $scope.categories = ['Select Category'];
     $scope.categoriesLib = ['Select Category', 'E-Books', 'E-Notes'];
     
-    $scope.arrayList = function(check,up) {
-        if($rootScope.userCourse=="BTech") {
+    $scope.arrayList = function(check,up,upfunccheck) {
+    	if(upfunccheck==7) {
+    		document.getElementById('fileUpload').addEventListener('change', onFileSelect , false);
+			document.getElementById('uploadButton').addEventListener('click', startUpload, false);
+    	}
+		if($rootScope.userCourse=="BTech") {
             if($scope.selectedSemester!="Select Semester") {
+            $scope.semesterError = false;
             if(check==1) {
                     $scope.selectedBranch = 'Select Branch';
                 }
@@ -485,6 +491,7 @@ app.controller('libraryController', function($scope, $rootScope, $http, $route) 
                 document.getElementsByTagName("select")[1].setAttribute("disabled", "");
             }
             if($scope.selectedSemester!="Select Semester" && $scope.selectedBranch!="Select Branch") {
+            $scope.branchError = false;
                 if(check==2) {
                     $scope.selectedSubject = 'Select Subject';
                 }
@@ -496,6 +503,7 @@ app.controller('libraryController', function($scope, $rootScope, $http, $route) 
                 document.getElementsByTagName("select")[2].setAttribute("disabled","");
             }
             if($scope.selectedSemester!="Select Semester" && $scope.selectedBranch!="Select Branch" && $scope.selectedSubject!="Select Subject") {
+            $scope.subjectError = false;
                 $scope.categories = ['Select Category', 'E-Books', 'E-Notes'];
                 document.getElementsByTagName("select")[3].removeAttribute("disabled");
             } else {
@@ -527,6 +535,7 @@ app.controller('libraryController', function($scope, $rootScope, $http, $route) 
         
         if($scope.selectedCategory != 'Select Category') {
             $scope.allSelected = true;
+            $scope.categoryError = false;
         } else {
             $scope.allSelected = false;
         }
@@ -571,7 +580,7 @@ app.controller('libraryController', function($scope, $rootScope, $http, $route) 
                             
                              /** Error occurs*/ 
                              console.log("all wale m");
-                             $scope.fileNameArray = response.data;
+                             $scope.fileNameArray = [];
 //                            window.location.assign("/#!/error");
                             console.log("An exception occurred ");
                             }
@@ -832,6 +841,5 @@ app.controller('libraryController', function($scope, $rootScope, $http, $route) 
         }
     }
 });
-
 
 

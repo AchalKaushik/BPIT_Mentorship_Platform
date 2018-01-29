@@ -64,12 +64,14 @@
 			var bar = document.getElementById('bar');
 			bar.style.width = '100%';
 			bar.innerHTML = '100% complete';
+            document.getElementById("progressok").removeAttribute("disabled");
 			//alert('Finished uploading file(s)');
 		}
 	}
 
 	//Will be called when user select the files in file control
 	function onFileSelect(e) {
+		console.log('aaya isme');
 		var files = e.target.files; // FileList object
 		var output = [];
 		fileCount = files.length;
@@ -94,12 +96,14 @@
 			bar.innerHTML = percentComplete + ' % complete';
 		} else {
 			debug('unable to compute');
+		       document.getElementById("progressok").removeAttribute("disabled");
 		}
 	}
 
 	//the Ouchhh !! moments will be captured here
 	function onUploadFailed(e) {
 		//alert("Error uploading file");
+       document.getElementById("progressok").removeAttribute("disabled");
 	}
 
 	//Pick the next file in queue and upload it to remote server
@@ -122,11 +126,6 @@
 		uploadNext();
 	}
 
-	//Event listeners for button clicks
-	window.onload = function() {
-		document.getElementById('fileUpload').addEventListener('change', onFileSelect, false);
-		document.getElementById('uploadButton').addEventListener('click', startUpload, false);
-	}
 </script>
 </head>
 <body ng-app="bpit">

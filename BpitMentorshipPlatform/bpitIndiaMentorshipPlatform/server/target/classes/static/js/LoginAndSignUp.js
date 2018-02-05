@@ -3,6 +3,14 @@
 app.controller('loginController', function($scope, $rootScope, $http, $location, $window) {
 
 	console.log("In login controller");
+	console.log("set h ya nhi: ", localStorage.getItem("userId"));
+	
+	
+    console.log("logout toggle rootscope wala: ", $rootScope.logoutToggle);
+	
+	if(localStorage.getItem("userId")!=null) {
+		window.location.assign("#!/home");
+	}
     
     // Declaring the Login and SignUp data objects
     $scope.signUp={};
@@ -58,6 +66,8 @@ app.controller('loginController', function($scope, $rootScope, $http, $location,
                     $rootScope.logoutToggle = true;
                     console.log("ho gya" + $rootScope.logoutToggle);
                     $rootScope.userId = $scope.loginData.userId;
+                    
+                    
 
                     console.log("Authenticated user" );
                     window.location.assign("#!/home");
@@ -72,7 +82,10 @@ app.controller('loginController', function($scope, $rootScope, $http, $location,
 
                     /*
                         * Set userId
-                        */
+                        */                        
+					localStorage.setItem("userId", $rootScope.userId);
+					console.log("local wala: ", localStorage.getItem("userId"));
+					
                     var userRole;
 
                     $http.get(
@@ -81,6 +94,8 @@ app.controller('loginController', function($scope, $rootScope, $http, $location,
                                 console.log(data);
                                 userRole=data;
                                 $rootScope.userRole = userRole;
+								localStorage.setItem("userRole", userRole);
+								console.log("local wala role : ", localStorage.getItem("userRole"));
                                 return data;}]
                     }
                     ).then(function(response) {
@@ -88,7 +103,9 @@ app.controller('loginController', function($scope, $rootScope, $http, $location,
                         * routing on basis of user role received
                         */
                         console.log("User role after login is  : "+ userRole+$rootScope.userRole);
-                        $rootScope.logoutToggle = true;
+						localStorage.setItem("logoutToggle", true);
+						console.log("local wala logout : ", localStorage.getItem("logoutToggle"));
+						$rootScope.logoutToggle = localStorage.getItem("logoutToggle");
                     });
                     /*
                         * Code to get user course
@@ -100,6 +117,7 @@ app.controller('loginController', function($scope, $rootScope, $http, $location,
                             transformResponse: [function (data)  {
                                 console.log(data);
                                 userCourse=data;
+                                localStorage.setItem("userCourse", userCourse);
                                 return data;
                             }]
                         }

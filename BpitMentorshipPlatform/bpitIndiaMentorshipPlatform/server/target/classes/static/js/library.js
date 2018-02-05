@@ -2,9 +2,19 @@
 app.controller('libraryController', function($scope, $rootScope, $http, $route) {
     console.log("In Library Controller");
     
-    $scope.logoutToggle=true;
+    if(localStorage.getItem("userId")==null) {
+		console.log("set ni h bhai, phele set kr k aa");
+		window.location.assign("#!/login");
+	}
+    
+    
+    $scope.logoutToggle=localStorage.getItem("logoutToggle");
+    console.log("logout toggle local wala: ", localStorage.getItem("logoutToggle"));
     $scope.fileNameArray={};
     $scope.steps={};
+    
+    $rootScope.userCourse = localStorage.getItem("userCourse");    
+    $rootScope.userId = localStorage.getItem("userId");
     
     $scope.checksem = function() {
         //BTech
@@ -248,6 +258,11 @@ app.controller('libraryController', function($scope, $rootScope, $http, $route) 
         $scope.currentDeleteFileBuffer = "";
         $scope.currentDeleteFileBufferId = "";
         
+        userIdL = localStorage.getItem("userId");
+        delDetails = {'libraryId' : libraryId, 'userId': userIdL};
+        
+        console.log(delDetails);
+        
         //del func goes here
         console.log('del func called for lib id = ' + libraryId);
         
@@ -257,7 +272,7 @@ app.controller('libraryController', function($scope, $rootScope, $http, $route) 
         $http({
             url : delURI,
             method : "POST",
-            data : libraryId,
+            data : delDetails,
             transformResponse: [function (data)  {
                 console.log(data);
                 delStatus=data;
@@ -350,7 +365,7 @@ app.controller('libraryController', function($scope, $rootScope, $http, $route) 
             * code is same..
             */
         
-        $scope.downloadListData.userId = $rootScope.userId;
+        $scope.downloadListData.userId = localStorage.getItem('userId');
         
         console.log($scope.downloadListData.userId);
         
@@ -427,9 +442,10 @@ app.controller('libraryController', function($scope, $rootScope, $http, $route) 
     
     $scope.uploadToggle = false;
     
-    if($rootScope.userRole=="Teacher") {
+    if(localStorage.getItem("userRole")=="Teacher") {
         $scope.uploadToggle = true;
-        $rootScope.manageToggle = true;
+      	localStorage.setItem("manageToggle", true);
+        $rootScope.manageToggle = localStorage.getItem("manageToggle");
     }
     
     $scope.subjectError = false;
@@ -456,9 +472,14 @@ app.controller('libraryController', function($scope, $rootScope, $http, $route) 
     $scope.categories = ['Select Category'];
     $scope.categoriesLib = ['Select Category', 'E-Books', 'E-Notes'];
     
-    $scope.arrayList = function(check,up) {
-        if($rootScope.userCourse=="BTech") {
+    $scope.arrayList = function(check,up,upfunccheck) {
+    	if(upfunccheck==7) {
+    		document.getElementById('fileUpload').addEventListener('change', onFileSelect , false);
+			document.getElementById('uploadButton').addEventListener('click', startUpload, false);
+    	}
+		if($rootScope.userCourse=="BTech") {
             if($scope.selectedSemester!="Select Semester") {
+            $scope.semesterError = false;
             if(check==1) {
                     $scope.selectedBranch = 'Select Branch';
                 }
@@ -470,6 +491,7 @@ app.controller('libraryController', function($scope, $rootScope, $http, $route) 
                 document.getElementsByTagName("select")[1].setAttribute("disabled", "");
             }
             if($scope.selectedSemester!="Select Semester" && $scope.selectedBranch!="Select Branch") {
+            $scope.branchError = false;
                 if(check==2) {
                     $scope.selectedSubject = 'Select Subject';
                 }
@@ -481,6 +503,7 @@ app.controller('libraryController', function($scope, $rootScope, $http, $route) 
                 document.getElementsByTagName("select")[2].setAttribute("disabled","");
             }
             if($scope.selectedSemester!="Select Semester" && $scope.selectedBranch!="Select Branch" && $scope.selectedSubject!="Select Subject") {
+            $scope.subjectError = false;
                 $scope.categories = ['Select Category', 'E-Books', 'E-Notes'];
                 document.getElementsByTagName("select")[3].removeAttribute("disabled");
             } else {
@@ -512,6 +535,7 @@ app.controller('libraryController', function($scope, $rootScope, $http, $route) 
         
         if($scope.selectedCategory != 'Select Category') {
             $scope.allSelected = true;
+            $scope.categoryError = false;
         } else {
             $scope.allSelected = false;
         }
@@ -556,7 +580,7 @@ app.controller('libraryController', function($scope, $rootScope, $http, $route) 
                             
                              /** Error occurs*/ 
                              console.log("all wale m");
-                             $scope.fileNameArray = response.data;
+                             $scope.fileNameArray = [];
 //                            window.location.assign("/#!/error");
                             console.log("An exception occurred ");
                             }
@@ -610,6 +634,8 @@ app.controller('libraryController', function($scope, $rootScope, $http, $route) 
 	    $scope.branchError = false;
 	    $scope.fileNameError = false;
 	    $scope.uploadFileError = false;
+	    $scope.uploadCheck = false;
+	    $scope.waitingCheck = true;
         $scope.compareFileName();
         
         var file;
@@ -626,6 +652,11 @@ app.controller('libraryController', function($scope, $rootScope, $http, $route) 
             $scope.fileUploadData.subject = $scope.selectedSubject;
             $scope.fileUploadData.multipartFile = "";
             
+            var mod = document.getElementById("myModalTrig");
+			mod.click();
+			
+			console.log("hiihihihihih");
+            
             /*
              * post goes here ...
              */
@@ -639,7 +670,7 @@ app.controller('libraryController', function($scope, $rootScope, $http, $route) 
             formData.append('fileName',$scope.fileUploadData.fileName);
             formData.append('semester',$scope.fileUploadData.semester);
             formData.append('subject',$scope.fileUploadData.subject);
-            formData.append('userId',$rootScope.userId);
+            formData.append('userId',localStorage.getItem("userId"));
             formData.append('file',  document.getElementById('fileUpload').files[0]);
             var uploadUrl= "/uploadFile";
             
@@ -661,8 +692,10 @@ app.controller('libraryController', function($scope, $rootScope, $http, $route) 
             	console.log(thisIsResponse);
             	if(thisIsResponse=="") {
             		$scope.errorCheck=true;
+	    			$scope.waitingCheck = false;
             	} else {
             		$scope.uploadCheck=true;
+	    			$scope.waitingCheck = false;
             	}
             },function errorCallback(response) {
             	console.log("Error in receiving response from backend------" +response);
@@ -677,8 +710,6 @@ app.controller('libraryController', function($scope, $rootScope, $http, $route) 
             $scope.fileName = "";
             var labelText = document.getElementById('fileUploadLabel');
             labelText.innerHTML = "Choose File Here";
-            $scope.uploadCheck = true;
-            console.log("uploaded");
         } else {
             console.log("file not uploded");
             if($scope.selectedBranch=='Select Branch' && $rootScope.userCourse=="BTech")
@@ -693,7 +724,7 @@ app.controller('libraryController', function($scope, $rootScope, $http, $route) 
                 $scope.fileNameEmptyError = true;
             $scope.compareFileName();
             }
-            if(file==undefined) {
+            if(file==undefined && $scope.selectedCategory!='Select Category') {
             	$scope.uploadFileError = true;
             	console.log("not uploaded");
             }
@@ -760,23 +791,26 @@ app.controller('libraryController', function($scope, $rootScope, $http, $route) 
   
     $scope.compareFileName = function() {
     	console.log("In Compare Function");
+    	
+    	if($scope.selectedCategory!='Select Category') {
         
-        var li=0;
-        var len = $scope.fileNameArray.length;
-
-        if(!($scope.fileNameArray=="")) {
-            console.log(Object.values($scope.fileNameArray[li]));
-            for(li=0; li<len; li++) {
-                if(Object.keys($scope.fileNameArray[li])[1]=='fileName') {
-                    if($scope.fileName == Object.values($scope.fileNameArray[li])[1]) {
-                        console.log("Match Found");
-                        $scope.fileNameMatchError = true;
-                        break;
-                    } else {
-                        $scope.fileNameMatchError = false;
-                    }
-                }
-            }
+	        var li=0;
+	        var len = $scope.fileNameArray.length;
+	
+	        if(!($scope.fileNameArray=="")) {
+	            console.log(Object.values($scope.fileNameArray[li]));
+	            for(li=0; li<len; li++) {
+	                if(Object.keys($scope.fileNameArray[li])[1]=='fileName') {
+	                    if($scope.fileName == Object.values($scope.fileNameArray[li])[1]) {
+	                        console.log("Match Found");
+	                        $scope.fileNameMatchError = true;
+	                        break;
+	                    } else {
+	                        $scope.fileNameMatchError = false;
+	                    }
+	                }
+	            }
+	    	}
     	}
     }
     
@@ -807,6 +841,5 @@ app.controller('libraryController', function($scope, $rootScope, $http, $route) 
         }
     }
 });
-
 
 

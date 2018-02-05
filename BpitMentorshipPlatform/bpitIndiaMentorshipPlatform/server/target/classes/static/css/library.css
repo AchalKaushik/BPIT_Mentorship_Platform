@@ -315,7 +315,8 @@ div#navbar form i {
 }
 
 #uploadmsg {
-color: #fff;
+color: #333;
+margin-bottom: 10px;
 text-align: center;
 }
 

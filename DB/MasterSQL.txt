@@ -14,7 +14,7 @@ topic_cat       int(8) not null,
 topic_by        varchar(200) not null,
 
 
-foreign key(topic_by) references login(userId))
+foreign key(topic_by) references login(userId)
 )
 
 create table posts (
@@ -25,7 +25,7 @@ post_topic      int(8) not null,
 post_by         varchar(200) not null,
 
 
-foreign key(post_by) references login(userId)),
+foreign key(post_by) references login(userId),
 foreign key(post_topic) references topics(topic_id))
-)
+
 

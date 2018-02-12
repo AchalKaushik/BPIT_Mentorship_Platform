@@ -1,0 +1,7 @@
+forumOperations:
+ 
+ getAllTopics:
+  select * from topics;
+ 
+ getAllPosts:
+  select * from posts;

@@ -30,6 +30,18 @@ app.config(function($routeProvider, $httpProvider) {
     .when("/manage", {
         templateUrl : "partials/manage.html"
     })
+    .when("/forum", {
+        templateUrl : "partials/forum.html"
+    })
+    .when("/forum/sem", {
+        templateUrl : "partials/forum_sem.html"
+    })
+    .when("/forum/post", {
+        templateUrl : "partials/forum_post.html"
+    })
+    .when("/recoverpassword", {
+        templateUrl : "partials/forgetpass.html"
+    })
     .otherwise({
         redirectTo: '/'
     });

@@ -156,3 +156,10 @@ div#loginImage {
 #signupLink:hover {
 	background: #b70f15;
 }
+
+#forget_pass_link {
+	text-align: center;
+	display: block;
+	color: #fff;
+	margin-top: 10px;
+}

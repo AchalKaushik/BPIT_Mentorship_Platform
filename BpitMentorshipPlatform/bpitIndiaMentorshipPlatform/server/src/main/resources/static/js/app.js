@@ -39,6 +39,9 @@ app.config(function($routeProvider, $httpProvider) {
     .when("/forum/post", {
         templateUrl : "partials/forum_post.html"
     })
+    .when("/recoverpassword", {
+        templateUrl : "partials/forgetpass.html"
+    })
     .otherwise({
         redirectTo: '/'
     });

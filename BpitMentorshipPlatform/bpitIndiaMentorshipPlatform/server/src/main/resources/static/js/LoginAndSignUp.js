@@ -426,5 +426,28 @@ app.controller('loginController', function($scope, $rootScope, $http, $location,
     /*
      *  Sign up Angular Script ends here
      */
+    
+    function changePassFunc() {
+        var changePassURI = "/changePassword";
+        var changePassStatus;
+
+        $http({
+            url : changePassURI,
+            method : "POST",
+       	 	data : $scope.changePass,
+             transformResponse: [function (data)  {
+                console.log(data);
+                changePassStatus=data;
+                return data;}]
+         }).then(
+                function(response)
+                {
+                    /* Null is returned in case any exception occurs while inserting data in database */
+                    if(changePassStatus=="1"){
+                         console.log("ho gya bhai");
+                     }
+                }
+                );
+    }
 
 });

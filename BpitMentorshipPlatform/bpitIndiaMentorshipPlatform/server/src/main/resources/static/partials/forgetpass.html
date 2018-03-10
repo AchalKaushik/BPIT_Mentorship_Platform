@@ -41,6 +41,10 @@
                     <input type="password" placeholder="* confirm password" ng-model="recoverPass.confirmPassword" ng-keyup="matchPasswordAndConfirmPasswordNew()" />
                     <!-- Error Message if Passwords does not match -->
                     <p class="errorMessageSignUp" ng-model="confirmPasswordError" ng-show="confirmPasswordError">Password and ConfirmPassword Mismatch</p>
+                	 <!-- Login Button -->
+	                <div id="submitButton">
+	                    <button ng-click="changePassFunc()">SUBMIT</button>
+	                </div>
                 </div>
             </div>
             <div class="col-sm-3"></div>

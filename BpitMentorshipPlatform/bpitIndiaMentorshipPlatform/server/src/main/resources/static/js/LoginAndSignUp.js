@@ -308,35 +308,6 @@ app.controller('loginController', function($scope, $rootScope, $http, $location,
     }
     // Password Length function ends here
 
-    $scope.recoverPass = {};
-
-    // Function to check the length of the password
-    $scope.checkLengthCurrent = function() {
-        if(($scope.recoverPass.currentPassword).length<6)
-            $scope.currentPasswordLengthError=true;
-        else
-            $scope.currentPasswordLengthError=false;
-    }
-    // Password Length function ends here
-
-    // Function to check the length of the password
-    $scope.checkLengthNewPass = function() {
-        if(($scope.recoverPass.password).length<6)
-            $scope.passwordError=true;
-        else
-            $scope.passwordError=false;
-    }
-    // Password Length function ends here
-
-    // Function to check the length of the password
-    $scope.matchPasswordAndConfirmPasswordNew = function() {
-        if(($scope.recoverPass.confirmPassword).length<6)
-            $scope.confirmPasswordError=true;
-        else
-            $scope.confirmPasswordError=false;
-    }
-    // Password Length function ends here
-
     // Function to check the length of the password
     $scope.loginPasswordLengthCheck = function() {
         if($scope.signUp.password.length==0)
@@ -427,27 +398,6 @@ app.controller('loginController', function($scope, $rootScope, $http, $location,
      *  Sign up Angular Script ends here
      */
     
-    function changePassFunc() {
-        var changePassURI = "/changePassword";
-        var changePassStatus;
-
-        $http({
-            url : changePassURI,
-            method : "POST",
-       	 	data : $scope.changePass,
-             transformResponse: [function (data)  {
-                console.log(data);
-                changePassStatus=data;
-                return data;}]
-         }).then(
-                function(response)
-                {
-                    /* Null is returned in case any exception occurs while inserting data in database */
-                    if(changePassStatus=="1"){
-                         console.log("ho gya bhai");
-                     }
-                }
-                );
-    }
+    
 
 });

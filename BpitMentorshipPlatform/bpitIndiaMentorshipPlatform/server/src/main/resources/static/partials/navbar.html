@@ -13,6 +13,7 @@
 				<li class="active"><a href="#!/home">HOME</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
+            <li ng-show="logoutToggle"><a  href="#!/resetpassword" >RESET PASSWORD</a></li>
             	<li><a href="#!/manage" ng-show="manageToggle">MANAGE FILES</a></li>
                 <li ng-show="logoutToggle" ng-model="navModel"><a style="cursor:pointer;" ng-click='logoutFunction()'>LOGOUT</a></li>
             </ul>

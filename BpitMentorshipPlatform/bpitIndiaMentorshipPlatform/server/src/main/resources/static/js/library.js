@@ -225,6 +225,8 @@ app.controller('libraryController', function($scope, $rootScope, $http, $route) 
     } else if($rootScope.userCourse=="BBA") {
         $scope.bbaToggle = false;
     }
+    
+    $rootScope.userCourse = ($rootScope.userCourse).trim();
 
     $scope.sem = function(i) {
         $scope.selectedSemester =  i;
@@ -239,6 +241,7 @@ app.controller('libraryController', function($scope, $rootScope, $http, $route) 
                 $scope.checksem();
             }
         } else {
+        	console.log("yhi pe hu", $rootScope.userCourse);
             if($scope.selectedCategory=='Select Category') {
                 console.log($scope.selectedCategory);
                 if($scope.selectedCategory == 'Select Category')
@@ -249,9 +252,13 @@ app.controller('libraryController', function($scope, $rootScope, $http, $route) 
         }
     }
 
-    $http.get("/qwert")
+//    $rootScope.userId;
+    $http.get("/qwert?userId="+$rootScope.userId)
     .then(function(response) {
         $scope.filedata = response.data;
+        
+        
+        console.log("File data is  : " + $scope.filedata );
     });
 
     $scope.delfile = function(libraryId) {

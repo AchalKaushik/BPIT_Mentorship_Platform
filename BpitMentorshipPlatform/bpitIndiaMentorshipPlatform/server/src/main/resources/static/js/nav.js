@@ -8,7 +8,8 @@ app.controller('navController', function($scope, $http, $rootScope, $route, $loc
     console.log("logout toggle local wala: ", localStorage.getItem("logoutToggle"));
     console.log("logout toggle rootscope wala: ", $rootScope.logoutToggle);
     
-    $scope.logoutFunction = function(){
+    
+    $rootScope.logoutFunction = function(){
         console.log("In logout");
         $rootScope.manageToggle = false;
         $rootScope.userId=null;

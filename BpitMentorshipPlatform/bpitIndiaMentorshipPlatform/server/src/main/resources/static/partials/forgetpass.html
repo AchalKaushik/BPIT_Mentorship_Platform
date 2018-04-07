@@ -16,21 +16,21 @@
     	<div class="row">
             <div class="col-sm-3"></div>
             <div class="col-sm-6">
-                <div class="signUpForm" ng-controller="loginController">
+                <div class="signUpForm" ng-controller="passwordController">
                     <!-- Confirm Password -->
                     <div class="iconContainer">
                         <i class="material-icons">lock</i>
                     </div>
                     <input type="password" placeholder="* enter current password" ng-model="recoverPass.currentPassword" ng-keyup="checkLengthCurrent();"/>
                     <!-- Error Message if Passwords does not match -->
-                    <p class="errorMessageSignUp" ng-model="currentPasswordError" ng-show="currentPasswordError">Wrong current password</p>
+                    <p class="errorMessageSignUp" ng-model="currentPasswordError" ng-show="currentPasswordError">Password Mismatch.</p>
                     <p class="errorMessageSignUp" ng-model="currentPasswordError" ng-show="currentPasswordLengthError">Password must be of minimum 6 characters</p>
 
                     <!-- Password -->
                     <div class="iconContainer">
                         <i class="material-icons">lock</i>
                     </div>
-                    <input type="password" placeholder="* password" ng-model="recoverPass.password" ng-keyup="checkLengthNewPass();"/>
+                    <input type="password" placeholder="* password" ng-model="recoverPass.password" ng-keyup="checkLengthNewPass();matchPasswordAndConfirmPasswordNew();"/>
                     <!-- Error Message if Password is less than 6 characters -->
                     <p class="errorMessageSignUp" ng-model="passwordError" ng-show="passwordError">Password must be of minimum 6 characters</p>
                     
@@ -38,7 +38,7 @@
                     <div class="iconContainer">
                         <i class="material-icons">lock</i>
                     </div>
-                    <input type="password" placeholder="* confirm password" ng-model="recoverPass.confirmPassword" ng-keyup="matchPasswordAndConfirmPasswordNew()" />
+                    <input type="password" placeholder="* confirm password" ng-model="recoverPass.confirmPassword" ng-keyup="changeCnfStatus();matchPasswordAndConfirmPasswordNew()" />
                     <!-- Error Message if Passwords does not match -->
                     <p class="errorMessageSignUp" ng-model="confirmPasswordError" ng-show="confirmPasswordError">Password and ConfirmPassword Mismatch</p>
                 	 <!-- Login Button -->
@@ -73,7 +73,7 @@
         </div>
     </div>
     <button id="myModalTrig" data-toggle="modal" data-target="#myModal1" style="display: none;"></button>
-    
+   
     <!-- Success Box for deleted file -->
     <div id="myModal1" class="modal fade fileDelModal" role="dialog">
         <div class="modal-dialog">
@@ -82,13 +82,14 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Delete Success</h4>
+                    <h4 class="modal-title">Success</h4>
                 </div>
                 <div class="modal-body">
-                    <p>File Deleted Successfully</p>
+                    <p>Password Changed Successfully.</p>
+                    <p>Please login to continue.</p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="relFunc()">Ok</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="logoutFunction()">Ok</button>
                 </div>
             </div>
       

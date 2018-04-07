@@ -25,6 +25,7 @@
                 <!-- Error Message if Enrollment Number/Password is wrong  -->
                 <p class="errorMessageSignUp" ng-model="loginError" ng-show="loginError" >Username or Password is Incorrect</p>
                 
+                <p id="signUpSuccess" ng-show="passwordChangedMessage">Password changed successfully. Please login to continue.</p>
                 <!-- Input fields for Login Form -->
                 
                 <!-- Enrollment Number -->
@@ -45,9 +46,7 @@
                 <!-- Error Message if Password is less than 6 characters -->
                 <p class="errorMessageSignUp" ng-model="passwordError" ng-show="passwordError">Password cannot be left empty</p>
                 <!--Validate for min length of 6 characters password -->
-                
-                <a href="#!/recoverpassword" id="forget_pass_link">Forget Password?</a>
-                
+               
                 <!-- Login Button -->
                 <div id="submitButton">
                     <button ng-click="loginFunction()">LOGIN</button>

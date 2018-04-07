@@ -39,7 +39,7 @@ app.config(function($routeProvider, $httpProvider) {
     .when("/forum/post", {
         templateUrl : "partials/forum_post.html"
     })
-    .when("/recoverpassword", {
+    .when("/resetpassword", {
         templateUrl : "partials/forgetpass.html"
     })
     .otherwise({

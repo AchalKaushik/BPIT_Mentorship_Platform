@@ -42,7 +42,7 @@ public class LibraryUploadFileService {
 	
 	private static final Logger LOGGER = LoggerFactory.getLogger(LibraryUploadFileService.class);
 	
-	public String uploadFile(MultipartFile file,String branch,String subject,String type,String fileName,String semester,String userd)
+	public String uploadFile(MultipartFile file,String branch,String subject,String type,String fileName,String semester,String userId)
 	{
 		
 		
@@ -57,7 +57,7 @@ public class LibraryUploadFileService {
 		HashMap<String, Object> getPathsOfFolders = new HashMap<String, Object>();
 		LOGGER.debug("Hashmap decalared ");
 		LOGGER.debug("creating the String course");		
-		String course=getUserCourseService.getUserCouse(userd);
+		String course=getUserCourseService.getUserCouse(userId);
 		LOGGER.debug("got the value of the course from the user"+ course);
 		if(course == null)
 		{
@@ -91,7 +91,8 @@ public class LibraryUploadFileService {
 		String extension=file.getOriginalFilename().substring(file.getOriginalFilename().indexOf("."));
 		LOGGER.debug("Succesfully craeted the extenstion string for the file extension " + extension);
 		LOGGER.debug("entering into the if statement to check the cousrse");
-		if(course.equalsIgnoreCase("BTech"))
+		System.out.println("Course outside if is :" + course+"YO"  );
+		if(course.trim().equalsIgnoreCase("BTech"))
 		{
 			System.out.println("In Btech");
 			getPathsOfFolders = createBTechFolderStructureForLibraryService.createFolderStructureForLibrary();
@@ -106,6 +107,8 @@ public class LibraryUploadFileService {
 					 * Get path of Btech->Sem1->cse->AM1 folder from dto
 					 * Set Path variable using that path 
 					 */
+					
+					System.out.println("AM path from dto is : " + bTechSemester1And2FolderPathsDto.getSemester1CSEAMFolder());
 					path=Paths.get(bTechSemester1And2FolderPathsDto.getSemester1CSEAMFolder()+"//"+fileName+extension); 
 					break;
 				case "Applied Physics - I":
@@ -1423,7 +1426,7 @@ public class LibraryUploadFileService {
 		 */
 		
 		
-		String userId=userd;
+		//String userId=userId;
 		
 		/*
 		 * Get userId directly from session

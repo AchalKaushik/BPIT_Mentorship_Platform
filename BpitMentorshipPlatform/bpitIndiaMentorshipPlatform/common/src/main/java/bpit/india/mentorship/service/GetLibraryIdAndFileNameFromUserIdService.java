@@ -19,7 +19,7 @@ public class GetLibraryIdAndFileNameFromUserIdService {
 	@Autowired
 	private GetLibraryIdFileNameSemesterBranchTypeCourseFromUserIdDao getLibraryIdFileNameSemesterBranchTypeCourseFromUserIdDao;
 	
-	public Collection<GetLibraryIdFileNameSemesterBranchTypeCourseDto> getLibraryIdAndFileNameFromUserId()
+	public Collection<GetLibraryIdFileNameSemesterBranchTypeCourseDto> getLibraryIdAndFileNameFromUserId(String userId)
 	{
 		LOGGER.debug("Request Received from Controller");
         LOGGER.debug("In GetLibraryIdFileNameSemesterBranchTypeCourse - getCollection");
@@ -30,7 +30,7 @@ public class GetLibraryIdAndFileNameFromUserIdService {
         Collection<GetLibraryIdFileNameSemesterBranchTypeCourseDto> result = new ArrayList<GetLibraryIdFileNameSemesterBranchTypeCourseDto>();
 		
 		  LOGGER.debug("Successfully created");
-		  result = getLibraryIdFileNameSemesterBranchTypeCourseFromUserIdDao.getLibraryIdFileNameSemesterBranchTypeCourseFromUserId();
+		  result = getLibraryIdFileNameSemesterBranchTypeCourseFromUserIdDao.getLibraryIdFileNameSemesterBranchTypeCourseFromUserId(userId);
 		  LOGGER.debug("got the value of the result");	
 		if(result.size()>0)
 		{

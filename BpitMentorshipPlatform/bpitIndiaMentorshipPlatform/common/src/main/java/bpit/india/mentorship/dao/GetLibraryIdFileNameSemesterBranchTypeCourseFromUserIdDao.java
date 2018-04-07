@@ -27,7 +27,7 @@ public class GetLibraryIdFileNameSemesterBranchTypeCourseFromUserIdDao extends A
 	
 	private static final GetLibraryIdAndFileNameFromUserIdRowMapper ROW_MAPPER = new  GetLibraryIdAndFileNameFromUserIdRowMapper();
 	
-	public Collection<GetLibraryIdFileNameSemesterBranchTypeCourseDto> getLibraryIdFileNameSemesterBranchTypeCourseFromUserId()
+	public Collection<GetLibraryIdFileNameSemesterBranchTypeCourseDto> getLibraryIdFileNameSemesterBranchTypeCourseFromUserId(String userId)
 	{
 		
 		try{
@@ -36,7 +36,7 @@ public class GetLibraryIdFileNameSemesterBranchTypeCourseFromUserIdDao extends A
 			
 		Map<String, String> parameters = new HashMap<String, String>();
 		LOGGER.debug("hashmap successfully created");
-		String userId="achalkaushik@bpitindia.com";
+		//String userId="achalkaushik@bpitindia.com";
 		
 		parameters.put("userId", userId);
 		 LOGGER.debug("got the userid ");

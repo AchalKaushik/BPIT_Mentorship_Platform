@@ -69,7 +69,7 @@ public class LoginSignupController {
  }
 
 
- @RequestMapping(value = "/changePassword", method = RequestMethod.GET, produces = "application/json")
+ @RequestMapping(value = "/changePassword", method = RequestMethod.POST, produces = "application/json")
  public String changePassword(@RequestBody ChangePasswordDto changePasswordDto) {
   return changePasswordService.changePassword(changePasswordDto);
 

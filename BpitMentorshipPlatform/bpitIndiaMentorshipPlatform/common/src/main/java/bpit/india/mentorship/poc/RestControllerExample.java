@@ -39,11 +39,7 @@ public class RestControllerExample {
 		return randomService1.randomService1();
 	}
 	
-	@RequestMapping(value="/qwert")
-	public Collection<GetLibraryIdFileNameSemesterBranchTypeCourseDto> print2()
-	{
-		return getLibraryIdAndFileNameFromUserIdService.getLibraryIdAndFileNameFromUserId();
-	}
+	
 	//yo
 	// theek hai ab?
 }

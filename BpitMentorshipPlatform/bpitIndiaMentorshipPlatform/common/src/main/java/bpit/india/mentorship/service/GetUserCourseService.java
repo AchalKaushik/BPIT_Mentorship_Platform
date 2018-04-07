@@ -30,7 +30,7 @@ public class GetUserCourseService {
 			LOGGER.debug("successfully got into the try block");
 			LOGGER.debug("returning the value of the userid");
 		
-		return getUserCourseDao.getUserCourse(userId);
+		return getUserCourseDao.getUserCourse(userId).trim();
 		}
 		catch(Exception e)
 		{

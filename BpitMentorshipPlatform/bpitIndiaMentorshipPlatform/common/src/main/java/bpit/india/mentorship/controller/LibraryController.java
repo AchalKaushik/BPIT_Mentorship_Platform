@@ -18,10 +18,12 @@ import bpit.india.mentorship.common.ConvertSemesterStringIntoNumber;
 import bpit.india.mentorship.dto.DeleteFileDto;
 import bpit.india.mentorship.dto.GetInfoToFetchFileNamesDto;
 import bpit.india.mentorship.dto.GetLibraryIdAndFileNameDto;
+import bpit.india.mentorship.dto.GetLibraryIdFileNameSemesterBranchTypeCourseDto;
 import bpit.india.mentorship.service.DeleteUploadedFileService;
 import bpit.india.mentorship.service.GetFileNameAndLibraryIdService;
 import bpit.india.mentorship.service.GetFilePathFromLibraryIdAndDownloadService;
 import bpit.india.mentorship.service.GetLibraryIdAndFileNameForSearchService;
+import bpit.india.mentorship.service.GetLibraryIdAndFileNameFromUserIdService;
 import bpit.india.mentorship.service.GetUserRoleService;
 import bpit.india.mentorship.service.LibraryUploadFileService;
 
@@ -49,6 +51,9 @@ public class LibraryController {
 
  @Autowired
  private GetUserRoleService getUserRoleService;
+ 
+ @Autowired
+ private GetLibraryIdAndFileNameFromUserIdService getLibraryIdAndFileNameFromUserIdService;
 
 
  @RequestMapping(value = "/searchForFile", method = RequestMethod.POST, produces = "application/json")
@@ -144,5 +149,13 @@ public class LibraryController {
 
  }
 
+ 
+ @RequestMapping(value="/qwert")
+	public Collection<GetLibraryIdFileNameSemesterBranchTypeCourseDto> print2(@RequestParam("userId") String userId)
+	{
+		return getLibraryIdAndFileNameFromUserIdService.getLibraryIdAndFileNameFromUserId(userId);
+	}
+ 
+ 
 
 }

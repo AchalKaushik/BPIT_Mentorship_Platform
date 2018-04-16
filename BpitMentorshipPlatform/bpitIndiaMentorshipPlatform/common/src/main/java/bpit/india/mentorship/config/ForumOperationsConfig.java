@@ -9,8 +9,102 @@ public class ForumOperationsConfig {
 
 	private String getAllTopics;
 	private String getAllPosts;
+	private String getRecentTechnicalTopicsList;
+	private String getRecentNonTechnicalTopicsList;
+	private String getNumberofTechnicalTopics;
+	private String getNumberofNonTechnicalTopics;
+	private String getTechSubjects;
+	private String getNonTechSubjects;
 	
 	
+	
+	
+
+	/**
+	 * @return the getTechSubjects
+	 */
+	public String getGetTechSubjects() {
+		return getTechSubjects;
+	}
+
+	/**
+	 * @param getTechSubjects the getTechSubjects to set
+	 */
+	public void setGetTechSubjects(String getTechSubjects) {
+		this.getTechSubjects = getTechSubjects;
+	}
+
+	/**
+	 * @return the getNonTechSubjects
+	 */
+	public String getGetNonTechSubjects() {
+		return getNonTechSubjects;
+	}
+
+	/**
+	 * @param getNonTechSubjects the getNonTechSubjects to set
+	 */
+	public void setGetNonTechSubjects(String getNonTechSubjects) {
+		this.getNonTechSubjects = getNonTechSubjects;
+	}
+
+	/**
+	 * @return the getNumberofTechnicalTopics
+	 */
+	public String getGetNumberofTechnicalTopics() {
+		return getNumberofTechnicalTopics;
+	}
+
+	/**
+	 * @param getNumberofTechnicalTopics the getNumberofTechnicalTopics to set
+	 */
+	public void setGetNumberofTechnicalTopics(String getNumberofTechnicalTopics) {
+		this.getNumberofTechnicalTopics = getNumberofTechnicalTopics;
+	}
+
+	/**
+	 * @return the getNumberofNonTechnicalTopics
+	 */
+	public String getGetNumberofNonTechnicalTopics() {
+		return getNumberofNonTechnicalTopics;
+	}
+
+	/**
+	 * @param getNumberofNonTechnicalTopics the getNumberofNonTechnicalTopics to set
+	 */
+	public void setGetNumberofNonTechnicalTopics(
+			String getNumberofNonTechnicalTopics) {
+		this.getNumberofNonTechnicalTopics = getNumberofNonTechnicalTopics;
+	}
+
+	/**
+	 * @return the getRecentNonTechnicalTopicsList
+	 */
+	public String getGetRecentNonTechnicalTopicsList() {
+		return getRecentNonTechnicalTopicsList;
+	}
+
+	/**
+	 * @param getRecentNonTechnicalTopicsList the getRecentNonTechnicalTopicsList to set
+	 */
+	public void setGetRecentNonTechnicalTopicsList(
+			String getRecentNonTechnicalTopicsList) {
+		this.getRecentNonTechnicalTopicsList = getRecentNonTechnicalTopicsList;
+	}
+
+	/**
+	 * @return the getRecentTechnicalTopicsList
+	 */
+	public String getGetRecentTechnicalTopicsList() {
+		return getRecentTechnicalTopicsList;
+	}
+
+	/**
+	 * @param getRecentTopicsList the getRecentTechnicalTopicsList to set
+	 */
+	public void setGetRecentTechnicalTopicsList(String getRecentTechnicalTopicsList) {
+		this.getRecentTechnicalTopicsList = getRecentTechnicalTopicsList;
+	}
 
 	/**
 	 * @return the getAllPosts

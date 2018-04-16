@@ -5,3 +5,23 @@ forumOperations:
  
  getAllPosts:
   select * from posts;
+  
+ getRecentTechnicalTopicsList:
+  select topic_desc from topics where topic_cat="Technical" order by topic_date desc;
+  
+ getRecentNonTechnicalTopicsList:
+  select topic_desc from topics where topic_cat="NonTechnical" order by topic_date desc;
+  
+ getNumberofTechnicalTopics:
+  select count(*) from topics where topic_cat="Technical";
+   
+ getNumberofNonTechnicalTopics:
+  select count(*) from topics where topic_cat="NonTechnical";
+ 
+ getTechSubjects:
+  select subject from tech_subjects;
+ 
+ getNonTechSubjects: 
+  select subject from nontech_subjects;
+   
+ 
